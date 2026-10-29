@@ -1,0 +1,27 @@
+/* Scoped reading refinements inside Butterfly; no replacement shell. */
+#page:has(.co-notes-content), #post:has(.co-notes-content) {
+  background: var(--card-bg);
+}
+.co-notes-content { color: var(--font-color); line-height: 1.95; overflow-wrap: anywhere; }
+.co-notes-content > p { margin-block: 1em; }
+.co-notes-content h2 { margin-top: 2.1em; }
+.co-notes-content h3 { margin-top: 1.7em; }
+.co-notes-content a { text-underline-offset: .2em; }
+.co-notes-content a:focus-visible, .co-notes-content summary:focus-visible {
+  outline: 2px solid var(--theme-color, #16749d); outline-offset: 4px;
+}
+.co-notes-content ::selection { background: #c9e8f4; color: #172936; }
+.co-notes-content .co-entry { margin: 1.4em 0 2em; font-size: 1.12em; }
+.co-notes-content table { font-variant-numeric: tabular-nums; }
+.co-notes-content .co-book-page { margin: 1.7em 0; }
+.co-notes-content .co-book-page img { display: block; width: 100%; height: auto; }
+.co-notes-content figcaption { font-size: .86em; text-align: center; }
+.co-notes-content .co-solutions { margin-top: 1.5em; }
+.co-notes-content summary { cursor: pointer; padding: .6em 0; font-weight: 600; }
+.co-notes-nav { display: flex; flex-wrap: wrap; gap: .5em 1.2em; padding: .8em 0;
+  margin: 2.5em 0 0; border-top: 1px solid var(--light-grey, #ddd); font-size: .9em; }
+@media (max-width: 600px) {
+  .co-notes-content { line-height: 1.85; }
+  .co-notes-content table { font-size: .9em; }
+  .co-notes-nav { gap: .4em 1em; }
+}
