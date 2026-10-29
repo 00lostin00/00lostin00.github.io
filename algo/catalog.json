@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-29T12:01:43Z",
+  "generated_at": "2026-10-29T15:55:07Z",
   "practice": {
     "items": [
       {
@@ -5115,6 +5115,17 @@
       "fallback": false
     },
     {
+      "id": "2286",
+      "platform": "codeforces",
+      "title": "Kotlin Heroes: Practice 15",
+      "url": "https://codeforces.com/contest/2286",
+      "start": "2026-11-20T14:30:00+00:00",
+      "end": "2026-11-27T14:30:00+00:00",
+      "duration": 604800,
+      "kind": "",
+      "fallback": false
+    },
+    {
       "id": "2285",
       "platform": "codeforces",
       "title": "Codeforces Round (Div. 2)",
@@ -5742,6 +5753,17 @@
       "fallback": false
     },
     {
+      "id": "369513",
+      "platform": "luogu",
+      "title": "COCI 2026/2027 #1 Unofficial Mirror",
+      "url": "https://www.luogu.com.cn/contest/369513",
+      "start": "2026-10-30T06:00:00+00:00",
+      "end": "2026-10-30T09:00:00+00:00",
+      "duration": 10800,
+      "kind": "",
+      "fallback": false
+    },
+    {
       "id": "366008",
       "platform": "luogu",
       "title": "[ICPC2019 Nanchang R] ICPC 2019 区域赛南昌站重现赛",
@@ -6151,38 +6173,5260 @@
   ],
   "sources": {
     "practice": {
-      "last_ok": "2026-10-29T12:01:43Z",
+      "last_ok": "2026-10-29T15:54:35Z",
       "error": ""
     },
     "codeforces": {
-      "last_ok": "2026-10-29T12:01:43Z",
+      "last_ok": "2026-10-29T15:54:35Z",
       "error": ""
     },
     "atcoder": {
-      "last_ok": "2026-10-29T12:01:43Z",
+      "last_ok": "2026-10-29T15:54:35Z",
       "error": ""
     },
     "nowcoder": {
-      "last_ok": "2026-10-29T12:01:43Z",
+      "last_ok": "2026-10-29T15:54:35Z",
       "error": ""
     },
     "luogu": {
-      "last_ok": "2026-10-29T12:01:43Z",
+      "last_ok": "2026-10-29T15:54:35Z",
       "error": ""
     }
   },
   "multischool": [
     {
       "id": "nowcoder",
-      "name": "牛客多校",
-      "url": "https://ac.nowcoder.com/acm/contest/133876",
-      "account": null
+      "name": "牛客暑期多校",
+      "url": "https://ac.nowcoder.com/acm/contest/vip-index?categoryFilter=20&topCategoryFilter=13",
+      "account": "541540317",
+      "contests": [
+        {
+          "id": "133876",
+          "year": 2026,
+          "round": 1,
+          "title": "2026牛客暑期多校训练营1",
+          "url": "https://ac.nowcoder.com/acm/contest/133876",
+          "problems": [
+            {
+              "id": "319387",
+              "index": "A",
+              "title": "2090 Virus",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/A"
+            },
+            {
+              "id": "319389",
+              "index": "B",
+              "title": "Cast off as Cast",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/B"
+            },
+            {
+              "id": "319391",
+              "index": "C",
+              "title": "Fish Eating",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/C"
+            },
+            {
+              "id": "319393",
+              "index": "D",
+              "title": "Something Different",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/D"
+            },
+            {
+              "id": "319759",
+              "index": "E",
+              "title": "Permutation Evaluation",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/E"
+            },
+            {
+              "id": "319406",
+              "index": "F",
+              "title": "Permutation Generation",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/F"
+            },
+            {
+              "id": "319408",
+              "index": "G",
+              "title": "Precision Error?!",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/G"
+            },
+            {
+              "id": "319410",
+              "index": "H",
+              "title": "Rock-Paper-Scissors Master",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/H"
+            },
+            {
+              "id": "319412",
+              "index": "I",
+              "title": "Combination of Two Nice Problems",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/I"
+            },
+            {
+              "id": "319414",
+              "index": "J",
+              "title": "Show Hand",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/J"
+            },
+            {
+              "id": "319416",
+              "index": "K",
+              "title": "Geometry Textbook",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/K"
+            },
+            {
+              "id": "319418",
+              "index": "L",
+              "title": "Substrings of Substrings",
+              "url": "https://ac.nowcoder.com/acm/contest/133876/L"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:40Z",
+          "error": ""
+        },
+        {
+          "id": "133877",
+          "year": 2026,
+          "round": 2,
+          "title": "2026牛客暑期多校训练营2",
+          "url": "https://ac.nowcoder.com/acm/contest/133877",
+          "problems": [
+            {
+              "id": "319252",
+              "index": "A",
+              "title": "Annoying Traffic",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/A"
+            },
+            {
+              "id": "319254",
+              "index": "B",
+              "title": "Bitwise Maximization",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/B"
+            },
+            {
+              "id": "319256",
+              "index": "C",
+              "title": "Competition: Winning Streaks",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/C"
+            },
+            {
+              "id": "319272",
+              "index": "D",
+              "title": "Delivering Newspapers",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/D"
+            },
+            {
+              "id": "319274",
+              "index": "E",
+              "title": "Easy Puzzle",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/E"
+            },
+            {
+              "id": "319276",
+              "index": "F",
+              "title": "Fabulous Tree",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/F"
+            },
+            {
+              "id": "319278",
+              "index": "G",
+              "title": "GCD Graph",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/G"
+            },
+            {
+              "id": "319280",
+              "index": "H",
+              "title": "Hyperspace Pairing",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/H"
+            },
+            {
+              "id": "319282",
+              "index": "I",
+              "title": "Imperfect Dot Sums and Cross Sums",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/I"
+            },
+            {
+              "id": "319284",
+              "index": "J",
+              "title": "Just Round It",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/J"
+            },
+            {
+              "id": "319286",
+              "index": "K",
+              "title": "Kindergarten",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/K"
+            },
+            {
+              "id": "319288",
+              "index": "L",
+              "title": "Lazy Shuffling",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/L"
+            },
+            {
+              "id": "319290",
+              "index": "M",
+              "title": "Maybe Connected",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/M"
+            },
+            {
+              "id": "319292",
+              "index": "N",
+              "title": "Narrow to Median",
+              "url": "https://ac.nowcoder.com/acm/contest/133877/N"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:42Z",
+          "error": ""
+        },
+        {
+          "id": "133878",
+          "year": 2026,
+          "round": 3,
+          "title": "2026牛客暑期多校训练营3",
+          "url": "https://ac.nowcoder.com/acm/contest/133878",
+          "problems": [
+            {
+              "id": "319938",
+              "index": "A",
+              "title": "Bitmask",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/A"
+            },
+            {
+              "id": "319943",
+              "index": "B",
+              "title": "Buy One More",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/B"
+            },
+            {
+              "id": "319945",
+              "index": "C",
+              "title": "Cakeshop",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/C"
+            },
+            {
+              "id": "319951",
+              "index": "D",
+              "title": "Longest Run of Ones",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/D"
+            },
+            {
+              "id": "319955",
+              "index": "E",
+              "title": "Minesweeper",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/E"
+            },
+            {
+              "id": "319957",
+              "index": "F",
+              "title": "Not Aqre 2",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/F"
+            },
+            {
+              "id": "319959",
+              "index": "G",
+              "title": "Matrix Marking",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/G"
+            },
+            {
+              "id": "319963",
+              "index": "H",
+              "title": "Season",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/H"
+            },
+            {
+              "id": "319965",
+              "index": "I",
+              "title": "Swap master",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/I"
+            },
+            {
+              "id": "319969",
+              "index": "J",
+              "title": "Tree.zip",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/J"
+            },
+            {
+              "id": "319971",
+              "index": "K",
+              "title": "Turn-by-Turn Navigation",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/K"
+            },
+            {
+              "id": "319973",
+              "index": "L",
+              "title": "Uphill Duel",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/L"
+            },
+            {
+              "id": "319977",
+              "index": "M",
+              "title": "Wanderer",
+              "url": "https://ac.nowcoder.com/acm/contest/133878/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:43Z",
+          "error": ""
+        },
+        {
+          "id": "133879",
+          "year": 2026,
+          "round": 4,
+          "title": "2026牛客暑期多校训练营4",
+          "url": "https://ac.nowcoder.com/acm/contest/133879",
+          "problems": [
+            {
+              "id": "319832",
+              "index": "A",
+              "title": "Sixteen",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/A"
+            },
+            {
+              "id": "319857",
+              "index": "B",
+              "title": "Quadratic Residue",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/B"
+            },
+            {
+              "id": "319865",
+              "index": "C",
+              "title": "Retest Queue",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/C"
+            },
+            {
+              "id": "319855",
+              "index": "D",
+              "title": "The Game",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/D"
+            },
+            {
+              "id": "319851",
+              "index": "E",
+              "title": "DPRS",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/E"
+            },
+            {
+              "id": "319828",
+              "index": "F",
+              "title": "23 Subsequences",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/F"
+            },
+            {
+              "id": "319915",
+              "index": "G",
+              "title": "Fading Memories",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/G"
+            },
+            {
+              "id": "319863",
+              "index": "H",
+              "title": "String",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/H"
+            },
+            {
+              "id": "319859",
+              "index": "I",
+              "title": "Rounddog II",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/I"
+            },
+            {
+              "id": "319861",
+              "index": "J",
+              "title": "Walk",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/J"
+            },
+            {
+              "id": "319830",
+              "index": "K",
+              "title": "Decomposition Trees",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/K"
+            },
+            {
+              "id": "319849",
+              "index": "L",
+              "title": "Geometry",
+              "url": "https://ac.nowcoder.com/acm/contest/133879/L"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:44Z",
+          "error": ""
+        },
+        {
+          "id": "133880",
+          "year": 2026,
+          "round": 5,
+          "title": "2026牛客暑期多校训练营5",
+          "url": "https://ac.nowcoder.com/acm/contest/133880",
+          "problems": [
+            {
+              "id": "319726",
+              "index": "A",
+              "title": "Echo Prefixes",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/A"
+            },
+            {
+              "id": "319728",
+              "index": "B",
+              "title": "Enlarged Badge",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/B"
+            },
+            {
+              "id": "319730",
+              "index": "C",
+              "title": "Number",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/C"
+            },
+            {
+              "id": "319750",
+              "index": "D",
+              "title": "Half-plane Cover",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/D"
+            },
+            {
+              "id": "319732",
+              "index": "E",
+              "title": "Koishi and Function",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/E"
+            },
+            {
+              "id": "319734",
+              "index": "F",
+              "title": "Four",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/F"
+            },
+            {
+              "id": "319746",
+              "index": "G",
+              "title": "Bipartite Graph",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/G"
+            },
+            {
+              "id": "319736",
+              "index": "H",
+              "title": "Count it",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/H"
+            },
+            {
+              "id": "319738",
+              "index": "I",
+              "title": "Sequence Operation 2",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/I"
+            },
+            {
+              "id": "319748",
+              "index": "J",
+              "title": "Sequence（Median Version）",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/J"
+            },
+            {
+              "id": "319740",
+              "index": "K",
+              "title": "Sequence（Mex Version）",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/K"
+            },
+            {
+              "id": "319742",
+              "index": "L",
+              "title": "Matrix",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/L"
+            },
+            {
+              "id": "319744",
+              "index": "M",
+              "title": "Je t'aime encore",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/M"
+            },
+            {
+              "id": "320636",
+              "index": "N",
+              "title": "Welcome to HIT",
+              "url": "https://ac.nowcoder.com/acm/contest/133880/N"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:46Z",
+          "error": ""
+        },
+        {
+          "id": "133881",
+          "year": 2026,
+          "round": 6,
+          "title": "2026牛客暑期多校训练营6",
+          "url": "https://ac.nowcoder.com/acm/contest/133881",
+          "problems": [
+            {
+              "id": "320783",
+              "index": "A",
+              "title": "A Permutation Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/A"
+            },
+            {
+              "id": "320892",
+              "index": "B",
+              "title": "B1702FC",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/B"
+            },
+            {
+              "id": "320869",
+              "index": "C",
+              "title": "Cutting Trees",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/C"
+            },
+            {
+              "id": "320871",
+              "index": "D",
+              "title": "Divisibility",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/D"
+            },
+            {
+              "id": "321241",
+              "index": "E",
+              "title": "Expropriate",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/E"
+            },
+            {
+              "id": "320873",
+              "index": "F",
+              "title": "Full Alphabet",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/F"
+            },
+            {
+              "id": "320877",
+              "index": "G",
+              "title": "Game on a Graph",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/G"
+            },
+            {
+              "id": "320879",
+              "index": "H",
+              "title": "Hard Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/H"
+            },
+            {
+              "id": "320881",
+              "index": "I",
+              "title": "Integer Function",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/I"
+            },
+            {
+              "id": "320883",
+              "index": "J",
+              "title": "Just Add and Divide",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/J"
+            },
+            {
+              "id": "320885",
+              "index": "K",
+              "title": "Konstruct",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/K"
+            },
+            {
+              "id": "320887",
+              "index": "L",
+              "title": "Longest Palindromic Substring Queries",
+              "url": "https://ac.nowcoder.com/acm/contest/133881/L"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:47Z",
+          "error": ""
+        },
+        {
+          "id": "133882",
+          "year": 2026,
+          "round": 7,
+          "title": "2026牛客暑期多校训练营7",
+          "url": "https://ac.nowcoder.com/acm/contest/133882",
+          "problems": [
+            {
+              "id": "320730",
+              "index": "A",
+              "title": "Infiltrate Angel's Domain",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/A"
+            },
+            {
+              "id": "320809",
+              "index": "B",
+              "title": "Simple Math 5",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/B"
+            },
+            {
+              "id": "320807",
+              "index": "C",
+              "title": "Pokémon GET daze!",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/C"
+            },
+            {
+              "id": "320804",
+              "index": "D",
+              "title": "Tenkaichi Budōkai",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/D"
+            },
+            {
+              "id": "320802",
+              "index": "E",
+              "title": "The Last Delegate",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/E"
+            },
+            {
+              "id": "320799",
+              "index": "F",
+              "title": "Ghost Hack Protocol",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/F"
+            },
+            {
+              "id": "320797",
+              "index": "G",
+              "title": "Both of You, Dance Like You Want to Win!",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/G"
+            },
+            {
+              "id": "320795",
+              "index": "H",
+              "title": "Modulo Triples",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/H"
+            },
+            {
+              "id": "320811",
+              "index": "I",
+              "title": "Homura's Timeline Records",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/I"
+            },
+            {
+              "id": "320732",
+              "index": "J",
+              "title": "Echoes of the Silent Sea",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/J"
+            },
+            {
+              "id": "321362",
+              "index": "K",
+              "title": "D-Mail Institution Codes",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/K"
+            },
+            {
+              "id": "320816",
+              "index": "L",
+              "title": "Bobo's Lucky Modulo",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/L"
+            },
+            {
+              "id": "320818",
+              "index": "M",
+              "title": "Unravel",
+              "url": "https://ac.nowcoder.com/acm/contest/133882/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:49Z",
+          "error": ""
+        },
+        {
+          "id": "133883",
+          "year": 2026,
+          "round": 8,
+          "title": "2026牛客暑期多校训练营8",
+          "url": "https://ac.nowcoder.com/acm/contest/133883",
+          "problems": [
+            {
+              "id": "321481",
+              "index": "A",
+              "title": "14 Minesweeper Variants",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/A"
+            },
+            {
+              "id": "321483",
+              "index": "B",
+              "title": "Deep Finesse",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/B"
+            },
+            {
+              "id": "321489",
+              "index": "C",
+              "title": "Fraction on a Ring",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/C"
+            },
+            {
+              "id": "321491",
+              "index": "D",
+              "title": "Sea, you & copriMe II",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/D"
+            },
+            {
+              "id": "321493",
+              "index": "E",
+              "title": "Prefix Codes",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/E"
+            },
+            {
+              "id": "321495",
+              "index": "F",
+              "title": "Tree shifts there",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/F"
+            },
+            {
+              "id": "321497",
+              "index": "G",
+              "title": "Multiplication",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/G"
+            },
+            {
+              "id": "321499",
+              "index": "H",
+              "title": "It's Magic, Not a Trick!",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/H"
+            },
+            {
+              "id": "321501",
+              "index": "I",
+              "title": "Bridge VI",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/I"
+            },
+            {
+              "id": "321503",
+              "index": "J",
+              "title": "Oni's Ring",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/J"
+            },
+            {
+              "id": "321505",
+              "index": "K",
+              "title": "Al Fine II",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/K"
+            },
+            {
+              "id": "321507",
+              "index": "L",
+              "title": "Shattered Minimum",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/L"
+            },
+            {
+              "id": "321509",
+              "index": "M",
+              "title": "KV Cache",
+              "url": "https://ac.nowcoder.com/acm/contest/133883/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:50Z",
+          "error": ""
+        },
+        {
+          "id": "133884",
+          "year": 2026,
+          "round": 9,
+          "title": "2026牛客暑期多校训练营9",
+          "url": "https://ac.nowcoder.com/acm/contest/133884",
+          "problems": [
+            {
+              "id": "321009",
+              "index": "A",
+              "title": "Another Searching Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/A"
+            },
+            {
+              "id": "321012",
+              "index": "B",
+              "title": "Bingo Game",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/B"
+            },
+            {
+              "id": "321018",
+              "index": "C",
+              "title": "Drifting Toward a Promised Sky 2",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/C"
+            },
+            {
+              "id": "321022",
+              "index": "D",
+              "title": "Escape Root",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/D"
+            },
+            {
+              "id": "321024",
+              "index": "E",
+              "title": "Grand Mex 2",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/E"
+            },
+            {
+              "id": "321026",
+              "index": "F",
+              "title": "Light the Lamp",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/F"
+            },
+            {
+              "id": "321028",
+              "index": "G",
+              "title": "Passing Game",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/G"
+            },
+            {
+              "id": "321030",
+              "index": "H",
+              "title": "Set",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/H"
+            },
+            {
+              "id": "321033",
+              "index": "I",
+              "title": "Slay the Spire",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/I"
+            },
+            {
+              "id": "321035",
+              "index": "J",
+              "title": "Start to the End",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/J"
+            },
+            {
+              "id": "321040",
+              "index": "K",
+              "title": "Tree Reflection",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/K"
+            },
+            {
+              "id": "321044",
+              "index": "L",
+              "title": "XOR Team",
+              "url": "https://ac.nowcoder.com/acm/contest/133884/L"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:52Z",
+          "error": ""
+        },
+        {
+          "id": "133885",
+          "year": 2026,
+          "round": 10,
+          "title": "2026牛客暑期多校训练营10",
+          "url": "https://ac.nowcoder.com/acm/contest/133885",
+          "problems": [
+            {
+              "id": "320926",
+              "index": "A",
+              "title": "Natsuhikage",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/A"
+            },
+            {
+              "id": "320932",
+              "index": "B",
+              "title": "Slot Machine",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/B"
+            },
+            {
+              "id": "320934",
+              "index": "C",
+              "title": "Slot Machine 2",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/C"
+            },
+            {
+              "id": "320936",
+              "index": "D",
+              "title": "Strict Majority",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/D"
+            },
+            {
+              "id": "320938",
+              "index": "E",
+              "title": "Splendor",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/E"
+            },
+            {
+              "id": "320940",
+              "index": "F",
+              "title": "Occurrences",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/F"
+            },
+            {
+              "id": "320920",
+              "index": "G",
+              "title": "Yet Another A Plus B Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/G"
+            },
+            {
+              "id": "320942",
+              "index": "H",
+              "title": "Closing the Gap... Approximately",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/H"
+            },
+            {
+              "id": "320944",
+              "index": "I",
+              "title": "Choose a Name",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/I"
+            },
+            {
+              "id": "320946",
+              "index": "J",
+              "title": "Joyride",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/J"
+            },
+            {
+              "id": "320948",
+              "index": "K",
+              "title": "Team Formation",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/K"
+            },
+            {
+              "id": "320950",
+              "index": "L",
+              "title": "Reaper",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/L"
+            },
+            {
+              "id": "320952",
+              "index": "M",
+              "title": "Brackets",
+              "url": "https://ac.nowcoder.com/acm/contest/133885/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:53Z",
+          "error": ""
+        },
+        {
+          "id": "108298",
+          "year": 2025,
+          "round": 1,
+          "title": "2025牛客暑期多校训练营1",
+          "url": "https://ac.nowcoder.com/acm/contest/108298",
+          "problems": [
+            {
+              "id": "295781",
+              "index": "A",
+              "title": "Rectangular Posters",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/A"
+            },
+            {
+              "id": "295272",
+              "index": "B",
+              "title": "Binary Substrings 2",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/B"
+            },
+            {
+              "id": "296012",
+              "index": "C",
+              "title": "Clamped Sequence 2",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/C"
+            },
+            {
+              "id": "294923",
+              "index": "D",
+              "title": "LCM Challenge",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/D"
+            },
+            {
+              "id": "295503",
+              "index": "E",
+              "title": "Endless Ladders",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/E"
+            },
+            {
+              "id": "295268",
+              "index": "F",
+              "title": "Flight Tracker 2",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/F"
+            },
+            {
+              "id": "295446",
+              "index": "G",
+              "title": "Symmetry Intervals",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/G"
+            },
+            {
+              "id": "295448",
+              "index": "H",
+              "title": "Symmetry Intervals 2",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/H"
+            },
+            {
+              "id": "295449",
+              "index": "I",
+              "title": "Iron Bars Cutting",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/I"
+            },
+            {
+              "id": "294929",
+              "index": "J",
+              "title": "Museum Construction",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/J"
+            },
+            {
+              "id": "294991",
+              "index": "K",
+              "title": "Museum Acceptance",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/K"
+            },
+            {
+              "id": "296189",
+              "index": "L",
+              "title": "Numb Numbers",
+              "url": "https://ac.nowcoder.com/acm/contest/108298/L"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:55Z",
+          "error": ""
+        },
+        {
+          "id": "108299",
+          "year": 2025,
+          "round": 2,
+          "title": "2025牛客暑期多校训练营2",
+          "url": "https://ac.nowcoder.com/acm/contest/108299",
+          "problems": [
+            {
+              "id": "294848",
+              "index": "A",
+              "title": "Another Day of Sun",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/A"
+            },
+            {
+              "id": "294852",
+              "index": "B",
+              "title": "Bitwise Perfect",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/B"
+            },
+            {
+              "id": "294877",
+              "index": "C",
+              "title": "Colorful Tree",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/C"
+            },
+            {
+              "id": "295165",
+              "index": "D",
+              "title": "Donkey Thinks...",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/D"
+            },
+            {
+              "id": "295000",
+              "index": "E",
+              "title": "Effective Numbers",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/E"
+            },
+            {
+              "id": "295166",
+              "index": "F",
+              "title": "Field of Fire",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/F"
+            },
+            {
+              "id": "295005",
+              "index": "G",
+              "title": "Geometry Friend",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/G"
+            },
+            {
+              "id": "295011",
+              "index": "H",
+              "title": "Highway Upgrade",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/H"
+            },
+            {
+              "id": "295013",
+              "index": "I",
+              "title": "Identical Somehow",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/I"
+            },
+            {
+              "id": "295039",
+              "index": "J",
+              "title": "Just Curve it",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/J"
+            },
+            {
+              "id": "295169",
+              "index": "K",
+              "title": "K-th Memorable Sub-string",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/K"
+            },
+            {
+              "id": "295017",
+              "index": "L",
+              "title": "Love Wins All",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/L"
+            },
+            {
+              "id": "295167",
+              "index": "M",
+              "title": "Miscalculated Triangles",
+              "url": "https://ac.nowcoder.com/acm/contest/108299/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:48:58Z",
+          "error": ""
+        },
+        {
+          "id": "108300",
+          "year": 2025,
+          "round": 3,
+          "title": "2025牛客暑期多校训练营3",
+          "url": "https://ac.nowcoder.com/acm/contest/108300",
+          "problems": [
+            {
+              "id": "296922",
+              "index": "A",
+              "title": "Ad-hoc Newbie",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/A"
+            },
+            {
+              "id": "296926",
+              "index": "B",
+              "title": "Bitwise Puzzle",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/B"
+            },
+            {
+              "id": "297387",
+              "index": "C",
+              "title": "Capella",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/C"
+            },
+            {
+              "id": "297389",
+              "index": "D",
+              "title": "Distant Control",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/D"
+            },
+            {
+              "id": "297390",
+              "index": "E",
+              "title": "Equal",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/E"
+            },
+            {
+              "id": "297392",
+              "index": "F",
+              "title": "Flower",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/F"
+            },
+            {
+              "id": "297394",
+              "index": "G",
+              "title": "Gellyfish and Priority Queue",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/G"
+            },
+            {
+              "id": "297395",
+              "index": "H",
+              "title": "Head out to the Target",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/H"
+            },
+            {
+              "id": "297413",
+              "index": "I",
+              "title": "Infinity",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/I"
+            },
+            {
+              "id": "297414",
+              "index": "J",
+              "title": "Jetton",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/J"
+            },
+            {
+              "id": "298196",
+              "index": "K",
+              "title": "Kaleidoscope",
+              "url": "https://ac.nowcoder.com/acm/contest/108300/K"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:00Z",
+          "error": ""
+        },
+        {
+          "id": "108301",
+          "year": 2025,
+          "round": 4,
+          "title": "2025牛客暑期多校训练营4",
+          "url": "https://ac.nowcoder.com/acm/contest/108301",
+          "problems": [
+            {
+              "id": "297551",
+              "index": "A",
+              "title": "All Kinds of Dice",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/A"
+            },
+            {
+              "id": "297549",
+              "index": "B",
+              "title": "Blind Alley",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/B"
+            },
+            {
+              "id": "297580",
+              "index": "C",
+              "title": "Computational Geometry Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/C"
+            },
+            {
+              "id": "297536",
+              "index": "D",
+              "title": "Determinant of 01-Matrix",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/D"
+            },
+            {
+              "id": "297706",
+              "index": "E",
+              "title": "Echoes of 24",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/E"
+            },
+            {
+              "id": "297577",
+              "index": "F",
+              "title": "For the Treasury!",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/F"
+            },
+            {
+              "id": "297545",
+              "index": "G",
+              "title": "Ghost in the Parentheses",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/G"
+            },
+            {
+              "id": "297579",
+              "index": "H",
+              "title": "Highs and Lows",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/H"
+            },
+            {
+              "id": "298285",
+              "index": "I",
+              "title": "I, Box",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/I"
+            },
+            {
+              "id": "298284",
+              "index": "J",
+              "title": "Journey Around the World",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/J"
+            },
+            {
+              "id": "297555",
+              "index": "K",
+              "title": "Kindred Sums",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/K"
+            },
+            {
+              "id": "297559",
+              "index": "L",
+              "title": "Ladder Challenge",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/L"
+            },
+            {
+              "id": "297568",
+              "index": "M",
+              "title": "Monopoly",
+              "url": "https://ac.nowcoder.com/acm/contest/108301/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:02Z",
+          "error": ""
+        },
+        {
+          "id": "108302",
+          "year": 2025,
+          "round": 5,
+          "title": "2025牛客暑期多校训练营5",
+          "url": "https://ac.nowcoder.com/acm/contest/108302",
+          "problems": [
+            {
+              "id": "298193",
+              "index": "A",
+              "title": "Entangled Coins",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/A"
+            },
+            {
+              "id": "298200",
+              "index": "B",
+              "title": "Extra Training",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/B"
+            },
+            {
+              "id": "298202",
+              "index": "C",
+              "title": "Array Deletion Game",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/C"
+            },
+            {
+              "id": "298227",
+              "index": "D",
+              "title": "Prime XOR Permutation",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/D"
+            },
+            {
+              "id": "298205",
+              "index": "E",
+              "title": "Mysterious XOR Operation",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/E"
+            },
+            {
+              "id": "298207",
+              "index": "F",
+              "title": "Grid Survival",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/F"
+            },
+            {
+              "id": "298228",
+              "index": "G",
+              "title": "Line of Sight",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/G"
+            },
+            {
+              "id": "298212",
+              "index": "H",
+              "title": "VI Civilization",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/H"
+            },
+            {
+              "id": "298214",
+              "index": "I",
+              "title": "Block Combination Minimal Perimeter",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/I"
+            },
+            {
+              "id": "298216",
+              "index": "J",
+              "title": "Fastest Coverage Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/J"
+            },
+            {
+              "id": "298218",
+              "index": "K",
+              "title": "Perfect Journey",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/K"
+            },
+            {
+              "id": "298220",
+              "index": "L",
+              "title": "Float",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/L"
+            },
+            {
+              "id": "298222",
+              "index": "M",
+              "title": "Mysterious Spacetime",
+              "url": "https://ac.nowcoder.com/acm/contest/108302/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:04Z",
+          "error": ""
+        },
+        {
+          "id": "108303",
+          "year": 2025,
+          "round": 6,
+          "title": "2025牛客暑期多校训练营6",
+          "url": "https://ac.nowcoder.com/acm/contest/108303",
+          "problems": [
+            {
+              "id": "298652",
+              "index": "A",
+              "title": "Dominoes on Tree",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/A"
+            },
+            {
+              "id": "298635",
+              "index": "B",
+              "title": "Base Conversion Master",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/B"
+            },
+            {
+              "id": "298655",
+              "index": "C",
+              "title": "Stack",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/C"
+            },
+            {
+              "id": "298654",
+              "index": "D",
+              "title": "Beautiful Matrix",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/D"
+            },
+            {
+              "id": "298639",
+              "index": "E",
+              "title": "Array",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/E"
+            },
+            {
+              "id": "298641",
+              "index": "F",
+              "title": "Random Segment Tree",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/F"
+            },
+            {
+              "id": "298677",
+              "index": "G",
+              "title": "Turn around",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/G"
+            },
+            {
+              "id": "298678",
+              "index": "H",
+              "title": "Knapsack Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/H"
+            },
+            {
+              "id": "298656",
+              "index": "I",
+              "title": "Longest Common Substring",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/I"
+            },
+            {
+              "id": "298646",
+              "index": "J",
+              "title": "Game on a Tree",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/J"
+            },
+            {
+              "id": "298653",
+              "index": "K",
+              "title": "Maximum GCD",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/K"
+            },
+            {
+              "id": "298649",
+              "index": "L",
+              "title": "Minimum Parenthesis String",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/L"
+            },
+            {
+              "id": "298651",
+              "index": "M",
+              "title": "Minimum Difference",
+              "url": "https://ac.nowcoder.com/acm/contest/108303/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:05Z",
+          "error": ""
+        },
+        {
+          "id": "108304",
+          "year": 2025,
+          "round": 7,
+          "title": "2025牛客暑期多校训练营7",
+          "url": "https://ac.nowcoder.com/acm/contest/108304",
+          "problems": [
+            {
+              "id": "298065",
+              "index": "A",
+              "title": "Loopy Laggon",
+              "url": "https://ac.nowcoder.com/acm/contest/108304/A"
+            },
+            {
+              "id": "298626",
+              "index": "B",
+              "title": "A Gift from the Star",
+              "url": "https://ac.nowcoder.com/acm/contest/108304/B"
+            },
+            {
+              "id": "298590",
+              "index": "C",
+              "title": "Forsaken City",
+              "url": "https://ac.nowcoder.com/acm/contest/108304/C"
+            },
+            {
+              "id": "298603",
+              "index": "D",
+              "title": "Lost Woods",
+              "url": "https://ac.nowcoder.com/acm/contest/108304/D"
+            },
+            {
+              "id": "298596",
+              "index": "E",
+              "title": "String",
+              "url": "https://ac.nowcoder.com/acm/contest/108304/E"
+            },
+            {
+              "id": "298439",
+              "index": "F",
+              "title": "The Correlation",
+              "url": "https://ac.nowcoder.com/acm/contest/108304/F"
+            },
+            {
+              "id": "298441",
+              "index": "G",
+              "title": "Nice Doppelgnger",
+              "url": "https://ac.nowcoder.com/acm/contest/108304/G"
+            },
+            {
+              "id": "298601",
+              "index": "H",
+              "title": "Summit Down Side",
+              "url": "https://ac.nowcoder.com/acm/contest/108304/H"
+            },
+            {
+              "id": "298613",
+              "index": "I",
+              "title": "Lava Layer",
+              "url": "https://ac.nowcoder.com/acm/contest/108304/I"
+            },
+            {
+              "id": "298594",
+              "index": "J",
+              "title": "Ivory",
+              "url": "https://ac.nowcoder.com/acm/contest/108304/J"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:08Z",
+          "error": ""
+        },
+        {
+          "id": "108305",
+          "year": 2025,
+          "round": 8,
+          "title": "2025牛客暑期多校训练营8",
+          "url": "https://ac.nowcoder.com/acm/contest/108305",
+          "problems": [
+            {
+              "id": "299429",
+              "index": "A",
+              "title": "Insert One",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/A"
+            },
+            {
+              "id": "299423",
+              "index": "B",
+              "title": "Inversion Number Parity",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/B"
+            },
+            {
+              "id": "299426",
+              "index": "C",
+              "title": "Bernoulli's Principle",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/C"
+            },
+            {
+              "id": "299316",
+              "index": "D",
+              "title": "Christmas Tree",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/D"
+            },
+            {
+              "id": "299499",
+              "index": "E",
+              "title": "Matrix Lottery",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/E"
+            },
+            {
+              "id": "299444",
+              "index": "F",
+              "title": "Broken LED Lights",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/F"
+            },
+            {
+              "id": "299500",
+              "index": "G",
+              "title": "Changing Minimum Spanning Tree",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/G"
+            },
+            {
+              "id": "299435",
+              "index": "H",
+              "title": "Interval LRU",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/H"
+            },
+            {
+              "id": "299502",
+              "index": "I",
+              "title": "Tennis Match",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/I"
+            },
+            {
+              "id": "299418",
+              "index": "J",
+              "title": "Multiplication in Base the Square Root of -2",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/J"
+            },
+            {
+              "id": "299314",
+              "index": "K",
+              "title": "Many Sprinklers!!!",
+              "url": "https://ac.nowcoder.com/acm/contest/108305/K"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:10Z",
+          "error": ""
+        },
+        {
+          "id": "108306",
+          "year": 2025,
+          "round": 9,
+          "title": "2025牛客暑期多校训练营9",
+          "url": "https://ac.nowcoder.com/acm/contest/108306",
+          "problems": [
+            {
+              "id": "298366",
+              "index": "A",
+              "title": "AVL tree",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/A"
+            },
+            {
+              "id": "298369",
+              "index": "B",
+              "title": "Date",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/B"
+            },
+            {
+              "id": "298376",
+              "index": "C",
+              "title": "Epoch-making",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/C"
+            },
+            {
+              "id": "298381",
+              "index": "D",
+              "title": "Kiritorisen",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/D"
+            },
+            {
+              "id": "298384",
+              "index": "E",
+              "title": "Tournament",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/E"
+            },
+            {
+              "id": "298545",
+              "index": "F",
+              "title": "Military Training",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/F"
+            },
+            {
+              "id": "298391",
+              "index": "G",
+              "title": "Permutation",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/G"
+            },
+            {
+              "id": "298468",
+              "index": "H",
+              "title": "Counter Streak",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/H"
+            },
+            {
+              "id": "298435",
+              "index": "I",
+              "title": "Tree Construction",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/I"
+            },
+            {
+              "id": "298387",
+              "index": "J",
+              "title": "Too many catgirls nya",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/J"
+            },
+            {
+              "id": "298379",
+              "index": "K",
+              "title": "Reversed Hanged Man",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/K"
+            },
+            {
+              "id": "298546",
+              "index": "L",
+              "title": "Ping Pong",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/L"
+            },
+            {
+              "id": "298374",
+              "index": "M",
+              "title": "Digit Sum",
+              "url": "https://ac.nowcoder.com/acm/contest/108306/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:11Z",
+          "error": ""
+        },
+        {
+          "id": "108307",
+          "year": 2025,
+          "round": 10,
+          "title": "2025牛客暑期多校训练营10",
+          "url": "https://ac.nowcoder.com/acm/contest/108307",
+          "problems": [
+            {
+              "id": "299819",
+              "index": "A",
+              "title": "The Spacy Language (spacy)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/A"
+            },
+            {
+              "id": "299807",
+              "index": "B",
+              "title": "Trimming Palindrome (trim)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/B"
+            },
+            {
+              "id": "299815",
+              "index": "C",
+              "title": "Hexagis (hexagis)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/C"
+            },
+            {
+              "id": "299723",
+              "index": "D",
+              "title": "Grammar Test (grammar)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/D"
+            },
+            {
+              "id": "299725",
+              "index": "E",
+              "title": "Sensei and Affection (affection)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/E"
+            },
+            {
+              "id": "299727",
+              "index": "F",
+              "title": "Sensei and Yuuka Going Shopping (yuuka)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/F"
+            },
+            {
+              "id": "299825",
+              "index": "G",
+              "title": "Starlight (starlight)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/G"
+            },
+            {
+              "id": "299836",
+              "index": "H",
+              "title": "Rev Equation (NOI-tAUqe ver.) (equation)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/H"
+            },
+            {
+              "id": "299838",
+              "index": "I",
+              "title": "Matrix (matrix)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/I"
+            },
+            {
+              "id": "299817",
+              "index": "J",
+              "title": "Segments (segments)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/J"
+            },
+            {
+              "id": "299805",
+              "index": "K",
+              "title": "Amazing Sets (amazing)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/K"
+            },
+            {
+              "id": "299837",
+              "index": "L",
+              "title": "Desertrium (desertrium)",
+              "url": "https://ac.nowcoder.com/acm/contest/108307/L"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:13Z",
+          "error": ""
+        },
+        {
+          "id": "81596",
+          "year": 2024,
+          "round": 1,
+          "title": "2024牛客暑期多校训练营1",
+          "url": "https://ac.nowcoder.com/acm/contest/81596",
+          "problems": [
+            {
+              "id": "274926",
+              "index": "A",
+              "title": "A Bit Common",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/A"
+            },
+            {
+              "id": "274928",
+              "index": "B",
+              "title": "A Bit More Common",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/B"
+            },
+            {
+              "id": "274985",
+              "index": "C",
+              "title": "Sum of Suffix Sums",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/C"
+            },
+            {
+              "id": "274990",
+              "index": "D",
+              "title": "XOR of Suffix Sums",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/D"
+            },
+            {
+              "id": "274992",
+              "index": "E",
+              "title": "Product of Suffix Sums",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/E"
+            },
+            {
+              "id": "275002",
+              "index": "F",
+              "title": "Career Path",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/F"
+            },
+            {
+              "id": "275004",
+              "index": "G",
+              "title": "3/2 Square Strings",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/G"
+            },
+            {
+              "id": "274994",
+              "index": "H",
+              "title": "World Finals",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/H"
+            },
+            {
+              "id": "274996",
+              "index": "I",
+              "title": "Mirror Maze",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/I"
+            },
+            {
+              "id": "274998",
+              "index": "J",
+              "title": "2D Travel",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/J"
+            },
+            {
+              "id": "275000",
+              "index": "K",
+              "title": "Matching Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/81596/K"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:15Z",
+          "error": ""
+        },
+        {
+          "id": "81597",
+          "year": 2024,
+          "round": 2,
+          "title": "2024牛客暑期多校训练营2",
+          "url": "https://ac.nowcoder.com/acm/contest/81597",
+          "problems": [
+            {
+              "id": "276088",
+              "index": "A",
+              "title": "Floor Tiles",
+              "url": "https://ac.nowcoder.com/acm/contest/81597/A"
+            },
+            {
+              "id": "276090",
+              "index": "B",
+              "title": "MST",
+              "url": "https://ac.nowcoder.com/acm/contest/81597/B"
+            },
+            {
+              "id": "276092",
+              "index": "C",
+              "title": "Red Walking on Grid",
+              "url": "https://ac.nowcoder.com/acm/contest/81597/C"
+            },
+            {
+              "id": "276094",
+              "index": "D",
+              "title": "Taking Candies",
+              "url": "https://ac.nowcoder.com/acm/contest/81597/D"
+            },
+            {
+              "id": "276096",
+              "index": "E",
+              "title": "GCD VS XOR",
+              "url": "https://ac.nowcoder.com/acm/contest/81597/E"
+            },
+            {
+              "id": "276098",
+              "index": "F",
+              "title": "Mixed Juice",
+              "url": "https://ac.nowcoder.com/acm/contest/81597/F"
+            },
+            {
+              "id": "276100",
+              "index": "G",
+              "title": "The Set of Squares",
+              "url": "https://ac.nowcoder.com/acm/contest/81597/G"
+            },
+            {
+              "id": "276102",
+              "index": "H",
+              "title": "Instructions Substring",
+              "url": "https://ac.nowcoder.com/acm/contest/81597/H"
+            },
+            {
+              "id": "276104",
+              "index": "I",
+              "title": "Red Playing Cards",
+              "url": "https://ac.nowcoder.com/acm/contest/81597/I"
+            },
+            {
+              "id": "276254",
+              "index": "J",
+              "title": "Involutions",
+              "url": "https://ac.nowcoder.com/acm/contest/81597/J"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:17Z",
+          "error": ""
+        },
+        {
+          "id": "81598",
+          "year": 2024,
+          "round": 3,
+          "title": "2024牛客暑期多校训练营3",
+          "url": "https://ac.nowcoder.com/acm/contest/81598",
+          "problems": [
+            {
+              "id": "276017",
+              "index": "A",
+              "title": "Bridging the Gap 2",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/A"
+            },
+            {
+              "id": "276010",
+              "index": "B",
+              "title": "Crash Test",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/B"
+            },
+            {
+              "id": "276019",
+              "index": "C",
+              "title": "Delete 4 edges",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/C"
+            },
+            {
+              "id": "276023",
+              "index": "D",
+              "title": "Dominoes!",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/D"
+            },
+            {
+              "id": "276031",
+              "index": "E",
+              "title": "Malfunctioning Typewriter",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/E"
+            },
+            {
+              "id": "276025",
+              "index": "F",
+              "title": "MMR Double Down Tokens",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/F"
+            },
+            {
+              "id": "276029",
+              "index": "G",
+              "title": "Pythagorathean Transformation",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/G"
+            },
+            {
+              "id": "276033",
+              "index": "H",
+              "title": "Rectangle Intersection",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/H"
+            },
+            {
+              "id": "276021",
+              "index": "I",
+              "title": "Removing Elements",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/I"
+            },
+            {
+              "id": "276027",
+              "index": "J",
+              "title": "Rigged Games",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/J"
+            },
+            {
+              "id": "276015",
+              "index": "K",
+              "title": "Slay the Spire: Game Design",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/K"
+            },
+            {
+              "id": "276258",
+              "index": "L",
+              "title": "Sudoku and Minesweeper",
+              "url": "https://ac.nowcoder.com/acm/contest/81598/L"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:20Z",
+          "error": ""
+        },
+        {
+          "id": "81599",
+          "year": 2024,
+          "round": 4,
+          "title": "2024牛客暑期多校训练营4",
+          "url": "https://ac.nowcoder.com/acm/contest/81599",
+          "problems": [
+            {
+              "id": "276208",
+              "index": "A",
+              "title": "LCT",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/A"
+            },
+            {
+              "id": "276210",
+              "index": "B",
+              "title": "Pull the Box",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/B"
+            },
+            {
+              "id": "276212",
+              "index": "C",
+              "title": "Sort4",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/C"
+            },
+            {
+              "id": "276214",
+              "index": "D",
+              "title": "Plants vs. Zombies (Sunflower Edition)",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/D"
+            },
+            {
+              "id": "276216",
+              "index": "E",
+              "title": "String God's String",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/E"
+            },
+            {
+              "id": "276352",
+              "index": "F",
+              "title": "Good Tree",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/F"
+            },
+            {
+              "id": "276218",
+              "index": "G",
+              "title": "Horse Drinks Water",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/G"
+            },
+            {
+              "id": "276220",
+              "index": "H",
+              "title": "Yet Another Origami Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/H"
+            },
+            {
+              "id": "276222",
+              "index": "I",
+              "title": "Friends",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/I"
+            },
+            {
+              "id": "276224",
+              "index": "J",
+              "title": "Zero",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/J"
+            },
+            {
+              "id": "276226",
+              "index": "K",
+              "title": "Calculate the Expression",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/K"
+            },
+            {
+              "id": "276228",
+              "index": "L",
+              "title": "Deceleration",
+              "url": "https://ac.nowcoder.com/acm/contest/81599/L"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:21Z",
+          "error": ""
+        },
+        {
+          "id": "81600",
+          "year": 2024,
+          "round": 5,
+          "title": "2024牛客暑期多校训练营5",
+          "url": "https://ac.nowcoder.com/acm/contest/81600",
+          "problems": [
+            {
+              "id": "276248",
+              "index": "A",
+              "title": "玲",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/A"
+            },
+            {
+              "id": "276280",
+              "index": "B",
+              "title": "珑",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/B"
+            },
+            {
+              "id": "276282",
+              "index": "C",
+              "title": "骰",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/C"
+            },
+            {
+              "id": "276284",
+              "index": "D",
+              "title": "子",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/D"
+            },
+            {
+              "id": "276286",
+              "index": "E",
+              "title": "安",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/E"
+            },
+            {
+              "id": "276288",
+              "index": "F",
+              "title": "红",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/F"
+            },
+            {
+              "id": "276290",
+              "index": "G",
+              "title": "豆",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/G"
+            },
+            {
+              "id": "276292",
+              "index": "H",
+              "title": "入",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/H"
+            },
+            {
+              "id": "276294",
+              "index": "I",
+              "title": "骨",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/I"
+            },
+            {
+              "id": "276296",
+              "index": "J",
+              "title": "相",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/J"
+            },
+            {
+              "id": "276298",
+              "index": "K",
+              "title": "思",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/K"
+            },
+            {
+              "id": "276302",
+              "index": "L",
+              "title": "知",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/L"
+            },
+            {
+              "id": "276304",
+              "index": "M",
+              "title": "不知",
+              "url": "https://ac.nowcoder.com/acm/contest/81600/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:24Z",
+          "error": ""
+        },
+        {
+          "id": "81601",
+          "year": 2024,
+          "round": 6,
+          "title": "2024牛客暑期多校训练营6",
+          "url": "https://ac.nowcoder.com/acm/contest/81601",
+          "problems": [
+            {
+              "id": "276501",
+              "index": "A",
+              "title": "Cake",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/A"
+            },
+            {
+              "id": "276503",
+              "index": "B",
+              "title": "Cake 2",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/B"
+            },
+            {
+              "id": "277030",
+              "index": "C",
+              "title": "Cake 3",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/C"
+            },
+            {
+              "id": "276499",
+              "index": "D",
+              "title": "Puzzle: Wagiri",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/D"
+            },
+            {
+              "id": "277028",
+              "index": "E",
+              "title": "Palindrome Counter",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/E"
+            },
+            {
+              "id": "276511",
+              "index": "F",
+              "title": "Challenge NPC 2",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/F"
+            },
+            {
+              "id": "276495",
+              "index": "G",
+              "title": "Easy Brackets Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/G"
+            },
+            {
+              "id": "276507",
+              "index": "H",
+              "title": "Genshin Impact's Fault",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/H"
+            },
+            {
+              "id": "276509",
+              "index": "I",
+              "title": "Intersecting Intervals",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/I"
+            },
+            {
+              "id": "276493",
+              "index": "J",
+              "title": "Stone Merging",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/J"
+            },
+            {
+              "id": "277032",
+              "index": "K",
+              "title": "The Great Wall 2",
+              "url": "https://ac.nowcoder.com/acm/contest/81601/K"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:25Z",
+          "error": ""
+        },
+        {
+          "id": "81602",
+          "year": 2024,
+          "round": 7,
+          "title": "2024牛客暑期多校训练营7",
+          "url": "https://ac.nowcoder.com/acm/contest/81602",
+          "problems": [
+            {
+              "id": "276999",
+              "index": "A",
+              "title": "Maximum Subarray Sum",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/A"
+            },
+            {
+              "id": "277001",
+              "index": "B",
+              "title": "Lottery",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/B"
+            },
+            {
+              "id": "277004",
+              "index": "C",
+              "title": "Array Sorting",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/C"
+            },
+            {
+              "id": "277006",
+              "index": "D",
+              "title": "Interval Selection",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/D"
+            },
+            {
+              "id": "277009",
+              "index": "E",
+              "title": "Flowers",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/E"
+            },
+            {
+              "id": "277014",
+              "index": "F",
+              "title": "Teleportation",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/F"
+            },
+            {
+              "id": "277018",
+              "index": "G",
+              "title": "Frog Crossing",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/G"
+            },
+            {
+              "id": "277020",
+              "index": "H",
+              "title": "Database",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/H"
+            },
+            {
+              "id": "277022",
+              "index": "I",
+              "title": "Fight Against the Monster",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/I"
+            },
+            {
+              "id": "277024",
+              "index": "J",
+              "title": "Ball",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/J"
+            },
+            {
+              "id": "277026",
+              "index": "K",
+              "title": "Strings, Subsequences, Reversed Subsequences, Prefixes",
+              "url": "https://ac.nowcoder.com/acm/contest/81602/K"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:27Z",
+          "error": ""
+        },
+        {
+          "id": "81603",
+          "year": 2024,
+          "round": 8,
+          "title": "2024牛客暑期多校训练营8",
+          "url": "https://ac.nowcoder.com/acm/contest/81603",
+          "problems": [
+            {
+              "id": "273665",
+              "index": "A",
+              "title": "Haitang and Game",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/A"
+            },
+            {
+              "id": "273669",
+              "index": "B",
+              "title": "Haitang and XOR Mex",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/B"
+            },
+            {
+              "id": "273671",
+              "index": "C",
+              "title": "Haitang and Graph",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/C"
+            },
+            {
+              "id": "273673",
+              "index": "D",
+              "title": "Haitang and Uma Musume",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/D"
+            },
+            {
+              "id": "273675",
+              "index": "E",
+              "title": "Haitang and Math",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/E"
+            },
+            {
+              "id": "273677",
+              "index": "F",
+              "title": "Haitang and Diameters",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/F"
+            },
+            {
+              "id": "273679",
+              "index": "G",
+              "title": "Haitang and Rock Paper Scissors",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/G"
+            },
+            {
+              "id": "273681",
+              "index": "H",
+              "title": "Haitang and Water",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/H"
+            },
+            {
+              "id": "273683",
+              "index": "I",
+              "title": "Haitang and Ranking",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/I"
+            },
+            {
+              "id": "273685",
+              "index": "J",
+              "title": "Haitang and Triangle",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/J"
+            },
+            {
+              "id": "273687",
+              "index": "K",
+              "title": "Haitang and Ava",
+              "url": "https://ac.nowcoder.com/acm/contest/81603/K"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:29Z",
+          "error": ""
+        },
+        {
+          "id": "81604",
+          "year": 2024,
+          "round": 9,
+          "title": "2024牛客暑期多校训练营9",
+          "url": "https://ac.nowcoder.com/acm/contest/81604",
+          "problems": [
+            {
+              "id": "277500",
+              "index": "A",
+              "title": "Image Scaling",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/A"
+            },
+            {
+              "id": "277016",
+              "index": "B",
+              "title": "Break Sequence",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/B"
+            },
+            {
+              "id": "277034",
+              "index": "C",
+              "title": "Change Matrix",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/C"
+            },
+            {
+              "id": "277294",
+              "index": "D",
+              "title": "Luner XOR",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/D"
+            },
+            {
+              "id": "277043",
+              "index": "E",
+              "title": "Easy Tree Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/E"
+            },
+            {
+              "id": "277284",
+              "index": "F",
+              "title": "Minesweeper",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/F"
+            },
+            {
+              "id": "277240",
+              "index": "G",
+              "title": "Sticky Pistons",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/G"
+            },
+            {
+              "id": "277345",
+              "index": "H",
+              "title": "Two Convex Polygons",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/H"
+            },
+            {
+              "id": "277038",
+              "index": "I",
+              "title": "Interesting Numbers",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/I"
+            },
+            {
+              "id": "275545",
+              "index": "J",
+              "title": "String Problem",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/J"
+            },
+            {
+              "id": "277065",
+              "index": "K",
+              "title": "Kill The Monsters",
+              "url": "https://ac.nowcoder.com/acm/contest/81604/K"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:31Z",
+          "error": ""
+        },
+        {
+          "id": "81605",
+          "year": 2024,
+          "round": 10,
+          "title": "2024牛客暑期多校训练营10",
+          "url": "https://ac.nowcoder.com/acm/contest/81605",
+          "problems": [
+            {
+              "id": "275585",
+              "index": "A",
+              "title": "Surrender to My Will",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/A"
+            },
+            {
+              "id": "275559",
+              "index": "B",
+              "title": "std::pair",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/B"
+            },
+            {
+              "id": "275561",
+              "index": "C",
+              "title": "Capability Expectation",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/C"
+            },
+            {
+              "id": "275570",
+              "index": "D",
+              "title": "Is it rated?",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/D"
+            },
+            {
+              "id": "276428",
+              "index": "E",
+              "title": "Cherry on Top",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/E"
+            },
+            {
+              "id": "275572",
+              "index": "F",
+              "title": "Collinear Exception",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/F"
+            },
+            {
+              "id": "275589",
+              "index": "G",
+              "title": "TNT Run",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/G"
+            },
+            {
+              "id": "275576",
+              "index": "H",
+              "title": "All-in at the Pre-flop",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/H"
+            },
+            {
+              "id": "275578",
+              "index": "I",
+              "title": "Riffle Shuffle",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/I"
+            },
+            {
+              "id": "275597",
+              "index": "J",
+              "title": "Doremy's Starch Trees",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/J"
+            },
+            {
+              "id": "275591",
+              "index": "K",
+              "title": "Doremy's IQ 2",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/K"
+            },
+            {
+              "id": "275580",
+              "index": "L",
+              "title": "Tada!",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/L"
+            },
+            {
+              "id": "275505",
+              "index": "M",
+              "title": "Patchouli and Magic Formations",
+              "url": "https://ac.nowcoder.com/acm/contest/81605/M"
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:32Z",
+          "error": ""
+        }
+      ]
     },
     {
       "id": "hdu",
       "name": "杭电多校",
       "url": "https://acm.hdu.edu.cn/",
-      "account": null
+      "account": null,
+      "seasons": [
+        {
+          "id": "hdu-2026-summer",
+          "name": "2026 杭电暑期多校",
+          "year": 2026,
+          "url": "https://acm.hdu.edu.cn/contests/contest_list.php",
+          "account_configured": true,
+          "contests": [
+            {
+              "id": "1229",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1229",
+              "title": "2026“钉耙编程”中国大学生算法设计暑期联赛（1）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "小丑牌",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "画树",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "边界主义",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "搭积木",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1004",
+                  "status": "AC"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "摩卡数",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1005",
+                  "status": "AC"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "开关灯",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1006",
+                  "status": "AC"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "简单几何题",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "数字子序列",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "数组",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "游戏",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1010",
+                  "status": "AC"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "森林",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "向量",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1012",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1013",
+                  "index": "M",
+                  "title": "彩色匹配",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1013",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:35Z",
+              "error": ""
+            },
+            {
+              "id": "1230",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1230",
+              "title": "2026“钉耙编程”中国大学生算法设计暑期联赛（2）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "xyz 问题",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "表达式 2",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "张力",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "坪厕鸡",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1004",
+                  "status": "AC"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "减数游戏 2",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "合成大 hdu",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "另一个 shu 论问题",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "最遥远的距离",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "引力场",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "幻灵战队 2",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1010",
+                  "status": "AC"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "键盘杀手",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1011",
+                  "status": "AC"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "最后一次相遇",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:37Z",
+              "error": ""
+            },
+            {
+              "id": "1231",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1231",
+              "title": "2026“钉耙编程”中国大学生算法设计暑期联赛（3）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "runs",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "The World Cup",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "Best",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1003",
+                  "status": "AC"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "toys",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "GCD",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1005",
+                  "status": "AC"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "Special Judge",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "rains",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "FWT",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "Six Grade",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "Random",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1010",
+                  "status": "AC"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "Mex",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "Shift Square",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1231&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:39Z",
+              "error": ""
+            },
+            {
+              "id": "1232",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1232",
+              "title": "2026“钉耙编程”中国大学生算法设计暑期联赛（4）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "A. Signal",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "B. Binary Choice",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "C. Stalin Sort",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1003",
+                  "status": "AC"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "D. EERT",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "E. TREE",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "F. Median Shuffle",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "G. Perfect Palindrome",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "H. Mode",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "I. Gather",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "J. Rare Game",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "K. Union MEX",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1011",
+                  "status": "AC"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "L. Yet Another Suffix Array Problem",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1232&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:42Z",
+              "error": ""
+            },
+            {
+              "id": "1233",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1233",
+              "title": "2026“钉耙编程”中国大学生算法设计暑期联赛（5）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "简单多项式问题",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "希望灯塔",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "括号凸包",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "探索宝物",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "indigo 究竟是谁？",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1005",
+                  "status": "AC"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "三串共鸣",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "反弹小球",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "病毒片段",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "自乘",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "链上 Nim",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "树形广播",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "仙人掌图",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1233&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:44Z",
+              "error": ""
+            },
+            {
+              "id": "1234",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1234",
+              "title": "2026“钉耙编程”中国大学生算法设计暑期联赛（6）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "Grand Mex",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "Dice Tower",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "Phi Master",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "Three Colors",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "Yougou Cleansing",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "Gcd Master",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "Multicon",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "CuteSafari",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "Imperfect Permutation",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "Card Damage",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1010",
+                  "status": "AC"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "Push Box",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "P2P",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1234&pid=1012",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:47Z",
+              "error": ""
+            },
+            {
+              "id": "1235",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1235",
+              "title": "2026“钉耙编程”中国大学生算法设计暑期联赛（7）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "今晚吃什么",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "今晚吃……",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1002",
+                  "status": "AC"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "今晚吃春天",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "今晚吃转转",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "今晚吃鸡扒",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "今晚吃流年",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "今晚吃老歌",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "今晚吃 NPC",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "今晚吃草莓",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "今晚吃黑子",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "今晚吃电脑配件",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "今晚吃 TopTree",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1235&pid=1012",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:49Z",
+              "error": ""
+            },
+            {
+              "id": "1236",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1236",
+              "title": "2026“钉耙编程”中国大学生算法设计暑期联赛（8）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "让路径生存吧！",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "会自动求和的序列",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1002",
+                  "status": "AC"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "太近就不合法了",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "用一棵树给另一棵树染色",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "买最小的或最大的",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "颜色不同距离翻倍",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "用传送门来让网格连通吧",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "分数越小还是越大越好",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "价值总是越大越好",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "合并之后字典序就变小了",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "数轴上的染色翻转怎么还有恢复与加密",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "数一数环的个数",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1236&pid=1012",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:51Z",
+              "error": ""
+            },
+            {
+              "id": "1237",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1237",
+              "title": "2026“钉耙编程”中国大学生算法设计暑期联赛（9）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "歪歪巧克力",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "小笨蛋",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "Secluded Sensei",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "歪歪01串",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1004",
+                  "status": "AC"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "Cartesian Sensei",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "好多石头",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "小乖的在益起",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "水豚噜噜的平衡树",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "息息壤壤武陵的管道",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "合法括号",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "奶龙和噜噜的糖豆",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "Grand Swap Master",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1237&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:54Z",
+              "error": ""
+            },
+            {
+              "id": "1238",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1238",
+              "title": "2026“钉耙编程”中国大学生算法设计暑期联赛（10）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "串串",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "大户爱的硬币",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "大户爱的宿舍",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1003",
+                  "status": "AC"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "大户爱的干草堆",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "大户爱的生成树2",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "恋恋的序列",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1006",
+                  "status": "AC"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "小白的烦恼",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "恋恋的排列",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "大改革",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "歪歪朋友圈",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1010",
+                  "status": "AC"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "奶蛙的奶糖",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1011",
+                  "status": "AC"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "飞翔的甲鱼",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1238&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:56Z",
+              "error": ""
+            }
+          ],
+          "last_ok": "2026-10-29T15:49:56Z",
+          "sync_status": "error"
+        },
+        {
+          "id": "hdu-2026-spring",
+          "name": "2026 杭电春季多校",
+          "year": 2026,
+          "url": "https://acm.hdu.edu.cn/contests/contest_list.php",
+          "account_configured": true,
+          "contests": [
+            {
+              "id": "1197",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1197",
+              "title": "2026“钉耙编程”中国大学生算法设计春季联赛（1）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "氟化钙",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1197&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "数字王国的警报密码",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1197&pid=1002",
+                  "status": "AC"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "回文串",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1197&pid=1003",
+                  "status": "AC"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "炼金术士的配方",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1197&pid=1004",
+                  "status": "AC"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "大户爱的开根",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1197&pid=1005",
+                  "status": "AC"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "巧克力工厂",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1197&pid=1006",
+                  "status": "AC"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "流沙",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1197&pid=1007",
+                  "status": "AC"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "大户爱的gcd",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1197&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "力的平衡",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1197&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "MEX",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1197&pid=1010",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:49:58Z",
+              "error": ""
+            },
+            {
+              "id": "1198",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1198",
+              "title": "2026“钉耙编程”中国大学生算法设计春季联赛（2）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "湖上午后",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1198&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "庭扫落樱",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1198&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "竹林清韵",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1198&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "三途川畔",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1198&pid=1004",
+                  "status": "AC"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "守矢晨风",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1198&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "姐妹共读",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1198&pid=1006",
+                  "status": "AC"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "云端航迹",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1198&pid=1007",
+                  "status": "AC"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "古都茶叙",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1198&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "微缩庭园",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1198&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "静海拾光",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1198&pid=1010",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:00Z",
+              "error": ""
+            },
+            {
+              "id": "1199",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1199",
+              "title": "2026“钉耙编程”中国大学生算法设计春季联赛（3）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "河城杂货",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1199&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "汉诺塔",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1199&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "3X3安全箱",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1199&pid=1003",
+                  "status": "AC"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "式神契约论",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1199&pid=1004",
+                  "status": "AC"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "月球异或",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1199&pid=1005",
+                  "status": "AC"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "骰子大战",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1199&pid=1006",
+                  "status": "AC"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "扑克牌",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1199&pid=1007",
+                  "status": "AC"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "白茄子",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1199&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "时空回溯",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1199&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "组合树",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1199&pid=1010",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:03Z",
+              "error": ""
+            },
+            {
+              "id": "1200",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1200",
+              "title": "2026“钉耙编程”中国大学生算法设计春季联赛（4）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "布布吃地瓜",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1200&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "通行证（Easy Version）",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1200&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "通行证（Hard Version）",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1200&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "左右脑互搏",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1200&pid=1004",
+                  "status": "AC"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "列车停放站",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1200&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "游戏",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1200&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "Turn Of A Page",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1200&pid=1007",
+                  "status": "AC"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "谁输谁洗碗",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1200&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "GCD",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1200&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "Sort",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1200&pid=1010",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:05Z",
+              "error": ""
+            },
+            {
+              "id": "1201",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1201",
+              "title": "2026“钉耙编程”中国大学生算法设计春季联赛（5）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "翻蹄铁",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1201&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "驿站",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1201&pid=1002",
+                  "status": "AC"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "马蹄疾",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1201&pid=1003",
+                  "status": "AC"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "赛马",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1201&pid=1004",
+                  "status": "AC"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "老骥伏枥",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1201&pid=1005",
+                  "status": "AC"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "牧场",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1201&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "喂马",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1201&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "草料集市",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1201&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "走马观花",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1201&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "相马经",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1201&pid=1010",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:08Z",
+              "error": ""
+            },
+            {
+              "id": "1202",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1202",
+              "title": "2026“钉耙编程”中国大学生算法设计春季联赛（6）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "飞燕草",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1202&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "滚动的色彩",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1202&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "绩点查询",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1202&pid=1003",
+                  "status": "AC"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "再次出发，前往地球",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1202&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "向量压缩",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1202&pid=1005",
+                  "status": "AC"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "括号路径",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1202&pid=1006",
+                  "status": "AC"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "不开心世纪",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1202&pid=1007",
+                  "status": "AC"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "黑白树",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1202&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "月之都",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1202&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "白潘",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1202&pid=1010",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:10Z",
+              "error": ""
+            },
+            {
+              "id": "1203",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1203",
+              "title": "2026“钉耙编程”中国大学生算法设计春季联赛（7）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "Card",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "Bingo",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1002",
+                  "status": "AC"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "Livehouse",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "Trade",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "Rain",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "Galgame",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "Bridge",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1007",
+                  "status": "AC"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "Horse Racing",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "Sand",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "Shift",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "01",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1203&pid=1011",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:12Z",
+              "error": ""
+            },
+            {
+              "id": "1204",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1204",
+              "title": "2026“钉耙编程”中国大学生算法设计春季联赛（8）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "非凡之星",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1204&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "叛逆的红挑染",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1204&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "疯狂的自我搜索者",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1204&pid=1003",
+                  "status": "AC"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "狂乱绽放的紫炎蔷薇",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1204&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "笑容波状攻击",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1204&pid=1005",
+                  "status": "AC"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "忠犬PARE公",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1204&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "向后全速前进",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1204&pid=1007",
+                  "status": "AC"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "石头的领袖魅力",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1204&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "怪演?二十面?相",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1204&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "悲报，啥是梦限大？",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1204&pid=1010",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:15Z",
+              "error": ""
+            },
+            {
+              "id": "1205",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1205",
+              "title": "2026“钉耙编程”中国大学生算法设计春季联赛（9）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "玉米式追忆",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1205&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "玉米式统计",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1205&pid=1002",
+                  "status": "AC"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "玉米式概率",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1205&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "玉米式队名",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1205&pid=1004",
+                  "status": "AC"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "玉米式游览",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1205&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "玉米式象棋",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1205&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "玉米式序列",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1205&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "玉米式合并",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1205&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "玉米式引号",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1205&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "玉米式矩阵",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1205&pid=1010",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:17Z",
+              "error": ""
+            },
+            {
+              "id": "1206",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1206",
+              "title": "2026“钉耙编程”中国大学生算法设计春季联赛（10）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "歪歪吃水果",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1206&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "歪歪魔法树",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1206&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "月亮棋",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1206&pid=1003",
+                  "status": "AC"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "歪歪爱追剧",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1206&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "搭桥",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1206&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "真的是原根?",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1206&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "色拉的美刀让饱饱不开心",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1206&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "星际贸易市场",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1206&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "大户爱的蚂蚁题",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1206&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "留下(LiuXia)",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1206&pid=1010",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:19Z",
+              "error": ""
+            }
+          ],
+          "last_ok": "2026-10-29T15:50:19Z",
+          "sync_status": "error"
+        },
+        {
+          "id": "hdu-2025-summer",
+          "name": "2025 杭电暑期多校",
+          "year": 2025,
+          "url": "https://acm.hdu.edu.cn/contests/contest_list.php",
+          "account_configured": true,
+          "contests": [
+            {
+              "id": "1172",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1172",
+              "title": "2025“钉耙编程”中国大学生算法设计暑期联赛（1）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "博弈",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "夜世界",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "奸商",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "串串",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "传送门",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1005",
+                  "status": "AC"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "景区建设",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "树上LCM",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "mod 2",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "子序列",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "中位数",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "决斗",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "请输入文本",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1172&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:21Z",
+              "error": ""
+            },
+            {
+              "id": "1173",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1173",
+              "title": "2025“钉耙编程”中国大学生算法设计暑期联赛（2）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "骰子",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "数上的图",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1002",
+                  "status": "AC"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "图上的数",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "子串的故事（2）",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "循环位移",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "半",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1006",
+                  "status": "AC"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "计数",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "井",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "苹果树",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "子序列",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "10010",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "子集",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1173&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:23Z",
+              "error": ""
+            },
+            {
+              "id": "1174",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1174",
+              "title": "2025“钉耙编程”中国大学生算法设计暑期联赛（3）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "求和",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "小抹爱锻炼",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1002",
+                  "status": "AC"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "光线折射",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "三带一",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "平衡阵盘",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "巨龙守卫",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "性质不同的数字",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1007",
+                  "status": "AC"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "01环",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1008",
+                  "status": "AC"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "线段染色",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "坚船利炮",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "难度调整",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "核心共振",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1174&pid=1012",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:26Z",
+              "error": ""
+            },
+            {
+              "id": "1175",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1175",
+              "title": "2025“钉耙编程”中国大学生算法设计暑期联赛（4）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "电子带负电",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "Mon2tr",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "维什戴尔",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "取石子游戏",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "美好的梦境（一）",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "美好的梦境（二）",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "咖啡的罪恶",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "回忆与展望",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "量子弹弓",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "利物浦集合",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "统计强连通",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "海上的太阳",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1175&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:28Z",
+              "error": ""
+            },
+            {
+              "id": "1176",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1176",
+              "title": "2025“钉耙编程”中国大学生算法设计暑期联赛（5）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "一个更无聊的游戏",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "\"合理\"避税",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "黑白球",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "信赖跃迁：置换轨迹计算",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "四角洲行动",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "支配游戏",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "k-MEX",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1007",
+                  "status": "AC"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "双端魔咒",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "切排列",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "随机反馈",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "营火",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "最小值",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1176&pid=1012",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:31Z",
+              "error": ""
+            },
+            {
+              "id": "1177",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1177",
+              "title": "2025“钉耙编程”中国大学生算法设计暑期联赛（6）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "cats 学乘法",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "隧道挖掘",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "纸船效应",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "传送排序",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "钥匙迷宫",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "缺失的子序列",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "喵喵题",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "cats 的 max",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "对撞器",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "群体狂乱",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "取模",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "cats 的加减乘除",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1177&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:33Z",
+              "error": ""
+            },
+            {
+              "id": "1178",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1178",
+              "title": "2025“钉耙编程”中国大学生算法设计暑期联赛（7）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "矩形框选",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "龙族栖息地",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "质疑概率",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "梦醒时刻",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "地图编辑器",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "伤害冷却比",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "满员电车",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "飞行训练",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "崭新的假日",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "情报污染",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "切披萨",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "字典树逆向",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1178&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:35Z",
+              "error": ""
+            },
+            {
+              "id": "1179",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1179",
+              "title": "2025“钉耙编程”中国大学生算法设计暑期联赛（8）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "最遥远的路",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "不最近的路",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "最中间的数",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "最糖的题目",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "最自律的松鼠",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "最甜的小情侣",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "最绝望的 hidesuwa",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "最完全的替换",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "最努力的活着",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "最好的位置",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "最有节目效果的一集",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "最多变的序列",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1179&pid=1012",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:38Z",
+              "error": ""
+            },
+            {
+              "id": "1180",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1180",
+              "title": "2025“钉耙编程”中国大学生算法设计暑期联赛（9）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "数字卡片",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1001",
+                  "status": "AC"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "预处理器",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "碗窑尽空",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "简单的图",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "计算几何",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1005",
+                  "status": "AC"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "括号匹配",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1006",
+                  "status": "AC"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "三角剖分",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "老猫下山",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "乘法逆元",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1009",
+                  "status": "AC"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "阿斯蒂芬",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "抽象代数",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "测试若歪",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1180&pid=1012",
+                  "status": "AC"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:40Z",
+              "error": ""
+            },
+            {
+              "id": "1181",
+              "url": "https://acm.hdu.edu.cn/contest/problems?cid=1181",
+              "title": "2025“钉耙编程”中国大学生算法设计暑期联赛（10）",
+              "problems": [
+                {
+                  "id": "1001",
+                  "index": "A",
+                  "title": "Submission",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1001",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1002",
+                  "index": "B",
+                  "title": "Multiple and Factor",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1002",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1003",
+                  "index": "C",
+                  "title": "Matrix Equation",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1003",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1004",
+                  "index": "D",
+                  "title": "Stocks Trading",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1004",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1005",
+                  "index": "E",
+                  "title": "Range Convex Checker",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1005",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1006",
+                  "index": "F",
+                  "title": "Oden VS Genshin Impact",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1006",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1007",
+                  "index": "G",
+                  "title": "Message Spreading",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1007",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1008",
+                  "index": "H",
+                  "title": "Repeater",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1008",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1009",
+                  "index": "I",
+                  "title": "PalindromemordnilaP",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1009",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1010",
+                  "index": "J",
+                  "title": "Cut Check Bit",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1010",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1011",
+                  "index": "K",
+                  "title": "Worst Problem Of All Time",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1011",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1012",
+                  "index": "L",
+                  "title": "Counting Colorful Sequence",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1012",
+                  "status": "TODO"
+                },
+                {
+                  "id": "1013",
+                  "index": "M",
+                  "title": "Spring River Flower Moon Night",
+                  "url": "https://acm.hdu.edu.cn/contest/problem?cid=1181&pid=1013",
+                  "status": "TODO"
+                }
+              ],
+              "last_ok": "2026-10-29T15:50:43Z",
+              "error": ""
+            }
+          ],
+          "last_ok": "2026-10-29T15:50:43Z",
+          "sync_status": "error"
+        }
+      ]
     }
   ]
 }

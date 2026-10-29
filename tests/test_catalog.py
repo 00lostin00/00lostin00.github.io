@@ -1,6 +1,7 @@
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import patch
 BASE=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(BASE/'tools/algo' if (BASE/'tools/algo').is_dir() else BASE/'scripts'))
 import sync_catalog as c
@@ -10,7 +11,8 @@ class CatalogTests(unittest.TestCase):
     def test_practice_failure_keeps_previous_public_links(self):
         previous={'practice':{'items':[{'id':1,'name':'old'}]},'events':[],'sources':{}}
         def fail():raise RuntimeError('unavailable')
-        result=c.build(previous,fetchers={'practice':fail})
+        with patch('sync_multischool.build',return_value=[]):
+            result=c.build(previous,fetchers={'practice':fail})
         self.assertEqual(result['practice']['items'][0]['name'],'old')
         self.assertTrue(result['sources']['practice']['error'])
 

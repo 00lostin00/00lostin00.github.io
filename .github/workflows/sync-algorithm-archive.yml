@@ -38,26 +38,31 @@ jobs:
         run: |
           python - <<'PY'
           import json, pathlib, shutil
-          cached = pathlib.Path('.oj-cache/data.json')
-          current = pathlib.Path('algo/data.json')
-          if cached.exists():
-              a = json.loads(cached.read_text())
-              b = json.loads(current.read_text())
-              if a.get('schema') == 2 and (a.get('generated_at') or '') > (b.get('generated_at') or ''):
-                  shutil.copy2(cached, current)
+          for name, schema in [('data.json', 2), ('catalog.json', 1)]:
+              cached = pathlib.Path('.oj-cache') / name
+              current = pathlib.Path('algo') / name
+              if cached.exists():
+                  a = json.loads(cached.read_text())
+                  b = json.loads(current.read_text()) if current.exists() else {}
+                  if a.get('schema') == schema and (a.get('generated_at') or '') > (b.get('generated_at') or ''):
+                      shutil.copy2(cached, current)
           PY
       - name: Refresh public OJ records (retain cache on API outages)
-        run: python scripts/sync_oj.py
+        run: python scripts/sync_oj.py --prefer-live
+      - name: Refresh practice links, calendars and multi-university problem sets
+        run: python scripts/sync_catalog.py --prefer-live
       - name: Run regression tests
         run: |
           python -m unittest discover -s tests -v
           python -m json.tool algo/data.json > /dev/null
           python -m json.tool algo/archive.json > /dev/null
+          python -m json.tool algo/catalog.json > /dev/null
       - name: Stage site and save cache
         run: |
           python scripts/prepare_pages.py . .pages
           mkdir -p .oj-cache
           cp algo/data.json .oj-cache/data.json
+          cp algo/catalog.json .oj-cache/catalog.json
       - uses: actions/cache/save@v4
         with:
           path: .oj-cache

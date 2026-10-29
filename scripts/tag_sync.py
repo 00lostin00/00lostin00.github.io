@@ -41,6 +41,8 @@ class TagState:
         self.lock=threading.RLock();self.stop=threading.Event()
         self.errors={}
         self.normalizer=Normalizer(sync.read_json(config,{}),self.data.get('taxonomy',[]))
+        for entry in self.data.get('entries',{}).values():
+            entry['tags']=self.normalizer.tags(entry.get('raw_tags',entry.get('tags',[])))
 
     def wanted(self,platform):
         return [p for p in sync.read_json(self.records,{}).get('problems',[]) if p.get('platform')==platform]
@@ -61,11 +63,14 @@ class TagState:
                 meta=self.data['entries'].get(p['platform']+':'+str(p['id']).lower())
                 if not meta and p['platform']=='luogu' and str(p['id']).startswith('CF'):
                     meta=self.data['entries'].get('codeforces:'+p['id'][2:].lower())
-                tags=self.normalizer.tags(p.get('tags',[]))
+                tags=self.normalizer.tags(p.get('raw_tags',p.get('tags',[])) if p['platform']=='acwing' else p.get('tags',[]))
+                if meta or p.get('tag_source'):complete+=1
                 if meta:
-                    complete+=1;unavailable+=meta['status']=='unavailable'
-                    if meta['status']=='ok':tags=meta['tags']
+                    unavailable+=meta['status']=='unavailable'
+                    if meta['status']=='ok' and p['platform']!='acwing':tags=meta['tags']
                 problems.append({**p,'tags':tags,**({'title':meta['title']} if meta and meta.get('title') else {}),
+                    **({'first_accepted_at':min(v for v in [p.get('first_accepted_at'),meta['first_accepted_at']] if v),
+                        'accepted_at':max(v for v in [p.get('accepted_at'),meta.get('accepted_at')] if v)} if meta and meta.get('first_accepted_at') else {}),
                     **({'tag_source':meta.get('source'),'tags_updated_at':meta.get('checked_at')} if meta else {})})
             metadata={'completed':complete,'total':len(problems),'tagged':sum(bool(p['tags']) for p in problems),
                       'unavailable':unavailable,'updated_at':self.data.get('updated_at'),'refresh_seconds':900,'errors':dict(self.errors)}
@@ -73,7 +78,7 @@ class TagState:
                     'generated_at':max(data.get('generated_at') or '',self.data.get('updated_at') or '')}
 
     def start(self):
-        for platform in ['codeforces','luogu','nowcoder','atcoder']:
+        for platform in ['codeforces','luogu','nowcoder','atcoder','acwing']:
             threading.Thread(target=self.run,args=(platform,),daemon=True).start()
 
     def run(self, platform):
@@ -81,6 +86,7 @@ class TagState:
             try:
                 if platform=='codeforces':self.cf()
                 elif platform=='luogu':self.luogu()
+                elif platform=='acwing':self.acwing()
                 else:self.individual(platform)
                 self.errors.pop(platform,None)
             except Exception as exc:
@@ -94,6 +100,25 @@ class TagState:
             pid=str(p.get('contestId',''))+str(p.get('index',''))
             if pid.lower() in wanted:self.put('codeforces',pid,p.get('tags',[]),p.get('name',''),'Codeforces public API')
         self.save()
+
+    def acwing(self):
+        import sync_acwing
+        data=sync.read_json(self.records,{})
+        handle=next((p.get('handle') for p in data.get('platforms',[]) if p['id']=='acwing'),None)
+        if not handle:return
+        for p in self.due('acwing',self.wanted('acwing'),10):
+            k='acwing:'+str(p['id']).lower()
+            with self.lock:old=dict(self.data['entries'].get(k,{}))
+            try:
+                values=sync_acwing.dates(p,handle,bool(old.get('history_complete')))
+                if old.get('first_accepted_at'):values['first_accepted_at']=min(values['first_accepted_at'],old['first_accepted_at'])
+                self.put('acwing',p['id'],p.get('tags',[]),source='AcWing authorized problem list and own submission timestamps')
+                with self.lock:self.data['entries'][k].update(values)
+            except Exception:
+                if old:
+                    with self.lock:self.data['entries'][k]['checked_at']=sync.now_iso()
+                else:self.put('acwing',p['id'],p.get('tags',[]),source='AcWing authorized problem list',status='unavailable')
+            self.save()
 
     def luogu(self):
         headers={**sync.session_headers('luogu'),'x-lentille-request':'content-only'}

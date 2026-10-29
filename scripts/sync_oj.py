@@ -15,6 +15,7 @@ from html.parser import HTMLParser
 from html import unescape
 from http.cookiejar import CookieJar, Cookie
 import hashlib
+import gzip
 import json
 import os
 from pathlib import Path
@@ -93,7 +94,7 @@ def get_text(url, attempts=3, headers=None):
     for trial in range(attempts):
         try:
             host=urlsplit(url).hostname
-            gap={'codeforces.com':2.1,'kenkoooo.com':1.2,'www.luogu.com.cn':1.2,'ac.nowcoder.com':1.1,'www.algowiki.cn':1.0}.get(host,0)
+            gap={'codeforces.com':2.1,'kenkoooo.com':1.2,'www.luogu.com.cn':1.2,'ac.nowcoder.com':1.1,'www.algowiki.cn':1.0,'www.acwing.com':1.5}.get(host,0)
             if host=='www.luogu.com.cn' and urlsplit(url).path.startswith('/problem/') and not urlsplit(url).path.endswith('/list'):gap=4
             if gap:
                 with HTTP_BUDGET_LOCK:host_lock=HTTP_HOST_LOCKS.setdefault(host,threading.Lock())
@@ -103,7 +104,10 @@ def get_text(url, attempts=3, headers=None):
                     HTTP_LAST_REQUEST[host]=time.monotonic()
             request = Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; lostin-archive/3.0)', 'Accept': 'application/json,text/html', **headers})
             with HTTP_SESSION.opener.open(request, timeout=25) as response:
-                return response.read().decode('utf-8')
+                body=response.read()
+                if response.headers.get('Content-Encoding','').lower()=='gzip':body=gzip.decompress(body)
+                encoding=response.headers.get_content_charset() or 'utf-8'
+                return body.decode('gb18030' if encoding.lower() in ['gb2312','gbk'] else encoding)
         except (HTTPError, URLError, TimeoutError, json.JSONDecodeError, OSError) as exc:
             err = exc
             if isinstance(exc, HTTPError) and exc.code not in (429, 500, 502, 503, 504):
@@ -129,6 +133,7 @@ def session_headers(platform):
 
 
 def cf_api(method, **params):
+    params.setdefault('lang', 'en')
     result = get_json('https://codeforces.com/api/' + method + '?' + urlencode(params))
     if not isinstance(result, dict) or result.get('status') != 'OK':
         raise RuntimeError('Codeforces API: ' + str(result.get('comment', 'unexpected response')))
@@ -406,6 +411,11 @@ def pull_nowcoder(handle, previous):return pull_html_platform('nowcoder',handle,
 def pull_qoj(handle, previous):return pull_html_platform('qoj',handle,previous)
 
 
+def pull_acwing(handle,previous):
+    from sync_acwing import pull
+    return pull(handle,previous)
+
+
 def pull_luogu(handle, previous, sleep=time.sleep):
     if not str(handle).isdigit():raise ValueError('洛谷需要数字用户 ID')
     records=[];complete=False;seen_rows=0
@@ -507,7 +517,7 @@ def combine_auto_manual(automatic, manual):
 
 
 def assemble(config, previous, local_problems, local_contests, offline=False, pulls=None):
-    pulls = pulls or {'codeforces': pull_codeforces, 'atcoder': pull_atcoder, 'nowcoder':pull_nowcoder, 'luogu':pull_luogu, 'qoj':pull_qoj}
+    pulls = pulls or {'codeforces': pull_codeforces, 'atcoder': pull_atcoder, 'nowcoder':pull_nowcoder, 'luogu':pull_luogu, 'qoj':pull_qoj,'acwing':pull_acwing}
     futures = {}
     executor = ThreadPoolExecutor(max_workers=5) if not offline else None
     if executor:
@@ -583,6 +593,23 @@ def atomic_json(path, data):
     temp_path.replace(path)
 
 
+def public_snapshot(config,local_problems,local_contests):
+    data=get_json('https://www.djtu.com.cn/api/algoarchive',attempts=1)
+    if data.get('schema')!=2 or any(not isinstance(data.get(k),list) for k in ['platforms','problems','contests']):
+        raise ValueError('Invalid public snapshot')
+    info={p['id']:p for p in data['platforms']}
+    expected={p['id']:str(p['handle']) for p in config.get('platforms',[]) if p.get('mode')=='auto' and p.get('handle')}
+    if data.get('owner')!=config.get('owner') or any(str(info.get(k,{}).get('handle'))!=v for k,v in expected.items()):
+        raise ValueError('Public snapshot account mismatch')
+    result=assemble(config,data,local_problems,local_contests,offline=True)
+    for p in result['platforms']:
+        if p['id'] in expected:
+            for key in ['sync_status','error','last_ok','cursor','history_complete']:p[key]=info[p['id']].get(key)
+    if data.get('tag_sync'):
+        result['tag_sync']={**data['tag_sync'],'total':len(result['problems']),'tagged':sum(bool(p.get('tags')) for p in result['problems'])}
+    return result
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description='Aggregate OJ problems and contest archives')
     parser.add_argument('--config', type=Path, default=CONFIG)
@@ -590,12 +617,18 @@ def main(argv=None):
     parser.add_argument('--manual', type=Path, default=MANUAL)
     parser.add_argument('--contests', type=Path, default=MANUAL_CONTESTS)
     parser.add_argument('--offline', action='store_true', help='Build entirely from existing API cache and CSV')
+    parser.add_argument('--prefer-live',action='store_true',help='Prefer the account-verified public API snapshot; fall back to source adapters')
     args = parser.parse_args(argv)
     config = read_json(args.config, {})
     if not config.get('platforms'):
         parser.error('Config must include a nonempty platforms array')
     old = read_json(args.output, {'problems': [], 'contests': [], 'ratings': {}, 'platforms': []})
-    result = assemble(config, old, manual_problems(args.manual), manual_contests(args.contests), offline=args.offline)
+    problems,contests=manual_problems(args.manual),manual_contests(args.contests)
+    result=None
+    if args.prefer_live and not args.offline:
+        try:result=public_snapshot(config,problems,contests)
+        except Exception:print('warning: public snapshot unavailable; using source adapters and retained cache',file=sys.stderr)
+    if result is None:result=assemble(config,old,problems,contests,offline=args.offline)
     atomic_json(args.output, result)
     total = sum(p['ac_count'] for p in result['platforms'])
     print(f'Wrote {args.output}: {total} AC across {len(result["platforms"])} OJs')

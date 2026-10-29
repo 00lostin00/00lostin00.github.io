@@ -132,11 +132,24 @@ def build(previous=None, fetchers=None):
     for e in events:
         k=e['platform']+':'+e['id']
         if k not in by_id or not e.get('fallback'):by_id[k]=e
-    multi=sync.read_json(ROOT/'config/multischool.json',{'platforms':[]}).get('platforms',[])
+    from sync_multischool import build as build_multischool
+    multi=build_multischool(sync.read_json(ROOT/'config/multischool.json',{'platforms':[]}),previous.get('multischool'))
     return {'schema':1,'generated_at':sync.now_iso(),'practice':practice_data,'events':list(by_id.values()),'sources':sources,'multischool':multi}
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,default=OUTPUT);args=parser.parse_args()
-    data=build(sync.read_json(args.output,{}));sync.atomic_json(args.output,data)
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,default=OUTPUT)
+    parser.add_argument('--prefer-live',action='store_true');args=parser.parse_args();data=None
+    if args.prefer_live:
+        try:
+            candidate=sync.get_json('https://www.djtu.com.cn/api/algocatalog',attempts=1)
+            if candidate.get('schema')!=1 or not isinstance(candidate.get('events'),list) or not isinstance(candidate.get('practice',{}).get('items'),list):raise ValueError('Invalid catalog snapshot')
+            expected=sync.read_json(ROOT/'config/multischool.json',{}).get('platforms',[])
+            nc=next((p for p in expected if p['id']=='nowcoder'),{})
+            remote=next((p for p in candidate.get('multischool',[]) if p['id']=='nowcoder'),{})
+            if nc.get('account')!=remote.get('account'):raise ValueError('Catalog account mismatch')
+            candidate.pop('live',None);data=candidate
+        except Exception:pass
+    if data is None:data=build(sync.read_json(args.output,{}))
+    sync.atomic_json(args.output,data)
     print(f'Practice links: {len(data["practice"]["items"])}; calendar entries: {len(data["events"])}')

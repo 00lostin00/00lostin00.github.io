@@ -83,9 +83,9 @@
       "name": "AcWing",
       "short": "AW",
       "home": "https://www.acwing.com/",
-      "profile_template": "",
-      "handle": "",
-      "mode": "manual",
+      "profile_template": "https://www.acwing.com/user/myspace/index/{handle}/",
+      "handle": "374248",
+      "mode": "auto",
       "accent": "#f2c56d",
       "group": "国内竞赛"
     },
