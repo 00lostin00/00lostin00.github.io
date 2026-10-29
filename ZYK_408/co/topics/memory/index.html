@@ -1,0 +1,456 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机组成原理：存储系统：地址推导与访问模拟 | lost.in</title><meta name="author" content="lost.in"><meta name="copyright" content="lost.in"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="返回计组总目录 · 上一篇：数据表示与运算：基础推导与强化题 · 下一篇：CPU与I/O：控制信号和时序题 1. 先补基础：地址线为什么不总等于容量的对数一个地址选一个编址单位。按字节编址的64 KiB空间有65536个地址，需16位；若同样64 KiB按16位字编址，则只有32768个字地址，需15位。容量除以编址单位，才是地址个数。 芯片8K×8表示8192个地址、每地址8位，共8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="计算机组成原理：存储系统：地址推导与访问模拟">
+<meta property="og:url" content="https://00lostin00.github.io/ZYK_408/co/topics/memory/index.html">
+<meta property="og:site_name" content="lost.in">
+<meta property="og:description" content="返回计组总目录 · 上一篇：数据表示与运算：基础推导与强化题 · 下一篇：CPU与I/O：控制信号和时序题 1. 先补基础：地址线为什么不总等于容量的对数一个地址选一个编址单位。按字节编址的64 KiB空间有65536个地址，需16位；若同样64 KiB按16位字编址，则只有32768个字地址，需15位。容量除以编址单位，才是地址个数。 芯片8K×8表示8192个地址、每地址8位，共8">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://00lostin00.github.io/images/tx.jpg">
+<meta property="article:published_time" content="2026-10-29T15:57:50.758Z">
+<meta property="article:modified_time" content="2026-10-29T15:57:50.758Z">
+<meta property="article:author" content="lost.in">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://00lostin00.github.io/images/tx.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/mrs.jpg"><link rel="canonical" href="https://00lostin00.github.io/ZYK_408/co/topics/memory/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=5.5.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机组成原理：存储系统：地址推导与访问模拟',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/transpancy.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://00lostin00.github.io/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/gossip/"><i class="fa-fw fas fa-gamepad"></i><span> 闲话</span></a></div><div class="menus_item"><a class="site-page" href="/algo/"><i class="fa-fw fas fa-book-open"></i><span> 算法档案</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-fish"></i><span> 考研</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/ZYK/"><i class="fa-fw fas fa-gamepad"></i><span> 专业课</span></a></li><li><a class="site-page child" href="/ZYK_408/co/"><i class="fa-fw fas fa-microchip"></i><span> 计组笔记</span></a></li><li><a class="site-page child" href="/categories/math/"><i class="fa-fw fas fa-tools"></i><span> 数学</span></a></li><li><a class="site-page child" href="/categories/english/"><i class="fa-fw fas fa-anchor"></i><span> 英语</span></a></li><li><a class="site-page child" href="/Politics/"><i class="fa-fw fas fa-gamepad"></i><span> 政治</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">lost.in</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://00lostin00.github.io/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/gossip/"><i class="fa-fw fas fa-gamepad"></i><span> 闲话</span></a></div><div class="menus_item"><a class="site-page" href="/algo/"><i class="fa-fw fas fa-book-open"></i><span> 算法档案</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-fish"></i><span> 考研</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/ZYK/"><i class="fa-fw fas fa-gamepad"></i><span> 专业课</span></a></li><li><a class="site-page child" href="/ZYK_408/co/"><i class="fa-fw fas fa-microchip"></i><span> 计组笔记</span></a></li><li><a class="site-page child" href="/categories/math/"><i class="fa-fw fas fa-tools"></i><span> 数学</span></a></li><li><a class="site-page child" href="/categories/english/"><i class="fa-fw fas fa-anchor"></i><span> 英语</span></a></li><li><a class="site-page child" href="/Politics/"><i class="fa-fw fas fa-gamepad"></i><span> 政治</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">计算机组成原理：存储系统：地址推导与访问模拟</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="top-img" style="background-image: url(https://t.alcy.cc/fj);"></div><div class="container" id="article-container"><p><a href="/ZYK_408/co/">返回计组总目录</a> · <a href="/ZYK_408/co/topics/data/">上一篇：数据表示与运算：基础推导与强化题</a> · <a href="/ZYK_408/co/topics/cpu-io/">下一篇：CPU与I/O：控制信号和时序题</a></p>
+<h2 id="1-先补基础：地址线为什么不总等于容量的对数"><a href="#1-先补基础：地址线为什么不总等于容量的对数" class="headerlink" title="1. 先补基础：地址线为什么不总等于容量的对数"></a>1. 先补基础：地址线为什么不总等于容量的对数</h2><p>一个地址选一个编址单位。按字节编址的64 KiB空间有65536个地址，需16位；若同样64 KiB按16位字编址，则只有32768个字地址，需15位。容量除以编址单位，才是地址个数。</p>
+<p>芯片8K×8表示8192个地址、每地址8位，共8 KiB，芯片逻辑地址需13位、数据线8根。DRAM行列地址复用时，封装物理地址引脚数不一定为13：把逻辑地址拆成行、列，在不同时刻送相同引脚，需配合行列选通信号。不要用引脚数直接断言寻址容量。</p>
+<p>例1：用8K×8芯片组成32K×32存储器。每组4片并联扩位宽，4组扩地址深度，共16片。A0—A12接各片地址输入，A13—A14经译码选择一组，每组4片共用片选、分担32位数据。若按32位字编址，总共15位字地址；若CPU按字节编址且每字4字节，还需区分低2位字节选择，整个模块占128 KiB。两种“地址位数”回答的是不同问题。</p>
+<h3 id="地址范围与译码"><a href="#地址范围与译码" class="headerlink" title="地址范围与译码"></a>地址范围与译码</h3><p>例2：按字节编址，32 KiB模块起始地址0x80000。 32 KiB=0x8000字节，末地址=0x80000+0x8000-1=0x87FFF。减1是因为首地址已经占一个位置。0x88000是下一个地址，不属于本模块。</p>
+<p>全译码检查足够多的高位以唯一选定模块；部分译码忽略某些高位，可能让多个地址访问同一个物理单元，出现地址重影。图中未接的高位不是凭空没有，而是选择逻辑不区分它们。</p>
+<h2 id="2-DRAM刷新与交叉编址：周期不能混叫"><a href="#2-DRAM刷新与交叉编址：周期不能混叫" class="headerlink" title="2. DRAM刷新与交叉编址：周期不能混叫"></a>2. DRAM刷新与交叉编址：周期不能混叫</h2><p>例3：1024行DRAM，要求64 ms内每行刷新一次。若每次刷新一行，均匀安排时两次刷新启动的平均间隔至多64 ms/1024=62.5 μs。若每次刷新占100 ns，则每个64 ms窗口共占102.4 μs，理论占用比例0.16%。这不是CPU读取一个字节的平均时间；正常访问、排队及刷新冲突还要按具体模型处理。多芯片若同一行可并行刷新，不能再乘芯片数。</p>
+<p>集中刷新把刷新操作堆在一个时间段，形成较长不可访问区间；分散刷新与异步刷新如何命名、怎样穿插，以题目给定机制为准。做题始终抓住：多少行、每次刷新多少行、刷新窗口、每次占多久。</p>
+<p>例4：4体低位交叉，单体访问周期100 ns，总线每25 ns接收一个字；连续读8字。低2位选体，因此连续字地址依次落在0、1、2、3体。相邻启动间隔25 ns，同一体再次启动间隔100 ns，恰好满足恢复时间。若首字100 ns后到达，8字总时间为100+7×25=275 ns。</p>
+<p>换成2体，按25 ns启动会让同一体50 ns后又被访问，违反100 ns周期；持续均匀启动间隔至少为50 ns。若访问步长为4个字，4体低位交叉反复命中同一体，也失去连续地址的并行收益。先用“字地址模体数”列体号，才能决定能否套带宽公式。</p>
+<h2 id="3-Cache不是把整个地址存两遍"><a href="#3-Cache不是把整个地址存两遍" class="headerlink" title="3. Cache不是把整个地址存两遍"></a>3. Cache不是把整个地址存两遍</h2><p>设物理地址m位、数据容量C字节、块大小B字节、每组r路：总行数C/B，组数<script type="math/tex">S=C/(Br)</script>。偏移b=log2B，组索引s=log2S，Tag=m-s-b。这里C先按纯数据容量解释；题目若给总硬件容量，需要把元数据单独计入。</p>
+<p>偏移选块内字节，组索引选一组，Tag辨别该组里的块。组相联的“路号”通常不是从地址中直接拆出的字段，而是比较各路Tag后决定哪一路命中。</p>
+<p>例5：32位物理地址，16 KiB数据Cache，64 B块，4路。行数256，组数64；偏移6位、组号6位、Tag20位。</p>
+<p>地址0x12345678的低6位为0x38；组号是右移6位后模64，得到0x19=25；Tag为右移12位，即0x12345。反拼检查：Tag左移12位，加组号左移6位，再加偏移，必须回到原地址。</p>
+<p>若每行还存1位有效、1位脏，题设规定每组6位替换状态，则总位数：</p>
+<p><script type="math/tex; mode=display">256(64\times8+20+1+1)+64\times6=137088\text{ bit}=17136\text{ B}</script></p>
+<p>替换状态按组计，不是再乘256；也不能把本例“6位”说成所有4路LRU的唯一实现。精确LRU状态编码与近似替换有不同硬件代价，必须按题给方案算。</p>
+<h2 id="4-一张表完成LRU与FIFO的区别"><a href="#4-一张表完成LRU与FIFO的区别" class="headerlink" title="4. 一张表完成LRU与FIFO的区别"></a>4. 一张表完成LRU与FIFO的区别</h2><p>例6：2组、每组2路，初始为空，依次读主存块0、2、0、4、2、0。这已经是块号，不能再除块大小。组号=块号mod2，全部进组0；另一组的空位帮不上忙。</p>
+<p>LRU表中每格从左到右为最近使用→最久未用。</p>
+<table>
+<thead>
+<tr>
+<th>次序</th>
+<th>块</th>
+<th>命中？</th>
+<th>组0访问后</th>
+<th>被换出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>否</td>
+<td>[0]</td>
+<td>无，使用空行</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>否</td>
+<td>[2,0]</td>
+<td>无，使用空行</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>是</td>
+<td>[0,2]</td>
+<td>无，但更新次序</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>否</td>
+<td>[4,0]</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>否</td>
+<td>[2,4]</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0</td>
+<td>否</td>
+<td>[0,2]</td>
+<td>4</td>
+</tr>
+</tbody></table>
+<p>命中1次、缺失5次。FIFO只在装入时改变队列：装0、装2；命中0不改；装4淘汰0；访问2命中；装0淘汰2。因此FIFO命中2次。LRU依据局部性做选择，不保证对每个访问串都优于FIFO。</p>
+<p>若题给的是字节地址，先求块号floor(地址/B)，再模拟；同一块内连续字节在块装入后通常命中，不能把每个字节当作一次新块装入。</p>
+<h2 id="5-写策略：不仅改变命中率，还改变主存访问次数"><a href="#5-写策略：不仅改变命中率，还改变主存访问次数" class="headerlink" title="5. 写策略：不仅改变命中率，还改变主存访问次数"></a>5. 写策略：不仅改变命中率，还改变主存访问次数</h2><p>例7：单行Cache，16 B块，初始无效。写回、写分配。顺序W0、W4、R16、R0。 W/R后的数是字节地址；读缺失和写分配均按整块装入；无预取。</p>
+<table>
+<thead>
+<tr>
+<th>访问</th>
+<th>块号</th>
+<th>命中与动作</th>
+<th>整块读主存</th>
+<th>整块写回</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>W0</td>
+<td>0</td>
+<td>缺失，读入块0再写，置脏</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>0</td>
+<td>命中，仍脏</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>R16</td>
+<td>1</td>
+<td>缺失，先回写块0，再读块1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>R0</td>
+<td>0</td>
+<td>缺失，块1干净可直接替换</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>总共3次块读、1次块写回。最后块0干净，不另加写回；题目要求程序结束时刷新全部脏块，才追加相应操作。</p>
+<p>改成写直达、不写分配：前两次写都不装入Cache，各写一次主存；后两次读分别读入块1、块0，没有脏块回写。得到2次单次写、2次块读。不能把一次写字和一次整块读都当成相同字节量。若题设不允许写缓冲隐藏延迟，还要把写直达等待计入执行时间。</p>
+<h2 id="6-数组题：从地址序列推命中率"><a href="#6-数组题：从地址序列推命中率" class="headerlink" title="6. 数组题：从地址序列推命中率"></a>6. 数组题：从地址序列推命中率</h2><p>例8：int为4 B，数组64个元素，首地址按16 B对齐；Cache块16 B、数据容量128 B、直接映射，初始为空，仅访问此数组。一块放4元素，数组共16块，Cache8行。</p>
+<p>顺序读一遍：每块首元素缺失，其余3个命中，共16缺失、48命中，命中率75%。紧接着从头再顺序读一遍：由于末8块占据Cache，前8块会把它们逐一换走，读后8块时又已不在，所以第二遍仍16次缺失。数组“已经访问过”并不意味着第二遍全部命中。</p>
+<p>改成两层循环：外层遍历块，内层把同块4元素重复读两遍，再换下一块。每块8访问仅首个缺失，整程16缺失/128访问，命中率87.5%。改变访问顺序可能比单纯扩大缓存更直接改善局部性；要从实际循环顺序列地址，不能看见“二维数组”就固定选某个百分比。</p>
+<h2 id="7-TLB、页表、Cache：先翻译，再分字段"><a href="#7-TLB、页表、Cache：先翻译，再分字段" class="headerlink" title="7. TLB、页表、Cache：先翻译，再分字段"></a>7. TLB、页表、Cache：先翻译，再分字段</h2><p>虚拟页号VPN经TLB或页表查到物理页号PPN，页内偏移不变。页表项有效表示该页当前有合法驻留映射；保护检查、修改位等另按题设。TLB缺失不等于缺页：页表可能已有有效映射，只需填TLB。缺页也不直接归结为Cache缺失，它会引发异常与系统处理。</p>
+<p>例9：32位虚拟地址、24位物理地址、4 KiB页。页内偏移12位，VPN20位、PPN12位。虚拟地址0x00012034，VPN=0x12、偏移0x034；页表给PPN=0x35，物理地址就是0x035034。某物理直接映射Cache有64行、64 B块，其偏移6位、组号6位、Tag12位；该地址组号0、Tag0x35、块内偏移0x34。</p>
+<p>本例Cache索引和偏移合计12位恰在页内，但这不证明所有机器都可直接用虚拟地址访问物理Cache；是否并行查TLB与Cache、如何做物理Tag核对，需看具体设计。</p>
+<h3 id="页表容量从“多少虚拟页”开始"><a href="#页表容量从“多少虚拟页”开始" class="headerlink" title="页表容量从“多少虚拟页”开始"></a>页表容量从“多少虚拟页”开始</h3><p>例10：32位虚拟空间、4 KiB页、单级页表，每项4 B。虚拟页共<script type="math/tex">2^{20}</script>，页表4 MiB。若采用每张表4 KiB的两级页表，一张表放1024项，用10位索引，因此虚拟地址拆10/10/12位。只用了少量虚拟区间时，两级表可按需分配二级页表；不能无条件宣称两级表比单级节约固定倍数。</p>
+<h3 id="给出一个能检查口径的平均时间模型"><a href="#给出一个能检查口径的平均时间模型" class="headerlink" title="给出一个能检查口径的平均时间模型"></a>给出一个能检查口径的平均时间模型</h3><p>例11：TLB 2 ns，命中率90%；单级页表查找固定额外100 ns；无缺页；数据Cache命中率95%，查询1 ns，缺失在查询后额外100 ns。全部串行，无重叠。</p>
+<p>翻译平均时间<script type="math/tex">2+0.1\times100=12</script> ns；数据平均时间<script type="math/tex">1+0.05\times100=6</script> ns；总计18 ns。这里页表访问明确走独立100 ns路径，没有再对其套数据Cache命中率。若题目规定页表本身经过Cache，或两级访存，或TLB与Cache并行，必须重画路径，不能把18 ns当成通用答案。</p>
+<h3 id="从Cache性能到CPU时间"><a href="#从Cache性能到CPU时间" class="headerlink" title="从Cache性能到CPU时间"></a>从Cache性能到CPU时间</h3><p>基础CPI=1.2，每指令平均1.3次存储访问，其中含取指；统一缺失率2%，每次额外50周期，不重叠。缺失停顿CPI为1.3×0.02×50=1.3，总CPI=2.5。缺失率降到1%时总CPI=1.85；同指令数、同主频下加速比2.5/1.85≈1.351。别漏取指，也别把每条指令的额外周期再乘一次CPI。</p>
+<h2 id="8-练习与答案"><a href="#8-练习与答案" class="headerlink" title="8. 练习与答案"></a>8. 练习与答案</h2><table>
+<thead>
+<tr>
+<th>题目</th>
+<th>答案与判据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4路Cache能否把冲突块放到任意空组</td>
+<td>不能；组号由映射决定，只能在目标组选路</td>
+</tr>
+<tr>
+<td>16 B块，读地址14的4 B数据，涉及几块</td>
+<td>2块：字节14—15及16—17；访问次数和时延再按机器规则</td>
+</tr>
+<tr>
+<td>有效位0但Tag恰相等，算命中吗</td>
+<td>不算，有效位也是命中条件</td>
+</tr>
+<tr>
+<td>写回替换一行是否一定写主存</td>
+<td>仅有效且脏并按该策略需回写时</td>
+</tr>
+<tr>
+<td>4 KiB页，一条访问可否跨页</td>
+<td>可以；例如从页内偏移4094读4 B</td>
+</tr>
+</tbody></table>
+<hr>
+<p><a href="/ZYK_408/co/">返回计组总目录</a> · <a href="/ZYK_408/co/topics/data/">上一篇：数据表示与运算：基础推导与强化题</a> · <a href="/ZYK_408/co/topics/cpu-io/">下一篇：CPU与I/O：控制信号和时序题</a></p>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">lost.in</div><div class="author-info-description">仔细看清楚，他年去旅行</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/00lostin00"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://github.com/00lostin00" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://space.bilibili.com/487246708" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #00A1D6;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://www.zhihu.com/people/lou-kong-83-23" target="_blank" title="Zhihu"><i class="fab fa-zhihu" style="color: #0084ff;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://codeforces.com/profile/lost.in" target="_blank" title="Codeforces"><img class="cf-icon" src="/images/cflogo.svg" alt="Codeforces" style="width: 25px; height: 20px;"></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="mailto:1409423207@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%85%88%E8%A1%A5%E5%9F%BA%E7%A1%80%EF%BC%9A%E5%9C%B0%E5%9D%80%E7%BA%BF%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%80%BB%E7%AD%89%E4%BA%8E%E5%AE%B9%E9%87%8F%E7%9A%84%E5%AF%B9%E6%95%B0"><span class="toc-text">1. 先补基础：地址线为什么不总等于容量的对数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E8%8C%83%E5%9B%B4%E4%B8%8E%E8%AF%91%E7%A0%81"><span class="toc-text">地址范围与译码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-DRAM%E5%88%B7%E6%96%B0%E4%B8%8E%E4%BA%A4%E5%8F%89%E7%BC%96%E5%9D%80%EF%BC%9A%E5%91%A8%E6%9C%9F%E4%B8%8D%E8%83%BD%E6%B7%B7%E5%8F%AB"><span class="toc-text">2. DRAM刷新与交叉编址：周期不能混叫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Cache%E4%B8%8D%E6%98%AF%E6%8A%8A%E6%95%B4%E4%B8%AA%E5%9C%B0%E5%9D%80%E5%AD%98%E4%B8%A4%E9%81%8D"><span class="toc-text">3. Cache不是把整个地址存两遍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%80%E5%BC%A0%E8%A1%A8%E5%AE%8C%E6%88%90LRU%E4%B8%8EFIFO%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4. 一张表完成LRU与FIFO的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%86%99%E7%AD%96%E7%95%A5%EF%BC%9A%E4%B8%8D%E4%BB%85%E6%94%B9%E5%8F%98%E5%91%BD%E4%B8%AD%E7%8E%87%EF%BC%8C%E8%BF%98%E6%94%B9%E5%8F%98%E4%B8%BB%E5%AD%98%E8%AE%BF%E9%97%AE%E6%AC%A1%E6%95%B0"><span class="toc-text">5. 写策略：不仅改变命中率，还改变主存访问次数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%95%B0%E7%BB%84%E9%A2%98%EF%BC%9A%E4%BB%8E%E5%9C%B0%E5%9D%80%E5%BA%8F%E5%88%97%E6%8E%A8%E5%91%BD%E4%B8%AD%E7%8E%87"><span class="toc-text">6. 数组题：从地址序列推命中率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-TLB%E3%80%81%E9%A1%B5%E8%A1%A8%E3%80%81Cache%EF%BC%9A%E5%85%88%E7%BF%BB%E8%AF%91%EF%BC%8C%E5%86%8D%E5%88%86%E5%AD%97%E6%AE%B5"><span class="toc-text">7. TLB、页表、Cache：先翻译，再分字段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E8%A1%A8%E5%AE%B9%E9%87%8F%E4%BB%8E%E2%80%9C%E5%A4%9A%E5%B0%91%E8%99%9A%E6%8B%9F%E9%A1%B5%E2%80%9D%E5%BC%80%E5%A7%8B"><span class="toc-text">页表容量从“多少虚拟页”开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E5%87%BA%E4%B8%80%E4%B8%AA%E8%83%BD%E6%A3%80%E6%9F%A5%E5%8F%A3%E5%BE%84%E7%9A%84%E5%B9%B3%E5%9D%87%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">给出一个能检查口径的平均时间模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8ECache%E6%80%A7%E8%83%BD%E5%88%B0CPU%E6%97%B6%E9%97%B4"><span class="toc-text">从Cache性能到CPU时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%BB%83%E4%B9%A0%E4%B8%8E%E7%AD%94%E6%A1%88"><span class="toc-text">8. 练习与答案</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/10/06/%E8%8B%B1%E8%AF%AD%E9%98%85%E8%AF%BB%E5%8D%95%E8%AF%8D/" title="英语阅读单词">英语阅读单词</a><time datetime="2026-10-05T16:00:00.000Z" title="Created 2026-10-06 00:00:00">2026-10-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a><time datetime="2026-03-09T16:00:00.000Z" title="Created 2026-03-10 00:00:00">2026-03-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/10/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" title="概率论与数理统计">概率论与数理统计</a><time datetime="2026-03-09T16:00:00.000Z" title="Created 2026-03-10 00:00:00">2026-03-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/10/%E9%9B%AA%E6%97%A5%E9%97%B2/" title="雪日闲">雪日闲</a><time datetime="2026-01-09T16:00:00.000Z" title="Created 2026-01-10 00:00:00">2026-01-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/17/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="通信原理期末复习笔记">通信原理期末复习笔记</a><time datetime="2025-12-16T16:00:00.000Z" title="Created 2025-12-17 00:00:00">2025-12-17</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ZYK/"><span class="card-category-list-name">ZYK</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/english/"><span class="card-category-list-name">english</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/gossip/"><span class="card-category-list-name">gossip</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/math/"><span class="card-category-list-name">math</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/totorial/"><span class="card-category-list-name">totorial</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/10/">
+            <span class="card-archive-list-date">
+              十月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              十二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/01/">
+            <span class="card-archive-list-date">
+              一月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastpushdate="2026-10-29T16:00:44.955Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://t.alcy.cc/fj);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">©&nbsp;2025 - 2026 By lost.in</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        loader: {
+          load: [
+            // Four font extension packages (optional)
+            //- '[tex]/bbm',
+            //- '[tex]/bboldx',
+            //- '[tex]/dsfont',
+            '[tex]/mhchem'
+          ],
+          paths: {
+            'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+
+            //- // Four font extension packages (optional)
+            //- 'mathjax-bbm-extension': '[mathjax]/../@mathjax/mathjax-bbm-font-extension',
+            //- 'mathjax-bboldx-extension': '[mathjax]/../@mathjax/mathjax-bboldx-font-extension',
+            //- 'mathjax-dsfont-extension': '[mathjax]/../@mathjax/mathjax-dsfont-font-extension',
+            'mathjax-mhchem-extension': '[mathjax]/../@mathjax/mathjax-mhchem-font-extension'
+          }
+        },
+        output: {
+          font: 'mathjax-newcm',
+        },
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+          packages: {
+            '[+]': [
+              'mhchem'
+            ]
+          }
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          menuOptions: {
+            settings: {
+              enrich: false  // Turn off Braille and voice narration text automatic generation
+            }
+          },
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><script async="" data-pjax="" src="/"></script></div></body></html>

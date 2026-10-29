@@ -1,0 +1,2211 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机组成原理：完整学习版 | lost.in</title><meta name="author" content="lost.in"><meta name="copyright" content="lost.in"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="返回计组总目录 目录 系统与性能 数据表示与运算 存储系统：容量、地址、Cache与虚拟存储 指令系统：寻址、编码、C程序与机器执行 CPU：数据通路、控制器与流水线 总线与I/O：传输过程及CPU开销 综合题解题步骤  符号与单位：w表示整数的总位数，包含符号位；容量先区分bit与Byte；地址若无特殊说明按字节编址。具体题目与这些默认约定不一致时，以题目为准。 一、系统与性能1. 程">
+<meta property="og:type" content="website">
+<meta property="og:title" content="计算机组成原理：完整学习版">
+<meta property="og:url" content="https://00lostin00.github.io/ZYK_408/co/complete/index.html">
+<meta property="og:site_name" content="lost.in">
+<meta property="og:description" content="返回计组总目录 目录 系统与性能 数据表示与运算 存储系统：容量、地址、Cache与虚拟存储 指令系统：寻址、编码、C程序与机器执行 CPU：数据通路、控制器与流水线 总线与I/O：传输过程及CPU开销 综合题解题步骤  符号与单位：w表示整数的总位数，包含符号位；容量先区分bit与Byte；地址若无特殊说明按字节编址。具体题目与这些默认约定不一致时，以题目为准。 一、系统与性能1. 程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://00lostin00.github.io/images/tx.jpg">
+<meta property="article:published_time" content="2026-10-29T15:57:50.756Z">
+<meta property="article:modified_time" content="2026-10-29T15:57:50.756Z">
+<meta property="article:author" content="lost.in">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://00lostin00.github.io/images/tx.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/mrs.jpg"><link rel="canonical" href="https://00lostin00.github.io/ZYK_408/co/complete/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=5.5.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机组成原理：完整学习版',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/transpancy.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://00lostin00.github.io/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/gossip/"><i class="fa-fw fas fa-gamepad"></i><span> 闲话</span></a></div><div class="menus_item"><a class="site-page" href="/algo/"><i class="fa-fw fas fa-book-open"></i><span> 算法档案</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-fish"></i><span> 考研</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/ZYK/"><i class="fa-fw fas fa-gamepad"></i><span> 专业课</span></a></li><li><a class="site-page child" href="/ZYK_408/co/"><i class="fa-fw fas fa-microchip"></i><span> 计组笔记</span></a></li><li><a class="site-page child" href="/categories/math/"><i class="fa-fw fas fa-tools"></i><span> 数学</span></a></li><li><a class="site-page child" href="/categories/english/"><i class="fa-fw fas fa-anchor"></i><span> 英语</span></a></li><li><a class="site-page child" href="/Politics/"><i class="fa-fw fas fa-gamepad"></i><span> 政治</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">lost.in</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://00lostin00.github.io/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/gossip/"><i class="fa-fw fas fa-gamepad"></i><span> 闲话</span></a></div><div class="menus_item"><a class="site-page" href="/algo/"><i class="fa-fw fas fa-book-open"></i><span> 算法档案</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-fish"></i><span> 考研</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/ZYK/"><i class="fa-fw fas fa-gamepad"></i><span> 专业课</span></a></li><li><a class="site-page child" href="/ZYK_408/co/"><i class="fa-fw fas fa-microchip"></i><span> 计组笔记</span></a></li><li><a class="site-page child" href="/categories/math/"><i class="fa-fw fas fa-tools"></i><span> 数学</span></a></li><li><a class="site-page child" href="/categories/english/"><i class="fa-fw fas fa-anchor"></i><span> 英语</span></a></li><li><a class="site-page child" href="/Politics/"><i class="fa-fw fas fa-gamepad"></i><span> 政治</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">计算机组成原理：完整学习版</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="top-img" style="background-image: url(https://t.alcy.cc/fj);"></div><div class="container" id="article-container"><p><a href="/ZYK_408/co/">返回计组总目录</a></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#%E4%B8%80%E3%80%81%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%80%A7%E8%83%BD">系统与性能</a></li>
+<li><a href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA%E4%B8%8E%E8%BF%90%E7%AE%97">数据表示与运算</a></li>
+<li><a href="#%E4%B8%89%E3%80%81%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F">存储系统：容量、地址、Cache与虚拟存储</a></li>
+<li><a href="#%E5%9B%9B%E3%80%81%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F">指令系统：寻址、编码、C程序与机器执行</a></li>
+<li><a href="#%E4%BA%94%E3%80%81CPU%E4%B8%8E%E6%B5%81%E6%B0%B4%E7%BA%BF">CPU：数据通路、控制器与流水线</a></li>
+<li><a href="#%E5%85%AD%E3%80%81%E6%80%BB%E7%BA%BF%E4%B8%8EI-O">总线与I/O：传输过程及CPU开销</a></li>
+<li><a href="#%E4%B8%83%E3%80%81%E7%BB%BC%E5%90%88%E9%A2%98%E8%A7%A3%E9%A2%98%E6%AD%A5%E9%AA%A4">综合题解题步骤</a></li>
+</ol>
+<p>符号与单位：<script type="math/tex">w</script>表示整数的总位数，包含符号位；容量先区分bit与Byte；地址若无特殊说明按字节编址。具体题目与这些默认约定不一致时，以题目为准。</p>
+<h2 id="一、系统与性能"><a href="#一、系统与性能" class="headerlink" title="一、系统与性能"></a>一、系统与性能</h2><h3 id="1-程序执行过程"><a href="#1-程序执行过程" class="headerlink" title="1. 程序执行过程"></a>1. 程序执行过程</h3><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C源程序 → 预处理 → 编译 → 汇编 → 链接 → 可执行文件</span><br><span class="line">→ 装入并运行 → CPU取指、译码、执行 → 改变寄存器/内存/PC</span><br></pre></td></tr></tbody></table></figure>
+
+<p>预处理处理宏与包含等；编译把高级语言转换到较低层次表示；汇编生成目标机器代码；链接组合目标文件和库、处理符号引用与地址安排。考试题中不要把“汇编”与“链接”互换。</p>
+<p>ISA是软硬件接口。它规定软件可见的指令、寄存器、数据类型、寻址与异常等规则。数据通路、控制信号怎样实现这些规则，属于实现层面。相同ISA的机器可以有不同主频、CPI和内部组织。</p>
+<p><img src="/images/408-co/p002-%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1.png" alt="计算机系统层次原图"></p>
+<p>图源：强化讲义PDF第2页。ISA连接软件与硬件实现层。操作系统属于软件，不能把它与ISA等同。</p>
+<h3 id="2-存储程序与五大部件"><a href="#2-存储程序与五大部件" class="headerlink" title="2. 存储程序与五大部件"></a>2. 存储程序与五大部件</h3><p>计算机系统由硬件和软件组成。经典硬件分类为运算器、控制器、存储器、输入设备、输出设备。CPU通常包含运算、控制和寄存器等部分。</p>
+<p>指令和数据都以二进制存储，不能只凭位型区分。CPU根据访问目的、当前阶段以及相应控制方式解释取出的内容。“存储程序”强调把程序也作为存储内容，使机器能连续取出并执行。</p>
+<p>选择题切入点：题目问“完整系统”要想到软硬件；问“五大部件”按经典分类；问CPU组成时不要把主存算进CPU。</p>
+<h3 id="3-程序执行时间"><a href="#3-程序执行时间" class="headerlink" title="3. 程序执行时间"></a>3. 程序执行时间</h3><p><script type="math/tex; mode=display">
+T_{CPU}=N\times CPI\times T_{clk}=\frac{N\times CPI}{f}
+</script></p>
+<p><script type="math/tex">N</script>是实际执行指令数，<script type="math/tex">CPI</script>是该程序对应的平均每条指令周期数，<script type="math/tex">f</script>是主频。</p>
+<p><script type="math/tex; mode=display">
+CPI=\sum_i p_iCPI_i,\qquad T_{clk}=1/f
+</script></p>
+<p>推导思路：执行多少条 × 每条占多少周期 = 总周期；再乘每周期多少秒。知道这个过程，就不容易把主频乘到分子。</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>问的是什么</th>
+<th>容易误用的地方</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主频</td>
+<td>每秒多少周期</td>
+<td>不等于每秒指令数</td>
+</tr>
+<tr>
+<td>CPI</td>
+<td>每条指令平均多少周期</td>
+<td>不同程序可能不同</td>
+</tr>
+<tr>
+<td>MIPS</td>
+<td>每秒多少百万条指令</td>
+<td>不能脱离任务比较不同ISA的性能</td>
+</tr>
+<tr>
+<td>FLOPS</td>
+<td>每秒多少次浮点运算</td>
+<td>浮点运算次数不等于指令数</td>
+</tr>
+<tr>
+<td>响应时间</td>
+<td>一项任务从提交到完成要多久</td>
+<td>不只包含CPU工作时间</td>
+</tr>
+<tr>
+<td>吞吐量</td>
+<td>单位时间完成多少任务</td>
+<td>不等于单项任务响应时间的简单倒数，除非模型允许</td>
+</tr>
+</tbody></table>
+<p><script type="math/tex; mode=display">
+MIPS=\frac{N}{T_{CPU}\times10^6}=\frac{f}{CPI\times10^6}
+</script></p>
+<h3 id="4-题型：加权、比较、优化、局部加速"><a href="#4-题型：加权、比较、优化、局部加速" class="headerlink" title="4. 题型：加权、比较、优化、局部加速"></a>4. 题型：加权、比较、优化、局部加速</h3><p>看到比例表：先求加权CPI。例：三类指令占比50%、30%、20%，CPI分别为1、2、4，则平均CPI为<script type="math/tex">0.5+0.6+0.8=1.9</script>。若主频2 GHz、执行<script type="math/tex">10^6</script>条，则时间0.95 ms。</p>
+<p>看到优化比例：直接写时间比。</p>
+<p><script type="math/tex; mode=display">
+\frac{T'}T=\frac{N'}N\times\frac{CPI'}{CPI}\times\frac f{f'}
+</script></p>
+<p>指令数变成0.8倍、CPI变成1.1倍、主频不变，则时间变成0.88倍。不要把各项改善百分比直接相加。</p>
+<p>看到指令替换：只算差值。若旧指令需20周期，新指令需2周期，替换<script type="math/tex">m</script>次，主频为<script type="math/tex">f</script>，则节省<script type="math/tex">18m/f</script>秒。其余指令没有变化时会抵消，不必先求程序总指令数。</p>
+<p>看到某一部分提速：保留未改善部分。原时间100 s，CPU占80 s，CPU速度提升至2倍、I/O不变，则新时间<script type="math/tex">80/2+20=60</script> s。</p>
+<p>通式为<script type="math/tex">T'=T[(1-p)+p/s]</script>。<script type="math/tex">p</script>是可加速部分在原总时间中的比例，<script type="math/tex">s</script>是该部分的新速度/旧速度。适用于题目采用各部分时间相加的模型。</p>
+<p>落笔顺序：写<script type="math/tex">N,CPI,f</script>和单位 → 标出哪些改变 → 算绝对时间或比值 → 用“时间越小越快”检查结论。</p>
+<h2 id="二、数据表示与运算"><a href="#二、数据表示与运算" class="headerlink" title="二、数据表示与运算"></a>二、数据表示与运算</h2><h3 id="1-位型与真值"><a href="#1-位型与真值" class="headerlink" title="1. 位型与真值"></a>1. 位型与真值</h3><p>同一个8位位型<code>11111111</code>，按无符号数读是255，按补码整数读是-1。位没有变，解释规则变了。十六进制只是位型的紧凑书写，不自动规定有符号性。</p>
+<table>
+<thead>
+<tr>
+<th>编码，总共<script type="math/tex">w</script>位整数</th>
+<th>真值范围</th>
+<th>读法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无符号</td>
+<td><script type="math/tex">0\sim2^w-1</script></td>
+<td>全部按正位权</td>
+</tr>
+<tr>
+<td>原码</td>
+<td><script type="math/tex">-(2^{w-1}-1)\sim2^{w-1}-1</script></td>
+<td>最高位标符号，其余读绝对值</td>
+</tr>
+<tr>
+<td>补码</td>
+<td><script type="math/tex">-2^{w-1}\sim2^{w-1}-1</script></td>
+<td>最高位权<script type="math/tex">-2^{w-1}</script>，其余正权</td>
+</tr>
+</tbody></table>
+<p>原码有正零、负零，补码零唯一。反码负数由对应正数的全位取反得到，也有两个零。移码按“真值+指定偏置”计算；只有偏置为<script type="math/tex">2^{w-1}</script>时，才可直接用同宽补码翻转最高位。</p>
+<p>对负补码，下面两种方法任选一种：</p>
+<p><script type="math/tex; mode=display">
+x=U-2^w
+</script></p>
+<p>其中<script type="math/tex">U</script>是把同一位型暂按无符号数读出的值；或者直接按最高位负权求和。</p>
+<p>例： 8位BEH，<script type="math/tex">U=190</script>，补码真值<script type="math/tex">190-256=-66</script>。反过来求-66的补码，就算<script type="math/tex">256-66=190</script>，再写成BEH。</p>
+<h3 id="2-进制、扩展、截断"><a href="#2-进制、扩展、截断" class="headerlink" title="2. 进制、扩展、截断"></a>2. 进制、扩展、截断</h3><p>二进制转十六进制按四位分组；转八进制按三位分组。整数端从小数点向左分组，小数端向右分组。不足位只能在外侧补零，不能改变小数点位置。</p>
+<p>位宽改变的三条规则：</p>
+<ul>
+<li>无符号扩展：高位补0。</li>
+<li>补码有符号扩展：高位复制原符号位，保持真值不变。</li>
+<li>截断：保留低位；真值是否改变，取决于被截掉的内容和目标解释方式。</li>
+</ul>
+<p>做C类型题的表格：</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>类型与位宽</th>
+<th>位型</th>
+<th>当前真值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原变量</td>
+<td>先按题设写</td>
+<td>写全位型</td>
+<td>按原类型解释</td>
+</tr>
+<tr>
+<td>转换后</td>
+<td>新类型、新宽度</td>
+<td>扩展/截断/重新解释</td>
+<td>重新求值</td>
+</tr>
+<tr>
+<td>参与表达式</td>
+<td>先考虑整数提升与通常算术转换</td>
+<td>再计算</td>
+<td>最后判断比较结果</td>
+</tr>
+</tbody></table>
+<p>注意：表达式中的<code>char/short</code>常先提升成<code>int</code>，不能看到8位变量就把整个C表达式当成8位加法。机器指令题则按题设运算宽度计算。对真实C语义，有符号溢出不能普遍解释为自动回绕；考试明确给定位宽、补码及机器指令行为时按该机器模型求解。</p>
+<h3 id="3-加减法：硬件统一，解释分开"><a href="#3-加减法：硬件统一，解释分开" class="headerlink" title="3. 加减法：硬件统一，解释分开"></a>3. 加减法：硬件统一，解释分开</h3><p>固定<script type="math/tex">w</script>位加法器做运算，结果保留低<script type="math/tex">w</script>位；减法通常用：</p>
+<p><script type="math/tex; mode=display">
+A-B=A+\overline B+1\pmod{2^w}
+</script></p>
+<p>因此减法控制可同时使B按位取反，并把最低位进位置1。不要漏掉加1。</p>
+<p><img src="/images/408-co/p022-ALU%E4%B8%8E%E6%A0%87%E5%BF%97%E4%BD%8D.png" alt="ALU及标志位原图"></p>
+<p>图源：强化讲义PDF第22页。沿A、B进入ALU的路线看数据，沿Sub和输出标志看控制与结果解释。图中的<script type="math/tex">C_n,C_{n-1}</script>编号以图为准；题目换编号时，应识别“最高位进位”和“最高位进出的进位”，不要只背下标。</p>
+<table>
+<thead>
+<tr>
+<th>标志</th>
+<th>核心含义</th>
+<th>解题办法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ZF</td>
+<td>结果是否全0</td>
+<td>检查保留的结果位</td>
+</tr>
+<tr>
+<td>SF</td>
+<td>结果最高位</td>
+<td>只看位型，单独不能证明有符号大小</td>
+</tr>
+<tr>
+<td>OF</td>
+<td>有符号结果是否超出可表示范围</td>
+<td>真值范围法或符号判别</td>
+</tr>
+<tr>
+<td>CF</td>
+<td>题设约定的无符号进位/借位</td>
+<td>先确认减法借位约定</td>
+</tr>
+</tbody></table>
+<p>加法OF：同号相加得异号。减法OF：异号相减，结果符号与被减数不同。也可用最高位进位与最高位出位的异或判断。</p>
+<p>8位加法：<script type="math/tex">100+60=160</script>，位型为A0H；按补码读成-96，OF=1，但无符号和没有超过255，所以CF=0。OF与CF不是同一个问题。</p>
+<p>若题设使用x86式CF借位约定，执行<script type="math/tex">A-B</script>后：无符号<script type="math/tex">A<B</script>看CF；有符号<script type="math/tex">A<B</script>看<script type="math/tex">SF\oplus OF</script>；小于等于还要并上ZF。其他体系若CF定义不同，以题设为准。</p>
+<h3 id="4-移位与ALU"><a href="#4-移位与ALU" class="headerlink" title="4. 移位与ALU"></a>4. 移位与ALU</h3><p>逻辑右移高位补0，算术右移复制符号位。补码算术右移可能损失低位精度，负数结果不应直接套“截去小数部分的除法”。逻辑左移与算术左移的移位动作可相同，但有符号解释下要额外判断溢出。</p>
+<p>加法器电路题：每位和位由本位A、B和进位决定；串行进位等待前一级，先行进位通过生成/传递关系缩短等待。若题目要求门延迟，要按给定逻辑级数和门延迟算，不能把“位数”直接当“时间”。MUX从输入中选一路；译码器把输入编码转换为一组选择信号，两者作用不同。</p>
+<h3 id="5-乘除法：先定算法和寄存器含义"><a href="#5-乘除法：先定算法和寄存器含义" class="headerlink" title="5. 乘除法：先定算法和寄存器含义"></a>5. 乘除法：先定算法和寄存器含义</h3><p>无符号乘法可理解为按乘数位决定是否加被乘数，再移位累积；<script type="math/tex">w</script>位乘<script type="math/tex">w</script>位，完整乘积最多需要<script type="math/tex">2w</script>位。有符号乘法必须处理符号，可依题设采用补码乘法或先求绝对值再定符号。</p>
+<p>逐步执行题用表：“轮次｜部分积/余数｜乘数或商｜本轮操作｜移位后的值”。每轮明确是先加后移、先移后加，以及整体联合移位哪些寄存器。</p>
+<p>Booth补码乘法常通过相邻乘数位决定加、减或不操作；规则取决于题设对相邻位顺序的书写，必须对照表使用。除法的恢复余数、不恢复余数算法也不要混表。</p>
+<p>结果验算： <script type="math/tex">被除数=除数\times商+余数</script>。余数符号与商的取整方式按题设；无符号整数除法应满足<script type="math/tex">0\le余数<除数</script>。除0、商超过目标位宽都要先检查。</p>
+<h3 id="6-IEEE754：先分类，再代公式"><a href="#6-IEEE754：先分类，再代公式" class="headerlink" title="6. IEEE754：先分类，再代公式"></a>6. IEEE754：先分类，再代公式</h3><table>
+<thead>
+<tr>
+<th>格式</th>
+<th>符号位S</th>
+<th>阶码E</th>
+<th>尾数字段F</th>
+<th>偏置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>binary32，常见float</td>
+<td>1</td>
+<td>8</td>
+<td>23</td>
+<td>127</td>
+</tr>
+<tr>
+<td>binary64，常见double</td>
+<td>1</td>
+<td>11</td>
+<td>52</td>
+<td>1023</td>
+</tr>
+</tbody></table>
+<p>令<script type="math/tex">f</script>为尾数字段表示的二进制小数。规格化数：</p>
+<p><script type="math/tex; mode=display">
+x=(-1)^S(1+f)2^{E-bias}
+</script></p>
+<p>阶码全0时不能继续套隐藏1：F=0为正/负零，F不为0是非规格化数，值为<script type="math/tex">(-1)^Sf2^{1-bias}</script>。阶码全1时：F=0为无穷，F不为0为NaN。</p>
+<p><img src="/images/408-co/p027-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%BC%96%E7%A0%81.png" alt="浮点数编码原图"></p>
+<p>图源：强化讲义PDF第27页。图中1.25对应<script type="math/tex">1.01_2\times2^0</script>，E=127，F以<code>010…</code>开头，拼出3FA00000H。按“S、E、F”分别确定后再拼接，不要一次猜整个十六进制数。</p>
+<p>反向题步骤：十六进制转位串 → 切1/8/23或1/11/52 → 先看特殊E → 求真实指数 → 恢复有效数 → 加符号。</p>
+<p>四个量要能推出： binary32最小正规格化数<script type="math/tex">2^{-126}</script>；最小正非规格化数<script type="math/tex">2^{-149}</script>；最大有限值<script type="math/tex">(2-2^{-23})2^{127}</script>；规格化数有24位有效二进制精度。</p>
+<p>浮点加减流程：对阶 → 有效数加减 → 规格化 → 舍入 → 检查溢出与必要的再规格化。对阶通常小阶向大阶看齐；舍入可能产生进位。阶码位数主要影响范围，尾数位数主要影响精度。</p>
+<p>精度题抓临界值： binary32能精确表示<script type="math/tex">[-2^{24},2^{24}]</script>内的全部整数，但更大区间并非一个都不能表示；在某些范围中只可表示间隔为2、4等的整数。不要把“超过临界值”写成“一律不精确”。</p>
+<h3 id="7-本章验算清单"><a href="#7-本章验算清单" class="headerlink" title="7. 本章验算清单"></a>7. 本章验算清单</h3><p>先写位宽、符号性、小数点位置 → 写位型 → 做硬件运算 → 分别解释真值、OF、CF → 检查边界。负数补码、最小负数、符号扩展、有符号/无符号比较是需要反复练熟的基础。</p>
+<h2 id="三、存储系统"><a href="#三、存储系统" class="headerlink" title="三、存储系统"></a>三、存储系统</h2><h3 id="1-先认清存储层次"><a href="#1-先认清存储层次" class="headerlink" title="1. 先认清存储层次"></a>1. 先认清存储层次</h3><p>寄存器、Cache、主存、外存形成速度与容量的层次。Cache利用时间局部性和空间局部性缓解CPU与主存速度差异；虚拟存储侧重地址空间、保护与按需调页。Cache缺失、TLB缺失、缺页是三种不同事件。</p>
+<table>
+<thead>
+<tr>
+<th>存储介质</th>
+<th>关键机制</th>
+<th>做题抓手</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SRAM</td>
+<td>触发器等静态单元，无需像DRAM那样刷新</td>
+<td>常用于Cache，速度与成本</td>
+</tr>
+<tr>
+<td>DRAM</td>
+<td>电容存储，需刷新，行列地址复用</td>
+<td>主存、刷新开销、地址引脚</td>
+</tr>
+<tr>
+<td>ROM/Flash</td>
+<td>非易失性；Flash写入与擦除有约束</td>
+<td>不能把“非易失”理解成完全不可写</td>
+</tr>
+<tr>
+<td>磁盘</td>
+<td>寻道、旋转、传输</td>
+<td>各部分时间和容量</td>
+</tr>
+<tr>
+<td>SSD</td>
+<td>无机械寻道与旋转，基于Flash等</td>
+<td>不能照搬磁盘机械延迟公式</td>
+</tr>
+</tbody></table>
+<h3 id="2-容量、地址线与芯片扩展"><a href="#2-容量、地址线与芯片扩展" class="headerlink" title="2. 容量、地址线与芯片扩展"></a>2. 容量、地址线与芯片扩展</h3><p><script type="math/tex; mode=display">
+容量=单元数\times每单元位数
+</script></p>
+<p>芯片写作<script type="math/tex">2^a\times d</script>位，表示<script type="math/tex">2^a</script>个单元，每单元<script type="math/tex">d</script>位；地址位数为<script type="math/tex">a</script>，数据宽度为<script type="math/tex">d</script>。DRAM外部地址引脚可能复用，不能直接等同于逻辑地址位数。</p>
+<p>若目标<script type="math/tex">N\times W</script>、单片<script type="math/tex">n\times w</script>，在规格整除的常见题设下：</p>
+<p><script type="math/tex; mode=display">
+位扩展片数=W/w,\quad 字扩展组数=N/n,\quad 总片数=(W/w)(N/n)
+</script></p>
+<p>例：用<script type="math/tex">8K\times8</script>位芯片组成<script type="math/tex">32K\times32</script>位存储器。每组并联4片扩字宽，共4组扩字数，总16片；组内接相同低13位地址，高2位译码选择4组。</p>
+<p>地址范围题：先求该组容量对应多少个可编址单位，再算“末地址=首地址+单元数-1”。只有按字节编址时，才能直接把Byte数代入地址差。</p>
+<h3 id="3-交叉编址与存储带宽"><a href="#3-交叉编址与存储带宽" class="headerlink" title="3. 交叉编址与存储带宽"></a>3. 交叉编址与存储带宽</h3><p>低位交叉常把体号放在低位，使连续地址轮流进入不同存储体；高位交叉把连续一段地址放在同一体内。能否提高实际带宽还取决于访问模式、存储周期、总线和启动间隔。</p>
+<p><img src="/images/408-co/p082-%E4%BA%A4%E5%8F%89%E7%BC%96%E5%9D%80%E4%B8%8EDRAM.png" alt="交叉编址与DRAM原图"></p>
+<p>图源：强化讲义PDF第82页。读上图：连续地址变动时，先看体号变不变，再看体内地址。读下图：行地址选择行并送入行缓冲，列地址选择需要的数据；行列复用是引脚与时序机制，不是地址位数凭空减少。</p>
+<p>若每体周期<script type="math/tex">T</script>、相邻访问启动间隔<script type="math/tex">\tau</script>，要持续每<script type="math/tex">\tau</script>发起一次且不撞回尚未恢复的体，常见条件为<script type="math/tex">m\tau\ge T</script>。理想顺序读<script type="math/tex">n</script>个单位常写成<script type="math/tex">T+(n-1)\tau</script>，前提是题设确实允许重叠且无其他瓶颈。</p>
+<p>刷新题先找刷新周期、总行数、每行刷新所占时间；分清集中、分散或异步刷新。不能把刷新一次的行数误当成全部存储单元数。</p>
+<h3 id="4-Cache大题的第一步：把地址拆开"><a href="#4-Cache大题的第一步：把地址拆开" class="headerlink" title="4. Cache大题的第一步：把地址拆开"></a>4. Cache大题的第一步：把地址拆开</h3><p>设地址位数<script type="math/tex">m</script>，数据容量<script type="math/tex">C</script>字节，每块<script type="math/tex">B</script>字节，<script type="math/tex">k</script>路组相联，均按题设为2的幂且按字节编址：</p>
+<p><script type="math/tex; mode=display">
+行数=L=C/B,\quad 组数=S=L/k
+</script></p>
+<p><script type="math/tex; mode=display">
+块内偏移b=\log_2B,\quad 组索引s=\log_2S,\quad 标记t=m-s-b
+</script></p>
+<table>
+<thead>
+<tr>
+<th>映射</th>
+<th>一个主存块可去哪</th>
+<th>地址字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>直接映射</td>
+<td>唯一行</td>
+<td>Tag、行号、块内偏移</td>
+</tr>
+<tr>
+<td>全相联</td>
+<td>任意行</td>
+<td>Tag、块内偏移</td>
+</tr>
+<tr>
+<td>k路组相联</td>
+<td>固定组的任意一路</td>
+<td>Tag、组号、块内偏移</td>
+</tr>
+</tbody></table>
+<p><img src="/images/408-co/p104-Cache%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84.png" alt="Cache直接映射原图"></p>
+<p>图源：强化讲义PDF第104页。按索引选行，再检查有效位和Tag；不是地址末几位相同就一定命中。图为直接映射，组相联时需在所选组内检查各路。</p>
+<p>例： 32位地址，Cache数据容量16 KiB，块64 B，4路。行数256，组数64，偏移6位、组号6位、Tag20位。若另有有效位、脏位，问“总容量”时应另算元数据，不能把16 KiB直接当总存储位数。</p>
+<p>对地址<script type="math/tex">A</script>：块号<script type="math/tex">Q=\lfloor A/B\rfloor</script>，组号<script type="math/tex">Q\bmod S</script>，Tag=<script type="math/tex">\lfloor Q/S\rfloor</script>，块内偏移<script type="math/tex">A\bmod B</script>。</p>
+<h3 id="5-Cache访问序列与命中率"><a href="#5-Cache访问序列与命中率" class="headerlink" title="5. Cache访问序列与命中率"></a>5. Cache访问序列与命中率</h3><p>建立表：“访问地址｜块号｜组号｜Tag｜命中/缺失｜替换后内容”。先按块归并连续访问，再考虑跨块、冲突、替换和初始状态。</p>
+<p>直接映射Cache有4行，访问块序列<script type="math/tex">0,1,2,3,0,4,0</script>且初始空：前4次强制缺失，第5次命中，第6次块4替掉行0，第7次块0再缺失，命中率<script type="math/tex">1/7</script>。</p>
+<p>LRU更新最近使用次序，命中也会改变次序；FIFO按装入次序，命中通常不改变次序。更新范围是该组，不是整个Cache，除非全相联。</p>
+<table>
+<thead>
+<tr>
+<th>情况</th>
+<th>策略</th>
+<th>动作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>写命中</td>
+<td>写直达</td>
+<td>更新Cache并向下层写，常结合写缓冲</td>
+</tr>
+<tr>
+<td>写命中</td>
+<td>写回</td>
+<td>更新Cache、置脏，替换脏块时再写下层</td>
+</tr>
+<tr>
+<td>写缺失</td>
+<td>写分配</td>
+<td>先把块调入Cache再写</td>
+</tr>
+<tr>
+<td>写缺失</td>
+<td>非写分配</td>
+<td>不调入该块，直接向下层写</td>
+</tr>
+</tbody></table>
+<p>写命中和写缺失策略是两个维度，不能因为看到“写回”就跳过题目对写缺失的规定。</p>
+<h3 id="6-平均访问时间：先统一“缺失代价”的口径"><a href="#6-平均访问时间：先统一“缺失代价”的口径" class="headerlink" title="6. 平均访问时间：先统一“缺失代价”的口径"></a>6. 平均访问时间：先统一“缺失代价”的口径</h3><p>若命中时间<script type="math/tex">T_c</script>每次都付出，缺失罚时<script type="math/tex">P</script>是额外时间：</p>
+<p><script type="math/tex; mode=display">
+AMAT=T_c+(1-h)P
+</script></p>
+<p>若题设的<script type="math/tex">T_{miss}</script>已经是一次缺失从开始到结束的总时间，则：</p>
+<p><script type="math/tex; mode=display">
+AMAT=hT_c+(1-h)T_{miss}
+</script></p>
+<p>两式一致时应有<script type="math/tex">T_{miss}=T_c+P</script>。脏块写回、总线传输、首字延迟若未含在P中，要按概率和次数另计。不要机械选公式。</p>
+<p>联系CPU： <script type="math/tex">额外周期/指令=访存次数/指令\times缺失率\times每次罚时周期数</script>。区分取指与读写数据，不能把“每条指令平均访问数据0.3次”当成总访存只有0.3次。</p>
+<h3 id="7-虚拟地址、TLB、页表、Cache串起来"><a href="#7-虚拟地址、TLB、页表、Cache串起来" class="headerlink" title="7. 虚拟地址、TLB、页表、Cache串起来"></a>7. 虚拟地址、TLB、页表、Cache串起来</h3><p>页大小<script type="math/tex">2^p</script>字节时，虚拟地址拆为“虚页号VPN｜页内偏移p位”；页表或TLB把VPN转换成物理页框号PPN，偏移不变。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">虚拟地址 → 检查TLB</span><br><span class="line">├─ 命中且权限允许：取得PPN</span><br><span class="line">└─ 缺失：查页表</span><br><span class="line">   ├─ 页在主存且权限允许：取得PPN并按机制更新TLB</span><br><span class="line">   └─ 不在主存：缺页处理，调页后再继续</span><br><span class="line">→ 组成物理地址 → 按题设访问Cache/主存</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这是便于解题的串行逻辑模型；有的Cache可与TLB并行索引，有的题给多级页表，以具体结构为准。</p>
+<p>三种失效的区别： TLB缺失只说明快表没有翻译；Cache缺失只说明所需数据块不在Cache；缺页说明页面当前不在主存。前两者都不必然访问磁盘。</p>
+<p>算访问次数：按“当前路径实际经过几次查找”列树，再乘概率。一级页表、无快表、页面在主存时，若一次读取需要先访存查表再访存取数，就是两次主存访问；多级、缓存和并行会改变计数。</p>
+<h2 id="四、指令系统"><a href="#四、指令系统" class="headerlink" title="四、指令系统"></a>四、指令系统</h2><h3 id="1-分清四种长度"><a href="#1-分清四种长度" class="headerlink" title="1. 分清四种长度"></a>1. 分清四种长度</h3><p>机器字长：CPU自然处理数据的宽度；指令字长：一条指令多少位；存储字长：一个存储单元的位数；地址长度：可编码地址的位数。它们可能相同，也可能不同。</p>
+<p>定长指令便于对齐取指，不意味着一条指令只做一步；RISC常采用规整格式与load/store组织，但具体指令行为仍以ISA为准。</p>
+<h3 id="2-有效地址EA是解题中间量"><a href="#2-有效地址EA是解题中间量" class="headerlink" title="2. 有效地址EA是解题中间量"></a>2. 有效地址EA是解题中间量</h3><p>用<script type="math/tex">A</script>表示指令地址字段，<script type="math/tex">R</script>表示寄存器内容，<script type="math/tex">M[x]</script>表示地址x处内容：</p>
+<table>
+<thead>
+<tr>
+<th>寻址</th>
+<th>从哪取得操作数/地址</th>
+<th>先写什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>立即</td>
+<td>常量在指令里</td>
+<td>操作数=<script type="math/tex">A</script>，不再按A访存取数</td>
+</tr>
+<tr>
+<td>直接</td>
+<td>指令字段给出存储地址</td>
+<td>EA=<script type="math/tex">A</script>，操作数=<script type="math/tex">M[EA]</script></td>
+</tr>
+<tr>
+<td>间接</td>
+<td>字段所指位置保存EA</td>
+<td>EA=<script type="math/tex">M[A]</script>，再取<script type="math/tex">M[EA]</script></td>
+</tr>
+<tr>
+<td>寄存器</td>
+<td>指令指定寄存器</td>
+<td>操作数=<script type="math/tex">R</script></td>
+</tr>
+<tr>
+<td>寄存器间接</td>
+<td>寄存器保存EA</td>
+<td>EA=<script type="math/tex">R</script>，再取<script type="math/tex">M[EA]</script></td>
+</tr>
+<tr>
+<td>基址/变址</td>
+<td>基准与偏移相加</td>
+<td>EA=寄存器内容+扩展后偏移</td>
+</tr>
+<tr>
+<td>相对</td>
+<td>PC基准与位移相加</td>
+<td>先明确是当前PC还是下一条PC</td>
+</tr>
+</tbody></table>
+<p>通用步骤：找字段 → 判断存的是数据、地址还是寄存器编号 → 扩展偏移 → 按单位缩放 → 求EA → 按数据宽度取数。</p>
+<p>“访存次数”要看题目是否把取指计入，是否通过Cache，以及间接寻址是否多次间接；不能只背“某寻址固定几次”。</p>
+<h3 id="3-分支位移：PC基准和缩放是两个独立条件"><a href="#3-分支位移：PC基准和缩放是两个独立条件" class="headerlink" title="3. 分支位移：PC基准和缩放是两个独立条件"></a>3. 分支位移：PC基准和缩放是两个独立条件</h3><p>在典型32位MIPS、按字节编址、beq类指令的题设下，常用：</p>
+<p><script type="math/tex; mode=display">
+目标=PC+4+\operatorname{SEXT}(imm16)\times4
+</script></p>
+<p>若PC=1000H、目标1010H，偏移为<script type="math/tex">(1010H-1004H)/4=3</script>。不能把目标地址直接填入16位字段。</p>
+<p>这是具体ISA的公式。题目给其他架构或自定义指令时，先找PC基准、位移位宽、符号扩展和缩放规则。不要把“PC+4”推广到所有指令集。</p>
+<h3 id="4-指令格式与扩展操作码"><a href="#4-指令格式与扩展操作码" class="headerlink" title="4. 指令格式与扩展操作码"></a>4. 指令格式与扩展操作码</h3><p>若指令总长<script type="math/tex">L</script>、每个地址字段<script type="math/tex">a</script>位，有<script type="math/tex">k</script>个地址字段，则剩余<script type="math/tex">L-ka</script>位可用于操作码和其他控制字段。实际题目若另有寻址模式等字段，还要扣掉。</p>
+<p>扩展操作码题：画前缀树，从长地址指令开始分配；某前缀已用于短操作码，就不能同时成为另一个完整操作码的前缀。每剩一个长度<script type="math/tex">r</script>的前缀，多扩<script type="math/tex">d</script>位就可得到<script type="math/tex">2^d</script>个新编码。逐层扣除已用前缀，不要把不同长度的编码直接相加。</p>
+<h3 id="5-大小端、对齐与数组地址"><a href="#5-大小端、对齐与数组地址" class="headerlink" title="5. 大小端、对齐与数组地址"></a>5. 大小端、对齐与数组地址</h3><p>小端：低有效字节放低地址；大端相反。<code>0x12345678</code>从地址A起存放，小端依次为<code>78 56 34 12</code>。这不改变每个字节内部的位权，也不改变CPU寄存器中的数值。</p>
+<p>数组元素地址：</p>
+<p><script type="math/tex; mode=display">
+addr(a[i])=base+i\times sizeof(element)
+</script></p>
+<p>连续行优先二维数组<script type="math/tex">a[R][C]</script>：<script type="math/tex">addr(a[i][j])=base+(iC+j)\times元素大小</script>。结构体成员偏移还受对齐与填充影响，不能只把各字段字节数机械相加。</p>
+<p>解题模板：明确下标/循环变量 → 算字节偏移 → 得到地址 → 按端序重组位型 → 按类型解释真值。若变量类型由int换成short，地址步长可能变，但指令是否也要改取决于题设。</p>
+<h3 id="6-调用、栈与返回"><a href="#6-调用、栈与返回" class="headerlink" title="6. 调用、栈与返回"></a>6. 调用、栈与返回</h3><p>调用通常需要记录返回地址；栈保存局部数据、参数或现场，但具体哪些寄存器由调用者/被调用者保存由约定决定。读汇编时跟踪SP、返回地址寄存器和保存位置，别默认所有机器都采用同一栈方向或调用规范。</p>
+<p>对递归题，每层栈帧大小乘同时存活层数，而不是乘调用总次数。返回后SP应按约定恢复，可作为验算。</p>
+<h2 id="五、CPU与流水线"><a href="#五、CPU与流水线" class="headerlink" title="五、CPU与流水线"></a>五、CPU与流水线</h2><h3 id="1-寄存器的任务先分清"><a href="#1-寄存器的任务先分清" class="headerlink" title="1. 寄存器的任务先分清"></a>1. 寄存器的任务先分清</h3><table>
+<thead>
+<tr>
+<th>寄存器</th>
+<th>本章主要用途</th>
+<th>易混点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PC</td>
+<td>指示取指地址与控制流位置</td>
+<td>与IR不同</td>
+</tr>
+<tr>
+<td>IR</td>
+<td>保存当前指令、提供译码字段</td>
+<td>不是下一条指令地址</td>
+</tr>
+<tr>
+<td>MAR</td>
+<td>保存访存地址</td>
+<td>位数联系可寻址单元数</td>
+</tr>
+<tr>
+<td>MDR</td>
+<td>暂存访存数据</td>
+<td>位数联系数据通路宽度，不等于地址位数</td>
+</tr>
+<tr>
+<td>通用寄存器</td>
+<td>操作数、结果或地址</td>
+<td>同一寄存器内容如何用由指令决定</td>
+</tr>
+<tr>
+<td>PSW/标志</td>
+<td>状态、条件等</td>
+<td>具体内容由ISA规定</td>
+</tr>
+</tbody></table>
+<p>取指可抽象为<script type="math/tex">PC\to MAR</script>，发读请求，存储内容经数据通路进入IR，并更新PC。是否能同时完成、需几个周期，取决于图和时序条件。</p>
+<h3 id="2-数据通路题：先写语义，再沿图走"><a href="#2-数据通路题：先写语义，再沿图走" class="headerlink" title="2. 数据通路题：先写语义，再沿图走"></a>2. 数据通路题：先写语义，再沿图走</h3><p>例： load的语义是“基址+偏移求EA，读内存，结果写目的寄存器”；store是“求EA，把源寄存器数据写到内存”，没有把结果写回通用寄存器这一步。</p>
+<p><img src="/images/408-co/p135-%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E7%BB%84%E5%90%88%E5%85%83%E4%BB%B6.png" alt="组合元件原图"></p>
+<p>图源：强化讲义PDF第135页。MUX选路、加法器相加、ALU按操作控制产生结果。控制信号决定选择和写入，但数据沿数据线传递。</p>
+<p>按这个顺序填控制表：</p>
+<ol>
+<li>列出读哪些寄存器、写哪个寄存器、是否访存。</li>
+<li>确定ALU的两个输入和运算。</li>
+<li>确定写回来源是ALU、存储器还是其他来源。</li>
+<li>确定PC顺序前进还是分支/跳转。</li>
+<li>给MUX选路、寄存器写使能、存储器读写、ALU控制赋值。</li>
+</ol>
+<p>无关信号才可写X。例如不写通用寄存器时，写回MUX可能无关；但MemWrite若随意写X，可能产生意外存储，不能因为“该指令不访存”就把它当无关。</p>
+<h3 id="3-单总线、多周期：先检查资源冲突"><a href="#3-单总线、多周期：先检查资源冲突" class="headerlink" title="3. 单总线、多周期：先检查资源冲突"></a>3. 单总线、多周期：先检查资源冲突</h3><p>单条内部总线同一时刻通常只能由一个源驱动，多个目的寄存器可在条件允许时同时接收同一个值。ALU要做双操作数运算时，常需要暂存器保存一个输入。</p>
+<p>排微操作步骤：写出不可省的操作 → 标依赖 → 检查总线谁输出、谁接收 → 标访存等待 → 再合并能并行的步骤。不能把同一条总线安排成“R1输出A、R2同时输出B”。</p>
+<h3 id="4-控制器：机器指令与微指令不是同一层"><a href="#4-控制器：机器指令与微指令不是同一层" class="headerlink" title="4. 控制器：机器指令与微指令不是同一层"></a>4. 控制器：机器指令与微指令不是同一层</h3><p>硬布线控制通过组合逻辑、状态和时序等产生控制信号；微程序控制从控制存储器读取微指令，逐步给出控制信号和后继地址。微指令位于控制实现层，不是用户程序中的机器指令。</p>
+<p>计算题：微指令字长=操作控制字段+判别字段+下址等字段；控存容量=微指令条数×每条位数。水平型可并行控制较多操作，字段编码可缩短字长但增加译码约束。填字段前先判断哪些微操作互斥、哪些可能同周期发生。</p>
+<h3 id="5-流水线：跨指令重叠，不保证单条更快"><a href="#5-流水线：跨指令重叠，不保证单条更快" class="headerlink" title="5. 流水线：跨指令重叠，不保证单条更快"></a>5. 流水线：跨指令重叠，不保证单条更快</h3><p>典型五段为IF取指、ID译码/读寄存器、EX执行、MEM访存、WB写回。不是每条指令都做实际内存读写，也不是每条都有通用寄存器写回。</p>
+<p><img src="/images/408-co/p157-%E4%BA%94%E6%AE%B5%E6%B5%81%E6%B0%B4%E7%BA%BF.png" alt="五段流水时空图"></p>
+<p>图源：强化讲义PDF第157页。横向看一条指令经历阶段，竖向看同一周期不同指令争用哪些资源。原图中的无冲突排布是理想示意，遇到相关要重新插入停顿。</p>
+<p><img src="/images/408-co/p159-%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF.png" alt="流水线阶段与数据通路"></p>
+<p>图源：强化讲义PDF第159页。注意阶段间的寄存器：它们保存跨周期使用的数据和控制信息。读图要跟踪同一条指令的数据，避免把后一条指令当前的字段误用于前一条指令。</p>
+<p>理想<script type="math/tex">k</script>段流水线、每周期<script type="math/tex">\tau</script>、连续执行<script type="math/tex">n</script>条且无停顿：</p>
+<p><script type="math/tex; mode=display">
+T=(k+n-1)\tau
+</script></p>
+<p>周期通常取最慢一级组合延迟加流水寄存器开销。若另有<script type="math/tex">S</script>个未重叠停顿周期，则常写<script type="math/tex">T=(k+n-1+S)\tau</script>。吞吐率为<script type="math/tex">n/T</script>，稳态上限约<script type="math/tex">1/\tau</script>；与非流水比较的加速比要先写清比较基准。</p>
+<h3 id="6-冒险题：结果什么时候产生，下一条什么时候需要"><a href="#6-冒险题：结果什么时候产生，下一条什么时候需要" class="headerlink" title="6. 冒险题：结果什么时候产生，下一条什么时候需要"></a>6. 冒险题：结果什么时候产生，下一条什么时候需要</h3><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>冲突来源</th>
+<th>典型处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>结构冒险</td>
+<td>同周期争同一硬件</td>
+<td>增加资源或停顿</td>
+</tr>
+<tr>
+<td>数据冒险</td>
+<td>后指令要用尚未可用的数据</td>
+<td>转发、停顿、合法调度</td>
+</tr>
+<tr>
+<td>控制冒险</td>
+<td>分支结果/目标尚不确定</td>
+<td>停顿、预测、冲刷等</td>
+</tr>
+</tbody></table>
+<p>RAW题的标准动作：给每条指令列“读寄存器、写寄存器” → 找依赖 → 标产生值的阶段末 → 标消费值的阶段 → 看是否有对应转发路径 → 不够才停顿。</p>
+<p>在常见五段模型中，ALU结果EX末可用；load数据MEM末才可用。若下一条紧接着在EX需要load结果，即使有常见转发，也通常仍要停1周期；若图中有特殊路径或不同使用阶段，结论会变化。</p>
+<p>示例：常见EX/MEM与MEM/WB到EX转发：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lw  r1,0(r2)</span><br><span class="line">add r3,r1,r4</span><br></pre></td></tr></tbody></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>周期</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lw</td>
+<td>IF</td>
+<td>ID</td>
+<td>EX</td>
+<td>MEM</td>
+<td>WB</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add</td>
+<td></td>
+<td>IF</td>
+<td>ID</td>
+<td>停顿</td>
+<td>EX</td>
+<td>MEM</td>
+<td>WB</td>
+</tr>
+</tbody></table>
+<p>load在第4周期末得到数据，add第5周期EX使用。若不支持转发，还要按寄存器写回与读取时序重新算，不能照抄一个停顿。</p>
+<h3 id="7-分支、异常与并行概念"><a href="#7-分支、异常与并行概念" class="headerlink" title="7. 分支、异常与并行概念"></a>7. 分支、异常与并行概念</h3><p>分支题先找比较和目标计算在哪一级完成、是否预测、预测失败冲刷哪些年轻指令。停顿和冲刷可能有重叠，不要把几个罚时数字重复相加。</p>
+<p>异常由指令执行相关事件引起，例如缺页、非法指令、系统调用等；外部中断由设备或时钟等引起，与当前指令的执行一般异步。返回地址是重做当前指令还是继续下一条，由异常种类和体系结构规定。</p>
+<p>超标量关注一周期发射多条指令；多核是多个处理核心；硬件多线程切换或交错线程以利用资源；它们不能互当同义词。</p>
+<h2 id="六、总线与I-O"><a href="#六、总线与I-O" class="headerlink" title="六、总线与I/O"></a>六、总线与I/O</h2><h3 id="1-带宽题先找“每次传多少”和“每秒多少次”"><a href="#1-带宽题先找“每次传多少”和“每秒多少次”" class="headerlink" title="1. 带宽题先找“每次传多少”和“每秒多少次”"></a>1. 带宽题先找“每次传多少”和“每秒多少次”</h3><p><script type="math/tex; mode=display">
+带宽=每次传输字节数\times每秒有效传输次数
+</script></p>
+<p>数据总线宽度32位，每个100 MHz时钟周期传一次，理论数据带宽<script type="math/tex">4\times10^8</script> B/s=400 MB/s。若每次事务要4周期且只有一次32位数据传送，则有效数据带宽100 MB/s。若双沿传输或突发传输，以题设有效传输次数为准。</p>
+<p>抓三个边界：主频是否就是总线频率；传输周期与时钟周期是否相同；求理论峰值还是包含地址、握手、等待后的有效数据带宽。</p>
+<p>同步总线依赖统一时钟约定；异步总线以握手等协调；半同步允许等待。仲裁解决多个主设备争用总线，优先级、响应速度和饥饿等按具体方案判断。</p>
+<h3 id="2-接口不是设备本体，端口不是一根线"><a href="#2-接口不是设备本体，端口不是一根线" class="headerlink" title="2. 接口不是设备本体，端口不是一根线"></a>2. 接口不是设备本体，端口不是一根线</h3><p>I/O接口包含数据缓冲、状态/控制寄存器、地址译码与控制逻辑等；端口通常指其中可寻址寄存器。CPU通过读状态、写控制、读写数据与外设交互。</p>
+<p><img src="/images/408-co/p206-IO%E6%8E%A5%E5%8F%A3.png" alt="I/O接口原图"></p>
+<p>图源：强化讲义PDF第206页。按线读：地址线选寄存器，数据线传数据，控制线说明读写和状态协调。DMA传输期间，由获总线控制权的相应主设备提供主存地址，不应理解为每个数据字仍由CPU发起普通load/store。</p>
+<h3 id="3-查询、中断、DMA的比较"><a href="#3-查询、中断、DMA的比较" class="headerlink" title="3. 查询、中断、DMA的比较"></a>3. 查询、中断、DMA的比较</h3><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>CPU什么时候参与</th>
+<th>数据通常怎样搬</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>程序查询</td>
+<td>主动反复检查状态</td>
+<td>CPU执行I/O指令/读写操作</td>
+</tr>
+<tr>
+<td>中断</td>
+<td>发起后可做其他事，设备就绪再服务</td>
+<td>CPU在服务程序中搬运，按题设</td>
+</tr>
+<tr>
+<td>DMA</td>
+<td>初始化、结束处理与异常等</td>
+<td>DMA硬件组织设备接口与主存间传输</td>
+</tr>
+</tbody></table>
+<p>DMA不是“完全不需要CPU”，也不意味着“总线和主存不会被占用”。中断方式允许CPU与设备准备过程并行，但CPU执行中断服务本身仍占用处理时间。</p>
+<h3 id="4-I-O计算题的统一表"><a href="#4-I-O计算题的统一表" class="headerlink" title="4. I/O计算题的统一表"></a>4. I/O计算题的统一表</h3><p>先统一为“每秒多少次服务/传输”。设备速率<script type="math/tex">R</script> B/s，每次处理<script type="math/tex">d</script> B：</p>
+<p><script type="math/tex; mode=display">
+请求率=R/d
+</script></p>
+<p>每次服务耗CPU周期<script type="math/tex">c</script>，CPU频率<script type="math/tex">f</script>：</p>
+<p><script type="math/tex; mode=display">
+CPU占用比例=(R/d)\times c/f
+</script></p>
+<p>若给出的是每次耗时<script type="math/tex">t</script>，则为<script type="math/tex">(R/d)t</script>。如果给每条指令CPI和服务指令数，则先求<script type="math/tex">c=指令条数\times CPI+其他周期开销</script>。</p>
+<p>例： R=1 MB/s，接口缓冲4 B，一次中断占100周期，CPU为100 MHz；按十进制MB，CPU占用<script type="math/tex">10^6/4\times100/10^8=25\%</script>。若缓冲改成每次处理整个块，请求率要按块重新计算。</p>
+<p>定时查询：为不丢数据，最坏查询间隔不能超过缓冲可承受的数据到达间隔。先算多久产生<script type="math/tex">d</script>字节，即<script type="math/tex">d/R</script>；再看一次查询消耗多少时间、CPU需分配多大比例。</p>
+<p>DMA：分清每次DMA请求传一个字，还是每块DMA结束才发一次中断。块大小决定结束中断频率；每次传输粒度决定DMA请求次数，两者通常不同。</p>
+<h3 id="5-中断流程与优先级"><a href="#5-中断流程与优先级" class="headerlink" title="5. 中断流程与优先级"></a>5. 中断流程与优先级</h3><p>常见流程可整理为：检测并响应 → 保存断点/必要状态并转入入口 → 软件保存需保护的现场 → 服务 → 恢复现场 → 中断返回。哪部分硬件完成、哪部分软件完成、是否开中断，依体系结构和题设。</p>
+<p>中断响应优先级决定同时请求先响应谁；处理优先级体现处理中谁能打断谁。两者不必相同。</p>
+<p>屏蔽字题先确认“1表示屏蔽还是允许”，再对当前服务程序列出允许抢占的集合，画嵌套栈。每次新中断先判断是否允许和是否到响应时点；服务结束按后进先出返回，不按到达时间随意跳转。</p>
+<h3 id="6-磁盘题的三个时间"><a href="#6-磁盘题的三个时间" class="headerlink" title="6. 磁盘题的三个时间"></a>6. 磁盘题的三个时间</h3><p><script type="math/tex; mode=display">
+访问时间=寻道时间+旋转等待+数据传输时间
+</script></p>
+<p>转速<script type="math/tex">r</script> rpm，一圈<script type="math/tex">60/r</script>秒；均匀随机到达假设下，平均旋转等待半圈。传输时间按传输字节数/对应速率求；只求一个扇区时可结合每圈扇区数计算。</p>
+<p>容量通常为盘面数×每面磁道数×每道扇区数×每扇区数据字节数。盘片双面、是否有保留面、地址信息是否计入有效数据容量，逐项看题设。</p>
+<h2 id="七、综合题解题步骤"><a href="#七、综合题解题步骤" class="headerlink" title="七、综合题解题步骤"></a>七、综合题解题步骤</h2><h3 id="1-用一行C代码把知识串起来"><a href="#1-用一行C代码把知识串起来" class="headerlink" title="1. 用一行C代码把知识串起来"></a>1. 用一行C代码把知识串起来</h3><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum += a[i];</span><br></pre></td></tr></tbody></table></figure>
+
+<p>分析顺序如下：</p>
+<ol>
+<li>语义与类型： i、sum、元素多宽，有无符号，是否发生类型转换？</li>
+<li>地址： a的基址、元素步长、端序和对齐条件是什么？</li>
+<li>指令：哪些指令算地址、读数据、相加、控制循环？</li>
+<li>存储：这些是虚拟地址还是物理地址，跨了哪些页和Cache块？</li>
+<li>CPU：哪些指令有依赖，数据何时可用，有无停顿？</li>
+<li>性能：实际执行多少条、多少次缺失、额外几个周期，最后换算时间。</li>
+</ol>
+<p>地址、位型、块号和周期数是各小问之间共用的中间量。</p>
+<h3 id="2-综合题计算表"><a href="#2-综合题计算表" class="headerlink" title="2. 综合题计算表"></a>2. 综合题计算表</h3><table>
+<thead>
+<tr>
+<th>题型</th>
+<th>草稿表列名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型与位运算</td>
+<td>步骤、类型、位宽、位型、真值、标志</td>
+<td>防止把编码与真值混用</td>
+</tr>
+<tr>
+<td>存储访问</td>
+<td>地址、VPN/PPN、块号、组号、Tag、命中、代价</td>
+<td>防止漏访问和错映射</td>
+</tr>
+<tr>
+<td>CPU/流水线</td>
+<td>指令、读写集合、阶段、资源、停顿</td>
+<td>防止只凭“有依赖”猜周期</td>
+</tr>
+</tbody></table>
+<h3 id="3-计算过程与单位"><a href="#3-计算过程与单位" class="headerlink" title="3. 计算过程与单位"></a>3. 计算过程与单位</h3><p>先写关键假设与单位，再写通用关系，再代数值，最后给结果与含义。例如：“按字节编址，块大小64 B，所以低6位为块内偏移；数据容量16 KiB、4路，得64组，所以组号6位，Tag20位。”</p>
+<hr>
+<h1 id="数据表示与运算：基础推导与强化题"><a href="#数据表示与运算：基础推导与强化题" class="headerlink" title="数据表示与运算：基础推导与强化题"></a>数据表示与运算：基础推导与强化题</h1><h2 id="1-补码为什么能直接相加"><a href="#1-补码为什么能直接相加" class="headerlink" title="1. 补码为什么能直接相加"></a>1. 补码为什么能直接相加</h2><p>w位寄存器只留下运算结果的低w位，所以硬件加法天然在模<script type="math/tex">2^w</script>的范围内工作。负数-x编码成<script type="math/tex">2^w-x</script>，就有<script type="math/tex">x+(2^w-x)\equiv0\pmod{2^w}</script>。这解释了补码取反加一，也解释了最高位进位为何可以丢弃；丢掉进位不表示真值一定没有溢出。</p>
+<p>对位型<script type="math/tex">b_{w-1}\cdots b_0</script>，无符号值是各位的正权和；补码把最高位权改为<script type="math/tex">-2^{w-1}</script>。因此同一位型的无符号值U与补码值S满足：最高位0时S=U；最高位1时<script type="math/tex">S=U-2^w</script>。</p>
+<p>例1：8位位型11110110。无符号值246；补码值246-256=-10。符号扩展到16位是11111111 11110110，新增8个1对应的无符号增量是65280，最后再减65536，仍为-10。零扩展则得到246。扩展方式由原数解释和操作规则决定，不能见到最高位1就一律补1。</p>
+<p>截断反例： 16位补码00000000 11110110表示246，截到8位变成-10。截断保留了低位模值，没有保留原有真值。先问“要保持位型还是保持数值”，再判断转换。</p>
+<h3 id="小数不能套整数的最高位权"><a href="#小数不能套整数的最高位权" class="headerlink" title="小数不能套整数的最高位权"></a>小数不能套整数的最高位权</h3><p>纯小数补码若写成<script type="math/tex">b_0.b_1\cdots b_n</script>，真值为<script type="math/tex">-b_0+\sum_{i=1}^n b_i2^{-i}</script>，范围<script type="math/tex">[-1,1-2^{-n}]</script>。例如1.101表示<script type="math/tex">-1+1/2+1/8=-3/8</script>。整数11101与小数1.1101的小数点位置不同，数值不同；二进制点通常由约定确定，不额外占寄存器位。</p>
+<h2 id="2-一次运算，同时判断有符号与无符号"><a href="#2-一次运算，同时判断有符号与无符号" class="headerlink" title="2. 一次运算，同时判断有符号与无符号"></a>2. 一次运算，同时判断有符号与无符号</h2><p>例2：8位加法01111111+00000001。真正的加法产生10000000，无最高位进位。按无符号看127+1=128，没有越过255，CF=0；按补码看127+1超过127，OF=1。结果最高位SF=1，结果非零ZF=0。</p>
+<p>变式：11111111+00000001。结果00000000并产生进位。无符号255+1越界，CF=1；补码-1+1=0，没有有符号溢出，OF=0；ZF=1，SF=0。</p>
+<p>例3：8位10000000-00000001。硬件做10000000+11111111+1，低8位为01111111。无符号128-1=127，无借位；补码-128-1=-129不可表示，OF=1。若题目规定CF表示减法借位，则CF=0；有些实现使用“无借位进位”约定，必须先看题设。</p>
+<p>加法有符号溢出：同号相加，结果异号。减法有符号溢出：被减数与减数异号，结果与被减数异号。二者也可用符号位进位与最高位进位的异或判断。</p>
+<p>比较题为什么还要看OF？对补码A-B，A&lt;B的条件是SF异或OF为1。上例SF=0、OF=1，仍正确判断-128&lt;1。只看差的符号会错。无符号小于则看借位约定，不能借用SF。</p>
+<h3 id="从加法器看到超前进位"><a href="#从加法器看到超前进位" class="headerlink" title="从加法器看到超前进位"></a>从加法器看到超前进位</h3><p>采用<script type="math/tex">P_i=A_i\oplus B_i</script>、<script type="math/tex">G_i=A_iB_i</script>时，<script type="math/tex">C_{i+1}=G_i+P_iC_i</script>，这里乘表示与、加表示或。展开得到<script type="math/tex">C_2=G_1+P_1G_0+P_1P_0C_0</script>。串行进位等待前一位，超前进位用展开式并行计算；二者结果相同，关键差别是延迟和硬件复杂度。题设若把P定义为或，按其定义推导，别混用两套符号。</p>
+<h2 id="3-移位：动作、数值与误差分开判断"><a href="#3-移位：动作、数值与误差分开判断" class="headerlink" title="3. 移位：动作、数值与误差分开判断"></a>3. 移位：动作、数值与误差分开判断</h2><p>固定8位模型下，逻辑右移补0，算术右移复制符号位。位型11111011表示-5：逻辑右移得到01111101即125；算术右移得到11111101即-3。后者相当于对-2.5向负无穷取整，不等于C语言整数除法向零截断的-2。</p>
+<p>左移时低位补0，高位丢弃。00100000左移2位得10000000：无符号32×4=128可表示；补码32×4=128不可表示。因此“左移k位相当于乘<script type="math/tex">2^k</script>”要加上结果可表示的前提。硬件位移练习与C表达式的合法性分开处理；负数移位或有符号溢出不能凭固定宽度模型直接断言C程序结果。</p>
+<h2 id="4-无符号乘法：四轮到底做什么"><a href="#4-无符号乘法：四轮到底做什么" class="headerlink" title="4. 无符号乘法：四轮到底做什么"></a>4. 无符号乘法：四轮到底做什么</h2><p>例4：4位3×5，求8位乘积。 M=0011，A=0000，Q=0101。每轮看Q最低位：为1则A加M；然后把C、A、Q作为整体逻辑右移。C保存加法进位，不能在右移前丢弃。重复4轮。</p>
+<table>
+<thead>
+<tr>
+<th>轮次</th>
+<th>本轮Q最低位</th>
+<th>加法后C、A</th>
+<th>整体右移后的A</th>
+<th>右移后的Q</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始</td>
+<td>—</td>
+<td>—</td>
+<td>0000</td>
+<td>0101</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0、0011</td>
+<td>0001</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>0、0001</td>
+<td>0000</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>0、0011</td>
+<td>0001</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>0、0001</td>
+<td>0000</td>
+<td>1111</td>
+</tr>
+</tbody></table>
+<p>最后A连接Q为00001111，即15。Q在运算中逐步被部分积占据，所以不能用初始乘数的最低位判断所有轮次。</p>
+<p>若结果只保留4位，本例15仍可表示；换成7×3=21，完整积00010101，低4位0101仅为5，发生无符号截断溢出。无符号乘积截到w位，检查高w位是否全0；补码乘积截到w位，检查被丢高位是否全等于所留结果的符号位。</p>
+<h2 id="5-Booth乘法：把连续1变成边界加减"><a href="#5-Booth乘法：把连续1变成边界加减" class="headerlink" title="5. Booth乘法：把连续1变成边界加减"></a>5. Booth乘法：把连续1变成边界加减</h2><p>对补码乘数，相邻位差可把一串1转成起止边界的加减。实现时增加<script type="math/tex">Q_{-1}=0</script>，每轮先看<script type="math/tex">(Q_0,Q_{-1})</script>：01加M，10减M，00或11不加减；再对A、Q、<script type="math/tex">Q_{-1}</script>整体算术右移。重复w轮。</p>
+<p>例5：4位-3×6。 M=1101，-M=0011；初始A=0000，Q=0110，附加位0。</p>
+<table>
+<thead>
+<tr>
+<th>轮次</th>
+<th>判断位对</th>
+<th>A的加减动作</th>
+<th>算术右移后A</th>
+<th>Q</th>
+<th>附加位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>00</td>
+<td>不变</td>
+<td>0000</td>
+<td>0011</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>A减M，得0011</td>
+<td>0001</td>
+<td>1001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>11</td>
+<td>不变</td>
+<td>0000</td>
+<td>1100</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>01</td>
+<td>A加M，得1101</td>
+<td>1110</td>
+<td>1110</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>结果丢附加位，A连接Q得11101110，补码真值238-256=-18。验算不能只看最后符号，必须再核对绝对值3×6=18。</p>
+<p>边界：最小负数<script type="math/tex">-2^{w-1}</script>在w位内无法求正的相反数，朴素w位A和M实现可能失效。遇到该数，应按题设使用加宽部分积/符号扩展方案，或单独处理；不要把本例流程无条件套到边界输入。此处是整数Booth流程，不与某些教材的小数补码“先处理数值位、最后修正符号位”表格混用。</p>
+<h2 id="6-恢复余数除法：先试减，失败再恢复"><a href="#6-恢复余数除法：先试减，失败再恢复" class="headerlink" title="6. 恢复余数除法：先试减，失败再恢复"></a>6. 恢复余数除法：先试减，失败再恢复</h2><p>例6：无符号13÷3。除数M=00011，余数A用5位，Q用4位存放被除数1101。每轮先整体左移A、Q，再计算A-M；若负则恢复A并令Q最低位0，否则保留差并置1。共4轮。</p>
+<table>
+<thead>
+<tr>
+<th>轮次</th>
+<th>左移后的A、Q</th>
+<th>试减结果A-M</th>
+<th>处理后A、Q</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>00001、1010</td>
+<td>-2</td>
+<td>恢复：00001、1010</td>
+</tr>
+<tr>
+<td>2</td>
+<td>00011、0100</td>
+<td>0</td>
+<td>保留、置1：00000、0101</td>
+</tr>
+<tr>
+<td>3</td>
+<td>00000、1010</td>
+<td>-3</td>
+<td>恢复：00000、1010</td>
+</tr>
+<tr>
+<td>4</td>
+<td>00001、0100</td>
+<td>-2</td>
+<td>恢复：00001、0100</td>
+</tr>
+</tbody></table>
+<p>商Q=0100=4，余数A=1。检验<script type="math/tex">13=3\times4+1</script>且<script type="math/tex">0\le1<3</script>。</p>
+<p>不恢复余数法在试减为负时不立即加回，而根据余数符号决定下一轮加还是减，末尾可能需要恢复；因此它的中间余数能为负。考试指定不恢复法时，要按其迭代关系列另一张表，不能拿本表改标题。整数有符号除法还要分别确认商、余数的符号规则；若采用向零截断，则-13÷3商-4余-1，仍满足被除数=除数×商+余数。除数0及最小负数除以-1要单独检查。</p>
+<h2 id="7-浮点编码：从十进制走完一遍"><a href="#7-浮点编码：从十进制走完一遍" class="headerlink" title="7. 浮点编码：从十进制走完一遍"></a>7. 浮点编码：从十进制走完一遍</h2><p>例7：把-13.25编码为binary32。</p>
+<ol>
+<li>13为1101，0.25为0.01，所以绝对值1101.01。</li>
+<li>规格化为<script type="math/tex">1.10101\times2^3</script>。</li>
+<li>S=1，E=3+127=130=10000010。</li>
+<li>隐藏首位1不存入F，F为10101后补0至23位。</li>
+<li>拼接得到11000001010101000000000000000000，即0xC1540000。</li>
+</ol>
+<p>反解必须先检查E：E既非0也非255，所以用规格化公式<script type="math/tex">(-1)^S(1+F/2^{23})2^{E-127}</script>。不能把E直接当真阶码，也不能把尾数的符号位额外存一次。</p>
+<h3 id="浮点舍入"><a href="#浮点舍入" class="headerlink" title="浮点舍入"></a>浮点舍入</h3><p>设一个教学浮点系统有效数共4位，包含隐藏首位，采用最近偶数舍入，阶码范围足够。</p>
+<p>例8：<script type="math/tex">1.010_2\times2^0+1.000_2\times2^{-4}</script>。小阶码对齐后为0.0001，加得1.0101。它恰在1.010与1.011之间；保留位末位0为偶，结果选1.010。若原大数改为1.011，则和为1.0111，恰在1.011与1.100之间，选末位0的1.100。“偶”指所保留有效数的最低位为0。</p>
+<p>一般用G、R、S位：G为第一丢弃位、R第二丢弃位、S为其后所有位的或；L为保留部分末位。最近偶数模式的进位条件为<script type="math/tex">G\land(R\lor S\lor L)</script>。G=0不进；G=1且后面有1说明超过半个间隔，进；恰好一半由L决定。舍入进位可能再次改变阶码。</p>
+<p>例9：<script type="math/tex">1.111\times2^0+1.000\times2^{-3}</script>，有效数4位。对阶后第二数0.001，相加10.000，先右规成1.000×<script type="math/tex">2^1</script>，再看需要舍弃的位。若先机械截成4位再规格化，会丢掉真正的有效位。</p>
+<p>浮点加减的固定顺序：分类特殊值 → 比阶码 → 小数向大阶码对齐 → 有效数加减 → 规格化 → 舍入 → 必要时再次规格化 → 检查上下溢。相近数相减可能大量左规，体现有效数字损失；乘除法通常先运算阶码和有效数，再规格化与舍入，不需要像加减那样对阶。</p>
+<h3 id="精度边界题"><a href="#精度边界题" class="headerlink" title="精度边界题"></a>精度边界题</h3><p>binary32有效数24位。在区间<script type="math/tex">[2^e,2^{e+1})</script>内，相邻规格化数间距为<script type="math/tex">2^{e-23}</script>。所以<script type="math/tex">2^{24}</script>附近间距为2，<script type="math/tex">2^{24}+1</script>不能精确表示；最近偶数时舍入为<script type="math/tex">2^{24}</script>。不要据“最大数很大”推断所有较小整数都能精确存储。非规格化数另用固定最小间距<script type="math/tex">2^{-149}</script>，不能照搬隐藏首位1。</p>
+<h2 id="8-练习与答案"><a href="#8-练习与答案" class="headerlink" title="8. 练习与答案"></a>8. 练习与答案</h2><table>
+<thead>
+<tr>
+<th>题目</th>
+<th>答案与判据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8位10000000+10000000，求CF与OF</td>
+<td>结果0；CF=1，OF=1：无符号256越界，补码-256越界</td>
+</tr>
+<tr>
+<td>11111111符号扩展到16位后为何仍是-1</td>
+<td>65535-65536=-1</td>
+</tr>
+<tr>
+<td>8位补码-65左移1位的位型与真值是否一致</td>
+<td>10111111变01111110；位型126，数学值-130不可表示</td>
+</tr>
+<tr>
+<td>binary32的0x80000000是什么</td>
+<td>E=0、F=0、S=1，为负零</td>
+</tr>
+<tr>
+<td>10÷3若最终商3余2，哪里可直接判错</td>
+<td>3×3+2=11，不等于被除数10</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="存储系统：地址推导与访问模拟"><a href="#存储系统：地址推导与访问模拟" class="headerlink" title="存储系统：地址推导与访问模拟"></a>存储系统：地址推导与访问模拟</h1><h2 id="1-先补基础：地址线为什么不总等于容量的对数"><a href="#1-先补基础：地址线为什么不总等于容量的对数" class="headerlink" title="1. 先补基础：地址线为什么不总等于容量的对数"></a>1. 先补基础：地址线为什么不总等于容量的对数</h2><p>一个地址选一个编址单位。按字节编址的64 KiB空间有65536个地址，需16位；若同样64 KiB按16位字编址，则只有32768个字地址，需15位。容量除以编址单位，才是地址个数。</p>
+<p>芯片8K×8表示8192个地址、每地址8位，共8 KiB，芯片逻辑地址需13位、数据线8根。DRAM行列地址复用时，封装物理地址引脚数不一定为13：把逻辑地址拆成行、列，在不同时刻送相同引脚，需配合行列选通信号。不要用引脚数直接断言寻址容量。</p>
+<p>例1：用8K×8芯片组成32K×32存储器。每组4片并联扩位宽，4组扩地址深度，共16片。A0—A12接各片地址输入，A13—A14经译码选择一组，每组4片共用片选、分担32位数据。若按32位字编址，总共15位字地址；若CPU按字节编址且每字4字节，还需区分低2位字节选择，整个模块占128 KiB。两种“地址位数”回答的是不同问题。</p>
+<h3 id="地址范围与译码"><a href="#地址范围与译码" class="headerlink" title="地址范围与译码"></a>地址范围与译码</h3><p>例2：按字节编址，32 KiB模块起始地址0x80000。 32 KiB=0x8000字节，末地址=0x80000+0x8000-1=0x87FFF。减1是因为首地址已经占一个位置。0x88000是下一个地址，不属于本模块。</p>
+<p>全译码检查足够多的高位以唯一选定模块；部分译码忽略某些高位，可能让多个地址访问同一个物理单元，出现地址重影。图中未接的高位不是凭空没有，而是选择逻辑不区分它们。</p>
+<h2 id="2-DRAM刷新与交叉编址：周期不能混叫"><a href="#2-DRAM刷新与交叉编址：周期不能混叫" class="headerlink" title="2. DRAM刷新与交叉编址：周期不能混叫"></a>2. DRAM刷新与交叉编址：周期不能混叫</h2><p>例3：1024行DRAM，要求64 ms内每行刷新一次。若每次刷新一行，均匀安排时两次刷新启动的平均间隔至多64 ms/1024=62.5 μs。若每次刷新占100 ns，则每个64 ms窗口共占102.4 μs，理论占用比例0.16%。这不是CPU读取一个字节的平均时间；正常访问、排队及刷新冲突还要按具体模型处理。多芯片若同一行可并行刷新，不能再乘芯片数。</p>
+<p>集中刷新把刷新操作堆在一个时间段，形成较长不可访问区间；分散刷新与异步刷新如何命名、怎样穿插，以题目给定机制为准。做题始终抓住：多少行、每次刷新多少行、刷新窗口、每次占多久。</p>
+<p>例4：4体低位交叉，单体访问周期100 ns，总线每25 ns接收一个字；连续读8字。低2位选体，因此连续字地址依次落在0、1、2、3体。相邻启动间隔25 ns，同一体再次启动间隔100 ns，恰好满足恢复时间。若首字100 ns后到达，8字总时间为100+7×25=275 ns。</p>
+<p>换成2体，按25 ns启动会让同一体50 ns后又被访问，违反100 ns周期；持续均匀启动间隔至少为50 ns。若访问步长为4个字，4体低位交叉反复命中同一体，也失去连续地址的并行收益。先用“字地址模体数”列体号，才能决定能否套带宽公式。</p>
+<h2 id="3-Cache不是把整个地址存两遍"><a href="#3-Cache不是把整个地址存两遍" class="headerlink" title="3. Cache不是把整个地址存两遍"></a>3. Cache不是把整个地址存两遍</h2><p>设物理地址m位、数据容量C字节、块大小B字节、每组r路：总行数C/B，组数<script type="math/tex">S=C/(Br)</script>。偏移b=log2B，组索引s=log2S，Tag=m-s-b。这里C先按纯数据容量解释；题目若给总硬件容量，需要把元数据单独计入。</p>
+<p>偏移选块内字节，组索引选一组，Tag辨别该组里的块。组相联的“路号”通常不是从地址中直接拆出的字段，而是比较各路Tag后决定哪一路命中。</p>
+<p>例5：32位物理地址，16 KiB数据Cache，64 B块，4路。行数256，组数64；偏移6位、组号6位、Tag20位。</p>
+<p>地址0x12345678的低6位为0x38；组号是右移6位后模64，得到0x19=25；Tag为右移12位，即0x12345。反拼检查：Tag左移12位，加组号左移6位，再加偏移，必须回到原地址。</p>
+<p>若每行还存1位有效、1位脏，题设规定每组6位替换状态，则总位数：</p>
+<p><script type="math/tex; mode=display">256(64\times8+20+1+1)+64\times6=137088\text{ bit}=17136\text{ B}</script></p>
+<p>替换状态按组计，不是再乘256；也不能把本例“6位”说成所有4路LRU的唯一实现。精确LRU状态编码与近似替换有不同硬件代价，必须按题给方案算。</p>
+<h2 id="4-一张表完成LRU与FIFO的区别"><a href="#4-一张表完成LRU与FIFO的区别" class="headerlink" title="4. 一张表完成LRU与FIFO的区别"></a>4. 一张表完成LRU与FIFO的区别</h2><p>例6：2组、每组2路，初始为空，依次读主存块0、2、0、4、2、0。这已经是块号，不能再除块大小。组号=块号mod2，全部进组0；另一组的空位帮不上忙。</p>
+<p>LRU表中每格从左到右为最近使用→最久未用。</p>
+<table>
+<thead>
+<tr>
+<th>次序</th>
+<th>块</th>
+<th>命中？</th>
+<th>组0访问后</th>
+<th>被换出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>否</td>
+<td>[0]</td>
+<td>无，使用空行</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>否</td>
+<td>[2,0]</td>
+<td>无，使用空行</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>是</td>
+<td>[0,2]</td>
+<td>无，但更新次序</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>否</td>
+<td>[4,0]</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>否</td>
+<td>[2,4]</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0</td>
+<td>否</td>
+<td>[0,2]</td>
+<td>4</td>
+</tr>
+</tbody></table>
+<p>命中1次、缺失5次。FIFO只在装入时改变队列：装0、装2；命中0不改；装4淘汰0；访问2命中；装0淘汰2。因此FIFO命中2次。LRU依据局部性做选择，不保证对每个访问串都优于FIFO。</p>
+<p>若题给的是字节地址，先求块号floor(地址/B)，再模拟；同一块内连续字节在块装入后通常命中，不能把每个字节当作一次新块装入。</p>
+<h2 id="5-写策略：不仅改变命中率，还改变主存访问次数"><a href="#5-写策略：不仅改变命中率，还改变主存访问次数" class="headerlink" title="5. 写策略：不仅改变命中率，还改变主存访问次数"></a>5. 写策略：不仅改变命中率，还改变主存访问次数</h2><p>例7：单行Cache，16 B块，初始无效。写回、写分配。顺序W0、W4、R16、R0。 W/R后的数是字节地址；读缺失和写分配均按整块装入；无预取。</p>
+<table>
+<thead>
+<tr>
+<th>访问</th>
+<th>块号</th>
+<th>命中与动作</th>
+<th>整块读主存</th>
+<th>整块写回</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>W0</td>
+<td>0</td>
+<td>缺失，读入块0再写，置脏</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>0</td>
+<td>命中，仍脏</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>R16</td>
+<td>1</td>
+<td>缺失，先回写块0，再读块1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>R0</td>
+<td>0</td>
+<td>缺失，块1干净可直接替换</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>总共3次块读、1次块写回。最后块0干净，不另加写回；题目要求程序结束时刷新全部脏块，才追加相应操作。</p>
+<p>改成写直达、不写分配：前两次写都不装入Cache，各写一次主存；后两次读分别读入块1、块0，没有脏块回写。得到2次单次写、2次块读。不能把一次写字和一次整块读都当成相同字节量。若题设不允许写缓冲隐藏延迟，还要把写直达等待计入执行时间。</p>
+<h2 id="6-数组题：从地址序列推命中率"><a href="#6-数组题：从地址序列推命中率" class="headerlink" title="6. 数组题：从地址序列推命中率"></a>6. 数组题：从地址序列推命中率</h2><p>例8：int为4 B，数组64个元素，首地址按16 B对齐；Cache块16 B、数据容量128 B、直接映射，初始为空，仅访问此数组。一块放4元素，数组共16块，Cache8行。</p>
+<p>顺序读一遍：每块首元素缺失，其余3个命中，共16缺失、48命中，命中率75%。紧接着从头再顺序读一遍：由于末8块占据Cache，前8块会把它们逐一换走，读后8块时又已不在，所以第二遍仍16次缺失。数组“已经访问过”并不意味着第二遍全部命中。</p>
+<p>改成两层循环：外层遍历块，内层把同块4元素重复读两遍，再换下一块。每块8访问仅首个缺失，整程16缺失/128访问，命中率87.5%。改变访问顺序可能比单纯扩大缓存更直接改善局部性；要从实际循环顺序列地址，不能看见“二维数组”就固定选某个百分比。</p>
+<h2 id="7-TLB、页表、Cache：先翻译，再分字段"><a href="#7-TLB、页表、Cache：先翻译，再分字段" class="headerlink" title="7. TLB、页表、Cache：先翻译，再分字段"></a>7. TLB、页表、Cache：先翻译，再分字段</h2><p>虚拟页号VPN经TLB或页表查到物理页号PPN，页内偏移不变。页表项有效表示该页当前有合法驻留映射；保护检查、修改位等另按题设。TLB缺失不等于缺页：页表可能已有有效映射，只需填TLB。缺页也不直接归结为Cache缺失，它会引发异常与系统处理。</p>
+<p>例9：32位虚拟地址、24位物理地址、4 KiB页。页内偏移12位，VPN20位、PPN12位。虚拟地址0x00012034，VPN=0x12、偏移0x034；页表给PPN=0x35，物理地址就是0x035034。某物理直接映射Cache有64行、64 B块，其偏移6位、组号6位、Tag12位；该地址组号0、Tag0x35、块内偏移0x34。</p>
+<p>本例Cache索引和偏移合计12位恰在页内，但这不证明所有机器都可直接用虚拟地址访问物理Cache；是否并行查TLB与Cache、如何做物理Tag核对，需看具体设计。</p>
+<h3 id="页表容量从“多少虚拟页”开始"><a href="#页表容量从“多少虚拟页”开始" class="headerlink" title="页表容量从“多少虚拟页”开始"></a>页表容量从“多少虚拟页”开始</h3><p>例10：32位虚拟空间、4 KiB页、单级页表，每项4 B。虚拟页共<script type="math/tex">2^{20}</script>，页表4 MiB。若采用每张表4 KiB的两级页表，一张表放1024项，用10位索引，因此虚拟地址拆10/10/12位。只用了少量虚拟区间时，两级表可按需分配二级页表；不能无条件宣称两级表比单级节约固定倍数。</p>
+<h3 id="给出一个能检查口径的平均时间模型"><a href="#给出一个能检查口径的平均时间模型" class="headerlink" title="给出一个能检查口径的平均时间模型"></a>给出一个能检查口径的平均时间模型</h3><p>例11：TLB 2 ns，命中率90%；单级页表查找固定额外100 ns；无缺页；数据Cache命中率95%，查询1 ns，缺失在查询后额外100 ns。全部串行，无重叠。</p>
+<p>翻译平均时间<script type="math/tex">2+0.1\times100=12</script> ns；数据平均时间<script type="math/tex">1+0.05\times100=6</script> ns；总计18 ns。这里页表访问明确走独立100 ns路径，没有再对其套数据Cache命中率。若题目规定页表本身经过Cache，或两级访存，或TLB与Cache并行，必须重画路径，不能把18 ns当成通用答案。</p>
+<h3 id="从Cache性能到CPU时间"><a href="#从Cache性能到CPU时间" class="headerlink" title="从Cache性能到CPU时间"></a>从Cache性能到CPU时间</h3><p>基础CPI=1.2，每指令平均1.3次存储访问，其中含取指；统一缺失率2%，每次额外50周期，不重叠。缺失停顿CPI为1.3×0.02×50=1.3，总CPI=2.5。缺失率降到1%时总CPI=1.85；同指令数、同主频下加速比2.5/1.85≈1.351。别漏取指，也别把每条指令的额外周期再乘一次CPI。</p>
+<h2 id="8-练习与答案-1"><a href="#8-练习与答案-1" class="headerlink" title="8. 练习与答案"></a>8. 练习与答案</h2><table>
+<thead>
+<tr>
+<th>题目</th>
+<th>答案与判据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4路Cache能否把冲突块放到任意空组</td>
+<td>不能；组号由映射决定，只能在目标组选路</td>
+</tr>
+<tr>
+<td>16 B块，读地址14的4 B数据，涉及几块</td>
+<td>2块：字节14—15及16—17；访问次数和时延再按机器规则</td>
+</tr>
+<tr>
+<td>有效位0但Tag恰相等，算命中吗</td>
+<td>不算，有效位也是命中条件</td>
+</tr>
+<tr>
+<td>写回替换一行是否一定写主存</td>
+<td>仅有效且脏并按该策略需回写时</td>
+</tr>
+<tr>
+<td>4 KiB页，一条访问可否跨页</td>
+<td>可以；例如从页内偏移4094读4 B</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="CPU与I-O：控制信号和时序题"><a href="#CPU与I-O：控制信号和时序题" class="headerlink" title="CPU与I/O：控制信号和时序题"></a>CPU与I/O：控制信号和时序题</h1><h2 id="1-时钟不是“每条指令一个周期”的同义词"><a href="#1-时钟不是“每条指令一个周期”的同义词" class="headerlink" title="1. 时钟不是“每条指令一个周期”的同义词"></a>1. 时钟不是“每条指令一个周期”的同义词</h2><p>时钟周期是相邻时钟边沿之间的时间；指令周期是完成一条指令所需的全部过程。单周期设计每条指令一个较长周期，多周期设计每条指令若干短周期，流水设计让多条指令的阶段重叠。不同教材对“机器周期”的具体划分依实现而定，不能强行等同于任何固定倍数。</p>
+<p>例1：一台单周期CPU的完整最长路径是取指200 ps、寄存器读100 ps、ALU150 ps、数据存储器250 ps、写回设置50 ps，其他选择器延迟已计入。时钟至少750 ps。即使加法用不到数据存储器，仍按750 ps完成一条，因为这是统一单周期设计。</p>
+<p>若改成五段，恰按上述五段划分，各流水寄存器开销20 ps，则周期至少max(200,100,150,250,50)+20=270 ps。无冒险执行100条，需104周期，即28080 ps；原单周期75000 ps，加速约2.671。单条从IF开始到WB结束却要5×270=1350 ps，比原750 ps更长。吞吐改善与单条延迟要分开回答。</p>
+<h2 id="2-指令语义决定哪些部件必须工作"><a href="#2-指令语义决定哪些部件必须工作" class="headerlink" title="2. 指令语义决定哪些部件必须工作"></a>2. 指令语义决定哪些部件必须工作</h2><p>先把指令改写成赋值式，再标出来源、组合运算、目的地。以一种简化MIPS风格单周期数据通路为例：双读单写寄存器堆，指令/数据存储器分开，ALU输入B可选寄存器或符号扩展立即数，写回可选ALU结果或存储器读出。</p>
+<table>
+<thead>
+<tr>
+<th>指令语义</th>
+<th>ALU输入B</th>
+<th>ALU动作</th>
+<th>数据存储器</th>
+<th>写寄存器？</th>
+<th>写回来源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>add rd,rs,rt</td>
+<td>rt内容</td>
+<td>加</td>
+<td>不访问</td>
+<td>是，rd</td>
+<td>ALU</td>
+</tr>
+<tr>
+<td>lw rt,imm(rs)</td>
+<td>扩展imm</td>
+<td>基址加偏移</td>
+<td>读</td>
+<td>是，rt</td>
+<td>存储器</td>
+</tr>
+<tr>
+<td>sw rt,imm(rs)</td>
+<td>扩展imm</td>
+<td>基址加偏移</td>
+<td>写入rt内容</td>
+<td>否</td>
+<td>无关</td>
+</tr>
+<tr>
+<td>beq rs,rt,label</td>
+<td>rt内容</td>
+<td>减/比较</td>
+<td>不访问</td>
+<td>否</td>
+<td>无关</td>
+</tr>
+</tbody></table>
+<p>例2：sw r2,12(r1)。若r1=0x1000、r2=0xAABBCCDD，有效地址0x100C；ALU加r1与扩展立即数12，存储器写数据来自r2，不能把立即数12写进去。寄存器写使能为0，数据存储器写使能为1。低地址字节内容还取决于大小端；小端0x100C处为DD。</p>
+<p>控制表中的“无关”表示该输出对本条指令的正确行为不起作用，并非某根线永远不存在。比如sw不写寄存器，写回选择信号可以为无关值；但写寄存器使能不能随便取1。</p>
+<p>为什么需要MUX？同一个目的部件在不同指令中可能接不同来源，MUX选择来源；控制信号决定选哪条路。新指令要求的来源、运算、目的地若已有，就可能只补控制；若缺运算部件、输入通路或端口，就必须改数据通路。先追踪语义，别先猜“只加一个控制位”。</p>
+<h2 id="3-单总线微操作：按资源而非按语句数排拍"><a href="#3-单总线微操作：按资源而非按语句数排拍" class="headerlink" title="3. 单总线微操作：按资源而非按语句数排拍"></a>3. 单总线微操作：按资源而非按语句数排拍</h2><p>例3：内部单总线，寄存器输出均需总线；ALU输入之一来自Y，另一个来自总线，结果锁存Z。Z下一拍才能驱动总线；同拍只允许一个总线驱动源，允许多个目的寄存器锁存。求R1←R1+R2的执行段，不含取指。</p>
+<table>
+<thead>
+<tr>
+<th>拍</th>
+<th>总线来源</th>
+<th>同拍控制与动作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T1</td>
+<td>R1</td>
+<td>R1out、Yin：Y←R1</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>R2</td>
+<td>R2out、Add、Zin：Z←Y+R2</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>Z</td>
+<td>Zout、R1in：R1←Z</td>
+</tr>
+</tbody></table>
+<p>不能T1同时R1out与R2out，因为两个源争用总线；也不能在本模型T2让新Z立即经总线写R1，因为该拍总线已有R2且Z需等边沿锁存。</p>
+<p>若改成双读端口寄存器堆直接连ALU，再有独立结果通路，同一操作可能一拍完成；答案改变源于结构改变，不是原来的三拍排错。</p>
+<p>取指过程同样拆解：PC→MAR，发读请求并等待存储器完成，读出→MDR→IR；PC更新按专用加法器或共享ALU安排。读等待可能多拍，是否能与PC更新并行取决于资源和握手条件。题目没给存储器固定一拍，不能自行假设一拍返回。</p>
+<h2 id="4-微程序题：兼容操作分开编码，后继地址另算"><a href="#4-微程序题：兼容操作分开编码，后继地址另算" class="headerlink" title="4. 微程序题：兼容操作分开编码，后继地址另算"></a>4. 微程序题：兼容操作分开编码，后继地址另算</h2><p>微指令控制一组微操作；若干微指令形成微程序，解释机器指令。控存保存微程序，主存保存机器程序与数据；微地址寄存器和PC作用不同。硬布线控制通过逻辑产生控制信号，微程序控制通过控存读出微指令，再产生控制信号。</p>
+<p>例4：三个互斥微命令组分别有7、5、3个命令，每组都要保留“不发命令”。采用字段直接编码，各组可并行。所需位数为ceil(log2(7+1))+ceil(log2(5+1))+ceil(log2(3+1))=3+3+2=8位。若直接控制每条命令各1位，则为15位，但硬件需防止同组非法组合。</p>
+<p>控存256字，每微指令还有8位下地址和2位条件选择，则总字长18位，容量256×18=4608 bit。微指令字长不能只回答8位，因为顺序控制字段也占空间。题目给的是映射法、增量法或别的后继地址机制时，按实际字段计数。</p>
+<p>分组前必须验证互斥：PCout与R1out在单总线上互斥，PCout与MARin通常可以相容。把一对必须同拍动作放在同一个单选字段，会导致所需动作无法编码。</p>
+<h2 id="5-数据相关不等于停顿：画出产生和使用的时刻"><a href="#5-数据相关不等于停顿：画出产生和使用的时刻" class="headerlink" title="5. 数据相关不等于停顿：画出产生和使用的时刻"></a>5. 数据相关不等于停顿：画出产生和使用的时刻</h2><p>以下统一五段IF/ID/EX/MEM/WB，单发射、顺序执行，ALU结果在EX末产生，load结果在MEM末产生；寄存器堆允许同周期先WB写、后ID读；数据Cache始终命中。若题目缺少这些条件，应先从题图确认。</p>
+<h3 id="完整转发下的三条指令"><a href="#完整转发下的三条指令" class="headerlink" title="完整转发下的三条指令"></a>完整转发下的三条指令</h3><p>例5：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I1: lw  r1,0(r2)</span><br><span class="line">I2: add r3,r1,r4</span><br><span class="line">I3: sub r5,r3,r6</span><br></pre></td></tr></tbody></table></figure>
+
+<p>具有EX/MEM与MEM/WB到EX的转发。I2在EX使用r1，原定周期4使用，但I1的load结果周期4末才产生，无法在同一周期倒流到EX开始，所以停1拍。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>I1</td>
+<td>IF</td>
+<td>ID</td>
+<td>EX</td>
+<td>MEM</td>
+<td>WB</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>I2</td>
+<td>—</td>
+<td>IF</td>
+<td>ID</td>
+<td>ID停</td>
+<td>EX</td>
+<td>MEM</td>
+<td>WB</td>
+<td>—</td>
+</tr>
+<tr>
+<td>I3</td>
+<td>—</td>
+<td>—</td>
+<td>IF</td>
+<td>IF停</td>
+<td>ID</td>
+<td>EX</td>
+<td>MEM</td>
+<td>WB</td>
+</tr>
+</tbody></table>
+<p>I2周期5从MEM/WB转发得到r1；I3周期6从EX/MEM得到I2的r3，不额外停顿。总计8周期，等于n+4+1。周期4要冻结PC及IF/ID，并向EX注入气泡；若让I1也一起停住，数据反而不能按预期前进。</p>
+<h3 id="去掉转发，答案怎样变"><a href="#去掉转发，答案怎样变" class="headerlink" title="去掉转发，答案怎样变"></a>去掉转发，答案怎样变</h3><p>例6：同一指令串，无转发，同周期先写后读仍允许。 I2必须等到I1周期5的WB，才能在ID读r1，周期6进入EX、周期8 WB。I3只能在I2周期8写回后完成ID，周期9进入EX、周期11 WB。总11周期，共4个停顿。不能见到两个RAW关系就固定加两拍；每个RAW要等待的时间取决于数据可见时刻。</p>
+<h3 id="store有两种不同的“使用时刻”"><a href="#store有两种不同的“使用时刻”" class="headerlink" title="store有两种不同的“使用时刻”"></a>store有两种不同的“使用时刻”</h3><p><code>lw r1,0(r2); sw r1,0(r3)</code>中r1是写入的数据；若有MEM/WB到store的MEM数据端转发，第二条可到MEM时再取得数据，可能无需load-use停顿。若第二条改成<code>sw r4,0(r1)</code>，r1用于EX算地址，通常仍需一拍。是否有这条转发通路必须看图；不能把“load后面用了同一寄存器”一律判成相同停顿。</p>
+<h2 id="6-分支：处罚由决策阶段和策略共同决定"><a href="#6-分支：处罚由决策阶段和策略共同决定" class="headerlink" title="6. 分支：处罚由决策阶段和策略共同决定"></a>6. 分支：处罚由决策阶段和策略共同决定</h2><p>例7：五段流水，预测不跳，分支在EX末判定，正确目标下一周期可取，目标计算不增加周期，无延迟槽。分支在周期3做EX时，后两条错误路径指令分别在ID和IF；若实际跳转，需要冲刷2条，处罚2周期。若判定移到ID末且数据可及时获得，通常只冲刷IF的一条；若比较所需操作数未到，还可能额外等待。</p>
+<p>例8：长程序基础CPI=1，20%为条件分支，预测错误率10%，每次错误额外2周期，其他无停顿。分支额外CPI=0.2×0.1×2=0.04，总1.04。“错误率10%”以分支为分母，必须先乘20%；若题给的是所有指令中2%产生预测错误，则不能再乘一次分支比例。短程序还要考虑流水充排，不直接用长程序近似。</p>
+<p>结构冒险是资源同拍冲突，数据冒险是值还没准备好，控制冒险是正确后继尚未确定。解决办法要针对原因：加端口不能自动解决未生成的数据，转发也不能让一条尚未完成的load提前产生结果。</p>
+<h2 id="7-总线：把事务拆成时间段"><a href="#7-总线：把事务拆成时间段" class="headerlink" title="7. 总线：把事务拆成时间段"></a>7. 总线：把事务拆成时间段</h2><p>例9：64位总线，100 MHz，每周期传一次数据；一次事务先用2周期发地址与命令，再连续传8个数据拍，无其他等待。峰值带宽8 B×100 MHz=800 MB/s；每事务64 B，用10周期=100 ns，有效带宽640 MB/s。这里MB取<script type="math/tex">10^6</script> B，若要MiB/s再除<script type="math/tex">2^{20}</script>。若题给DDR双沿传输，不能在已标为“每秒传输次数”的数字上再乘2。</p>
+<p>突发传输减少的是重复事务开销，不改变单个数据拍的宽度。总线仲裁决定谁获得使用权，握手决定一次传输何时有效；集中仲裁的链式、计数器、独立请求等方式要结合硬件开销、固定/轮转优先级及故障影响辨认。异步总线没有统一固定时钟，不等于没有任何时序要求。</p>
+<h2 id="8-查询、中断和DMA：CPU占用到底在数什么"><a href="#8-查询、中断和DMA：CPU占用到底在数什么" class="headerlink" title="8. 查询、中断和DMA：CPU占用到底在数什么"></a>8. 查询、中断和DMA：CPU占用到底在数什么</h2><p>查询方式由CPU反复检查状态；中断使CPU在设备请求时进入处理；DMA由控制器完成一批数据搬运，CPU仍需设置和处理完成事件。接口的数据、状态、控制寄存器分工不同：读到“就绪”状态不代表已经读走数据。</p>
+<p>例10：设备稳定1 MB/s，每4 B触发一次中断，每次含进出处理共100周期，CPU100 MHz。中断频率250000次/s，开销25000000周期/s，占25%。若一次中断实际搬16 B、仍100周期，则占6.25%；字节率未变，但事件频率变了。</p>
+<p>例11：同设备改DMA，每块4 KiB，CPU设置200周期、完成中断300周期。每秒块数<script type="math/tex">10^6/4096</script>，CPU每秒花<script type="math/tex">10^6/4096\times500</script>周期，占CPU约0.12207%。这是批量搬运相关的CPU控制开销，没有把DMA总线争用导致的CPU等待混入。若题目问总执行时间，还应按访存冲突和传输时序计入等待。</p>
+<p>连续一秒的整数块数可能有末尾不满块的问题，本例按长期平均速率计算；题目问一次固定大小传输时，用完整块数及尾块的具体处理。</p>
+<h3 id="“不会丢数据”的题要比较服务间隔与缓冲深度"><a href="#“不会丢数据”的题要比较服务间隔与缓冲深度" class="headerlink" title="“不会丢数据”的题要比较服务间隔与缓冲深度"></a>“不会丢数据”的题要比较服务间隔与缓冲深度</h3><p>例12：设备每20 μs产生一个字，接口只有一个字缓冲，无设备反压。必须在下一个字覆盖前读走。若最坏请求响应延迟12 μs，进入后3 μs完成该字读出，共15 μs，能满足单次期限；若延迟18 μs、读出还需3 μs，共21 μs，就可能丢字。实际系统还要确保后续持续服务速率足够；一次响应及时不能证明长期不会积压。FIFO深度大于1时应按累积到达量和消费量分析。</p>
+<h2 id="9-中断嵌套：响应顺序和屏蔽规则是两件事"><a href="#9-中断嵌套：响应顺序和屏蔽规则是两件事" class="headerlink" title="9. 中断嵌套：响应顺序和屏蔽规则是两件事"></a>9. 中断嵌套：响应顺序和屏蔽规则是两件事</h2><p>硬件响应优先级决定同时待决时先响应谁；屏蔽与允许嵌套的规则决定处理某中断期间谁能打断它。外部中断请求通常在体系结构允许的边界响应；关中断不等于CPU完全不会遇到同步异常。保存哪些状态由硬件完成、哪些寄存器由软件保存，按题设判断。</p>
+<p>例13：A、B、C同时请求，硬件响应顺序A&gt;B&gt;C；服务期间开放中断，屏蔽向量按下表规定，1表示屏蔽，0表示允许。</p>
+<table>
+<thead>
+<tr>
+<th>当前处理</th>
+<th>屏蔽A</th>
+<th>屏蔽B</th>
+<th>屏蔽C</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>最初先响应A；A开放嵌套后，待决B未被屏蔽，B可打断A；B期间屏蔽全部，完成后回到A；A结束才处理仍待决的C。于是进入顺序A→B→C，完成顺序B→A→C。这里B能打断A并不与初始硬件先选A矛盾，因为两阶段选择条件不同。若题设禁止较低硬件优先级嵌套，则需同时满足该额外条件，不能仅凭屏蔽位判定。</p>
+<p>不要混用“1表示允许”的另一种表约定。先在草稿最上面写明1的含义，再逐层保存和恢复屏蔽状态。</p>
+<h2 id="10-练习与答案"><a href="#10-练习与答案" class="headerlink" title="10. 练习与答案"></a>10. 练习与答案</h2><table>
+<thead>
+<tr>
+<th>题目</th>
+<th>答案与判据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无冒险五段流水执行10条指令需几周期</td>
+<td>14，前提单发射且五段均占1周期</td>
+</tr>
+<tr>
+<td>sw是否需要写回通用寄存器</td>
+<td>不需要；流水图中可能仍保留一个无写回动作的WB槽</td>
+</tr>
+<tr>
+<td>转发是不是把结果提前算出来</td>
+<td>不是，省掉等待寄存器写回后的读取过程</td>
+</tr>
+<tr>
+<td>8条互斥微命令加空操作，字段要几位</td>
+<td>4位，需要编码9种状态</td>
+</tr>
+<tr>
+<td>DMA传送数据时CPU是否始终完全不受影响</td>
+<td>否，可能有总线/存储器争用，CPU也有管理开销</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="性能与指令系统：从程序到机器"><a href="#性能与指令系统：从程序到机器" class="headerlink" title="性能与指令系统：从程序到机器"></a>性能与指令系统：从程序到机器</h1><h2 id="1-性能比较不能只挑一个更大的数字"><a href="#1-性能比较不能只挑一个更大的数字" class="headerlink" title="1. 性能比较不能只挑一个更大的数字"></a>1. 性能比较不能只挑一个更大的数字</h2><p>完成同一任务的执行时间<script type="math/tex">T=N\times CPI/f</script>。比较时先问任务是否相同，再确认指令数、CPI、频率是否同时变化。</p>
+<p>例1：方案A执行10亿条，CPI=1.5，2 GHz；方案B执行8亿条，CPI=2，2.5 GHz。 A为0.75 s，B为0.64 s，所以B更快，加速比0.75/0.64=1.171875。B的CPI更高不妨碍它执行更快；也不能只因B主频高25%就说快25%。</p>
+<p>若一条旧指令替换成两条新指令，必须重新统计N与各类比例。CPI加权的权重是指令数比例，不是原来消耗时间比例。对局部优化则相反，Amdahl公式中的比例是原执行时间比例。</p>
+<p>例2：原CPI=2，其中访存停顿占总时间40%；优化只让停顿减半。新总时间占原时间<script type="math/tex">0.6+0.4/2=0.8</script>，加速1.25；同N、同f时新CPI=1.6。若题说“访存指令占40%”，却未给其周期贡献，就不能直接套此比例。</p>
+<h3 id="用临界条件判断优化是否值得"><a href="#用临界条件判断优化是否值得" class="headerlink" title="用临界条件判断优化是否值得"></a>用临界条件判断优化是否值得</h3><p>例3：新编译器把指令数降到原来的80%，但CPI上升到原来的k倍，主频不变。时间比为0.8k；更快要求k&lt;1.25，k=1.25恰相同，超过则更慢。这比代入几组数据猜趋势更可靠。允许写不等式时，先求临界条件再解释。</p>
+<h2 id="2-取指、数据访问、地址运算是不同计数"><a href="#2-取指、数据访问、地址运算是不同计数" class="headerlink" title="2. 取指、数据访问、地址运算是不同计数"></a>2. 取指、数据访问、地址运算是不同计数</h2><p>例4：机器指令定长4 B、按字节编址；指令为ADD R1,[addr]，语义R1←R1+M[addr]，地址已直接编码在指令中，内存操作数4 B，不考虑Cache。完成它需要取指，以及读取数据操作数两个逻辑存储访问；若地址字段改成存储器间接，先从M[addr]读出有效地址，再访问操作数，会增加一次逻辑存储访问。</p>
+<p>实际总线事务数还取决于总线宽度、对齐、指令是否跨块及是否命中Cache。因此答“几次访存”前，应确认题目是在数逻辑存储操作、主存访问，还是总线拍数。主存中心结构不意味着所有机器都必须用同一存储端口串行完成取指和读数据。</p>
+<h2 id="3-指令格式：地址空间、寄存器数和操作种类分别占位"><a href="#3-指令格式：地址空间、寄存器数和操作种类分别占位" class="headerlink" title="3. 指令格式：地址空间、寄存器数和操作种类分别占位"></a>3. 指令格式：地址空间、寄存器数和操作种类分别占位</h2><p>例5：32位定长指令，64个寄存器，三寄存器格式有独立8位操作码，余下为保留位。每个寄存器字段6位，共18位；保留32-8-18=6位。操作码最多区分256种编码，不是<script type="math/tex">2^{32}</script>种操作；三个寄存器字段描述同一条指令的操作数选择，不额外增加操作种类。</p>
+<p>若改成双寄存器加立即数、仍8位操作码，则立即数字段12位。有符号补码范围-2048至2047，无符号范围0至4095。字段本身没有天然符号，要由该指令的解释规则确定。</p>
+<h3 id="扩展操作码的前缀不能重叠"><a href="#扩展操作码的前缀不能重叠" class="headerlink" title="扩展操作码的前缀不能重叠"></a>扩展操作码的前缀不能重叠</h3><p>例6：16位定长指令，每个地址字段4位。已有8种三地址指令，还要安排二地址与一地址指令。三地址指令剩4位作操作码，共16个短前缀，已用8个，尚余8个前缀可扩展。</p>
+<p>若安排100种二地址指令，每种用8位操作码和8位地址，则剩余二地址层编码有8×16-100=28个。每个剩余8位前缀还能扩成16种12位操作码的一地址指令，所以一地址最多28×16=448种。</p>
+<p>关键不是每层分别算<script type="math/tex">2^k</script>，而是先扣掉被短操作码占用的整棵子树。已经被三地址指令占用的4位前缀，不能再给某条二地址指令使用，否则译码无法唯一判断字段边界。若还有零地址指令，继续从尚未使用的一地址层前缀向下扩。</p>
+<h2 id="4-相对寻址：符号扩展在缩放之前"><a href="#4-相对寻址：符号扩展在缩放之前" class="headerlink" title="4. 相对寻址：符号扩展在缩放之前"></a>4. 相对寻址：符号扩展在缩放之前</h2><p>例7：一种MIPS风格分支，指令地址P=0x1000，定长4 B，16位补码位移字段0xFFFC，以PC+4为基准，位移单位为4 B。字段解释为-4，缩放为-16 B；目标=0x1004-0x10=0x0FF4。</p>
+<p>反算目标0x0FF4需要的字段：先算(目标-(P+4))/4=-4，再编码为0xFFFC。差值须能被4整除，商须落在16位补码范围；否则该格式无法直接表达。</p>
+<p>如果改成以当前指令地址P为基准，答案会变；如果位移单位改为字节，也会变。不能只背“PC加偏移”而漏掉基准PC究竟是哪一个值。按字节编址时，此格式目标相对PC+4的范围为-131072至131068 B，正负上界不对称。</p>
+<h3 id="基址与变址谁负责变化"><a href="#基址与变址谁负责变化" class="headerlink" title="基址与变址谁负责变化"></a>基址与变址谁负责变化</h3><p>访问数组通常保留数组基址，让下标换算成偏移；重定位通常让基址变化、指令中的相对偏移保持不变。这是用途上的理解。实际寻址式例如EA=(Rb)+(Ri)×scale+disp，要逐项代值；括号表示寄存器内容而非寄存器编号。</p>
+<h2 id="5-用一个数组地址把端序和Cache连接起来"><a href="#5-用一个数组地址把端序和Cache连接起来" class="headerlink" title="5. 用一个数组地址把端序和Cache连接起来"></a>5. 用一个数组地址把端序和Cache连接起来</h2><p>例8：int为4 B，二维数组a[3][5]按行优先连续存储，首地址0x1000。 a[2][3]之前有2×5+3=13个元素，地址0x1000+13×4=0x1034。把5写成3，是把“每行元素数”错当成“行数”。</p>
+<p>若该元素值为0x11223344，小端机器地址0x1034至0x1037依次是44、33、22、11。块大小16 B时，它位于块首0x1030的块内偏移4；若页大小4 KiB，它在虚拟页1、页内偏移0x034。物理块号需在地址翻译后确定，不能跳过页表直接把虚拟页号当物理页号。</p>
+<p>若只读取首字节再做零扩展，得到0x44；若读整个int，仍得到0x11223344。端序改变多字节值在连续地址中的排列，不会把一个完整整数自动倒成另一个真值。</p>
+<h2 id="6-调用与栈：先定义SP，再画每次变化"><a href="#6-调用与栈：先定义SP，再画每次变化" class="headerlink" title="6. 调用与栈：先定义SP，再画每次变化"></a>6. 调用与栈：先定义SP，再画每次变化</h2><p>例9：一种调用约定：栈向低地址增长，SP指向当前栈顶；压入32位值先SP减4再写；弹出先读再SP加4。初始SP=0x2000，依次压返回地址0x1040和旧FP=0x3000，随后把FP设为当前SP，再预留16 B局部空间。</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>SP</th>
+<th>动作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始</td>
+<td>0x2000</td>
+<td>尚未压入本帧内容</td>
+</tr>
+<tr>
+<td>压返回地址</td>
+<td>0x1FFC</td>
+<td>M[0x1FFC]←0x1040</td>
+</tr>
+<tr>
+<td>压旧FP</td>
+<td>0x1FF8</td>
+<td>M[0x1FF8]←0x3000</td>
+</tr>
+<tr>
+<td>建帧</td>
+<td>0x1FF8</td>
+<td>FP←0x1FF8</td>
+</tr>
+<tr>
+<td>分配局部空间</td>
+<td>0x1FE8</td>
+<td>SP再减16</td>
+</tr>
+</tbody></table>
+<p>返回时先SP←FP丢弃局部空间，再弹旧FP，SP为0x1FFC；再弹返回地址，SP回0x2000，PC转0x1040。检查前后SP能否恢复，是快速验算。真实ISA可能把返回地址先放链接寄存器，也可能用不同SP定义和对齐要求，本例只服务于理解给定约定。</p>
+<h2 id="7-练习"><a href="#7-练习" class="headerlink" title="7. 练习"></a>7. 练习</h2><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>必须能说出的理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>编译、汇编、链接、装入能否互换</td>
+<td>分别承担不同转换与地址处理任务；未解析外部符号通常需链接处理</td>
+</tr>
+<tr>
+<td>同一ISA能否有不同流水深度</td>
+<td>能；ISA定义软件可见行为，具体实现可不同</td>
+</tr>
+<tr>
+<td>RISC一定比CISC性能高吗</td>
+<td>不能由分类直接得出；还取决于任务、指令数、CPI、频率与实现</td>
+</tr>
+<tr>
+<td>一个16位地址字段一定能表示64 KiB操作数吗</td>
+<td>需看编址单位、解释与寻址方式；它首先提供65536种位型</td>
+</tr>
+<tr>
+<td>存储器间接寻址是否与寄存器间接完全等价</td>
+<td>最终都可得到EA，但取得EA的来源与所需访问不同</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="异常与并行处理"><a href="#异常与并行处理" class="headerlink" title="异常与并行处理"></a>异常与并行处理</h1><h2 id="1-异常分类要落实到“返回哪条指令”"><a href="#1-异常分类要落实到“返回哪条指令”" class="headerlink" title="1. 异常分类要落实到“返回哪条指令”"></a>1. 异常分类要落实到“返回哪条指令”</h2><p>异常通常由当前指令执行触发，是同步事件；外部中断由设备等外部事件引起，通常在允许的指令边界响应。同步与异步描述事件和指令的关系，不是处理速度的快慢。</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>判断重点</th>
+<th>常见例子</th>
+<th>处理后的典型去向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>故障Fault</td>
+<td>指令未能正常完成，需要处理原因</td>
+<td>缺页</td>
+<td>可恢复时重新执行故障指令</td>
+</tr>
+<tr>
+<td>陷阱Trap</td>
+<td>指令有意引发控制转移，或按规则执行后触发</td>
+<td>系统调用、调试事件</td>
+<td>通常从后续指令继续</td>
+</tr>
+<tr>
+<td>终止Abort</td>
+<td>严重问题，通常无法恢复正常指令流</td>
+<td>严重硬件故障</td>
+<td>通常终止程序或进入故障处理</td>
+</tr>
+</tbody></table>
+<p>具体异常的分类依ISA与机制确定。例如“溢出”是否触发异常由指令规定，并非所有ALU的OF=1都自动进入同一种处理流程。不能只靠事件中文名称猜保存的PC。</p>
+<p>例1：load指令地址0x1000，下一条0x1004；访问合法虚拟页但页不驻留。引发缺页故障；系统装页并修复映射后，要重新执行0x1000的load，才能把数据写进目的寄存器。若直接返回0x1004，就跳过了原程序必需的读取。</p>
+<p>变式：若0x1000是按该ISA规定正常完成的系统调用指令，返回位置通常是后续指令，不能为了“继续原程序”就机械重复系统调用。返回地址如何保存、是当前PC还是经修正PC，以ISA规定为准。</p>
+<p>屏蔽普通外部中断不消除缺页、非法指令等同步异常。不可屏蔽中断也不由普通可屏蔽中断的开关控制。题目问“关中断后还能不能被打断”，必须辨别所指事件类型。</p>
+<h2 id="2-SIMD与MIMD：数的是指令流、数据流"><a href="#2-SIMD与MIMD：数的是指令流、数据流" class="headerlink" title="2. SIMD与MIMD：数的是指令流、数据流"></a>2. SIMD与MIMD：数的是指令流、数据流</h2><p>SISD是一条指令流处理一条数据流，经典单处理器可用它描述。采用流水线也不自动变成MIMD，因为重叠执行多条指令不等于多个独立控制的指令流。</p>
+<p>SIMD以同一条指令控制多个数据元素执行相同操作，适合规则的数据并行。MIMD有多个独立指令流处理多个数据流，适合任务或线程并行。MISD表示多指令流处理单数据流，实际应用较少。</p>
+<p>例2：向量加法一次对8对元素相加。同一指令作用在8组数据上，属于SIMD；8个核各运行独立程序分别处理任务，则按MIMD理解。SIMD的处理单元可以处理不同数据，不要求输入值相同；MIMD的多个核也可以碰巧运行同一程序，不能仅凭程序文件相同就判成SIMD。</p>
+<h2 id="3-三种硬件多线程，别与多核混淆"><a href="#3-三种硬件多线程，别与多核混淆" class="headerlink" title="3. 三种硬件多线程，别与多核混淆"></a>3. 三种硬件多线程，别与多核混淆</h2><table>
+<thead>
+<tr>
+<th>机制</th>
+<th>线程切换/发射特点</th>
+<th>主要解决的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>细粒度多线程</td>
+<td>通常每周期在可运行线程间轮换</td>
+<td>隐藏单线程等待，提高利用率</td>
+</tr>
+<tr>
+<td>粗粒度多线程</td>
+<td>遇较长停顿才切线程</td>
+<td>用其他线程覆盖长延迟，切换可能有流水代价</td>
+</tr>
+<tr>
+<td>同时多线程SMT</td>
+<td>同一周期可发射不同线程的多条指令</td>
+<td>利用多发射CPU未被单线程占满的资源</td>
+</tr>
+</tbody></table>
+<p>硬件为各线程保存独立的体系结构状态，例如PC和通用寄存器；执行部件与部分缓存可共享。SMT增加逻辑执行上下文，不等于复制出完整独立物理核。多核则在芯片内包含多个处理核心。</p>
+<p>例3：某单核每周期最多发射2条。线程A和B各有互不依赖的6条指令，但每线程每周期最多提供1条。简化到只计发射周期、忽略其他延迟：细粒度轮换且同周期只发一个线程，12条至少12周期；若SMT允许每周期A、B各发1条，则可6周期发完。若两个线程争用同一唯一执行部件，或存在依赖，6周期就无法保证。</p>
+<p>不能用“SMT有两个逻辑处理器”直接推断单线程加速2倍。单线程未必能使用另一个线程的上下文，两个线程还可能争用缓存与执行单元。</p>
+<h2 id="4-共享地址空间不等于所有访问一样快"><a href="#4-共享地址空间不等于所有访问一样快" class="headerlink" title="4. 共享地址空间不等于所有访问一样快"></a>4. 共享地址空间不等于所有访问一样快</h2><p>共享内存多处理器可通过普通访存访问统一的物理地址空间。UMA各处理器访问主存的延迟大致一致；NUMA的延迟与处理器及目标内存的位置有关，通常本地比远端快。NUMA仍可共享统一地址空间，不因为有远端内存就自动变成分布式独立地址空间。</p>
+<p>各进程仍可有不同虚拟地址映射，物理共享不意味着每个进程使用完全相同的虚拟地址。多核也不保证共享所有级别Cache，按题图认清私有与共享层次。</p>
+<h3 id="一致性与互斥解决不同问题"><a href="#一致性与互斥解决不同问题" class="headerlink" title="一致性与互斥解决不同问题"></a>一致性与互斥解决不同问题</h3><p>例4：共享变量x初值0，两核都执行一次x=x+1。若二者先后都读到0，再分别写1，最终x可能是1。即使各核缓存对这同一地址保持一致，也不能把“读—加—写”三个动作自动变成不可分割的整体。需要原子读改写或恰当同步保护，才可保证两次更新都保留。</p>
+<p>缓存一致性处理同一地址多个缓存副本的协调；同步还要求并发操作满足程序规定。</p>
+<h2 id="5-核数题必须先算串行上限"><a href="#5-核数题必须先算串行上限" class="headerlink" title="5. 核数题必须先算串行上限"></a>5. 核数题必须先算串行上限</h2><p>例5：任务原时间100 s，20%必须串行，80%可理想并行，无额外开销。 4核时间20+80/4=40 s，加速2.5倍；8核30 s，加速约3.333倍；无限核仍需20 s，最大加速5倍。若4核有额外同步10 s，则为50 s、加速2倍；开销不能被漏进“理想并行”部分。</p>
+<p>判断题：单核SMT是否等于双核？否；流水线是否必然属于MIMD？否；NUMA是否不存在统一地址空间？否；缓存一致是否保证x++原子？否；故障返回是否一律下一条？否。</p>
+<hr>
+<h1 id="C类型与运算边界：从表达式类型到机器结果"><a href="#C类型与运算边界：从表达式类型到机器结果" class="headerlink" title="C类型与运算边界：从表达式类型到机器结果"></a>C类型与运算边界：从表达式类型到机器结果</h1><p>char为8位、short为16位、int为32位，整数采用补码；float为binary32，double为binary64，浮点采用最近偶数舍入。其他类型的位宽另行给定。</p>
+<h2 id="1-每个表达式按四步判断"><a href="#1-每个表达式按四步判断" class="headerlink" title="1. 每个表达式按四步判断"></a>1. 每个表达式按四步判断</h2><p>先标出操作数类型 → 做整数提升 → 做该运算要求的类型转换 → 求值后再做赋值转换。变量位宽、表达式位宽、目标变量位宽可能不同。</p>
+<p>整数提升：char、short等较低秩整数，若int能表示其全部值则提升为int，否则提升为unsigned int。上述默认条件下，unsigned short也提升为int，因为0—65535都在32位int内。不是看到unsigned就始终做无符号运算。</p>
+<p>整数通常算术转换：同符号选择较高秩类型；异符号时，若无符号类型秩不低于有符号类型，转成该无符号类型；否则若较高秩的有符号类型能表示另一类型的全部值，转成它；再否则转成该有符号类型对应的无符号类型。秩与表示范围都要查，不能概括成“有unsigned就全部unsigned”。</p>
+<p>移位运算分别提升左右操作数，结果类型取提升后的左操作数类型，不按加法的通常算术转换统一两边。</p>
+<h3 id="例1：unsigned-short的减法"><a href="#例1：unsigned-short的减法" class="headerlink" title="例1：unsigned short的减法"></a>例1：unsigned short的减法</h3><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">short</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line"><span class="type">int</span> r = a - b;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>a、b均先提升为int，表达式为32位int的1-2，结果r=-1。若改成<code>unsigned short r=a-b;</code>，先产生int的-1，再转换到16位unsigned short，结果65535。两者中间表达式相同，差别发生在赋值阶段。</p>
+<h3 id="例2：相同宽度的有无符号比较"><a href="#例2：相同宽度的有无符号比较" class="headerlink" title="例2：相同宽度的有无符号比较"></a>例2：相同宽度的有无符号比较</h3><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">-1</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> b = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> r = a &lt; b;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>比较前a转换为unsigned int，得到4294967295，因此r=0。比较并不先按有符号得到真，再把布尔结果转成无符号。</p>
+<p>变式：若a为64位long long而b仍32位unsigned int，long long可表示b全部值，则比较转成long long，-1&lt;1为真。必须写出平台宽度与范围。</p>
+<h3 id="例3：先运算再存储"><a href="#例3：先运算再存储" class="headerlink" title="例3：先运算再存储"></a>例3：先运算再存储</h3><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> x = <span class="number">250</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> y = x + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> z = x + <span class="number">10</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>x先提升为int，相加得到260；y赋值转为8位无符号数，得260 mod256=4；z保留260。这里没有int加法溢出。若题问ALU当时的OF，也不能拿最终8位y的截断结果倒推32位加法溢出。</p>
+<h3 id="例4：强制转换放哪里很重要"><a href="#例4：强制转换放哪里很重要" class="headerlink" title="例4：强制转换放哪里很重要"></a>例4：强制转换放哪里很重要</h3><p>令int x=16777217：<code>double d=x;</code>可精确得16777217；<code>double d=(float)x;</code>先舍入成binary32的16777216，再转double，丢失的1不会恢复。</p>
+<p><code>double d=5/2;</code>先做int除法，d为2.0；<code>double d=(double)5/2;</code>先把5转double，再做浮点除法，得2.5。目标变量为double不会倒过来改变右侧已经发生的整数运算。</p>
+<h2 id="2-不能把所有转换和运算都按“截低位”回答"><a href="#2-不能把所有转换和运算都按“截低位”回答" class="headerlink" title="2. 不能把所有转换和运算都按“截低位”回答"></a>2. 不能把所有转换和运算都按“截低位”回答</h2><p>转无符号整数按模<script type="math/tex">2^w</script>归约；转到能表示原值的整数类型，值保持不变；对超出目标范围的有符号整数转换，在C11语义下结果由实现规定或产生实现规定的信号，不能宣称C标准保证任意平台都截低位。计组题若明确给定截断补码机器模型，则在该模型下算，并标明前提。</p>
+<p>普通有符号整数加减乘溢出不由C语言保证回绕；无符号运算则按模处理。求出固定宽度ALU位型，与断言任意C源程序必然得到该值，是不同问题。</p>
+<p>浮点转整数丢弃小数部分、向零截断；若截断后的值超出目标整数范围，不能继续套普通整数模转换给出通用C结果。NaN或无穷转换也不按一般有限数处理。</p>
+<p>选择题速查： int→double在上述位宽条件下精确；int→float可能丢精度；float→double有限值可精确表示；double→float可能舍入或超范围；float→int可能丢小数或超范围。不要把“不超范围”与“不丢精度”混成一件事。</p>
+<h2 id="3-不恢复余数法：把剩余缺口补成完整表"><a href="#3-不恢复余数法：把剩余缺口补成完整表" class="headerlink" title="3. 不恢复余数法：把剩余缺口补成完整表"></a>3. 不恢复余数法：把剩余缺口补成完整表</h2><p>这是无符号整数的一个明确算法模型。商寄存器Q宽4位、余数R用足够的有符号位宽（本例5位），除数D=3。初始R=0、Q=1101。每轮记录旧R符号，把Q最高位带入R：旧R非负则<script type="math/tex">R\leftarrow2R+q_{MSB}-D</script>；旧R负则<script type="math/tex">R\leftarrow2R+q_{MSB}+D</script>。Q左移，按新R非负置商位1，否则置0。末尾若R&lt;0再加D恢复。</p>
+<table>
+<thead>
+<tr>
+<th>轮</th>
+<th>旧R</th>
+<th>带入位</th>
+<th>更新R</th>
+<th>本轮商位</th>
+<th>Q更新后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>2×0+1-3=-2</td>
+<td>0</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-2</td>
+<td>1</td>
+<td>2×(-2)+1+3=0</td>
+<td>1</td>
+<td>0101</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>2×0+0-3=-3</td>
+<td>0</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-3</td>
+<td>1</td>
+<td>2×(-3)+1+3=-2</td>
+<td>0</td>
+<td>0100</td>
+</tr>
+</tbody></table>
+<p>最后余数-2需要加3，得1；商4。验证13=3×4+1。中间负余数是算法状态，不能直接当成无符号最终余数。恢复法与不恢复法每轮状态不必一样，但最终商余应一致。算法指定与寄存器宽度确定后再列位型；不要混用“先移后试商”和另一教材的步骤次序。</p>
+<h2 id="4-binary32边界不是只记三个极值"><a href="#4-binary32边界不是只记三个极值" class="headerlink" title="4. binary32边界不是只记三个极值"></a>4. binary32边界不是只记三个极值</h2><h3 id="例5：正常区间的精确半间隔"><a href="#例5：正常区间的精确半间隔" class="headerlink" title="例5：正常区间的精确半间隔"></a>例5：正常区间的精确半间隔</h3><p>1.0编码0x3F800000，紧邻下一个binary32数为<script type="math/tex">1+2^{-23}</script>。精确值<script type="math/tex">1+2^{-24}</script>恰在二者中间，最近偶数舍入为1.0，因为保留有效数最低位0。精确值<script type="math/tex">1+3\times2^{-24}</script>位于随后两个数之间，舍入到<script type="math/tex">1+2\times2^{-23}</script>，编码0x3F800002。题目若换舍入模式，两个答案都可能改变。</p>
+<h3 id="例6：逐步舍入改变运算顺序结果"><a href="#例6：逐步舍入改变运算顺序结果" class="headerlink" title="例6：逐步舍入改变运算顺序结果"></a>例6：逐步舍入改变运算顺序结果</h3><p>设a=<script type="math/tex">2^{24}</script>、b=1.0、c=-<script type="math/tex">2^{24}</script>，每次运算立即舍入到binary32：先算(a+b)时中点舍入回a，所以(a+b)+c=0；先算a+c得0，所以(a+c)+b=1。浮点加法通常不满足结合律。各步均按binary32舍入，不采用扩展精度中间结果或运算重排。</p>
+<h3 id="例7：最小边界的两种情况"><a href="#例7：最小边界的两种情况" class="headerlink" title="例7：最小边界的两种情况"></a>例7：最小边界的两种情况</h3><p>最小正规格化数<script type="math/tex">2^{-126}</script>编码0x00800000，减去一个最小非规格化数<script type="math/tex">2^{-149}</script>，得到最大非规格化数，编码0x007FFFFF。数值连续衔接，不是阶码字段变0就一律变0。</p>
+<p>精确正值<script type="math/tex">2^{-150}</script>在0与<script type="math/tex">2^{-149}</script>中间，最近偶数舍入为+0；<script type="math/tex">3\times2^{-150}</script>在一个与两个最小间隔之间，舍入到<script type="math/tex">2^{-148}</script>。是否设置具体IEEE异常状态位，还需看精确性、微小性判定和实现条件；此处先回答最终数值，别将下溢与最终非规格化结果简单画等号。</p>
+<p>最大有限数加法若先使有效数进位并增加阶码，可能越界；就近舍入时可得到无穷，朝零等模式下可能保留最大有限数，须先读舍入模式。无穷、NaN、正负零优先分类，再使用普通有限数公式。</p>
+<h2 id="5-练习"><a href="#5-练习" class="headerlink" title="5. 练习"></a>5. 练习</h2><table>
+<thead>
+<tr>
+<th>题干</th>
+<th>关键答案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>unsigned short 65535与int -1相加</td>
+<td>都以32位int计算，得65534</td>
+</tr>
+<tr>
+<td>unsigned int 0减1</td>
+<td>得<script type="math/tex">2^{32}-1</script>，无符号模运算</td>
+</tr>
+<tr>
+<td>把float的16777216再转double能否找回原整数16777217</td>
+<td>不能</td>
+</tr>
+<tr>
+<td>13÷3不恢复法末尾R=-2，可否直接宣布余数负2</td>
+<td>不可，要做末尾恢复</td>
+</tr>
+<tr>
+<td>1+半个binary32间隔是否一律进1</td>
+<td>否，精确中点选最低保留位为0的邻值</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="虚拟存储、外存与译码：基础与完整算例"><a href="#虚拟存储、外存与译码：基础与完整算例" class="headerlink" title="虚拟存储、外存与译码：基础与完整算例"></a>虚拟存储、外存与译码：基础与完整算例</h1><h2 id="1-段式：基址加偏移前先检查界限"><a href="#1-段式：基址加偏移前先检查界限" class="headerlink" title="1. 段式：基址加偏移前先检查界限"></a>1. 段式：基址加偏移前先检查界限</h2><p>段按程序的逻辑部分划分，长度可变。逻辑地址由段号和段内偏移组成；段表记录基址、长度以及有效和保护信息。段号决定查哪项，偏移决定段内位置。段式可有外部碎片；固定页框的页式避免这种外部碎片，但末页可能有内部碎片。</p>
+<p>例1：段2基址0x8000，段长0x300 B，段内偏移0x2FC，要读4 B。有效偏移为0至0x2FF；此次访问末偏移0x2FC+4-1=0x2FF，合法；物理起址0x82FC。若偏移为0x2FE，同样读4 B，末偏移0x301越界，不能只检查起点小于段长就放行。段号越界、段不驻留与读写权限不符也是不同检查。</p>
+<p>若题目给段界限为“最大合法偏移”而非“长度”，比较式会改变：长度L时末偏移&lt;L，最大偏移Limit时末偏移≤Limit。读定义后再判断等号。</p>
+<h2 id="2-段页式：先段表、再该段页表、最后拼地址"><a href="#2-段页式：先段表、再该段页表、最后拼地址" class="headerlink" title="2. 段页式：先段表、再该段页表、最后拼地址"></a>2. 段页式：先段表、再该段页表、最后拼地址</h2><p>一个段内部再分页。段表给该段页表位置和界限，段内页号查对应页表，页表给物理页框号。页内偏移保持不变；段号不能直接当物理页框号。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(段号s, 页号p, 页内偏移d)</span><br><span class="line">      ↓ 查段表，核对界限/权限</span><br><span class="line">该段页表起址 + p×页表项大小</span><br><span class="line">      ↓ 查页表，核对有效位</span><br><span class="line">物理页框号 × 页大小 + d</span><br></pre></td></tr></tbody></table></figure>
+
+<p>例2：页大小1 KiB；段2的页表起址0x2000，页表项4 B；查逻辑地址(2,3,0x34)，第3号页表项给PPN=0x12，均合法且驻留。页表项地址0x2000+3×4=0x200C；物理地址0x12×0x400+0x34=0x4834。段表项地址则由段表基址与段表项大小另算，不能把0x2000误当段2的数据基址。</p>
+<p>无TLB、所有表均在主存且不经Cache的模型下，取得一个数据需读段表项、读页表项、读数据，共3次。表项缓存、TLB或跨页访问会改变次数。与两级页表区别在于：段页式先按逻辑段选页表，两级页表则将一个虚拟页号拆成多级索引；不要因二者都“查两张表”就说结构相同。</p>
+<h2 id="3-页替换、Cache与TLB的状态分开"><a href="#3-页替换、Cache与TLB的状态分开" class="headerlink" title="3. 页替换、Cache与TLB的状态分开"></a>3. 页替换、Cache与TLB的状态分开</h2><p>页表驻留位回答页是否在主存；TLB缓存部分页映射；Cache缓存数据或指令块。缺TLB可以只查页表，不必访问磁盘。缺页处理后通常重试原指令，因此同一逻辑访问可能出现多次TLB查询，按题目是否计重试决定。</p>
+<p>例3：页大小4 KiB，主存只给本进程3个页框，初始空，页访问串0,1,2,0,3,1，LRU。前3次缺页装0、1、2；第4次0命中，最久未用变为1；第5次3缺页换1；第6次1缺页换2。共5次缺页。这里替换的是页，不能拿Cache行数约束它，也不能把页内每条指令算作一次缺页。</p>
+<p>若页0可写且已修改，换出它可能需要回写外存；干净只读页可能不需回写。页表/TLB对应映射也必须一致更新；</p>
+<h2 id="4-带译码图的主存连接题"><a href="#4-带译码图的主存连接题" class="headerlink" title="4. 带译码图的主存连接题"></a>4. 带译码图的主存连接题</h2><p>例4：16位字节地址总线，8位数据总线，用4片8K×8 RAM占用0x8000—0xFFFF。每片容量0x2000 B，A0—A12接各芯片地址；高位A15负责模块使能，A14、A13选择片。高有效逻辑如下；若器件片选低有效，要把输出极性相应取反。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">A15 ─────────── 2→4译码器使能（A15=1）</span><br><span class="line">A14,A13 ─────── 译码输入</span><br><span class="line">                   ├─00 → RAM0  0x8000—0x9FFF</span><br><span class="line">                   ├─01 → RAM1  0xA000—0xBFFF</span><br><span class="line">                   ├─10 → RAM2  0xC000—0xDFFF</span><br><span class="line">                   └─11 → RAM3  0xE000—0xFFFF</span><br><span class="line">A12…A0 ─────── 四片并联地址输入</span><br><span class="line">D7…D0  ↔────── 四片数据端共接，只有选中片驱动</span><br><span class="line">读/写控制 ───── 四片控制端，配合片选生效</span><br></pre></td></tr></tbody></table></figure>
+
+<p>高有效CS2逻辑为<script type="math/tex">A_{15}A_{14}\overline{A_{13}}</script>。访问0xD234：高三位110，选RAM2；片内地址0xD234-0xC000=0x1234。若漏接A15使能，0x5234也会落到相同芯片和片内位置，产生重影。检查题图时，要同时检查地址输入、片选、数据位宽和控制极性。</p>
+<p>芯片扩展题最后验算：4×8 KiB=32 KiB，地址区间长度0xFFFF-0x8000+1=0x8000 B，二者一致。若数据总线改16位，必须明确是否两个8位芯片并联成一组以及CPU按字还是字节编址，不能沿用本图直接得结论。</p>
+<h2 id="5-磁盘完整计算：容量、速率和时间要互相一致"><a href="#5-磁盘完整计算：容量、速率和时间要互相一致" class="headerlink" title="5. 磁盘完整计算：容量、速率和时间要互相一致"></a>5. 磁盘完整计算：容量、速率和时间要互相一致</h2><p>例5：8个有效记录面，每面4096磁道，每道512扇区，每扇区512 B；7200 rpm，平均寻道5 ms。忽略控制器、跨道切换和排队开销。</p>
+<p>容量=8×4096×512×512 B=<script type="math/tex">2^{33}</script> B=8 GiB。每道有效数据256 KiB，每秒120圈，因此理想顺序数据率30 MiB/s。读64 KiB连续数据的传输时间为64 KiB/30 MiB/s=2.0833 ms；平均旋转等待为半圈，即4.1667 ms；平均访问时间5+4.1667+2.0833=11.25 ms。</p>
+<p>这里一次请求仅加一次平均寻道与旋转等待，因为题设连续读且忽略额外切换。若64 KiB分散在许多随机扇区，需要逐请求计定位开销；若已经给定目标扇区的角位置与当前转角，就按实际旋转时间，不再加“平均半圈”。</p>
+<p>柱面是各记录面上同一半径的磁道集合；磁头/盘面号选择记录面。盘片数不等于有效盘面数，题目明确有效面时直接使用。地址位数先算柱面、磁头、扇区各字段可表示的种类数，不能把每扇区字节数又塞进只标识扇区的地址字段。</p>
+<h3 id="磁盘阵列只抓基本能力"><a href="#磁盘阵列只抓基本能力" class="headerlink" title="磁盘阵列只抓基本能力"></a>磁盘阵列只抓基本能力</h3><p>N块等大盘、每盘容量C：RAID0条带化，无冗余，容量NC，不能容忍任意一盘丢失；RAID1镜像，成对镜像的常见模型有效容量约NC/2；RAID5分布式奇偶校验，通常需至少3盘，有效容量(N-1)C，可在一盘失效时恢复数据。具体故障组合和其他级别按题设。冗余提高可用性，不等于替代所有备份需求。</p>
+<h2 id="6-SSD：页读写、块擦除与写放大"><a href="#6-SSD：页读写、块擦除与写放大" class="headerlink" title="6. SSD：页读写、块擦除与写放大"></a>6. SSD：页读写、块擦除与写放大</h2><p>SSD没有磁头寻道和盘片旋转，不能套磁盘定位公式。闪存通常以页读写，以更大的擦除块擦除；覆盖旧数据往往写到新位置，由闪存转换层维护逻辑到物理映射，旧页标失效，垃圾回收再迁移有效页并擦块。磨损均衡尽量分散擦写负担，不是让每个逻辑写入都必须同时改写全部块。</p>
+<p>例6：一个8页擦除块中6页仍有效、2页失效。为回收该块，需迁移6个有效页到已擦除空间，再擦除旧块；另有2页主机新写入。若只统计这次回收加新写形成的页编程量，内部写6+2=8页，主机写2页，写放大=8/2=4。擦除次数另计1次，不能把“擦一个8页块”又作为8次页编程加入分子。</p>
+<p>页4 KiB、块256页时，擦除粒度1 MiB。改4 KiB并不必然立即擦除原1 MiB块；是否迁移、何时回收由控制器和空闲空间状态决定。题目若给了固定迁移流程，就按它算，不用固定“每次写放大256倍”代替分析。</p>
+<h2 id="7-练习-1"><a href="#7-练习-1" class="headerlink" title="7. 练习"></a>7. 练习</h2><table>
+<thead>
+<tr>
+<th>题目</th>
+<th>判据与答案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>段长100 B，偏移99读2 B合法吗</td>
+<td>不合法，末偏移100不小于段长</td>
+</tr>
+<tr>
+<td>段页式物理地址能否段基址直接加整个段内偏移</td>
+<td>一般不能，先查该段页表取得页框</td>
+</tr>
+<tr>
+<td>7200 rpm的平均旋转等待</td>
+<td>60/7200/2秒，约4.167 ms</td>
+</tr>
+<tr>
+<td>SSD页大小与擦除块大小是否同一概念</td>
+<td>否，编程与擦除粒度不同</td>
+</tr>
+<tr>
+<td>选中芯片与芯片内部寻址谁负责</td>
+<td>高位译码产生片选，低位选片内单元</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="x86机器级程序：读代码、还原C与存储综合"><a href="#x86机器级程序：读代码、还原C与存储综合" class="headerlink" title="x86机器级程序：读代码、还原C与存储综合"></a>x86机器级程序：读代码、还原C与存储综合</h1><p>以下采用32位x86、Intel语法、小端和平坦地址空间；寄存器名默认32位。</p>
+<h2 id="1-读汇编先解决四个基础问题"><a href="#1-读汇编先解决四个基础问题" class="headerlink" title="1. 读汇编先解决四个基础问题"></a>1. 读汇编先解决四个基础问题</h2><p>Intel双操作数通常是“目的,源”；<code>[地址表达式]</code>表示内存内容，没有方括号的寄存器表示寄存器值；byte/word/dword分别8/16/32位，x86的word不是“当前CPU字长”；目的变量与数据来源的位宽都要看清。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>最小语义</th>
+<th>常错点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mov eax,ebx</td>
+<td>EAX←EBX</td>
+<td>方向别反</td>
+</tr>
+<tr>
+<td>mov eax,[ebx]</td>
+<td>读EBX指向的4 B</td>
+<td>EBX是地址，EAX是取出的内容</td>
+</tr>
+<tr>
+<td>lea eax,[ebx+ecx*4+8]</td>
+<td>EAX←EBX+ECX×4+8</td>
+<td>不读该地址的数据</td>
+</tr>
+<tr>
+<td>movsx eax,byte ptr [ebx]</td>
+<td>读1 B并符号扩展到32位</td>
+<td>0xFF变-1</td>
+</tr>
+<tr>
+<td>movzx eax,byte ptr [ebx]</td>
+<td>读1 B并零扩展到32位</td>
+<td>0xFF变255</td>
+</tr>
+<tr>
+<td>cmp eax,ebx</td>
+<td>按EAX-EBX设置标志，不存差值</td>
+<td>原寄存器值不变</td>
+</tr>
+<tr>
+<td>test eax,eax</td>
+<td>按位与，设置标志，不写结果</td>
+<td>常用于零判断</td>
+</tr>
+</tbody></table>
+<p>普通mov通常不允许两个显式操作数同时是内存。要实现M[A]←M[B]，一般先读到寄存器再写回。</p>
+<p>AT&amp;T例<code>movl 8(%ebx,%ecx,4),%eax</code>对应Intel <code>mov eax,[ebx+ecx*4+8]</code>。AT&amp;T通常源在前、目的在后，立即数有$前缀，寄存器有%前缀；这些是表示格式差别，不是CPU执行方向改变。</p>
+<h3 id="例1：地址与内容连续追踪"><a href="#例1：地址与内容连续追踪" class="headerlink" title="例1：地址与内容连续追踪"></a>例1：地址与内容连续追踪</h3><p>EBX=0x1000、ECX=3，地址0x1014的4字节为78、56、34、12。<code>lea eax,[ebx+ecx*4+8]</code>得到0x1014；随后<code>mov edx,[eax]</code>得到0x12345678。若把lea误作load，第一条就错，后续再把0x12345678当指针会连锁出错。</p>
+<h2 id="2-分支表要区分有符号与无符号"><a href="#2-分支表要区分有符号与无符号" class="headerlink" title="2. 分支表要区分有符号与无符号"></a>2. 分支表要区分有符号与无符号</h2><p>以下均以刚执行<code>cmp A,B</code>即A-B为前提。</p>
+<table>
+<thead>
+<tr>
+<th>含义</th>
+<th>有符号跳转</th>
+<th>标志条件</th>
+<th>无符号跳转</th>
+<th>标志条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A=B</td>
+<td>je</td>
+<td>ZF=1</td>
+<td>je</td>
+<td>ZF=1</td>
+</tr>
+<tr>
+<td>A≠B</td>
+<td>jne</td>
+<td>ZF=0</td>
+<td>jne</td>
+<td>ZF=0</td>
+</tr>
+<tr>
+<td>A&lt;B</td>
+<td>jl</td>
+<td>SF≠OF</td>
+<td>jb</td>
+<td>CF=1</td>
+</tr>
+<tr>
+<td>A≤B</td>
+<td>jle</td>
+<td>ZF=1或SF≠OF</td>
+<td>jbe</td>
+<td>CF=1或ZF=1</td>
+</tr>
+<tr>
+<td>A&gt;B</td>
+<td>jg</td>
+<td>ZF=0且SF=OF</td>
+<td>ja</td>
+<td>CF=0且ZF=0</td>
+</tr>
+<tr>
+<td>A≥B</td>
+<td>jge</td>
+<td>SF=OF</td>
+<td>jae</td>
+<td>CF=0</td>
+</tr>
+</tbody></table>
+<p>例2：EAX=0xFFFFFFFF、EBX=1。 cmp的32位结果0xFFFFFFFE；CF=0、ZF=0、SF=1、OF=0。jl会跳，因为-1&lt;1；ja也会跳，因为4294967295&gt;1。两条都能成立，是同一位型的两种数值解释，不是处理器自相矛盾。</p>
+<p>跟踪分支时找最近一次有效修改相关标志的指令，不一定是最近的cmp。例如cmp后执行add会更新标志，随后jcc用的是add后的标志。mov、lea和not不更新算术标志；inc/dec会更新部分标志但保留CF。不要把“所有算术逻辑指令都改全部标志”当规则。</p>
+<h2 id="3-从if-else还原条件，而不是机械翻译标签"><a href="#3-从if-else还原条件，而不是机械翻译标签" class="headerlink" title="3. 从if-else还原条件，而不是机械翻译标签"></a>3. 从if-else还原条件，而不是机械翻译标签</h2><h3 id="例3：求两个有符号数的较大值"><a href="#例3：求两个有符号数的较大值" class="headerlink" title="例3：求两个有符号数的较大值"></a>例3：求两个有符号数的较大值</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">; EAX=x，EBX=y</span><br><span class="line">cmp eax,ebx</span><br><span class="line">jge Done</span><br><span class="line">mov eax,ebx</span><br><span class="line">Done:</span><br><span class="line">; EAX为结果</span><br></pre></td></tr></tbody></table></figure>
+
+<p>若x≥y跳过赋值，保留x；否则EAX=y。对应<code>return x&gt;=y ? x : y;</code>。关键是jge跳的是“无需改结果”的路径，别把跳转条件直接当成then语句条件而漏看代码布局。若输入声明为unsigned，应使用jae等无符号条件，不只改C注释。</p>
+<p><code>test eax,eax; je Zero</code>表示EAX=0时跳转，不能理解成“EAX为真就跳”。<code>and eax,1</code>可把最低位留下，但会破坏原EAX；<code>test eax,1</code>只检查，不写回，这会影响后续数据流。</p>
+<h2 id="4-循环题完整做一遍：次数、地址、命中与时间"><a href="#4-循环题完整做一遍：次数、地址、命中与时间" class="headerlink" title="4. 循环题完整做一遍：次数、地址、命中与时间"></a>4. 循环题完整做一遍：次数、地址、命中与时间</h2><h3 id="例4：给定n≥0、合法数组、32位有符号和不溢出"><a href="#例4：给定n≥0、合法数组、32位有符号和不溢出" class="headerlink" title="例4：给定n≥0、合法数组、32位有符号和不溢出"></a>例4：给定n≥0、合法数组、32位有符号和不溢出</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">; ESI=a首址，EDX=n</span><br><span class="line">xor eax,eax          ; sum=0</span><br><span class="line">xor ecx,ecx          ; i=0</span><br><span class="line">Test:</span><br><span class="line">cmp ecx,edx</span><br><span class="line">jge Done</span><br><span class="line">add eax,dword ptr [esi+ecx*4]</span><br><span class="line">inc ecx</span><br><span class="line">jmp Test</span><br><span class="line">Done:</span><br><span class="line">ret</span><br></pre></td></tr></tbody></table></figure>
+
+<p>对应C为<code>int sum=0; for(int i=0;i&lt;n;i++) sum+=a[i]; return sum;</code>。这是前测试循环，n=0时循环体不执行；cmp/jge检查n+1次，最后一次负责退出。</p>
+<p>令n=4、a首址0x2000、元素为3,-1,5,2。逐轮EAX为3、2、7、9，ECX递增到4。循环体中的一次add既做数据读取又做相加，不能因为一条汇编指令就漏算数据访问。</p>
+<table>
+<thead>
+<tr>
+<th>指令类别</th>
+<th>执行次数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始化两条xor</td>
+<td>2</td>
+</tr>
+<tr>
+<td>cmp和jge</td>
+<td>各n+1</td>
+</tr>
+<tr>
+<td>内存add、inc、jmp</td>
+<td>各n</td>
+</tr>
+<tr>
+<td>ret</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>总指令数2+2(n+1)+3n+1=5n+5，本例25。若题目不把ret计入程序范围则减1；若把入口参数准备计入则另加，先固定计数边界。</p>
+<p>假设数组物理地址等于上述地址，数据Cache初始空、4行、每块8 B、直接映射；只分析这4次数组读取，代码取指、栈和其他访问均不污染该Cache。</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>字节地址</th>
+<th>块号=地址/8向下取整</th>
+<th>行号=块号mod4</th>
+<th>命中</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0x2000</td>
+<td>1024</td>
+<td>0</td>
+<td>否，装块1024</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0x2004</td>
+<td>1024</td>
+<td>0</td>
+<td>是</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0x2008</td>
+<td>1025</td>
+<td>1</td>
+<td>否，装块1025</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0x200C</td>
+<td>1025</td>
+<td>1</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<p>数据命中率50%，不是所有25条指令的命中率；分母只统计本题指定的数据访问。若规定基础执行耗时为每条1周期，每次数据缺失额外20周期，忽略所有其他开销和重叠，则总周期25+2×20=65；2 GHz下为32.5 ns。该例使用题设的简化计时模型，不把x86真实各指令延迟假定为都等于1。</p>
+<h2 id="5-调用题把一张栈图画清楚"><a href="#5-调用题把一张栈图画清楚" class="headerlink" title="5. 调用题把一张栈图画清楚"></a>5. 调用题把一张栈图画清楚</h2><h3 id="例5：32位cdecl式调用，右到左压参数，调用者清理"><a href="#例5：32位cdecl式调用，右到左压参数，调用者清理" class="headerlink" title="例5：32位cdecl式调用，右到左压参数，调用者清理"></a>例5：32位cdecl式调用，右到左压参数，调用者清理</h3><p>执行前ESP=0x2000，EBP=0x3000。调用add2(7,9)：先push 9，再push 7，call压入下一条指令地址。进入函数后执行<code>push ebp; mov ebp,esp; sub esp,8</code>。令call的返回地址为RA。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">高地址</span><br><span class="line">0x1FFC : 9             ← [EBP+12] 第二参数</span><br><span class="line">0x1FF8 : 7             ← [EBP+8]  第一参数</span><br><span class="line">0x1FF4 : RA            ← [EBP+4]  返回地址</span><br><span class="line">0x1FF0 : 0x3000        ← [EBP]    旧EBP，新的EBP=0x1FF0</span><br><span class="line">0x1FEC : 局部空间       ← [EBP-4]</span><br><span class="line">0x1FE8 : 局部空间       ← ESP</span><br><span class="line">低地址</span><br></pre></td></tr></tbody></table></figure>
+
+<p>函数可用<code>mov eax,[ebp+8]; add eax,[ebp+12]</code>得到16；<code>leave</code>等价于mov esp,ebp再pop ebp，ESP变0x1FF4、EBP恢复0x3000；ret弹RA，ESP变0x1FF8；调用者add esp,8清参数，回0x2000。</p>
+<p>为什么第一个参数不是[EBP+4]？那里是call压入的返回地址。为什么不能始终用ESP+固定偏移取参数？函数中push或临时分配会改变ESP；EBP建帧后通常保持稳定。真实编译器可省略帧指针，也可提前分配参数区；本例规则不是所有ABI的通则。</p>
+<p>函数若使用约定要求被调用者保存的寄存器，要入栈保存并在返回前恢复；调用者保存的寄存器则由调用者自行保护仍需保留的值。不能因同名寄存器在调用前后出现，就认定函数必然保留它。</p>
+<h2 id="6-乘除与标志位补充"><a href="#6-乘除与标志位补充" class="headerlink" title="6. 乘除与标志位补充"></a>6. 乘除与标志位补充</h2><p>32位无符号mul可形成EDX:EAX的64位乘积；低32位在EAX。32位div以EDX:EAX作为被除数，商放EAX、余数放EDX。做小的无符号除法前通常需使高半部EDX为0，但若题目本来就给64位被除数，不能擅自清掉它。</p>
+<p>有符号idiv需让被除数高半部与低半部形成正确的64位补码；例如用cdq把EAX符号扩展到EDX:EAX。它不是把EDX一律清0。除数0或商超出目标位宽可触发除法错误；“被除数很大”本身不足以判断，必须看除数及商范围。</p>
+<h2 id="7-练习-2"><a href="#7-练习-2" class="headerlink" title="7. 练习"></a>7. 练习</h2><table>
+<thead>
+<tr>
+<th>题目</th>
+<th>答案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mov eax,[ebx]与lea eax,[ebx]是否相同</td>
+<td>前者读内存，后者取地址数值EBX</td>
+</tr>
+<tr>
+<td>cmp是否把差写回第一个操作数</td>
+<td>否</td>
+</tr>
+<tr>
+<td>n=0时例4总指令数</td>
+<td>5，初始化2、检查2、ret1</td>
+</tr>
+<tr>
+<td>call压入的是自身起址吗</td>
+<td>通常为下一条指令地址，即返回位置</td>
+</tr>
+<tr>
+<td>循环体4次，前测试条件为何可能5次</td>
+<td>需要额外一次检查才能退出</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="数据通路、总线与DMA：带图综合题"><a href="#数据通路、总线与DMA：带图综合题" class="headerlink" title="数据通路、总线与DMA：带图综合题"></a>数据通路、总线与DMA：带图综合题</h1><h2 id="1-读单总线图：先认方向，再认锁存条件"><a href="#1-读单总线图：先认方向，再认锁存条件" class="headerlink" title="1. 读单总线图：先认方向，再认锁存条件"></a>1. 读单总线图：先认方向，再认锁存条件</h2><p><img src="/images/408-co/wd-p221-%E5%8D%95%E6%80%BB%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF.png" alt="王道单总线数据通路原图"></p>
+<p>图源：王道PDF物理页221，书内209页。沿图确认：寄存器out驱动总线，in允许锁存；Y保存ALU一侧操作数，另一侧来自总线；ALU结果先入Z，再由Zout送总线。MDR连接内部通路与主存读写通路，MAR保存访存地址。图中系统总线与内部总线不是同一组线，不能因为名字都叫总线就认定全部操作必然互斥。</p>
+<h3 id="例1：LOAD-R1-R2-的执行段控制表"><a href="#例1：LOAD-R1-R2-的执行段控制表" class="headerlink" title="例1：LOAD R1,[R2]的执行段控制表"></a>例1：LOAD R1,[R2]的执行段控制表</h3><p>另设本题主存读取需3拍：读请求发出后，连续3拍Read有效，第三拍末MDR从外部存储通路锁存数据。MAR已保存地址；这3拍不使用内部总线返回数据。忽略取指，R2为有效地址。</p>
+<table>
+<thead>
+<tr>
+<th>拍</th>
+<th>有效信号</th>
+<th>结束后的关键状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>R2out、MARin</td>
+<td>MAR←R2</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Read</td>
+<td>访存第1拍</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>Read</td>
+<td>访存第2拍</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>Read、外部读入MDR使能</td>
+<td>MDR←M[MAR]，第3拍结束</td>
+</tr>
+<tr>
+<td>E5</td>
+<td>MDRout、R1in</td>
+<td>R1←MDR</td>
+</tr>
+</tbody></table>
+<p>需5拍。这里外部读入MDR使能与内部总线MDRin应按图中器件接口区分；若试题另有MFC完成握手，用其结束等待。R1只能在数据准备好后取得读值。若改成STORE [R2],R1，必须先准备MAR与MDR的写数据，再发写请求，不能把LOAD的表只换Read为Write而不改数据来源。</p>
+<h3 id="例2：如何判断新增指令能否只改控制"><a href="#例2：如何判断新增指令能否只改控制" class="headerlink" title="例2：如何判断新增指令能否只改控制"></a>例2：如何判断新增指令能否只改控制</h3><p>现有通路支持R3←R1+R2，若ALU已有减法且输入通路不变，增加R3←R1-R2通常可复用Y、ALU、Z，只增加/修改操作选择和控制序列。若要新增R3←M[R1]+M[R2]，同一单端口主存不能同时读两个地址，需要分次读取并保存第一个值；若又要求一拍完成，现有资源显然不满足。</p>
+<p>答题顺序：写语义 → 标输入来源和结果去向 → 查所需运算功能 → 查同拍端口与总线冲突 → 判断缺控制还是缺硬件。不要看见新操作码就必然回答新增ALU。</p>
+<h2 id="2-带MUX的单周期控制题"><a href="#2-带MUX的单周期控制题" class="headerlink" title="2. 带MUX的单周期控制题"></a>2. 带MUX的单周期控制题</h2><p>数据通路如下：双读单写寄存器堆，数据存储器独立；PC顺序更新用独立加法器。WB选择0为ALU、1为存储器；B选择0为寄存器rt、1为符号扩展立即数。取指通路略。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rs ─→ 寄存器堆读A ──────────────→ ALU.A</span><br><span class="line">rt ─→ 寄存器堆读B ───┬─→ B选择0 ─┐</span><br><span class="line">                     │            ├→ ALU.B → ALU结果 ─┬→ 数据存储器地址</span><br><span class="line">imm → 符号扩展 ─────────→ B选择1 ─┘                    └→ WB选择0</span><br><span class="line">                     └────────────────→ 数据存储器写数据</span><br><span class="line">                                        数据读出 ───────→ WB选择1</span><br><span class="line">WB选择输出 ─────────────────────────────→ 寄存器堆写数据</span><br></pre></td></tr></tbody></table></figure>
+
+<p>例3：ADD、LOAD、STORE填表。目的寄存器编号由指令编码或额外选择逻辑提供。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>B选择</th>
+<th>ALU</th>
+<th>MemRead</th>
+<th>MemWrite</th>
+<th>WB选择</th>
+<th>RegWrite</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ADD rd,rs,rt</td>
+<td>0</td>
+<td>加</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>LOAD rt,imm(rs)</td>
+<td>1</td>
+<td>加</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>STORE rt,imm(rs)</td>
+<td>1</td>
+<td>加</td>
+<td>0</td>
+<td>1</td>
+<td>无关</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>STORE中B选择立即数用于算地址，但存储器写入数据仍是读B端口的rt值。观察两条分支线即可解释为何“ALU取立即数”和“往主存写rt”能同时成立。添加立即数加法只需B选1、ALU加、WB选0、RegWrite=1，并正确选目的寄存器；若立即数语义为零扩展而现有只支持符号扩展，还需补扩展选择。</p>
+<h3 id="最长路径题要串起真正经过的部件"><a href="#最长路径题要串起真正经过的部件" class="headerlink" title="最长路径题要串起真正经过的部件"></a>最长路径题要串起真正经过的部件</h3><p>若LOAD经过指令存储器200 ps、寄存器读80 ps、扩展与B选择合计40 ps、ALU120 ps、数据存储器250 ps、WB选择30 ps、写入设置20 ps，且本题明确这些延迟按顺序累计，则LOAD路径740 ps。若寄存器读与立即数扩展能并行，就不能盲加两条支路延迟，应按较晚到达ALU的输入计算；题图决定关键路径。740 ps对应上述串行路径。</p>
+<h2 id="3-多发射：依赖和资源要同时满足"><a href="#3-多发射：依赖和资源要同时满足" class="headerlink" title="3. 多发射：依赖和资源要同时满足"></a>3. 多发射：依赖和资源要同时满足</h2><p>超标量动态多发射由硬件检查与调度；超长指令字VLIW主要由编译器静态安排可并行操作；超流水通过细分阶段缩短周期。多发射可能IPC&gt;1、CPI&lt;1，更多流水段本身不意味着一周期能发多条。</p>
+<h3 id="例4：给定资源与依赖，安排发射表"><a href="#例4：给定资源与依赖，安排发射表" class="headerlink" title="例4：给定资源与依赖，安排发射表"></a>例4：给定资源与依赖，安排发射表</h3><p>每周期最多顺序发射2条，有2个ALU、1个访存部件；ALU延迟1周期，load延迟2周期，store延迟1周期，部件均可接收本题所需新操作。结果在完成周期末产生，下一周期开头可用；同周期不能使用刚发射指令的结果。无重命名需求、无其他阻塞；第一条因依赖不能发射时，后面的指令也不能越过。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">I1 LOAD r1,[r2]</span><br><span class="line">I2 ADD  r3,r4,r5</span><br><span class="line">I3 ADD  r6,r1,r3</span><br><span class="line">I4 ADD  r7,r8,r9</span><br><span class="line">I5 STORE [r10],r6</span><br><span class="line">I6 ADD  r11,r7,r12</span><br></pre></td></tr></tbody></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>周期</th>
+<th>发射</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>I1、I2</td>
+<td>无相互依赖，分别用访存部件和ALU</td>
+</tr>
+<tr>
+<td>2</td>
+<td>无</td>
+<td>I1要到本周期末完成，I3不能发；顺序发射也挡住I4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>I3、I4</td>
+<td>r1和r3均可用，两个ALU足够</td>
+</tr>
+<tr>
+<td>4</td>
+<td>I5、I6</td>
+<td>r6和r7已在周期3末生成，资源无冲突</td>
+</tr>
+</tbody></table>
+<p>6条用4个周期发射并按本题延迟在第4周期末全部完成，平均IPC=1.5。若硬件允许越过阻塞的I3发射I4，周期2可能被利用，但必须重做整张表；这是模型变化，不是看到空槽就能擅自移指令。若每周期只有1个ALU，周期3也不能同时发I3与I4。</p>
+<p>乱序执行还需维护程序语义；寄存器重命名能缓解假相关WAR/WAW，不能消除真正RAW数据依赖。精确异常要求处理程序能够观察到与顺序执行相符的体系结构状态。</p>
+<h2 id="4-异步握手图：撤销顺序也可能考"><a href="#4-异步握手图：撤销顺序也可能考" class="headerlink" title="4. 异步握手图：撤销顺序也可能考"></a>4. 异步握手图：撤销顺序也可能考</h2><p><img src="/images/408-co/wd-p297-%E5%BC%82%E6%AD%A5%E6%8F%A1%E6%89%8B.png" alt="王道异步总线三种握手原图"></p>
+<p>图源：王道PDF物理页297，书内285页。箭头表示一方动作依赖另一方信号：不互锁用预定延迟撤销；半互锁请求方等响应再撤请求，响应方按固定延迟撤响应；全互锁两边撤销都等待对方。别把“有没有公共时钟”和“有没有相互等待”混成一个判断。</p>
+<h3 id="例5：四阶段全互锁握手耗时"><a href="#例5：四阶段全互锁握手耗时" class="headerlink" title="例5：四阶段全互锁握手耗时"></a>例5：四阶段全互锁握手耗时</h3><p>请求与响应每个信号单程传播10 ns；从设备收到请求后20 ns备好数据并发响应；主设备收到响应立即取数据并撤请求；从设备收到请求撤销立即撤响应；主设备收到响应撤销后可开始下一事务。每事务传4 B，不计额外仲裁。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">t= 0 ns 主设备 请求↑</span><br><span class="line">t=10 ns 从设备看到请求，开始准备</span><br><span class="line">t=30 ns 从设备数据就绪，响应↑</span><br><span class="line">t=40 ns 主设备收到响应，取数，请求↓</span><br><span class="line">t=50 ns 从设备看到请求↓，响应↓</span><br><span class="line">t=60 ns 主设备看到响应↓，握手复位完成</span><br></pre></td></tr></tbody></table></figure>
+
+<p>首次取到数据40 ns，但相邻完整事务最小间隔60 ns。持续带宽4 B/60 ns≈66.67 MB/s；不能按4/40 ns算长期吞吐，因为复位阶段仍占时间。若协议允许流水事务重叠，需要另给规则，不能默认为可重叠。</p>
+<h3 id="分离式事务释放的是等待阶段的总线"><a href="#分离式事务释放的是等待阶段的总线" class="headerlink" title="分离式事务释放的是等待阶段的总线"></a>分离式事务释放的是等待阶段的总线</h3><p>请求阶段只发地址和命令，之后释放总线；从设备准备好时再争用总线返回响应。请求与响应通常带标识便于配对，不要求准备期间总线一直空闲，也不保证各响应顺序一定与请求顺序一致，按协议规则处理。</p>
+<p>例6：单次读请求占10 ns，设备准备80 ns，响应传数10 ns。独占事务从头到尾占100 ns；分离式事务实际占总线20 ns，中间80 ns可用于其他事务。单个请求的最低响应延迟仍为100 ns，</p>
+<h2 id="5-轮询开销：检查次数与设备产出次数未必相等"><a href="#5-轮询开销：检查次数与设备产出次数未必相等" class="headerlink" title="5. 轮询开销：检查次数与设备产出次数未必相等"></a>5. 轮询开销：检查次数与设备产出次数未必相等</h2><h3 id="例7：定时轮询"><a href="#例7：定时轮询" class="headerlink" title="例7：定时轮询"></a>例7：定时轮询</h3><p>设备每1 ms产生一个数据，接口只有一个数据缓冲；CPU每100 μs检查一次，一次检查20周期，100 MHz。每秒检查10000次，占200000周期，即CPU的0.2%。若每次真正读取和处理额外80周期，设备稳定每秒1000数据，则再占80000周期，总0.28%。不能把所有10000次检查都算成一次成功传输。</p>
+<p>最坏轮询发现延迟接近100 μs，另加处理到读走的时间；这里可在下一1 ms数据到来前处理。若CPU一直忙等而没有用间隙做其他工作，即使每次检查只20周期，等待期间也不能全部算成对应用程序可利用的空闲时间。定时轮询与阻塞忙等是不同调度模型。</p>
+<h2 id="6-DMA争用：CPU管理开销、总线占用和实际停顿分别算"><a href="#6-DMA争用：CPU管理开销、总线占用和实际停顿分别算" class="headerlink" title="6. DMA争用：CPU管理开销、总线占用和实际停顿分别算"></a>6. DMA争用：CPU管理开销、总线占用和实际停顿分别算</h2><h3 id="例8：每个DMA请求必然与CPU冲突的周期挪用模型"><a href="#例8：每个DMA请求必然与CPU冲突的周期挪用模型" class="headerlink" title="例8：每个DMA请求必然与CPU冲突的周期挪用模型"></a>例8：每个DMA请求必然与CPU冲突的周期挪用模型</h3><p>DMA速率10 MB/s，每次传4 B；每次独占主存总线100 ns。每秒有250万次传输，占总线0.25 s，即25%。若本题规定CPU在这些时段每次都需要主存且完全不能推进，CPU因此等待25%的墙钟时间。若CPU可执行寄存器运算、命中私有Cache或这些时段原本不访存，真实停顿可更少；“总线被占25%”本身不能直接推出所有程序慢25%。</p>
+<p>题若给CPU任务有不重叠的有效工作时间0.75 s，DMA在整个执行期间稳定占25%且每次均阻塞有效推进，则实际完成时间<script type="math/tex">0.75/(1-0.25)=1</script> s。不能简单做0.75×1.25；等待比例的分母是最终墙钟时间。</p>
+<h3 id="例9：CPU与DMA交替访存的可行性"><a href="#例9：CPU与DMA交替访存的可行性" class="headerlink" title="例9：CPU与DMA交替访存的可行性"></a>例9：CPU与DMA交替访存的可行性</h3><p>CPU每1 μs只需一次500 ns主存访问，剩余半周期可供DMA；若DMA每字需要500 ns且传4 B，固定交替时DMA峰值4 MB/s。若设备要求6 MB/s，这个固定时隙安排不够，须改变调度或提高带宽，不能说“DMA不执行CPU指令所以不受限制”。</p>
+<p>DMA预处理设置起址、计数和方向；传送期间控制器更新地址与计数；块结束可发完成中断。DMA请求申请的是访存/总线使用权，完成中断请求的是CPU进入处理，两者时机与用途不同。</p>
+<hr>
+<h1 id="跨章自测：题目与完整解答"><a href="#跨章自测：题目与完整解答" class="headerlink" title="跨章自测：题目与完整解答"></a>跨章自测：题目与完整解答</h1><h2 id="题目区"><a href="#题目区" class="headerlink" title="题目区"></a>题目区</h2><h3 id="题1：改指令数后，CPI应如何加权"><a href="#题1：改指令数后，CPI应如何加权" class="headerlink" title="题1：改指令数后，CPI应如何加权"></a>题1：改指令数后，CPI应如何加权</h3><p>同一任务原执行<script type="math/tex">10^8</script>条指令：A类60%、每条1周期；B类25%、每条2周期；C类15%、每条4周期。主频2 GHz。新方案把每条C类替换为两条A类指令，其他不变、主频不变，无额外开销。求原时间、新指令数、新平均CPI、新时间和加速比。</p>
+<h3 id="题2：一个条件判断中有两次不同的转换"><a href="#题2：一个条件判断中有两次不同的转换" class="headerlink" title="题2：一个条件判断中有两次不同的转换"></a>题2：一个条件判断中有两次不同的转换</h3><p>int 32位、short 16位。<code>unsigned short x=65535; int y=-1; unsigned int z=1;</code> 判断<code>x+y</code>的类型与值，以及<code>y&lt;z</code>结果。再判断<code>unsigned short r=x+2;</code>的最终值。写出提升与赋值发生在哪一步。</p>
+<h3 id="题3：两级Cache的局部率和全局率"><a href="#题3：两级Cache的局部率和全局率" class="headerlink" title="题3：两级Cache的局部率和全局率"></a>题3：两级Cache的局部率和全局率</h3><p>所有请求先查L1，耗时2 ns，缺失率10%；L1缺失再查L2，耗时10 ns，L2局部缺失率20%；L2缺失再访问主存，额外80 ns。所有阶段串行，不考虑回写。求平均访问时间、全局主存访问率、L2服务命中的全局比例。</p>
+<h3 id="题4：一次跨页读取能否得到连续物理地址"><a href="#题4：一次跨页读取能否得到连续物理地址" class="headerlink" title="题4：一次跨页读取能否得到连续物理地址"></a>题4：一次跨页读取能否得到连续物理地址</h3><p>按字节编址，页大小4 KiB，VPN0→PPN3，VPN1→PPN8，均驻留；一次读取4 B，从虚拟地址0x0FFE开始。物理Cache块64 B。求四个字节的物理地址和涉及的Cache块首址。不要求推断具体CPU怎样拆成总线事务。</p>
+<h3 id="题5：调度一条独立指令消除停顿"><a href="#题5：调度一条独立指令消除停顿" class="headerlink" title="题5：调度一条独立指令消除停顿"></a>题5：调度一条独立指令消除停顿</h3><p>五段流水、完整EX转发，load数据MEM末产生，ALU结果EX末产生，下一周期可用；无其他冒险。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I1 lw   r1,0(r2)</span><br><span class="line">I2 add  r3,r1,r4</span><br><span class="line">I3 addi r7,r8,1</span><br></pre></td></tr></tbody></table></figure>
+
+<p>I3与前两条无数据、异常顺序等限制，题目允许将它提前。原序列需几周期？怎样调度可减少一拍？列出各条EX周期。</p>
+<h3 id="题6：微指令字段与控存容量"><a href="#题6：微指令字段与控存容量" class="headerlink" title="题6：微指令字段与控存容量"></a>题6：微指令字段与控存容量</h3><p>互斥微命令分3组，每组分别8、6、2条；每组包含不发命令状态，不同组可并行。采用字段编码，另有10位下地址、3位条件选择。控存1024字。求操作控制字段位数、微指令总字长、控存容量。解释8条命令为什么不是3位就够。</p>
+<h3 id="题7：接口缓冲是否够，CPU开销是否可承受"><a href="#题7：接口缓冲是否够，CPU开销是否可承受" class="headerlink" title="题7：接口缓冲是否够，CPU开销是否可承受"></a>题7：接口缓冲是否够，CPU开销是否可承受</h3><p>设备产生8 MB/s数据，每4 B一字；单字缓冲。CPU200 MHz，每次中断从请求到读走数据最坏150周期，持续服务每字需100周期，其他阻塞均已计入最坏值。判断单字接口是否满足最坏期限，长期CPU服务占比多少。若改DMA，长期平均每4 KiB完成一块，CPU每块管理400周期，管理占比多少？数据传输总线开销另计。</p>
+<h3 id="题8：分支处罚与数据缺失共同影响时间"><a href="#题8：分支处罚与数据缺失共同影响时间" class="headerlink" title="题8：分支处罚与数据缺失共同影响时间"></a>题8：分支处罚与数据缺失共同影响时间</h3><p>一个长程序执行<script type="math/tex">10^6</script>条指令，基础CPI=1.1，主频1 GHz。20%为分支，分支预测错误率5%，每次错误额外3周期；25%指令各有一次数据读取，数据缺失率4%，每次额外40周期。题设规定两种额外开销互不重叠、基础CPI均不含它们，忽略充排。求总周期、时间；若只将数据缺失率减半，加速多少？</p>
+<hr>
+<h2 id="解答区"><a href="#解答区" class="headerlink" title="解答区"></a>解答区</h2><h3 id="题1解：先统计总周期，再重新分母"><a href="#题1解：先统计总周期，再重新分母" class="headerlink" title="题1解：先统计总周期，再重新分母"></a>题1解：先统计总周期，再重新分母</h3><p>原平均CPI=0.6×1+0.25×2+0.15×4=1.7，时间<script type="math/tex">1.7\times10^8/(2\times10^9)=0.085</script> s。</p>
+<p>新A类数量=(0.6+2×0.15)N=0.9N，B类仍0.25N，新总数1.15N；总周期0.9N×1+0.25N×2=1.4N。新平均CPI=1.4/1.15≈1.21739，新时间0.07 s，加速1.7/1.4≈1.21429。</p>
+<p>典型错法：用原60%、25%、15%给新CPI加权，比例已经不对应新指令流；或者指令数增加就认定更慢，忽略每条周期减少。</p>
+<h3 id="题2解：写出每个阶段的类型"><a href="#题2解：写出每个阶段的类型" class="headerlink" title="题2解：写出每个阶段的类型"></a>题2解：写出每个阶段的类型</h3><p>x在加法中提升为int，65535+(-1)=65534，结果int。y&lt;z中int与unsigned int混合，y转为4294967295，因此比较为假，结果int的0。x+2先在int中得到65537，再赋给16位unsigned short，按模65536得1。</p>
+<p>验算： 65537=65536+1；无符号赋值截掉高位后为1，但不能据此把前面的加法也称为16位运算。</p>
+<h3 id="题3解：后级局部率要乘到达该级的概率"><a href="#题3解：后级局部率要乘到达该级的概率" class="headerlink" title="题3解：后级局部率要乘到达该级的概率"></a>题3解：后级局部率要乘到达该级的概率</h3><p>平均时间<script type="math/tex">2+0.1(10+0.2\times80)=4.6</script> ns。主存访问率0.1×0.2=2%；L2命中服务比例0.1×0.8=8%。L1命中90%、L2命中8%、主存服务2%，三条互斥路径和为100%。</p>
+<p>也可按路径算：0.9×2+0.08×12+0.02×92=4.6。两种方法交叉检查。不能把L2的20%当成所有CPU请求中20%访问主存。</p>
+<h3 id="题4解：跨页后映射可以不连续"><a href="#题4解：跨页后映射可以不连续" class="headerlink" title="题4解：跨页后映射可以不连续"></a>题4解：跨页后映射可以不连续</h3><p>前两个字节VPN0、偏移0xFFE与0xFFF，物理地址0x3FFE、0x3FFF；后两个字节VPN1、偏移0与1，物理地址0x8000、0x8001。清低6位得到Cache块首址0x3FC0、0x8000。</p>
+<p>必须至少处理两个页映射和两个数据块。若其中第二页不驻留，还会触发缺页；起始页有效不保证整次访问都可完成。具体异常后的状态与重启行为仍由ISA规定，此处不计部分写入等实现细节。</p>
+<h3 id="题5解：独立工作填掉load-use间隔"><a href="#题5解：独立工作填掉load-use间隔" class="headerlink" title="题5解：独立工作填掉load-use间隔"></a>题5解：独立工作填掉load-use间隔</h3><p>原顺序I1在周期3 EX、周期4 MEM；I2原定周期4 EX但数据太晚，停1拍，到周期5 EX；I3周期6 EX。三条共3+4+1=8周期。</p>
+<p>改为I1、I3、I2：EX依次周期3、4、5。I2周期5从MEM/WB取得load结果，无停顿，最后周期7完成。减少的不是依赖本身，而是用独立指令覆盖了必须等待的时段。若I3有与I2的别名、异常或数据顺序限制，就不能擅自移动；题目已明确允许。</p>
+<h3 id="题6解：先给每组预留空操作"><a href="#题6解：先给每组预留空操作" class="headerlink" title="题6解：先给每组预留空操作"></a>题6解：先给每组预留空操作</h3><p>ceil(log2(8+1))=4，ceil(log2(6+1))=3，ceil(log2(2+1))=2，控制字段9位。总长9+10+3=22位，容量1024×22=22528 bit=2816 B。8条命令加空状态共9种，3位仅8种不够。</p>
+<p>无额外对齐时按22位每字计容量；若题目规定按字节或32位对齐存储，再计算实际物理占用，不能无条件把22位向上取整成32位。</p>
+<h3 id="题7解：及时性与平均开销分别检验"><a href="#题7解：及时性与平均开销分别检验" class="headerlink" title="题7解：及时性与平均开销分别检验"></a>题7解：及时性与平均开销分别检验</h3><p>每字到达间隔4/(8×<script type="math/tex">10^6</script>)=0.5 μs；最坏读走时间150/(200×<script type="math/tex">10^6</script>)=0.75 μs，超过期限，单字缓冲不能保证不丢数据。长期中断频率每秒200万，服务100周期共2亿周期，占100%。即使把一次最坏响应缩短，长期也没有给其他任务和额外开销留下余量。</p>
+<p>DMA管理占比<script type="math/tex">\frac{8\times10^6}{4096}\times\frac{400}{200\times10^6}=0.00390625</script>，即0.390625%。这只是CPU管理开销；能否持续搬运8 MB/s，还需总线和控制器数据路径带宽满足要求。</p>
+<h3 id="题8解：按每条指令的额外周期统一加总"><a href="#题8解：按每条指令的额外周期统一加总" class="headerlink" title="题8解：按每条指令的额外周期统一加总"></a>题8解：按每条指令的额外周期统一加总</h3><p>分支额外CPI=0.2×0.05×3=0.03。数据缺失额外CPI=0.25×0.04×40=0.4。总CPI=1.53，总1530000周期，时间1.53 ms。</p>
+<p>缺失率减到2%后，数据停顿变0.2，总CPI=1.33，时间1.33 ms，加速1.53/1.33≈1.15038。不能把“缺失率减半”直接解读为整个程序快一倍。</p>
+<hr>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>王道论坛：《2027年计算机组成原理考研复习指导》，电子工业出版社。</li>
+<li>氧气408：《组成原理强化部分》讲义。</li>
+<li><a target="_blank" rel="noopener" href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf">C语言标准委员会草案N1570</a>，6.3.1.1、6.3.1.3、6.3.1.4、6.3.1.8。</li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/cd/E19060-01/stud8.compiler/817-0932/817-0932.pdf">Oracle Numerical Computation Guide</a>。</li>
+<li><a target="_blank" rel="noopener" href="https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-vol-2a-manual.pdf">Intel 64 and IA-32 Architectures Software Developer’s Manual</a>，指令集参考卷。</li>
+<li><a target="_blank" rel="noopener" href="https://www.cs.umd.edu/~meesh/411/Pipelining_Lecture.pdf">马里兰大学计算机体系结构课程：流水线</a>。</li>
+</ul>
+<hr>
+<p><a href="/ZYK_408/co/">返回计组总目录</a></p>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">lost.in</div><div class="author-info-description">仔细看清楚，他年去旅行</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/00lostin00"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://github.com/00lostin00" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://space.bilibili.com/487246708" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #00A1D6;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://www.zhihu.com/people/lou-kong-83-23" target="_blank" title="Zhihu"><i class="fab fa-zhihu" style="color: #0084ff;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://codeforces.com/profile/lost.in" target="_blank" title="Codeforces"><img class="cf-icon" src="/images/cflogo.svg" alt="Codeforces" style="width: 25px; height: 20px;"></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="mailto:1409423207@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%80%A7%E8%83%BD"><span class="toc-text">一、系统与性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text">1. 程序执行过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AD%98%E5%82%A8%E7%A8%8B%E5%BA%8F%E4%B8%8E%E4%BA%94%E5%A4%A7%E9%83%A8%E4%BB%B6"><span class="toc-text">2. 存储程序与五大部件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="toc-text">3. 程序执行时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%A2%98%E5%9E%8B%EF%BC%9A%E5%8A%A0%E6%9D%83%E3%80%81%E6%AF%94%E8%BE%83%E3%80%81%E4%BC%98%E5%8C%96%E3%80%81%E5%B1%80%E9%83%A8%E5%8A%A0%E9%80%9F"><span class="toc-text">4. 题型：加权、比较、优化、局部加速</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA%E4%B8%8E%E8%BF%90%E7%AE%97"><span class="toc-text">二、数据表示与运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%8D%E5%9E%8B%E4%B8%8E%E7%9C%9F%E5%80%BC"><span class="toc-text">1. 位型与真值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%9B%E5%88%B6%E3%80%81%E6%89%A9%E5%B1%95%E3%80%81%E6%88%AA%E6%96%AD"><span class="toc-text">2. 进制、扩展、截断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8A%A0%E5%87%8F%E6%B3%95%EF%BC%9A%E7%A1%AC%E4%BB%B6%E7%BB%9F%E4%B8%80%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%88%86%E5%BC%80"><span class="toc-text">3. 加减法：硬件统一，解释分开</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%A7%BB%E4%BD%8D%E4%B8%8EALU"><span class="toc-text">4. 移位与ALU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%B9%98%E9%99%A4%E6%B3%95%EF%BC%9A%E5%85%88%E5%AE%9A%E7%AE%97%E6%B3%95%E5%92%8C%E5%AF%84%E5%AD%98%E5%99%A8%E5%90%AB%E4%B9%89"><span class="toc-text">5. 乘除法：先定算法和寄存器含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-IEEE754%EF%BC%9A%E5%85%88%E5%88%86%E7%B1%BB%EF%BC%8C%E5%86%8D%E4%BB%A3%E5%85%AC%E5%BC%8F"><span class="toc-text">6. IEEE754：先分类，再代公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%9C%AC%E7%AB%A0%E9%AA%8C%E7%AE%97%E6%B8%85%E5%8D%95"><span class="toc-text">7. 本章验算清单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="toc-text">三、存储系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%88%E8%AE%A4%E6%B8%85%E5%AD%98%E5%82%A8%E5%B1%82%E6%AC%A1"><span class="toc-text">1. 先认清存储层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%B9%E9%87%8F%E3%80%81%E5%9C%B0%E5%9D%80%E7%BA%BF%E4%B8%8E%E8%8A%AF%E7%89%87%E6%89%A9%E5%B1%95"><span class="toc-text">2. 容量、地址线与芯片扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%A4%E5%8F%89%E7%BC%96%E5%9D%80%E4%B8%8E%E5%AD%98%E5%82%A8%E5%B8%A6%E5%AE%BD"><span class="toc-text">3. 交叉编址与存储带宽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Cache%E5%A4%A7%E9%A2%98%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E6%8A%8A%E5%9C%B0%E5%9D%80%E6%8B%86%E5%BC%80"><span class="toc-text">4. Cache大题的第一步：把地址拆开</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Cache%E8%AE%BF%E9%97%AE%E5%BA%8F%E5%88%97%E4%B8%8E%E5%91%BD%E4%B8%AD%E7%8E%87"><span class="toc-text">5. Cache访问序列与命中率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%B9%B3%E5%9D%87%E8%AE%BF%E9%97%AE%E6%97%B6%E9%97%B4%EF%BC%9A%E5%85%88%E7%BB%9F%E4%B8%80%E2%80%9C%E7%BC%BA%E5%A4%B1%E4%BB%A3%E4%BB%B7%E2%80%9D%E7%9A%84%E5%8F%A3%E5%BE%84"><span class="toc-text">6. 平均访问时间：先统一“缺失代价”的口径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E3%80%81TLB%E3%80%81%E9%A1%B5%E8%A1%A8%E3%80%81Cache%E4%B8%B2%E8%B5%B7%E6%9D%A5"><span class="toc-text">7. 虚拟地址、TLB、页表、Cache串起来</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-text">四、指令系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%86%E6%B8%85%E5%9B%9B%E7%A7%8D%E9%95%BF%E5%BA%A6"><span class="toc-text">1. 分清四种长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9C%89%E6%95%88%E5%9C%B0%E5%9D%80EA%E6%98%AF%E8%A7%A3%E9%A2%98%E4%B8%AD%E9%97%B4%E9%87%8F"><span class="toc-text">2. 有效地址EA是解题中间量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%86%E6%94%AF%E4%BD%8D%E7%A7%BB%EF%BC%9APC%E5%9F%BA%E5%87%86%E5%92%8C%E7%BC%A9%E6%94%BE%E6%98%AF%E4%B8%A4%E4%B8%AA%E7%8B%AC%E7%AB%8B%E6%9D%A1%E4%BB%B6"><span class="toc-text">3. 分支位移：PC基准和缩放是两个独立条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F%E4%B8%8E%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C%E7%A0%81"><span class="toc-text">4. 指令格式与扩展操作码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A4%A7%E5%B0%8F%E7%AB%AF%E3%80%81%E5%AF%B9%E9%BD%90%E4%B8%8E%E6%95%B0%E7%BB%84%E5%9C%B0%E5%9D%80"><span class="toc-text">5. 大小端、对齐与数组地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%B0%83%E7%94%A8%E3%80%81%E6%A0%88%E4%B8%8E%E8%BF%94%E5%9B%9E"><span class="toc-text">6. 调用、栈与返回</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81CPU%E4%B8%8E%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-text">五、CPU与流水线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E4%BB%BB%E5%8A%A1%E5%85%88%E5%88%86%E6%B8%85"><span class="toc-text">1. 寄存器的任务先分清</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E9%A2%98%EF%BC%9A%E5%85%88%E5%86%99%E8%AF%AD%E4%B9%89%EF%BC%8C%E5%86%8D%E6%B2%BF%E5%9B%BE%E8%B5%B0"><span class="toc-text">2. 数据通路题：先写语义，再沿图走</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8D%95%E6%80%BB%E7%BA%BF%E3%80%81%E5%A4%9A%E5%91%A8%E6%9C%9F%EF%BC%9A%E5%85%88%E6%A3%80%E6%9F%A5%E8%B5%84%E6%BA%90%E5%86%B2%E7%AA%81"><span class="toc-text">3. 单总线、多周期：先检查资源冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8E%A7%E5%88%B6%E5%99%A8%EF%BC%9A%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%BE%AE%E6%8C%87%E4%BB%A4%E4%B8%8D%E6%98%AF%E5%90%8C%E4%B8%80%E5%B1%82"><span class="toc-text">4. 控制器：机器指令与微指令不是同一层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%9A%E8%B7%A8%E6%8C%87%E4%BB%A4%E9%87%8D%E5%8F%A0%EF%BC%8C%E4%B8%8D%E4%BF%9D%E8%AF%81%E5%8D%95%E6%9D%A1%E6%9B%B4%E5%BF%AB"><span class="toc-text">5. 流水线：跨指令重叠，不保证单条更快</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%86%92%E9%99%A9%E9%A2%98%EF%BC%9A%E7%BB%93%E6%9E%9C%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BA%A7%E7%94%9F%EF%BC%8C%E4%B8%8B%E4%B8%80%E6%9D%A1%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81"><span class="toc-text">6. 冒险题：结果什么时候产生，下一条什么时候需要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%88%86%E6%94%AF%E3%80%81%E5%BC%82%E5%B8%B8%E4%B8%8E%E5%B9%B6%E8%A1%8C%E6%A6%82%E5%BF%B5"><span class="toc-text">7. 分支、异常与并行概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%80%BB%E7%BA%BF%E4%B8%8EI-O"><span class="toc-text">六、总线与I/O</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B8%A6%E5%AE%BD%E9%A2%98%E5%85%88%E6%89%BE%E2%80%9C%E6%AF%8F%E6%AC%A1%E4%BC%A0%E5%A4%9A%E5%B0%91%E2%80%9D%E5%92%8C%E2%80%9C%E6%AF%8F%E7%A7%92%E5%A4%9A%E5%B0%91%E6%AC%A1%E2%80%9D"><span class="toc-text">1. 带宽题先找“每次传多少”和“每秒多少次”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8E%A5%E5%8F%A3%E4%B8%8D%E6%98%AF%E8%AE%BE%E5%A4%87%E6%9C%AC%E4%BD%93%EF%BC%8C%E7%AB%AF%E5%8F%A3%E4%B8%8D%E6%98%AF%E4%B8%80%E6%A0%B9%E7%BA%BF"><span class="toc-text">2. 接口不是设备本体，端口不是一根线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9F%A5%E8%AF%A2%E3%80%81%E4%B8%AD%E6%96%AD%E3%80%81DMA%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-text">3. 查询、中断、DMA的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-I-O%E8%AE%A1%E7%AE%97%E9%A2%98%E7%9A%84%E7%BB%9F%E4%B8%80%E8%A1%A8"><span class="toc-text">4. I/O计算题的统一表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%B8%AD%E6%96%AD%E6%B5%81%E7%A8%8B%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">5. 中断流程与优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%A3%81%E7%9B%98%E9%A2%98%E7%9A%84%E4%B8%89%E4%B8%AA%E6%97%B6%E9%97%B4"><span class="toc-text">6. 磁盘题的三个时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E7%BB%BC%E5%90%88%E9%A2%98%E8%A7%A3%E9%A2%98%E6%AD%A5%E9%AA%A4"><span class="toc-text">七、综合题解题步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8%E4%B8%80%E8%A1%8CC%E4%BB%A3%E7%A0%81%E6%8A%8A%E7%9F%A5%E8%AF%86%E4%B8%B2%E8%B5%B7%E6%9D%A5"><span class="toc-text">1. 用一行C代码把知识串起来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%BC%E5%90%88%E9%A2%98%E8%AE%A1%E7%AE%97%E8%A1%A8"><span class="toc-text">2. 综合题计算表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%8D%95%E4%BD%8D"><span class="toc-text">3. 计算过程与单位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA%E4%B8%8E%E8%BF%90%E7%AE%97%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%8E%A8%E5%AF%BC%E4%B8%8E%E5%BC%BA%E5%8C%96%E9%A2%98"><span class="toc-text">数据表示与运算：基础推导与强化题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%A1%A5%E7%A0%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E7%9B%B4%E6%8E%A5%E7%9B%B8%E5%8A%A0"><span class="toc-text">1. 补码为什么能直接相加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E6%95%B0%E4%B8%8D%E8%83%BD%E5%A5%97%E6%95%B4%E6%95%B0%E7%9A%84%E6%9C%80%E9%AB%98%E4%BD%8D%E6%9D%83"><span class="toc-text">小数不能套整数的最高位权</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%80%E6%AC%A1%E8%BF%90%E7%AE%97%EF%BC%8C%E5%90%8C%E6%97%B6%E5%88%A4%E6%96%AD%E6%9C%89%E7%AC%A6%E5%8F%B7%E4%B8%8E%E6%97%A0%E7%AC%A6%E5%8F%B7"><span class="toc-text">2. 一次运算，同时判断有符号与无符号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E5%8A%A0%E6%B3%95%E5%99%A8%E7%9C%8B%E5%88%B0%E8%B6%85%E5%89%8D%E8%BF%9B%E4%BD%8D"><span class="toc-text">从加法器看到超前进位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%A7%BB%E4%BD%8D%EF%BC%9A%E5%8A%A8%E4%BD%9C%E3%80%81%E6%95%B0%E5%80%BC%E4%B8%8E%E8%AF%AF%E5%B7%AE%E5%88%86%E5%BC%80%E5%88%A4%E6%96%AD"><span class="toc-text">3. 移位：动作、数值与误差分开判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%97%A0%E7%AC%A6%E5%8F%B7%E4%B9%98%E6%B3%95%EF%BC%9A%E5%9B%9B%E8%BD%AE%E5%88%B0%E5%BA%95%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-text">4. 无符号乘法：四轮到底做什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Booth%E4%B9%98%E6%B3%95%EF%BC%9A%E6%8A%8A%E8%BF%9E%E7%BB%AD1%E5%8F%98%E6%88%90%E8%BE%B9%E7%95%8C%E5%8A%A0%E5%87%8F"><span class="toc-text">5. Booth乘法：把连续1变成边界加减</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%81%A2%E5%A4%8D%E4%BD%99%E6%95%B0%E9%99%A4%E6%B3%95%EF%BC%9A%E5%85%88%E8%AF%95%E5%87%8F%EF%BC%8C%E5%A4%B1%E8%B4%A5%E5%86%8D%E6%81%A2%E5%A4%8D"><span class="toc-text">6. 恢复余数除法：先试减，失败再恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%B5%AE%E7%82%B9%E7%BC%96%E7%A0%81%EF%BC%9A%E4%BB%8E%E5%8D%81%E8%BF%9B%E5%88%B6%E8%B5%B0%E5%AE%8C%E4%B8%80%E9%81%8D"><span class="toc-text">7. 浮点编码：从十进制走完一遍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E8%88%8D%E5%85%A5"><span class="toc-text">浮点舍入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B2%BE%E5%BA%A6%E8%BE%B9%E7%95%8C%E9%A2%98"><span class="toc-text">精度边界题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%BB%83%E4%B9%A0%E4%B8%8E%E7%AD%94%E6%A1%88"><span class="toc-text">8. 练习与答案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%9C%B0%E5%9D%80%E6%8E%A8%E5%AF%BC%E4%B8%8E%E8%AE%BF%E9%97%AE%E6%A8%A1%E6%8B%9F"><span class="toc-text">存储系统：地址推导与访问模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%85%88%E8%A1%A5%E5%9F%BA%E7%A1%80%EF%BC%9A%E5%9C%B0%E5%9D%80%E7%BA%BF%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%80%BB%E7%AD%89%E4%BA%8E%E5%AE%B9%E9%87%8F%E7%9A%84%E5%AF%B9%E6%95%B0"><span class="toc-text">1. 先补基础：地址线为什么不总等于容量的对数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E8%8C%83%E5%9B%B4%E4%B8%8E%E8%AF%91%E7%A0%81"><span class="toc-text">地址范围与译码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-DRAM%E5%88%B7%E6%96%B0%E4%B8%8E%E4%BA%A4%E5%8F%89%E7%BC%96%E5%9D%80%EF%BC%9A%E5%91%A8%E6%9C%9F%E4%B8%8D%E8%83%BD%E6%B7%B7%E5%8F%AB"><span class="toc-text">2. DRAM刷新与交叉编址：周期不能混叫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Cache%E4%B8%8D%E6%98%AF%E6%8A%8A%E6%95%B4%E4%B8%AA%E5%9C%B0%E5%9D%80%E5%AD%98%E4%B8%A4%E9%81%8D"><span class="toc-text">3. Cache不是把整个地址存两遍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%80%E5%BC%A0%E8%A1%A8%E5%AE%8C%E6%88%90LRU%E4%B8%8EFIFO%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4. 一张表完成LRU与FIFO的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%86%99%E7%AD%96%E7%95%A5%EF%BC%9A%E4%B8%8D%E4%BB%85%E6%94%B9%E5%8F%98%E5%91%BD%E4%B8%AD%E7%8E%87%EF%BC%8C%E8%BF%98%E6%94%B9%E5%8F%98%E4%B8%BB%E5%AD%98%E8%AE%BF%E9%97%AE%E6%AC%A1%E6%95%B0"><span class="toc-text">5. 写策略：不仅改变命中率，还改变主存访问次数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%95%B0%E7%BB%84%E9%A2%98%EF%BC%9A%E4%BB%8E%E5%9C%B0%E5%9D%80%E5%BA%8F%E5%88%97%E6%8E%A8%E5%91%BD%E4%B8%AD%E7%8E%87"><span class="toc-text">6. 数组题：从地址序列推命中率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-TLB%E3%80%81%E9%A1%B5%E8%A1%A8%E3%80%81Cache%EF%BC%9A%E5%85%88%E7%BF%BB%E8%AF%91%EF%BC%8C%E5%86%8D%E5%88%86%E5%AD%97%E6%AE%B5"><span class="toc-text">7. TLB、页表、Cache：先翻译，再分字段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E8%A1%A8%E5%AE%B9%E9%87%8F%E4%BB%8E%E2%80%9C%E5%A4%9A%E5%B0%91%E8%99%9A%E6%8B%9F%E9%A1%B5%E2%80%9D%E5%BC%80%E5%A7%8B"><span class="toc-text">页表容量从“多少虚拟页”开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E5%87%BA%E4%B8%80%E4%B8%AA%E8%83%BD%E6%A3%80%E6%9F%A5%E5%8F%A3%E5%BE%84%E7%9A%84%E5%B9%B3%E5%9D%87%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">给出一个能检查口径的平均时间模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8ECache%E6%80%A7%E8%83%BD%E5%88%B0CPU%E6%97%B6%E9%97%B4"><span class="toc-text">从Cache性能到CPU时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%BB%83%E4%B9%A0%E4%B8%8E%E7%AD%94%E6%A1%88-1"><span class="toc-text">8. 练习与答案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CPU%E4%B8%8EI-O%EF%BC%9A%E6%8E%A7%E5%88%B6%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%97%B6%E5%BA%8F%E9%A2%98"><span class="toc-text">CPU与I/O：控制信号和时序题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%97%B6%E9%92%9F%E4%B8%8D%E6%98%AF%E2%80%9C%E6%AF%8F%E6%9D%A1%E6%8C%87%E4%BB%A4%E4%B8%80%E4%B8%AA%E5%91%A8%E6%9C%9F%E2%80%9D%E7%9A%84%E5%90%8C%E4%B9%89%E8%AF%8D"><span class="toc-text">1. 时钟不是“每条指令一个周期”的同义词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%8C%87%E4%BB%A4%E8%AF%AD%E4%B9%89%E5%86%B3%E5%AE%9A%E5%93%AA%E4%BA%9B%E9%83%A8%E4%BB%B6%E5%BF%85%E9%A1%BB%E5%B7%A5%E4%BD%9C"><span class="toc-text">2. 指令语义决定哪些部件必须工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%8D%95%E6%80%BB%E7%BA%BF%E5%BE%AE%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%8C%89%E8%B5%84%E6%BA%90%E8%80%8C%E9%9D%9E%E6%8C%89%E8%AF%AD%E5%8F%A5%E6%95%B0%E6%8E%92%E6%8B%8D"><span class="toc-text">3. 单总线微操作：按资源而非按语句数排拍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BE%AE%E7%A8%8B%E5%BA%8F%E9%A2%98%EF%BC%9A%E5%85%BC%E5%AE%B9%E6%93%8D%E4%BD%9C%E5%88%86%E5%BC%80%E7%BC%96%E7%A0%81%EF%BC%8C%E5%90%8E%E7%BB%A7%E5%9C%B0%E5%9D%80%E5%8F%A6%E7%AE%97"><span class="toc-text">4. 微程序题：兼容操作分开编码，后继地址另算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3%E4%B8%8D%E7%AD%89%E4%BA%8E%E5%81%9C%E9%A1%BF%EF%BC%9A%E7%94%BB%E5%87%BA%E4%BA%A7%E7%94%9F%E5%92%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E6%97%B6%E5%88%BB"><span class="toc-text">5. 数据相关不等于停顿：画出产生和使用的时刻</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E8%BD%AC%E5%8F%91%E4%B8%8B%E7%9A%84%E4%B8%89%E6%9D%A1%E6%8C%87%E4%BB%A4"><span class="toc-text">完整转发下的三条指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E6%8E%89%E8%BD%AC%E5%8F%91%EF%BC%8C%E7%AD%94%E6%A1%88%E6%80%8E%E6%A0%B7%E5%8F%98"><span class="toc-text">去掉转发，答案怎样变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#store%E6%9C%89%E4%B8%A4%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E2%80%9C%E4%BD%BF%E7%94%A8%E6%97%B6%E5%88%BB%E2%80%9D"><span class="toc-text">store有两种不同的“使用时刻”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%88%86%E6%94%AF%EF%BC%9A%E5%A4%84%E7%BD%9A%E7%94%B1%E5%86%B3%E7%AD%96%E9%98%B6%E6%AE%B5%E5%92%8C%E7%AD%96%E7%95%A5%E5%85%B1%E5%90%8C%E5%86%B3%E5%AE%9A"><span class="toc-text">6. 分支：处罚由决策阶段和策略共同决定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%80%BB%E7%BA%BF%EF%BC%9A%E6%8A%8A%E4%BA%8B%E5%8A%A1%E6%8B%86%E6%88%90%E6%97%B6%E9%97%B4%E6%AE%B5"><span class="toc-text">7. 总线：把事务拆成时间段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%9F%A5%E8%AF%A2%E3%80%81%E4%B8%AD%E6%96%AD%E5%92%8CDMA%EF%BC%9ACPU%E5%8D%A0%E7%94%A8%E5%88%B0%E5%BA%95%E5%9C%A8%E6%95%B0%E4%BB%80%E4%B9%88"><span class="toc-text">8. 查询、中断和DMA：CPU占用到底在数什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9C%E4%B8%8D%E4%BC%9A%E4%B8%A2%E6%95%B0%E6%8D%AE%E2%80%9D%E7%9A%84%E9%A2%98%E8%A6%81%E6%AF%94%E8%BE%83%E6%9C%8D%E5%8A%A1%E9%97%B4%E9%9A%94%E4%B8%8E%E7%BC%93%E5%86%B2%E6%B7%B1%E5%BA%A6"><span class="toc-text">“不会丢数据”的题要比较服务间隔与缓冲深度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E4%B8%AD%E6%96%AD%E5%B5%8C%E5%A5%97%EF%BC%9A%E5%93%8D%E5%BA%94%E9%A1%BA%E5%BA%8F%E5%92%8C%E5%B1%8F%E8%94%BD%E8%A7%84%E5%88%99%E6%98%AF%E4%B8%A4%E4%BB%B6%E4%BA%8B"><span class="toc-text">9. 中断嵌套：响应顺序和屏蔽规则是两件事</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E7%BB%83%E4%B9%A0%E4%B8%8E%E7%AD%94%E6%A1%88"><span class="toc-text">10. 练习与答案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%B8%8E%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%A8%8B%E5%BA%8F%E5%88%B0%E6%9C%BA%E5%99%A8"><span class="toc-text">性能与指令系统：从程序到机器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83%E4%B8%8D%E8%83%BD%E5%8F%AA%E6%8C%91%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-text">1. 性能比较不能只挑一个更大的数字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E4%B8%B4%E7%95%8C%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E4%BC%98%E5%8C%96%E6%98%AF%E5%90%A6%E5%80%BC%E5%BE%97"><span class="toc-text">用临界条件判断优化是否值得</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8F%96%E6%8C%87%E3%80%81%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE%E3%80%81%E5%9C%B0%E5%9D%80%E8%BF%90%E7%AE%97%E6%98%AF%E4%B8%8D%E5%90%8C%E8%AE%A1%E6%95%B0"><span class="toc-text">2. 取指、数据访问、地址运算是不同计数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F%EF%BC%9A%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4%E3%80%81%E5%AF%84%E5%AD%98%E5%99%A8%E6%95%B0%E5%92%8C%E6%93%8D%E4%BD%9C%E7%A7%8D%E7%B1%BB%E5%88%86%E5%88%AB%E5%8D%A0%E4%BD%8D"><span class="toc-text">3. 指令格式：地址空间、寄存器数和操作种类分别占位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C%E7%A0%81%E7%9A%84%E5%89%8D%E7%BC%80%E4%B8%8D%E8%83%BD%E9%87%8D%E5%8F%A0"><span class="toc-text">扩展操作码的前缀不能重叠</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%9B%B8%E5%AF%B9%E5%AF%BB%E5%9D%80%EF%BC%9A%E7%AC%A6%E5%8F%B7%E6%89%A9%E5%B1%95%E5%9C%A8%E7%BC%A9%E6%94%BE%E4%B9%8B%E5%89%8D"><span class="toc-text">4. 相对寻址：符号扩展在缩放之前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E5%9D%80%E4%B8%8E%E5%8F%98%E5%9D%80%E8%B0%81%E8%B4%9F%E8%B4%A3%E5%8F%98%E5%8C%96"><span class="toc-text">基址与变址谁负责变化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%94%A8%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%E5%9C%B0%E5%9D%80%E6%8A%8A%E7%AB%AF%E5%BA%8F%E5%92%8CCache%E8%BF%9E%E6%8E%A5%E8%B5%B7%E6%9D%A5"><span class="toc-text">5. 用一个数组地址把端序和Cache连接起来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%B0%83%E7%94%A8%E4%B8%8E%E6%A0%88%EF%BC%9A%E5%85%88%E5%AE%9A%E4%B9%89SP%EF%BC%8C%E5%86%8D%E7%94%BB%E6%AF%8F%E6%AC%A1%E5%8F%98%E5%8C%96"><span class="toc-text">6. 调用与栈：先定义SP，再画每次变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%BB%83%E4%B9%A0"><span class="toc-text">7. 练习</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E4%B8%8E%E5%B9%B6%E8%A1%8C%E5%A4%84%E7%90%86"><span class="toc-text">异常与并行处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BC%82%E5%B8%B8%E5%88%86%E7%B1%BB%E8%A6%81%E8%90%BD%E5%AE%9E%E5%88%B0%E2%80%9C%E8%BF%94%E5%9B%9E%E5%93%AA%E6%9D%A1%E6%8C%87%E4%BB%A4%E2%80%9D"><span class="toc-text">1. 异常分类要落实到“返回哪条指令”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SIMD%E4%B8%8EMIMD%EF%BC%9A%E6%95%B0%E7%9A%84%E6%98%AF%E6%8C%87%E4%BB%A4%E6%B5%81%E3%80%81%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="toc-text">2. SIMD与MIMD：数的是指令流、数据流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%89%E7%A7%8D%E7%A1%AC%E4%BB%B6%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C%E5%88%AB%E4%B8%8E%E5%A4%9A%E6%A0%B8%E6%B7%B7%E6%B7%86"><span class="toc-text">3. 三种硬件多线程，别与多核混淆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%85%B1%E4%BA%AB%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4%E4%B8%8D%E7%AD%89%E4%BA%8E%E6%89%80%E6%9C%89%E8%AE%BF%E9%97%AE%E4%B8%80%E6%A0%B7%E5%BF%AB"><span class="toc-text">4. 共享地址空间不等于所有访问一样快</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E4%BA%92%E6%96%A5%E8%A7%A3%E5%86%B3%E4%B8%8D%E5%90%8C%E9%97%AE%E9%A2%98"><span class="toc-text">一致性与互斥解决不同问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%A0%B8%E6%95%B0%E9%A2%98%E5%BF%85%E9%A1%BB%E5%85%88%E7%AE%97%E4%B8%B2%E8%A1%8C%E4%B8%8A%E9%99%90"><span class="toc-text">5. 核数题必须先算串行上限</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E8%BE%B9%E7%95%8C%EF%BC%9A%E4%BB%8E%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%B1%BB%E5%9E%8B%E5%88%B0%E6%9C%BA%E5%99%A8%E7%BB%93%E6%9E%9C"><span class="toc-text">C类型与运算边界：从表达式类型到机器结果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%AF%8F%E4%B8%AA%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%8C%89%E5%9B%9B%E6%AD%A5%E5%88%A4%E6%96%AD"><span class="toc-text">1. 每个表达式按四步判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B1%EF%BC%9Aunsigned-short%E7%9A%84%E5%87%8F%E6%B3%95"><span class="toc-text">例1：unsigned short的减法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B2%EF%BC%9A%E7%9B%B8%E5%90%8C%E5%AE%BD%E5%BA%A6%E7%9A%84%E6%9C%89%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%AF%94%E8%BE%83"><span class="toc-text">例2：相同宽度的有无符号比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B3%EF%BC%9A%E5%85%88%E8%BF%90%E7%AE%97%E5%86%8D%E5%AD%98%E5%82%A8"><span class="toc-text">例3：先运算再存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B4%EF%BC%9A%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2%E6%94%BE%E5%93%AA%E9%87%8C%E5%BE%88%E9%87%8D%E8%A6%81"><span class="toc-text">例4：强制转换放哪里很重要</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8D%E8%83%BD%E6%8A%8A%E6%89%80%E6%9C%89%E8%BD%AC%E6%8D%A2%E5%92%8C%E8%BF%90%E7%AE%97%E9%83%BD%E6%8C%89%E2%80%9C%E6%88%AA%E4%BD%8E%E4%BD%8D%E2%80%9D%E5%9B%9E%E7%AD%94"><span class="toc-text">2. 不能把所有转换和运算都按“截低位”回答</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%8D%E6%81%A2%E5%A4%8D%E4%BD%99%E6%95%B0%E6%B3%95%EF%BC%9A%E6%8A%8A%E5%89%A9%E4%BD%99%E7%BC%BA%E5%8F%A3%E8%A1%A5%E6%88%90%E5%AE%8C%E6%95%B4%E8%A1%A8"><span class="toc-text">3. 不恢复余数法：把剩余缺口补成完整表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-binary32%E8%BE%B9%E7%95%8C%E4%B8%8D%E6%98%AF%E5%8F%AA%E8%AE%B0%E4%B8%89%E4%B8%AA%E6%9E%81%E5%80%BC"><span class="toc-text">4. binary32边界不是只记三个极值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B5%EF%BC%9A%E6%AD%A3%E5%B8%B8%E5%8C%BA%E9%97%B4%E7%9A%84%E7%B2%BE%E7%A1%AE%E5%8D%8A%E9%97%B4%E9%9A%94"><span class="toc-text">例5：正常区间的精确半间隔</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B6%EF%BC%9A%E9%80%90%E6%AD%A5%E8%88%8D%E5%85%A5%E6%94%B9%E5%8F%98%E8%BF%90%E7%AE%97%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%9C"><span class="toc-text">例6：逐步舍入改变运算顺序结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B7%EF%BC%9A%E6%9C%80%E5%B0%8F%E8%BE%B9%E7%95%8C%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%83%85%E5%86%B5"><span class="toc-text">例7：最小边界的两种情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BB%83%E4%B9%A0"><span class="toc-text">5. 练习</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E3%80%81%E5%A4%96%E5%AD%98%E4%B8%8E%E8%AF%91%E7%A0%81%EF%BC%9A%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%8C%E6%95%B4%E7%AE%97%E4%BE%8B"><span class="toc-text">虚拟存储、外存与译码：基础与完整算例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%AE%B5%E5%BC%8F%EF%BC%9A%E5%9F%BA%E5%9D%80%E5%8A%A0%E5%81%8F%E7%A7%BB%E5%89%8D%E5%85%88%E6%A3%80%E6%9F%A5%E7%95%8C%E9%99%90"><span class="toc-text">1. 段式：基址加偏移前先检查界限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%AE%B5%E9%A1%B5%E5%BC%8F%EF%BC%9A%E5%85%88%E6%AE%B5%E8%A1%A8%E3%80%81%E5%86%8D%E8%AF%A5%E6%AE%B5%E9%A1%B5%E8%A1%A8%E3%80%81%E6%9C%80%E5%90%8E%E6%8B%BC%E5%9C%B0%E5%9D%80"><span class="toc-text">2. 段页式：先段表、再该段页表、最后拼地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%A1%B5%E6%9B%BF%E6%8D%A2%E3%80%81Cache%E4%B8%8ETLB%E7%9A%84%E7%8A%B6%E6%80%81%E5%88%86%E5%BC%80"><span class="toc-text">3. 页替换、Cache与TLB的状态分开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B8%A6%E8%AF%91%E7%A0%81%E5%9B%BE%E7%9A%84%E4%B8%BB%E5%AD%98%E8%BF%9E%E6%8E%A5%E9%A2%98"><span class="toc-text">4. 带译码图的主存连接题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%A3%81%E7%9B%98%E5%AE%8C%E6%95%B4%E8%AE%A1%E7%AE%97%EF%BC%9A%E5%AE%B9%E9%87%8F%E3%80%81%E9%80%9F%E7%8E%87%E5%92%8C%E6%97%B6%E9%97%B4%E8%A6%81%E4%BA%92%E7%9B%B8%E4%B8%80%E8%87%B4"><span class="toc-text">5. 磁盘完整计算：容量、速率和时间要互相一致</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97%E5%8F%AA%E6%8A%93%E5%9F%BA%E6%9C%AC%E8%83%BD%E5%8A%9B"><span class="toc-text">磁盘阵列只抓基本能力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-SSD%EF%BC%9A%E9%A1%B5%E8%AF%BB%E5%86%99%E3%80%81%E5%9D%97%E6%93%A6%E9%99%A4%E4%B8%8E%E5%86%99%E6%94%BE%E5%A4%A7"><span class="toc-text">6. SSD：页读写、块擦除与写放大</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%BB%83%E4%B9%A0-1"><span class="toc-text">7. 练习</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#x86%E6%9C%BA%E5%99%A8%E7%BA%A7%E7%A8%8B%E5%BA%8F%EF%BC%9A%E8%AF%BB%E4%BB%A3%E7%A0%81%E3%80%81%E8%BF%98%E5%8E%9FC%E4%B8%8E%E5%AD%98%E5%82%A8%E7%BB%BC%E5%90%88"><span class="toc-text">x86机器级程序：读代码、还原C与存储综合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%BB%E6%B1%87%E7%BC%96%E5%85%88%E8%A7%A3%E5%86%B3%E5%9B%9B%E4%B8%AA%E5%9F%BA%E7%A1%80%E9%97%AE%E9%A2%98"><span class="toc-text">1. 读汇编先解决四个基础问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B1%EF%BC%9A%E5%9C%B0%E5%9D%80%E4%B8%8E%E5%86%85%E5%AE%B9%E8%BF%9E%E7%BB%AD%E8%BF%BD%E8%B8%AA"><span class="toc-text">例1：地址与内容连续追踪</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%94%AF%E8%A1%A8%E8%A6%81%E5%8C%BA%E5%88%86%E6%9C%89%E7%AC%A6%E5%8F%B7%E4%B8%8E%E6%97%A0%E7%AC%A6%E5%8F%B7"><span class="toc-text">2. 分支表要区分有符号与无符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%8Eif-else%E8%BF%98%E5%8E%9F%E6%9D%A1%E4%BB%B6%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E6%9C%BA%E6%A2%B0%E7%BF%BB%E8%AF%91%E6%A0%87%E7%AD%BE"><span class="toc-text">3. 从if-else还原条件，而不是机械翻译标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B3%EF%BC%9A%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0%E7%9A%84%E8%BE%83%E5%A4%A7%E5%80%BC"><span class="toc-text">例3：求两个有符号数的较大值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BE%AA%E7%8E%AF%E9%A2%98%E5%AE%8C%E6%95%B4%E5%81%9A%E4%B8%80%E9%81%8D%EF%BC%9A%E6%AC%A1%E6%95%B0%E3%80%81%E5%9C%B0%E5%9D%80%E3%80%81%E5%91%BD%E4%B8%AD%E4%B8%8E%E6%97%B6%E9%97%B4"><span class="toc-text">4. 循环题完整做一遍：次数、地址、命中与时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B4%EF%BC%9A%E7%BB%99%E5%AE%9An%E2%89%A50%E3%80%81%E5%90%88%E6%B3%95%E6%95%B0%E7%BB%84%E3%80%8132%E4%BD%8D%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E4%B8%8D%E6%BA%A2%E5%87%BA"><span class="toc-text">例4：给定n≥0、合法数组、32位有符号和不溢出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B0%83%E7%94%A8%E9%A2%98%E6%8A%8A%E4%B8%80%E5%BC%A0%E6%A0%88%E5%9B%BE%E7%94%BB%E6%B8%85%E6%A5%9A"><span class="toc-text">5. 调用题把一张栈图画清楚</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B5%EF%BC%9A32%E4%BD%8Dcdecl%E5%BC%8F%E8%B0%83%E7%94%A8%EF%BC%8C%E5%8F%B3%E5%88%B0%E5%B7%A6%E5%8E%8B%E5%8F%82%E6%95%B0%EF%BC%8C%E8%B0%83%E7%94%A8%E8%80%85%E6%B8%85%E7%90%86"><span class="toc-text">例5：32位cdecl式调用，右到左压参数，调用者清理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%B9%98%E9%99%A4%E4%B8%8E%E6%A0%87%E5%BF%97%E4%BD%8D%E8%A1%A5%E5%85%85"><span class="toc-text">6. 乘除与标志位补充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%BB%83%E4%B9%A0-2"><span class="toc-text">7. 练习</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E3%80%81%E6%80%BB%E7%BA%BF%E4%B8%8EDMA%EF%BC%9A%E5%B8%A6%E5%9B%BE%E7%BB%BC%E5%90%88%E9%A2%98"><span class="toc-text">数据通路、总线与DMA：带图综合题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%BB%E5%8D%95%E6%80%BB%E7%BA%BF%E5%9B%BE%EF%BC%9A%E5%85%88%E8%AE%A4%E6%96%B9%E5%90%91%EF%BC%8C%E5%86%8D%E8%AE%A4%E9%94%81%E5%AD%98%E6%9D%A1%E4%BB%B6"><span class="toc-text">1. 读单总线图：先认方向，再认锁存条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B1%EF%BC%9ALOAD-R1-R2-%E7%9A%84%E6%89%A7%E8%A1%8C%E6%AE%B5%E6%8E%A7%E5%88%B6%E8%A1%A8"><span class="toc-text">例1：LOAD R1,[R2]的执行段控制表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B2%EF%BC%9A%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%96%B0%E5%A2%9E%E6%8C%87%E4%BB%A4%E8%83%BD%E5%90%A6%E5%8F%AA%E6%94%B9%E6%8E%A7%E5%88%B6"><span class="toc-text">例2：如何判断新增指令能否只改控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B8%A6MUX%E7%9A%84%E5%8D%95%E5%91%A8%E6%9C%9F%E6%8E%A7%E5%88%B6%E9%A2%98"><span class="toc-text">2. 带MUX的单周期控制题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E8%B7%AF%E5%BE%84%E9%A2%98%E8%A6%81%E4%B8%B2%E8%B5%B7%E7%9C%9F%E6%AD%A3%E7%BB%8F%E8%BF%87%E7%9A%84%E9%83%A8%E4%BB%B6"><span class="toc-text">最长路径题要串起真正经过的部件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%9A%E5%8F%91%E5%B0%84%EF%BC%9A%E4%BE%9D%E8%B5%96%E5%92%8C%E8%B5%84%E6%BA%90%E8%A6%81%E5%90%8C%E6%97%B6%E6%BB%A1%E8%B6%B3"><span class="toc-text">3. 多发射：依赖和资源要同时满足</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B4%EF%BC%9A%E7%BB%99%E5%AE%9A%E8%B5%84%E6%BA%90%E4%B8%8E%E4%BE%9D%E8%B5%96%EF%BC%8C%E5%AE%89%E6%8E%92%E5%8F%91%E5%B0%84%E8%A1%A8"><span class="toc-text">例4：给定资源与依赖，安排发射表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BC%82%E6%AD%A5%E6%8F%A1%E6%89%8B%E5%9B%BE%EF%BC%9A%E6%92%A4%E9%94%80%E9%A1%BA%E5%BA%8F%E4%B9%9F%E5%8F%AF%E8%83%BD%E8%80%83"><span class="toc-text">4. 异步握手图：撤销顺序也可能考</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B5%EF%BC%9A%E5%9B%9B%E9%98%B6%E6%AE%B5%E5%85%A8%E4%BA%92%E9%94%81%E6%8F%A1%E6%89%8B%E8%80%97%E6%97%B6"><span class="toc-text">例5：四阶段全互锁握手耗时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%A6%BB%E5%BC%8F%E4%BA%8B%E5%8A%A1%E9%87%8A%E6%94%BE%E7%9A%84%E6%98%AF%E7%AD%89%E5%BE%85%E9%98%B6%E6%AE%B5%E7%9A%84%E6%80%BB%E7%BA%BF"><span class="toc-text">分离式事务释放的是等待阶段的总线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%BD%AE%E8%AF%A2%E5%BC%80%E9%94%80%EF%BC%9A%E6%A3%80%E6%9F%A5%E6%AC%A1%E6%95%B0%E4%B8%8E%E8%AE%BE%E5%A4%87%E4%BA%A7%E5%87%BA%E6%AC%A1%E6%95%B0%E6%9C%AA%E5%BF%85%E7%9B%B8%E7%AD%89"><span class="toc-text">5. 轮询开销：检查次数与设备产出次数未必相等</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B7%EF%BC%9A%E5%AE%9A%E6%97%B6%E8%BD%AE%E8%AF%A2"><span class="toc-text">例7：定时轮询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-DMA%E4%BA%89%E7%94%A8%EF%BC%9ACPU%E7%AE%A1%E7%90%86%E5%BC%80%E9%94%80%E3%80%81%E6%80%BB%E7%BA%BF%E5%8D%A0%E7%94%A8%E5%92%8C%E5%AE%9E%E9%99%85%E5%81%9C%E9%A1%BF%E5%88%86%E5%88%AB%E7%AE%97"><span class="toc-text">6. DMA争用：CPU管理开销、总线占用和实际停顿分别算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B8%EF%BC%9A%E6%AF%8F%E4%B8%AADMA%E8%AF%B7%E6%B1%82%E5%BF%85%E7%84%B6%E4%B8%8ECPU%E5%86%B2%E7%AA%81%E7%9A%84%E5%91%A8%E6%9C%9F%E6%8C%AA%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-text">例8：每个DMA请求必然与CPU冲突的周期挪用模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B9%EF%BC%9ACPU%E4%B8%8EDMA%E4%BA%A4%E6%9B%BF%E8%AE%BF%E5%AD%98%E7%9A%84%E5%8F%AF%E8%A1%8C%E6%80%A7"><span class="toc-text">例9：CPU与DMA交替访存的可行性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%A8%E7%AB%A0%E8%87%AA%E6%B5%8B%EF%BC%9A%E9%A2%98%E7%9B%AE%E4%B8%8E%E5%AE%8C%E6%95%B4%E8%A7%A3%E7%AD%94"><span class="toc-text">跨章自测：题目与完整解答</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E5%8C%BA"><span class="toc-text">题目区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%981%EF%BC%9A%E6%94%B9%E6%8C%87%E4%BB%A4%E6%95%B0%E5%90%8E%EF%BC%8CCPI%E5%BA%94%E5%A6%82%E4%BD%95%E5%8A%A0%E6%9D%83"><span class="toc-text">题1：改指令数后，CPI应如何加权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%982%EF%BC%9A%E4%B8%80%E4%B8%AA%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E4%B8%AD%E6%9C%89%E4%B8%A4%E6%AC%A1%E4%B8%8D%E5%90%8C%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text">题2：一个条件判断中有两次不同的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%983%EF%BC%9A%E4%B8%A4%E7%BA%A7Cache%E7%9A%84%E5%B1%80%E9%83%A8%E7%8E%87%E5%92%8C%E5%85%A8%E5%B1%80%E7%8E%87"><span class="toc-text">题3：两级Cache的局部率和全局率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%984%EF%BC%9A%E4%B8%80%E6%AC%A1%E8%B7%A8%E9%A1%B5%E8%AF%BB%E5%8F%96%E8%83%BD%E5%90%A6%E5%BE%97%E5%88%B0%E8%BF%9E%E7%BB%AD%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80"><span class="toc-text">题4：一次跨页读取能否得到连续物理地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%985%EF%BC%9A%E8%B0%83%E5%BA%A6%E4%B8%80%E6%9D%A1%E7%8B%AC%E7%AB%8B%E6%8C%87%E4%BB%A4%E6%B6%88%E9%99%A4%E5%81%9C%E9%A1%BF"><span class="toc-text">题5：调度一条独立指令消除停顿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%986%EF%BC%9A%E5%BE%AE%E6%8C%87%E4%BB%A4%E5%AD%97%E6%AE%B5%E4%B8%8E%E6%8E%A7%E5%AD%98%E5%AE%B9%E9%87%8F"><span class="toc-text">题6：微指令字段与控存容量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%987%EF%BC%9A%E6%8E%A5%E5%8F%A3%E7%BC%93%E5%86%B2%E6%98%AF%E5%90%A6%E5%A4%9F%EF%BC%8CCPU%E5%BC%80%E9%94%80%E6%98%AF%E5%90%A6%E5%8F%AF%E6%89%BF%E5%8F%97"><span class="toc-text">题7：接口缓冲是否够，CPU开销是否可承受</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%988%EF%BC%9A%E5%88%86%E6%94%AF%E5%A4%84%E7%BD%9A%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BC%BA%E5%A4%B1%E5%85%B1%E5%90%8C%E5%BD%B1%E5%93%8D%E6%97%B6%E9%97%B4"><span class="toc-text">题8：分支处罚与数据缺失共同影响时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%AD%94%E5%8C%BA"><span class="toc-text">解答区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%981%E8%A7%A3%EF%BC%9A%E5%85%88%E7%BB%9F%E8%AE%A1%E6%80%BB%E5%91%A8%E6%9C%9F%EF%BC%8C%E5%86%8D%E9%87%8D%E6%96%B0%E5%88%86%E6%AF%8D"><span class="toc-text">题1解：先统计总周期，再重新分母</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%982%E8%A7%A3%EF%BC%9A%E5%86%99%E5%87%BA%E6%AF%8F%E4%B8%AA%E9%98%B6%E6%AE%B5%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">题2解：写出每个阶段的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%983%E8%A7%A3%EF%BC%9A%E5%90%8E%E7%BA%A7%E5%B1%80%E9%83%A8%E7%8E%87%E8%A6%81%E4%B9%98%E5%88%B0%E8%BE%BE%E8%AF%A5%E7%BA%A7%E7%9A%84%E6%A6%82%E7%8E%87"><span class="toc-text">题3解：后级局部率要乘到达该级的概率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%984%E8%A7%A3%EF%BC%9A%E8%B7%A8%E9%A1%B5%E5%90%8E%E6%98%A0%E5%B0%84%E5%8F%AF%E4%BB%A5%E4%B8%8D%E8%BF%9E%E7%BB%AD"><span class="toc-text">题4解：跨页后映射可以不连续</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%985%E8%A7%A3%EF%BC%9A%E7%8B%AC%E7%AB%8B%E5%B7%A5%E4%BD%9C%E5%A1%AB%E6%8E%89load-use%E9%97%B4%E9%9A%94"><span class="toc-text">题5解：独立工作填掉load-use间隔</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%986%E8%A7%A3%EF%BC%9A%E5%85%88%E7%BB%99%E6%AF%8F%E7%BB%84%E9%A2%84%E7%95%99%E7%A9%BA%E6%93%8D%E4%BD%9C"><span class="toc-text">题6解：先给每组预留空操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%987%E8%A7%A3%EF%BC%9A%E5%8F%8A%E6%97%B6%E6%80%A7%E4%B8%8E%E5%B9%B3%E5%9D%87%E5%BC%80%E9%94%80%E5%88%86%E5%88%AB%E6%A3%80%E9%AA%8C"><span class="toc-text">题7解：及时性与平均开销分别检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%988%E8%A7%A3%EF%BC%9A%E6%8C%89%E6%AF%8F%E6%9D%A1%E6%8C%87%E4%BB%A4%E7%9A%84%E9%A2%9D%E5%A4%96%E5%91%A8%E6%9C%9F%E7%BB%9F%E4%B8%80%E5%8A%A0%E6%80%BB"><span class="toc-text">题8解：按每条指令的额外周期统一加总</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/10/06/%E8%8B%B1%E8%AF%AD%E9%98%85%E8%AF%BB%E5%8D%95%E8%AF%8D/" title="英语阅读单词">英语阅读单词</a><time datetime="2026-10-05T16:00:00.000Z" title="Created 2026-10-06 00:00:00">2026-10-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a><time datetime="2026-03-09T16:00:00.000Z" title="Created 2026-03-10 00:00:00">2026-03-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/10/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" title="概率论与数理统计">概率论与数理统计</a><time datetime="2026-03-09T16:00:00.000Z" title="Created 2026-03-10 00:00:00">2026-03-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/10/%E9%9B%AA%E6%97%A5%E9%97%B2/" title="雪日闲">雪日闲</a><time datetime="2026-01-09T16:00:00.000Z" title="Created 2026-01-10 00:00:00">2026-01-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/17/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="通信原理期末复习笔记">通信原理期末复习笔记</a><time datetime="2025-12-16T16:00:00.000Z" title="Created 2025-12-17 00:00:00">2025-12-17</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ZYK/"><span class="card-category-list-name">ZYK</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/english/"><span class="card-category-list-name">english</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/gossip/"><span class="card-category-list-name">gossip</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/math/"><span class="card-category-list-name">math</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/totorial/"><span class="card-category-list-name">totorial</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/10/">
+            <span class="card-archive-list-date">
+              十月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              十二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/01/">
+            <span class="card-archive-list-date">
+              一月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastpushdate="2026-10-29T16:00:44.955Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://t.alcy.cc/fj);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">©&nbsp;2025 - 2026 By lost.in</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        loader: {
+          load: [
+            // Four font extension packages (optional)
+            //- '[tex]/bbm',
+            //- '[tex]/bboldx',
+            //- '[tex]/dsfont',
+            '[tex]/mhchem'
+          ],
+          paths: {
+            'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+
+            //- // Four font extension packages (optional)
+            //- 'mathjax-bbm-extension': '[mathjax]/../@mathjax/mathjax-bbm-font-extension',
+            //- 'mathjax-bboldx-extension': '[mathjax]/../@mathjax/mathjax-bboldx-font-extension',
+            //- 'mathjax-dsfont-extension': '[mathjax]/../@mathjax/mathjax-dsfont-font-extension',
+            'mathjax-mhchem-extension': '[mathjax]/../@mathjax/mathjax-mhchem-font-extension'
+          }
+        },
+        output: {
+          font: 'mathjax-newcm',
+        },
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+          packages: {
+            '[+]': [
+              'mhchem'
+            ]
+          }
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          menuOptions: {
+            settings: {
+              enrich: false  // Turn off Braille and voice narration text automatic generation
+            }
+          },
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><script async="" data-pjax="" src="/"></script></div></body></html>

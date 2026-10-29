@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机组成原理：数据通路、总线与DMA：带图综合题 | lost.in</title><meta name="author" content="lost.in"><meta name="copyright" content="lost.in"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="返回计组总目录 · 上一篇：x86机器级程序：读代码、还原C与存储综合 · 下一篇：跨章自测：题目与完整解答 1. 读单总线图：先认方向，再认锁存条件 图源：王道PDF物理页221，书内209页。沿图确认：寄存器out驱动总线，in允许锁存；Y保存ALU一侧操作数，另一侧来自总线；ALU结果先入Z，再由Zout送总线。MDR连接内部通路与主存读写通路，MAR保存访存地址。图中系统总线与内部总线不是">
+<meta property="og:type" content="website">
+<meta property="og:title" content="计算机组成原理：数据通路、总线与DMA：带图综合题">
+<meta property="og:url" content="https://00lostin00.github.io/ZYK_408/co/topics/datapath-dma/index.html">
+<meta property="og:site_name" content="lost.in">
+<meta property="og:description" content="返回计组总目录 · 上一篇：x86机器级程序：读代码、还原C与存储综合 · 下一篇：跨章自测：题目与完整解答 1. 读单总线图：先认方向，再认锁存条件 图源：王道PDF物理页221，书内209页。沿图确认：寄存器out驱动总线，in允许锁存；Y保存ALU一侧操作数，另一侧来自总线；ALU结果先入Z，再由Zout送总线。MDR连接内部通路与主存读写通路，MAR保存访存地址。图中系统总线与内部总线不是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://00lostin00.github.io/images/tx.jpg">
+<meta property="article:published_time" content="2026-10-29T15:57:50.761Z">
+<meta property="article:modified_time" content="2026-10-29T15:57:50.761Z">
+<meta property="article:author" content="lost.in">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://00lostin00.github.io/images/tx.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/mrs.jpg"><link rel="canonical" href="https://00lostin00.github.io/ZYK_408/co/topics/datapath-dma/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=5.5.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机组成原理：数据通路、总线与DMA：带图综合题',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/transpancy.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://00lostin00.github.io/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/gossip/"><i class="fa-fw fas fa-gamepad"></i><span> 闲话</span></a></div><div class="menus_item"><a class="site-page" href="/algo/"><i class="fa-fw fas fa-book-open"></i><span> 算法档案</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-fish"></i><span> 考研</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/ZYK/"><i class="fa-fw fas fa-gamepad"></i><span> 专业课</span></a></li><li><a class="site-page child" href="/ZYK_408/co/"><i class="fa-fw fas fa-microchip"></i><span> 计组笔记</span></a></li><li><a class="site-page child" href="/categories/math/"><i class="fa-fw fas fa-tools"></i><span> 数学</span></a></li><li><a class="site-page child" href="/categories/english/"><i class="fa-fw fas fa-anchor"></i><span> 英语</span></a></li><li><a class="site-page child" href="/Politics/"><i class="fa-fw fas fa-gamepad"></i><span> 政治</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">lost.in</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://00lostin00.github.io/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/gossip/"><i class="fa-fw fas fa-gamepad"></i><span> 闲话</span></a></div><div class="menus_item"><a class="site-page" href="/algo/"><i class="fa-fw fas fa-book-open"></i><span> 算法档案</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-fish"></i><span> 考研</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/ZYK/"><i class="fa-fw fas fa-gamepad"></i><span> 专业课</span></a></li><li><a class="site-page child" href="/ZYK_408/co/"><i class="fa-fw fas fa-microchip"></i><span> 计组笔记</span></a></li><li><a class="site-page child" href="/categories/math/"><i class="fa-fw fas fa-tools"></i><span> 数学</span></a></li><li><a class="site-page child" href="/categories/english/"><i class="fa-fw fas fa-anchor"></i><span> 英语</span></a></li><li><a class="site-page child" href="/Politics/"><i class="fa-fw fas fa-gamepad"></i><span> 政治</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">计算机组成原理：数据通路、总线与DMA：带图综合题</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="top-img" style="background-image: url(https://t.alcy.cc/fj);"></div><div class="container" id="article-container"><p><a href="/ZYK_408/co/">返回计组总目录</a> · <a href="/ZYK_408/co/topics/x86/">上一篇：x86机器级程序：读代码、还原C与存储综合</a> · <a href="/ZYK_408/co/topics/self-test/">下一篇：跨章自测：题目与完整解答</a></p>
+<h2 id="1-读单总线图：先认方向，再认锁存条件"><a href="#1-读单总线图：先认方向，再认锁存条件" class="headerlink" title="1. 读单总线图：先认方向，再认锁存条件"></a>1. 读单总线图：先认方向，再认锁存条件</h2><p><img src="/images/408-co/wd-p221-%E5%8D%95%E6%80%BB%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF.png" alt="王道单总线数据通路原图"></p>
+<p>图源：王道PDF物理页221，书内209页。沿图确认：寄存器out驱动总线，in允许锁存；Y保存ALU一侧操作数，另一侧来自总线；ALU结果先入Z，再由Zout送总线。MDR连接内部通路与主存读写通路，MAR保存访存地址。图中系统总线与内部总线不是同一组线，不能因为名字都叫总线就认定全部操作必然互斥。</p>
+<h3 id="例1：LOAD-R1-R2-的执行段控制表"><a href="#例1：LOAD-R1-R2-的执行段控制表" class="headerlink" title="例1：LOAD R1,[R2]的执行段控制表"></a>例1：LOAD R1,[R2]的执行段控制表</h3><p>另设本题主存读取需3拍：读请求发出后，连续3拍Read有效，第三拍末MDR从外部存储通路锁存数据。MAR已保存地址；这3拍不使用内部总线返回数据。忽略取指，R2为有效地址。</p>
+<table>
+<thead>
+<tr>
+<th>拍</th>
+<th>有效信号</th>
+<th>结束后的关键状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>R2out、MARin</td>
+<td>MAR←R2</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Read</td>
+<td>访存第1拍</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>Read</td>
+<td>访存第2拍</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>Read、外部读入MDR使能</td>
+<td>MDR←M[MAR]，第3拍结束</td>
+</tr>
+<tr>
+<td>E5</td>
+<td>MDRout、R1in</td>
+<td>R1←MDR</td>
+</tr>
+</tbody></table>
+<p>需5拍。这里外部读入MDR使能与内部总线MDRin应按图中器件接口区分；若试题另有MFC完成握手，用其结束等待。R1只能在数据准备好后取得读值。若改成STORE [R2],R1，必须先准备MAR与MDR的写数据，再发写请求，不能把LOAD的表只换Read为Write而不改数据来源。</p>
+<h3 id="例2：如何判断新增指令能否只改控制"><a href="#例2：如何判断新增指令能否只改控制" class="headerlink" title="例2：如何判断新增指令能否只改控制"></a>例2：如何判断新增指令能否只改控制</h3><p>现有通路支持R3←R1+R2，若ALU已有减法且输入通路不变，增加R3←R1-R2通常可复用Y、ALU、Z，只增加/修改操作选择和控制序列。若要新增R3←M[R1]+M[R2]，同一单端口主存不能同时读两个地址，需要分次读取并保存第一个值；若又要求一拍完成，现有资源显然不满足。</p>
+<p>答题顺序：写语义 → 标输入来源和结果去向 → 查所需运算功能 → 查同拍端口与总线冲突 → 判断缺控制还是缺硬件。不要看见新操作码就必然回答新增ALU。</p>
+<h2 id="2-带MUX的单周期控制题"><a href="#2-带MUX的单周期控制题" class="headerlink" title="2. 带MUX的单周期控制题"></a>2. 带MUX的单周期控制题</h2><p>数据通路如下：双读单写寄存器堆，数据存储器独立；PC顺序更新用独立加法器。WB选择0为ALU、1为存储器；B选择0为寄存器rt、1为符号扩展立即数。取指通路略。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rs ─→ 寄存器堆读A ──────────────→ ALU.A</span><br><span class="line">rt ─→ 寄存器堆读B ───┬─→ B选择0 ─┐</span><br><span class="line">                     │            ├→ ALU.B → ALU结果 ─┬→ 数据存储器地址</span><br><span class="line">imm → 符号扩展 ─────────→ B选择1 ─┘                    └→ WB选择0</span><br><span class="line">                     └────────────────→ 数据存储器写数据</span><br><span class="line">                                        数据读出 ───────→ WB选择1</span><br><span class="line">WB选择输出 ─────────────────────────────→ 寄存器堆写数据</span><br></pre></td></tr></tbody></table></figure>
+
+<p>例3：ADD、LOAD、STORE填表。目的寄存器编号由指令编码或额外选择逻辑提供。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>B选择</th>
+<th>ALU</th>
+<th>MemRead</th>
+<th>MemWrite</th>
+<th>WB选择</th>
+<th>RegWrite</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ADD rd,rs,rt</td>
+<td>0</td>
+<td>加</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>LOAD rt,imm(rs)</td>
+<td>1</td>
+<td>加</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>STORE rt,imm(rs)</td>
+<td>1</td>
+<td>加</td>
+<td>0</td>
+<td>1</td>
+<td>无关</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>STORE中B选择立即数用于算地址，但存储器写入数据仍是读B端口的rt值。观察两条分支线即可解释为何“ALU取立即数”和“往主存写rt”能同时成立。添加立即数加法只需B选1、ALU加、WB选0、RegWrite=1，并正确选目的寄存器；若立即数语义为零扩展而现有只支持符号扩展，还需补扩展选择。</p>
+<h3 id="最长路径题要串起真正经过的部件"><a href="#最长路径题要串起真正经过的部件" class="headerlink" title="最长路径题要串起真正经过的部件"></a>最长路径题要串起真正经过的部件</h3><p>若LOAD经过指令存储器200 ps、寄存器读80 ps、扩展与B选择合计40 ps、ALU120 ps、数据存储器250 ps、WB选择30 ps、写入设置20 ps，且本题明确这些延迟按顺序累计，则LOAD路径740 ps。若寄存器读与立即数扩展能并行，就不能盲加两条支路延迟，应按较晚到达ALU的输入计算；题图决定关键路径。740 ps对应上述串行路径。</p>
+<h2 id="3-多发射：依赖和资源要同时满足"><a href="#3-多发射：依赖和资源要同时满足" class="headerlink" title="3. 多发射：依赖和资源要同时满足"></a>3. 多发射：依赖和资源要同时满足</h2><p>超标量动态多发射由硬件检查与调度；超长指令字VLIW主要由编译器静态安排可并行操作；超流水通过细分阶段缩短周期。多发射可能IPC&gt;1、CPI&lt;1，更多流水段本身不意味着一周期能发多条。</p>
+<h3 id="例4：给定资源与依赖，安排发射表"><a href="#例4：给定资源与依赖，安排发射表" class="headerlink" title="例4：给定资源与依赖，安排发射表"></a>例4：给定资源与依赖，安排发射表</h3><p>每周期最多顺序发射2条，有2个ALU、1个访存部件；ALU延迟1周期，load延迟2周期，store延迟1周期，部件均可接收本题所需新操作。结果在完成周期末产生，下一周期开头可用；同周期不能使用刚发射指令的结果。无重命名需求、无其他阻塞；第一条因依赖不能发射时，后面的指令也不能越过。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">I1 LOAD r1,[r2]</span><br><span class="line">I2 ADD  r3,r4,r5</span><br><span class="line">I3 ADD  r6,r1,r3</span><br><span class="line">I4 ADD  r7,r8,r9</span><br><span class="line">I5 STORE [r10],r6</span><br><span class="line">I6 ADD  r11,r7,r12</span><br></pre></td></tr></tbody></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>周期</th>
+<th>发射</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>I1、I2</td>
+<td>无相互依赖，分别用访存部件和ALU</td>
+</tr>
+<tr>
+<td>2</td>
+<td>无</td>
+<td>I1要到本周期末完成，I3不能发；顺序发射也挡住I4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>I3、I4</td>
+<td>r1和r3均可用，两个ALU足够</td>
+</tr>
+<tr>
+<td>4</td>
+<td>I5、I6</td>
+<td>r6和r7已在周期3末生成，资源无冲突</td>
+</tr>
+</tbody></table>
+<p>6条用4个周期发射并按本题延迟在第4周期末全部完成，平均IPC=1.5。若硬件允许越过阻塞的I3发射I4，周期2可能被利用，但必须重做整张表；这是模型变化，不是看到空槽就能擅自移指令。若每周期只有1个ALU，周期3也不能同时发I3与I4。</p>
+<p>乱序执行还需维护程序语义；寄存器重命名能缓解假相关WAR/WAW，不能消除真正RAW数据依赖。精确异常要求处理程序能够观察到与顺序执行相符的体系结构状态。</p>
+<h2 id="4-异步握手图：撤销顺序也可能考"><a href="#4-异步握手图：撤销顺序也可能考" class="headerlink" title="4. 异步握手图：撤销顺序也可能考"></a>4. 异步握手图：撤销顺序也可能考</h2><p><img src="/images/408-co/wd-p297-%E5%BC%82%E6%AD%A5%E6%8F%A1%E6%89%8B.png" alt="王道异步总线三种握手原图"></p>
+<p>图源：王道PDF物理页297，书内285页。箭头表示一方动作依赖另一方信号：不互锁用预定延迟撤销；半互锁请求方等响应再撤请求，响应方按固定延迟撤响应；全互锁两边撤销都等待对方。别把“有没有公共时钟”和“有没有相互等待”混成一个判断。</p>
+<h3 id="例5：四阶段全互锁握手耗时"><a href="#例5：四阶段全互锁握手耗时" class="headerlink" title="例5：四阶段全互锁握手耗时"></a>例5：四阶段全互锁握手耗时</h3><p>请求与响应每个信号单程传播10 ns；从设备收到请求后20 ns备好数据并发响应；主设备收到响应立即取数据并撤请求；从设备收到请求撤销立即撤响应；主设备收到响应撤销后可开始下一事务。每事务传4 B，不计额外仲裁。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">t= 0 ns 主设备 请求↑</span><br><span class="line">t=10 ns 从设备看到请求，开始准备</span><br><span class="line">t=30 ns 从设备数据就绪，响应↑</span><br><span class="line">t=40 ns 主设备收到响应，取数，请求↓</span><br><span class="line">t=50 ns 从设备看到请求↓，响应↓</span><br><span class="line">t=60 ns 主设备看到响应↓，握手复位完成</span><br></pre></td></tr></tbody></table></figure>
+
+<p>首次取到数据40 ns，但相邻完整事务最小间隔60 ns。持续带宽4 B/60 ns≈66.67 MB/s；不能按4/40 ns算长期吞吐，因为复位阶段仍占时间。若协议允许流水事务重叠，需要另给规则，不能默认为可重叠。</p>
+<h3 id="分离式事务释放的是等待阶段的总线"><a href="#分离式事务释放的是等待阶段的总线" class="headerlink" title="分离式事务释放的是等待阶段的总线"></a>分离式事务释放的是等待阶段的总线</h3><p>请求阶段只发地址和命令，之后释放总线；从设备准备好时再争用总线返回响应。请求与响应通常带标识便于配对，不要求准备期间总线一直空闲，也不保证各响应顺序一定与请求顺序一致，按协议规则处理。</p>
+<p>例6：单次读请求占10 ns，设备准备80 ns，响应传数10 ns。独占事务从头到尾占100 ns；分离式事务实际占总线20 ns，中间80 ns可用于其他事务。单个请求的最低响应延迟仍为100 ns，</p>
+<h2 id="5-轮询开销：检查次数与设备产出次数未必相等"><a href="#5-轮询开销：检查次数与设备产出次数未必相等" class="headerlink" title="5. 轮询开销：检查次数与设备产出次数未必相等"></a>5. 轮询开销：检查次数与设备产出次数未必相等</h2><h3 id="例7：定时轮询"><a href="#例7：定时轮询" class="headerlink" title="例7：定时轮询"></a>例7：定时轮询</h3><p>设备每1 ms产生一个数据，接口只有一个数据缓冲；CPU每100 μs检查一次，一次检查20周期，100 MHz。每秒检查10000次，占200000周期，即CPU的0.2%。若每次真正读取和处理额外80周期，设备稳定每秒1000数据，则再占80000周期，总0.28%。不能把所有10000次检查都算成一次成功传输。</p>
+<p>最坏轮询发现延迟接近100 μs，另加处理到读走的时间；这里可在下一1 ms数据到来前处理。若CPU一直忙等而没有用间隙做其他工作，即使每次检查只20周期，等待期间也不能全部算成对应用程序可利用的空闲时间。定时轮询与阻塞忙等是不同调度模型。</p>
+<h2 id="6-DMA争用：CPU管理开销、总线占用和实际停顿分别算"><a href="#6-DMA争用：CPU管理开销、总线占用和实际停顿分别算" class="headerlink" title="6. DMA争用：CPU管理开销、总线占用和实际停顿分别算"></a>6. DMA争用：CPU管理开销、总线占用和实际停顿分别算</h2><h3 id="例8：每个DMA请求必然与CPU冲突的周期挪用模型"><a href="#例8：每个DMA请求必然与CPU冲突的周期挪用模型" class="headerlink" title="例8：每个DMA请求必然与CPU冲突的周期挪用模型"></a>例8：每个DMA请求必然与CPU冲突的周期挪用模型</h3><p>DMA速率10 MB/s，每次传4 B；每次独占主存总线100 ns。每秒有250万次传输，占总线0.25 s，即25%。若本题规定CPU在这些时段每次都需要主存且完全不能推进，CPU因此等待25%的墙钟时间。若CPU可执行寄存器运算、命中私有Cache或这些时段原本不访存，真实停顿可更少；“总线被占25%”本身不能直接推出所有程序慢25%。</p>
+<p>题若给CPU任务有不重叠的有效工作时间0.75 s，DMA在整个执行期间稳定占25%且每次均阻塞有效推进，则实际完成时间<script type="math/tex">0.75/(1-0.25)=1</script> s。不能简单做0.75×1.25；等待比例的分母是最终墙钟时间。</p>
+<h3 id="例9：CPU与DMA交替访存的可行性"><a href="#例9：CPU与DMA交替访存的可行性" class="headerlink" title="例9：CPU与DMA交替访存的可行性"></a>例9：CPU与DMA交替访存的可行性</h3><p>CPU每1 μs只需一次500 ns主存访问，剩余半周期可供DMA；若DMA每字需要500 ns且传4 B，固定交替时DMA峰值4 MB/s。若设备要求6 MB/s，这个固定时隙安排不够，须改变调度或提高带宽，不能说“DMA不执行CPU指令所以不受限制”。</p>
+<p>DMA预处理设置起址、计数和方向；传送期间控制器更新地址与计数；块结束可发完成中断。DMA请求申请的是访存/总线使用权，完成中断请求的是CPU进入处理，两者时机与用途不同。</p>
+<hr>
+<p><a href="/ZYK_408/co/">返回计组总目录</a> · <a href="/ZYK_408/co/topics/x86/">上一篇：x86机器级程序：读代码、还原C与存储综合</a> · <a href="/ZYK_408/co/topics/self-test/">下一篇：跨章自测：题目与完整解答</a></p>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">lost.in</div><div class="author-info-description">仔细看清楚，他年去旅行</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/00lostin00"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://github.com/00lostin00" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://space.bilibili.com/487246708" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #00A1D6;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://www.zhihu.com/people/lou-kong-83-23" target="_blank" title="Zhihu"><i class="fab fa-zhihu" style="color: #0084ff;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://codeforces.com/profile/lost.in" target="_blank" title="Codeforces"><img class="cf-icon" src="/images/cflogo.svg" alt="Codeforces" style="width: 25px; height: 20px;"></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="mailto:1409423207@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%BB%E5%8D%95%E6%80%BB%E7%BA%BF%E5%9B%BE%EF%BC%9A%E5%85%88%E8%AE%A4%E6%96%B9%E5%90%91%EF%BC%8C%E5%86%8D%E8%AE%A4%E9%94%81%E5%AD%98%E6%9D%A1%E4%BB%B6"><span class="toc-text">1. 读单总线图：先认方向，再认锁存条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B1%EF%BC%9ALOAD-R1-R2-%E7%9A%84%E6%89%A7%E8%A1%8C%E6%AE%B5%E6%8E%A7%E5%88%B6%E8%A1%A8"><span class="toc-text">例1：LOAD R1,[R2]的执行段控制表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B2%EF%BC%9A%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%96%B0%E5%A2%9E%E6%8C%87%E4%BB%A4%E8%83%BD%E5%90%A6%E5%8F%AA%E6%94%B9%E6%8E%A7%E5%88%B6"><span class="toc-text">例2：如何判断新增指令能否只改控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B8%A6MUX%E7%9A%84%E5%8D%95%E5%91%A8%E6%9C%9F%E6%8E%A7%E5%88%B6%E9%A2%98"><span class="toc-text">2. 带MUX的单周期控制题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E8%B7%AF%E5%BE%84%E9%A2%98%E8%A6%81%E4%B8%B2%E8%B5%B7%E7%9C%9F%E6%AD%A3%E7%BB%8F%E8%BF%87%E7%9A%84%E9%83%A8%E4%BB%B6"><span class="toc-text">最长路径题要串起真正经过的部件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%9A%E5%8F%91%E5%B0%84%EF%BC%9A%E4%BE%9D%E8%B5%96%E5%92%8C%E8%B5%84%E6%BA%90%E8%A6%81%E5%90%8C%E6%97%B6%E6%BB%A1%E8%B6%B3"><span class="toc-text">3. 多发射：依赖和资源要同时满足</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B4%EF%BC%9A%E7%BB%99%E5%AE%9A%E8%B5%84%E6%BA%90%E4%B8%8E%E4%BE%9D%E8%B5%96%EF%BC%8C%E5%AE%89%E6%8E%92%E5%8F%91%E5%B0%84%E8%A1%A8"><span class="toc-text">例4：给定资源与依赖，安排发射表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BC%82%E6%AD%A5%E6%8F%A1%E6%89%8B%E5%9B%BE%EF%BC%9A%E6%92%A4%E9%94%80%E9%A1%BA%E5%BA%8F%E4%B9%9F%E5%8F%AF%E8%83%BD%E8%80%83"><span class="toc-text">4. 异步握手图：撤销顺序也可能考</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B5%EF%BC%9A%E5%9B%9B%E9%98%B6%E6%AE%B5%E5%85%A8%E4%BA%92%E9%94%81%E6%8F%A1%E6%89%8B%E8%80%97%E6%97%B6"><span class="toc-text">例5：四阶段全互锁握手耗时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%A6%BB%E5%BC%8F%E4%BA%8B%E5%8A%A1%E9%87%8A%E6%94%BE%E7%9A%84%E6%98%AF%E7%AD%89%E5%BE%85%E9%98%B6%E6%AE%B5%E7%9A%84%E6%80%BB%E7%BA%BF"><span class="toc-text">分离式事务释放的是等待阶段的总线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%BD%AE%E8%AF%A2%E5%BC%80%E9%94%80%EF%BC%9A%E6%A3%80%E6%9F%A5%E6%AC%A1%E6%95%B0%E4%B8%8E%E8%AE%BE%E5%A4%87%E4%BA%A7%E5%87%BA%E6%AC%A1%E6%95%B0%E6%9C%AA%E5%BF%85%E7%9B%B8%E7%AD%89"><span class="toc-text">5. 轮询开销：检查次数与设备产出次数未必相等</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B7%EF%BC%9A%E5%AE%9A%E6%97%B6%E8%BD%AE%E8%AF%A2"><span class="toc-text">例7：定时轮询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-DMA%E4%BA%89%E7%94%A8%EF%BC%9ACPU%E7%AE%A1%E7%90%86%E5%BC%80%E9%94%80%E3%80%81%E6%80%BB%E7%BA%BF%E5%8D%A0%E7%94%A8%E5%92%8C%E5%AE%9E%E9%99%85%E5%81%9C%E9%A1%BF%E5%88%86%E5%88%AB%E7%AE%97"><span class="toc-text">6. DMA争用：CPU管理开销、总线占用和实际停顿分别算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B8%EF%BC%9A%E6%AF%8F%E4%B8%AADMA%E8%AF%B7%E6%B1%82%E5%BF%85%E7%84%B6%E4%B8%8ECPU%E5%86%B2%E7%AA%81%E7%9A%84%E5%91%A8%E6%9C%9F%E6%8C%AA%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-text">例8：每个DMA请求必然与CPU冲突的周期挪用模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B9%EF%BC%9ACPU%E4%B8%8EDMA%E4%BA%A4%E6%9B%BF%E8%AE%BF%E5%AD%98%E7%9A%84%E5%8F%AF%E8%A1%8C%E6%80%A7"><span class="toc-text">例9：CPU与DMA交替访存的可行性</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/10/06/%E8%8B%B1%E8%AF%AD%E9%98%85%E8%AF%BB%E5%8D%95%E8%AF%8D/" title="英语阅读单词">英语阅读单词</a><time datetime="2026-10-05T16:00:00.000Z" title="Created 2026-10-06 00:00:00">2026-10-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a><time datetime="2026-03-09T16:00:00.000Z" title="Created 2026-03-10 00:00:00">2026-03-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/10/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" title="概率论与数理统计">概率论与数理统计</a><time datetime="2026-03-09T16:00:00.000Z" title="Created 2026-03-10 00:00:00">2026-03-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/10/%E9%9B%AA%E6%97%A5%E9%97%B2/" title="雪日闲">雪日闲</a><time datetime="2026-01-09T16:00:00.000Z" title="Created 2026-01-10 00:00:00">2026-01-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/17/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="通信原理期末复习笔记">通信原理期末复习笔记</a><time datetime="2025-12-16T16:00:00.000Z" title="Created 2025-12-17 00:00:00">2025-12-17</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ZYK/"><span class="card-category-list-name">ZYK</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/english/"><span class="card-category-list-name">english</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/gossip/"><span class="card-category-list-name">gossip</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/math/"><span class="card-category-list-name">math</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/totorial/"><span class="card-category-list-name">totorial</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/10/">
+            <span class="card-archive-list-date">
+              十月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              十二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/01/">
+            <span class="card-archive-list-date">
+              一月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastpushdate="2026-10-29T16:00:44.955Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://t.alcy.cc/fj);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">©&nbsp;2025 - 2026 By lost.in</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        loader: {
+          load: [
+            // Four font extension packages (optional)
+            //- '[tex]/bbm',
+            //- '[tex]/bboldx',
+            //- '[tex]/dsfont',
+            '[tex]/mhchem'
+          ],
+          paths: {
+            'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+
+            //- // Four font extension packages (optional)
+            //- 'mathjax-bbm-extension': '[mathjax]/../@mathjax/mathjax-bbm-font-extension',
+            //- 'mathjax-bboldx-extension': '[mathjax]/../@mathjax/mathjax-bboldx-font-extension',
+            //- 'mathjax-dsfont-extension': '[mathjax]/../@mathjax/mathjax-dsfont-font-extension',
+            'mathjax-mhchem-extension': '[mathjax]/../@mathjax/mathjax-mhchem-font-extension'
+          }
+        },
+        output: {
+          font: 'mathjax-newcm',
+        },
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+          packages: {
+            '[+]': [
+              'mhchem'
+            ]
+          }
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          menuOptions: {
+            settings: {
+              enrich: false  // Turn off Braille and voice narration text automatic generation
+            }
+          },
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><script async="" data-pjax="" src="/"></script></div></body></html>
