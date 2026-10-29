@@ -6,8 +6,8 @@
 <meta property="og:description" content="返回计组总目录 · 上一篇：存储系统 · 下一篇：CPU与流水线 1. 分清四种长度机器字长：CPU自然处理数据的宽度；指令字长：一条指令多少位；存储字长：一个存储单元的位数；地址长度：可编码地址的位数。它们可能相同，也可能不同。 定长指令便于对齐取指，不意味着一条指令只做一步；RISC常采用规整格式与load/store组织，但具体指令行为仍以ISA为准。 2. 有效地址EA是解题中间">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://00lostin00.github.io/images/tx.jpg">
-<meta property="article:published_time" content="2026-10-29T15:57:50.751Z">
-<meta property="article:modified_time" content="2026-10-29T15:57:50.751Z">
+<meta property="article:published_time" content="2026-10-29T15:56:05.184Z">
+<meta property="article:modified_time" content="2026-10-29T15:56:05.184Z">
 <meta property="article:author" content="lost.in">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://00lostin00.github.io/images/tx.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/mrs.jpg"><link rel="canonical" href="https://00lostin00.github.io/ZYK_408/co/instructions/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=5.5.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
@@ -194,18 +194,20 @@
 <p>通用步骤：找字段 → 判断存的是数据、地址还是寄存器编号 → 扩展偏移 → 按单位缩放 → 求EA → 按数据宽度取数。</p>
 <p>“访存次数”要看题目是否把取指计入，是否通过Cache，以及间接寻址是否多次间接；不能只背“某寻址固定几次”。</p>
 <h2 id="3-分支位移：PC基准和缩放是两个独立条件"><a href="#3-分支位移：PC基准和缩放是两个独立条件" class="headerlink" title="3. 分支位移：PC基准和缩放是两个独立条件"></a>3. 分支位移：PC基准和缩放是两个独立条件</h2><p>在典型32位MIPS、按字节编址、beq类指令的题设下，常用：</p>
-<p><script type="math/tex; mode=display">
+<script type="math/tex; mode=display">
 目标=PC+4+\operatorname{SEXT}(imm16)\times4
-</script></p>
+</script>
+
 <p>若PC=1000H、目标1010H，偏移为<script type="math/tex">(1010H-1004H)/4=3</script>。不能把目标地址直接填入16位字段。</p>
 <p>这是具体ISA的公式。题目给其他架构或自定义指令时，先找PC基准、位移位宽、符号扩展和缩放规则。不要把“PC+4”推广到所有指令集。</p>
 <h2 id="4-指令格式与扩展操作码"><a href="#4-指令格式与扩展操作码" class="headerlink" title="4. 指令格式与扩展操作码"></a>4. 指令格式与扩展操作码</h2><p>若指令总长<script type="math/tex">L</script>、每个地址字段<script type="math/tex">a</script>位，有<script type="math/tex">k</script>个地址字段，则剩余<script type="math/tex">L-ka</script>位可用于操作码和其他控制字段。实际题目若另有寻址模式等字段，还要扣掉。</p>
 <p>扩展操作码题：画前缀树，从长地址指令开始分配；某前缀已用于短操作码，就不能同时成为另一个完整操作码的前缀。每剩一个长度<script type="math/tex">r</script>的前缀，多扩<script type="math/tex">d</script>位就可得到<script type="math/tex">2^d</script>个新编码。逐层扣除已用前缀，不要把不同长度的编码直接相加。</p>
 <h2 id="5-大小端、对齐与数组地址"><a href="#5-大小端、对齐与数组地址" class="headerlink" title="5. 大小端、对齐与数组地址"></a>5. 大小端、对齐与数组地址</h2><p>小端：低有效字节放低地址；大端相反。<code>0x12345678</code>从地址A起存放，小端依次为<code>78 56 34 12</code>。这不改变每个字节内部的位权，也不改变CPU寄存器中的数值。</p>
 <p>数组元素地址：</p>
-<p><script type="math/tex; mode=display">
+<script type="math/tex; mode=display">
 addr(a[i])=base+i\times sizeof(element)
-</script></p>
+</script>
+
 <p>连续行优先二维数组<script type="math/tex">a[R][C]</script>：<script type="math/tex">addr(a[i][j])=base+(iC+j)\times元素大小</script>。结构体成员偏移还受对齐与填充影响，不能只把各字段字节数机械相加。</p>
 <p>解题模板：明确下标/循环变量 → 算字节偏移 → 得到地址 → 按端序重组位型 → 按类型解释真值。若变量类型由int换成short，地址步长可能变，但指令是否也要改取决于题设。</p>
 <h2 id="6-调用、栈与返回"><a href="#6-调用、栈与返回" class="headerlink" title="6. 调用、栈与返回"></a>6. 调用、栈与返回</h2><p>调用通常需要记录返回地址；栈保存局部数据、参数或现场，但具体哪些寄存器由调用者/被调用者保存由约定决定。读汇编时跟踪SP、返回地址寄存器和保存位置，别默认所有机器都采用同一栈方向或调用规范。</p>
@@ -292,7 +294,7 @@ addr(a[i])=base+i\times sizeof(element)
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastpushdate="2026-10-29T16:00:44.955Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://t.alcy.cc/fj);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">©&nbsp;2025 - 2026 By lost.in</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><div class="js-pjax"><script>(() => {
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastpushdate="2026-10-29T16:38:32.192Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://t.alcy.cc/fj);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">©&nbsp;2025 - 2026 By lost.in</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><div class="js-pjax"><script>(() => {
   const loadMathjax = () => {
     if (!window.MathJax) {
       window.MathJax = {

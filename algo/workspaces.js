@@ -41,8 +41,8 @@
  }
  function matrix(contests,known,isAC){
   return `<div class="aa-matrix-scroll"><table class="aa-matrix"><thead><tr><th scope="col">比赛</th><th scope="col">题目进度</th><th scope="col">通过</th></tr></thead><tbody>${contests.map(c=>{
-   const ps=c.problems||[],ready=known&&!!c.last_ok,solved=ps.filter(isAC).length;
-   return `<tr><th scope="row"><a href="${link(c.url)}" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> ${esc(c.title)}</a>${c.error?'<small>更新受限，保留已有记录</small>':''}</th><td><div class="aa-problem-blocks">${ps.map(p=>{const ac=ready&&isAC(p);return `<a class="aa-problem-block ${ac?'is-ac':''}" href="${link(p.url)}" target="_blank" rel="noopener noreferrer" title="${esc(p.index+' · '+(p.title||p.id)+' · '+(ac?'已通过':ready?'暂无该题 AC 记录':'账号记录尚未同步'))}" aria-label="${esc(p.index+' · '+(p.title||p.id)+' · '+(ac?'已通过':ready?'暂无 AC 记录':'待同步'))}">${esc(p.index)}</a>`;}).join('')||'<span class="aa-dim">题单暂不可用</span>'}</div></td><td class="aa-matrix-total">${ready&&ps.length?'<b class="'+(solved?'has-ac':'')+'">'+solved+'</b> / '+ps.length:'—'}</td></tr>`;
+   const ps=c.problems||[],ready=known&&!!c.last_ok,solved=ps.filter(p=>isAC(p,c)).length;
+   return `<tr><th scope="row"><a href="${link(c.url)}" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> ${esc(c.title)}</a>${c.progress?.is_team?'<small>含关联队伍记录</small>':''}${c.error?'<small>更新受限，保留已有记录</small>':''}</th><td><div class="aa-problem-blocks">${ps.map(p=>{const ac=ready&&isAC(p,c);return `<a class="aa-problem-block ${ac?'is-ac':''}" href="${link(p.url)}" target="_blank" rel="noopener noreferrer" title="${esc(p.index+' · '+(p.title||p.id)+' · '+(ac?'已通过':ready?'暂无该题 AC 记录':'账号记录尚未同步'))}" aria-label="${esc(p.index+' · '+(p.title||p.id)+' · '+(ac?'已通过':ready?'暂无 AC 记录':'待同步'))}">${esc(p.index)}</a>`;}).join('')||'<span class="aa-dim">题单暂不可用</span>'}</div></td><td class="aa-matrix-total">${ready&&ps.length?'<b class="'+(solved?'has-ac':'')+'">'+solved+'</b> / '+ps.length:'—'}</td></tr>`;
   }).join('')}</tbody></table></div>`;
  }
  function multischool(state){
@@ -50,11 +50,11 @@
   const own=state.public?.platforms?.find(x=>x.id==='nowcoder');
   const known=!!(own?.last_ok&&String(own.handle)===String(nc?.account));
   const passed=new Set((state.public?.problems||[]).filter(p=>p.platform==='nowcoder'&&p.status==='AC').map(p=>String(p.id)));
-  const contests=nc?.contests||[],years=[...new Set(contests.map(c=>c.year))].sort((a,b)=>b-a);
-  const tables=years.map(year=>`<section class="aa-multi-year"><div class="aa-multi-year-head"><h3>${year} 牛客暑期多校</h3><span>${contests.filter(c=>c.year===year).length} 场</span></div>${matrix(contests.filter(c=>c.year===year),known,p=>passed.has(String(p.id)))}</section>`).join('');
+  const contests=(nc?.contests||[]).map(c=>({...c,last_ok:c.progress?.account===nc?.account?c.progress?.last_ok:null,error:[c.error,c.progress?.error].filter(Boolean).join(' ')})),years=[...new Set(contests.map(c=>c.year))].sort((a,b)=>b-a);
+  const tables=years.map(year=>`<section class="aa-multi-year"><div class="aa-multi-year-head"><h3>${year} 牛客暑期多校</h3><span>${contests.filter(c=>c.year===year).length} 场</span></div>${matrix(contests.filter(c=>c.year===year),!!nc?.account,(p,c)=>(c.progress?.accepted||[]).some(a=>String(a.id)===String(p.id))||(known&&passed.has(String(p.id))))}</section>`).join('');
   const seasons=hdu?.seasons||[{name:'2026 暑期多校'},{name:'2026 春季多校'},{name:'2025 暑期多校'}];
-  return heading('多校训练','逐场查看题目进度 · 绿色表示当前账号已通过')+`<div class="aa-multi-account"><i class="fas fa-user-check"></i><span>牛客 ${esc(nc?.account||'账号待配置')} · ${known?'已匹配公开 AC 记录'+(own.sync_status==='ok'?'':'，当前使用缓存'):'等待账号记录同步'}</span><span class="aa-multi-key"><i></i> 暂无 AC 记录 <i class="is-ac"></i> 已通过</span></div>`+(tables||empty('牛客近三年的多校题单正在同步。'))+
-  `<p class="aa-chart-note">按当前牛客账号的公开 AC 记录匹配；使用队伍账号完成的题目需要另行绑定队伍记录。</p>`+
+  return heading('多校训练','逐场查看题目进度 · 绿色表示当前账号已通过')+`<div class="aa-multi-account"><i class="fas fa-user-check"></i><span>牛客 ${esc(nc?.account||'账号待配置')} · ${known?'已接入比赛内提交与关联队伍'+(own.sync_status==='ok'?'':'，当前使用缓存'):'等待账号记录同步'}</span><span class="aa-multi-key"><i></i> 暂无 AC 记录 <i class="is-ac"></i> 已通过</span></div>`+(tables||empty('牛客近三年的多校题单正在同步。'))+
+  `<p class="aa-chart-note">按个人账号查询比赛提交，包含牛客自动关联的参赛队伍。队伍进度单独展示，不混入个人 AC 总数。</p>`+
   seasons.map(s=>`<section class="aa-multi-year"><div class="aa-multi-year-head"><h3>${esc(s.name)}</h3><span>${(s.contests||[]).length} 场${s.last_ok?' · '+stamp(s.last_ok):''}</span></div>${s.contests?.length?matrix(s.contests,!!s.last_ok,p=>p.status==='AC'):`<div class="aa-hdu-season"><i class="fas fa-graduation-cap"></i><span>${s.account_configured?'正在读取授权账号记录，稍后刷新':'比赛入口与登录账号待配置'}</span></div>`}${['error','partial','cached'].includes(s.sync_status)?'<p class="aa-chart-note">'+(s.sync_status==='cached'?'当前为已公开的记录快照，在线接口可更新。':'该训练季暂时无法完整更新，保留已有记录。')+'</p>':''}</section>`).join('');
  }
  globalThis.AAWorkspaces={editorial,practice,calendar,multischool};

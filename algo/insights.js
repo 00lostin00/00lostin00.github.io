@@ -3,11 +3,11 @@
   'use strict';
   const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const colors=['#ef7e79','#e968a9','#b57ae5','#8b8ee8','#55b9db','#59c8b6','#6cbd80','#b8d96b','#e7ca62','#c89d79','#a5a9b2'];
-  const ojColors={codeforces:'#638ce2',atcoder:'#50a4b3',nowcoder:'#db9a58',luogu:'#54ad88',qoj:'#9d82ce',acwing:'#c99538'};
+  const ojColors={codeforces:'#638ce2',atcoder:'#50a4b3',nowcoder:'#db9a58',luogu:'#54ad88',acwing:'#c99538'};
   const color=id=>ojColors[id]||'#87959e';
   function sources(platforms){
     const labels={ok:'已同步',partial:'历史不完整',error:'同步受限',blocked:'访问受限',not_configured:'未配置',offline:'离线缓存',manual:'手动记录'};
-    return `<div class="aa-source-status">${platforms.filter(p=>['codeforces','atcoder','nowcoder','luogu','qoj','acwing'].includes(p.id)).map(p=>{
+    return `<div class="aa-source-status">${platforms.filter(p=>['codeforces','atcoder','nowcoder','luogu','acwing'].includes(p.id)).map(p=>{
       const last=p.last_ok?new Date(p.last_ok).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false}):'尚无成功同步';
       return `<div><b>${esc(p.name)}</b><span class="${p.sync_status==='ok'?'aa-good':'aa-warn'}">${labels[p.sync_status]||'等待同步'}</span><small>${esc(p.handle||'未设置账号')} · ${esc(last)}</small></div>`;
     }).join('')}</div><p class="aa-chart-note">访问时请求接口；共享缓存最短 60 秒。每个平台受上游更新速度和访问限制影响，以各自的成功时间为准。</p>`;

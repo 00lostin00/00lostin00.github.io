@@ -57,17 +57,6 @@
       "group": "传统 OJ"
     },
     {
-      "id": "qoj",
-      "name": "QOJ",
-      "short": "QOJ",
-      "home": "https://qoj.ac/",
-      "profile_template": "https://qoj.ac/user/profile/{handle}",
-      "handle": "lostin",
-      "mode": "auto",
-      "accent": "#a89af6",
-      "group": "国际竞赛"
-    },
-    {
       "id": "vjudge",
       "name": "VJudge",
       "short": "VJ",

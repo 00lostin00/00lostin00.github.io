@@ -106,6 +106,34 @@ def contest_problems(cid):
             for p in rows]
 
 
+def nowcoder_progress(cid,account):
+    """Numeric account search also resolves the user's official contest team."""
+    accepted={};is_team=False;page=1
+    while page<=100:
+        query={'id':str(cid),'page':page,'pageSize':20,'statusTypeFilter':5,'searchUserName':str(account)}
+        payload=sync.get_json('https://ac.nowcoder.com/acm-heavy/acm/contest/status-list?'+urlencode(query),attempts=1)
+        data=payload.get('data') or {};info=data.get('basicInfo') or {};rows=data.get('data')
+        if payload.get('code')!=0 or not isinstance(rows,list) or str(info.get('contestId'))!=str(cid) or str(info.get('searchUserName'))!=str(account):
+            raise ValueError('Cannot confirm account-scoped contest submissions')
+        for row in rows:
+            if str(row.get('userId'))!=str(account) and row.get('isTeam') is not True:
+                raise ValueError('Unrelated participant in account-scoped submissions')
+            if row.get('statusMessage') not in ['答案正确','Accepted','AC']:continue
+            pid=str(row['problemId']);stamp=sync.iso_from_unix(int(row['submitTime'])//1000)
+            if not stamp:raise ValueError('Invalid contest submission timestamp')
+            is_team=is_team or row.get('isTeam') is True
+            old=accepted.get(pid)
+            accepted[pid]={'id':pid,'index':str(row['index']),
+                'first_accepted_at':min(stamp,old['first_accepted_at']) if old else stamp,
+                'accepted_at':max(stamp,old['accepted_at']) if old else stamp}
+        pages=int(info.get('pageCount',0))
+        if page>=pages:break
+        if not rows:raise ValueError('Incomplete contest submission pagination')
+        page+=1
+    if pages>100:raise ValueError('Contest history exceeds bounded scan')
+    return {'account':str(account),'accepted':list(accepted.values()),'is_team':is_team,'last_ok':sync.now_iso(),'error':''}
+
+
 def build(config,previous=None):
     previous={x['id']:x for x in previous or []};result=[]
     current=dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).year
@@ -127,6 +155,13 @@ def build(config,previous=None):
                         if not c['problems'] or time.time()-stamp>=900:
                             c['problems']=contest_problems(cid);c['last_ok']=sync.now_iso()
                     except Exception:c['error']='题单暂时无法更新，保留缓存'
+                    prior=cached.get('progress') or {}
+                    c['progress']=prior if str(prior.get('account'))==str(platform.get('account')) else {}
+                    if platform.get('account'):
+                        try:
+                            checked=dt.datetime.fromisoformat((c['progress'].get('last_ok') or '1970-01-01T00:00:00+00:00').replace('Z','+00:00')).timestamp()
+                            if time.time()-checked>=300:c['progress']=nowcoder_progress(cid,platform['account'])
+                        except Exception:c['progress']={**c['progress'],'error':'比赛内提交暂时无法更新，保留已有记录'}
                     contests.append(c)
             item['contests']=contests
         elif item['id']=='hdu':

@@ -374,22 +374,21 @@ def html_problems(text, platform):
         if date:
             timestamp=dt.datetime.fromisoformat(date.group().replace('T',' ')).replace(tzinfo=dt.timezone(dt.timedelta(hours=8))).astimezone(dt.timezone.utc).isoformat().replace('+00:00','Z')
         records.append({'platform':platform,'id':pid,'title':cell['text'] or pid,
-            'url':urljoin('https://ac.nowcoder.com' if platform=='nowcoder' else 'https://qoj.ac',link),
+            'url':urljoin('https://ac.nowcoder.com',link),
             'status':'AC','rating':None,'level':'','tags':[],'accepted_at':timestamp,
             'first_accepted_at':timestamp,'source':'api','notes':''})
     return records, len(parser.rows)
 
 
 def pull_html_platform(platform, handle, previous, sleep=time.sleep):
+    if platform!='nowcoder':raise ValueError('Unsupported HTML platform')
     if platform=='nowcoder' and not str(handle).isdigit():raise ValueError('牛客需要数字用户 ID')
     old=[p for p in previous.get('problems',[]) if p.get('platform')==platform and p.get('source')=='api']
     records=[];complete=False;fingerprints=set()
     headers=session_headers(platform)
     for page in range(1,max(1,int(os.environ.get('HTML_MAX_PAGES','80')))+1):
         if page>1:sleep(1.2)
-        if platform=='nowcoder':
-            url=f'https://ac.nowcoder.com/acm/contest/profile/{quote(str(handle))}/practice-coding?'+urlencode({'page':page,'pageSize':100,'statusTypeFilter':5,'orderType':'DESC'})
-        else:url='https://qoj.ac/submissions?'+urlencode({'submitter':handle,'page':page})
+        url=f'https://ac.nowcoder.com/acm/contest/profile/{quote(str(handle))}/practice-coding?'+urlencode({'page':page,'pageSize':100,'statusTypeFilter':5,'orderType':'DESC'})
         text=get_text(url,attempts=1,headers=headers)
         if re.search(r'验证码|Access denied|Just a moment|登录后查看',text,re.I):raise RuntimeError('上游要求登录或验证；保留已有缓存')
         batch,row_count=html_problems(text,platform)
@@ -399,16 +398,13 @@ def pull_html_platform(platform, handle, previous, sleep=time.sleep):
         if not row_count:
             if page==1 and not re.search(r'暂无|没有.*记录|No submissions|No records',text,re.I):raise RuntimeError('上游页面格式不匹配，无法确认题目记录')
             complete=True;break
-        if platform=='nowcoder':
-            next_page=re.search(r'<li[^>]*class="[^"]*js-next-pager[^"]*"[^>]*>(.*?)</li>',text,re.S)
-            if not next_page or 'disabled' in next_page.group(0).split('>')[0]:complete=True;break
-        elif not re.search(r'(?:page='+str(page+1)+r'\b|下一页|Next)',text,re.I):complete=True;break
+        next_page=re.search(r'<li[^>]*class="[^"]*js-next-pager[^"]*"[^>]*>(.*?)</li>',text,re.S)
+        if not next_page or 'disabled' in next_page.group(0).split('>')[0]:complete=True;break
     return {'problems':merge_problems([] if complete else old,records),'contests':[c for c in previous.get('contests',[]) if c.get('platform')==platform and c.get('source')=='api'],
         'rating':previous.get('ratings',{}).get(platform,{}),'partial':not complete,'history_complete':complete,'cursor':None}
 
 
 def pull_nowcoder(handle, previous):return pull_html_platform('nowcoder',handle,previous)
-def pull_qoj(handle, previous):return pull_html_platform('qoj',handle,previous)
 
 
 def pull_acwing(handle,previous):
@@ -517,7 +513,7 @@ def combine_auto_manual(automatic, manual):
 
 
 def assemble(config, previous, local_problems, local_contests, offline=False, pulls=None):
-    pulls = pulls or {'codeforces': pull_codeforces, 'atcoder': pull_atcoder, 'nowcoder':pull_nowcoder, 'luogu':pull_luogu, 'qoj':pull_qoj,'acwing':pull_acwing}
+    pulls = pulls or {'codeforces': pull_codeforces, 'atcoder': pull_atcoder, 'nowcoder':pull_nowcoder, 'luogu':pull_luogu,'acwing':pull_acwing}
     futures = {}
     executor = ThreadPoolExecutor(max_workers=5) if not offline else None
     if executor:
@@ -525,9 +521,10 @@ def assemble(config, previous, local_problems, local_contests, offline=False, pu
             if entry.get('mode') == 'auto' and entry.get('handle') and entry.get('id') in pulls:
                 futures[entry['id']] = executor.submit(pulls[entry['id']], str(entry['handle']).strip(), previous)
     platforms = []
-    auto_problems = [p for p in previous.get('problems', []) if p.get('source') == 'api']
-    auto_contests = [c for c in previous.get('contests', []) if c.get('source') == 'api']
-    ratings = dict(previous.get('ratings') or {})
+    enabled={p['id'] for p in config.get('platforms',[])}
+    auto_problems = [p for p in previous.get('problems', []) if p.get('source') == 'api' and p.get('platform') in enabled]
+    auto_contests = [c for c in previous.get('contests', []) if c.get('source') == 'api' and c.get('platform') in enabled]
+    ratings = {k:v for k,v in (previous.get('ratings') or {}).items() if k in enabled}
     old_info = {p.get('id'): p for p in previous.get('platforms', [])}
     for platform in config.get('platforms', []):
         p = dict(platform)
