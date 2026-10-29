@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机组成原理 | lost.in</title><meta name="author" content="lost.in"><meta name="copyright" content="lost.in"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="以2027王道的七章为主线，结合氧气强化讲义，把概念、硬件行为和解题过程放在一起。先理解数据如何流动，再列式、模拟、验算。 完整学习版 · 七章目录与梗概、基础笔记、专题强化与解题  七章目录与梗概   章节 教材定位 学习主线    1 计算机系统概述 §1.1—1.3 · 第1—18页 系统层次、存储程序、性能指标；先数总周期，再比较执行时间。   2 数据的表示和运算 §2.1—2.3">
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机组成原理笔记 | lost.in</title><meta name="author" content="lost.in"><meta name="copyright" content="lost.in"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="计算机组成原理笔记按王道的顺序，把原理学透，把题目做明白。 阅读完整笔记 → 章节路径2027 王道 · 七章 01计算机系统概述3 个小节› 02数据的表示和运算3 个小节› 03存储系统6 个小节› 04指令系统4 个小节› 05中央处理器7 个小节› 06总线2 个小节› 07输入/输出系统3 个小节›  参考资料与图源 章节学习强化专题王道习题检索知识点、专题与习题/  第1章 ·">
 <meta property="og:type" content="website">
-<meta property="og:title" content="计算机组成原理">
+<meta property="og:title" content="计算机组成原理笔记">
 <meta property="og:url" content="https://00lostin00.github.io/ZYK_408/co/index.html">
 <meta property="og:site_name" content="lost.in">
-<meta property="og:description" content="以2027王道的七章为主线，结合氧气强化讲义，把概念、硬件行为和解题过程放在一起。先理解数据如何流动，再列式、模拟、验算。 完整学习版 · 七章目录与梗概、基础笔记、专题强化与解题  七章目录与梗概   章节 教材定位 学习主线    1 计算机系统概述 §1.1—1.3 · 第1—18页 系统层次、存储程序、性能指标；先数总周期，再比较执行时间。   2 数据的表示和运算 §2.1—2.3">
+<meta property="og:description" content="计算机组成原理笔记按王道的顺序，把原理学透，把题目做明白。 阅读完整笔记 → 章节路径2027 王道 · 七章 01计算机系统概述3 个小节› 02数据的表示和运算3 个小节› 03存储系统6 个小节› 04指令系统4 个小节› 05中央处理器7 个小节› 06总线2 个小节› 07输入/输出系统3 个小节›  参考资料与图源 章节学习强化专题王道习题检索知识点、专题与习题/  第1章 ·">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://00lostin00.github.io/images/tx.jpg">
-<meta property="article:published_time" content="2026-10-29T17:13:03.014Z">
-<meta property="article:modified_time" content="2026-10-29T17:13:03.014Z">
+<meta property="article:published_time" content="2026-10-29T17:57:34.514Z">
+<meta property="article:modified_time" content="2026-10-29T17:57:34.514Z">
 <meta property="article:author" content="lost.in">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://00lostin00.github.io/images/tx.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/mrs.jpg"><link rel="canonical" href="https://00lostin00.github.io/ZYK_408/co/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=5.5.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
@@ -139,204 +139,114 @@
   },
   autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '计算机组成原理',
+  title: '计算机组成原理笔记',
   isHighlightShrink: false,
-  isToc: true,
+  isToc: false,
   pageType: 'page'
-}</script><link rel="stylesheet" href="/css/transpancy.css"><link rel="stylesheet" href="/co-notes.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://00lostin00.github.io/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/gossip/"><i class="fa-fw fas fa-gamepad"></i><span> 闲话</span></a></div><div class="menus_item"><a class="site-page" href="/algo/"><i class="fa-fw fas fa-book-open"></i><span> 算法档案</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-fish"></i><span> 考研</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/ZYK/"><i class="fa-fw fas fa-gamepad"></i><span> 专业课</span></a></li><li><a class="site-page child" href="/ZYK_408/co/"><i class="fa-fw fas fa-microchip"></i><span> 计算机组成原理</span></a></li><li><a class="site-page child" href="/categories/math/"><i class="fa-fw fas fa-tools"></i><span> 数学</span></a></li><li><a class="site-page child" href="/categories/english/"><i class="fa-fw fas fa-anchor"></i><span> 英语</span></a></li><li><a class="site-page child" href="/Politics/"><i class="fa-fw fas fa-gamepad"></i><span> 政治</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">lost.in</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://00lostin00.github.io/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/gossip/"><i class="fa-fw fas fa-gamepad"></i><span> 闲话</span></a></div><div class="menus_item"><a class="site-page" href="/algo/"><i class="fa-fw fas fa-book-open"></i><span> 算法档案</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-fish"></i><span> 考研</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/ZYK/"><i class="fa-fw fas fa-gamepad"></i><span> 专业课</span></a></li><li><a class="site-page child" href="/ZYK_408/co/"><i class="fa-fw fas fa-microchip"></i><span> 计算机组成原理</span></a></li><li><a class="site-page child" href="/categories/math/"><i class="fa-fw fas fa-tools"></i><span> 数学</span></a></li><li><a class="site-page child" href="/categories/english/"><i class="fa-fw fas fa-anchor"></i><span> 英语</span></a></li><li><a class="site-page child" href="/Politics/"><i class="fa-fw fas fa-gamepad"></i><span> 政治</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">计算机组成原理</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="top-img" style="background-image: url(https://t.alcy.cc/fj);"></div><div class="container" id="article-container"><div class="co-notes-content"><div class="co-hub">
+}</script><link rel="stylesheet" href="/css/transpancy.css"><link rel="stylesheet" href="/co-notes.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://00lostin00.github.io/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/gossip/"><i class="fa-fw fas fa-gamepad"></i><span> 闲话</span></a></div><div class="menus_item"><a class="site-page" href="/algo/"><i class="fa-fw fas fa-book-open"></i><span> 算法档案</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-fish"></i><span> 考研</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/ZYK/"><i class="fa-fw fas fa-gamepad"></i><span> 专业课</span></a></li><li><a class="site-page child" href="/ZYK_408/co/"><i class="fa-fw fas fa-microchip"></i><span> 计算机组成原理</span></a></li><li><a class="site-page child" href="/categories/math/"><i class="fa-fw fas fa-tools"></i><span> 数学</span></a></li><li><a class="site-page child" href="/categories/english/"><i class="fa-fw fas fa-anchor"></i><span> 英语</span></a></li><li><a class="site-page child" href="/Politics/"><i class="fa-fw fas fa-gamepad"></i><span> 政治</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">lost.in</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://00lostin00.github.io/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/gossip/"><i class="fa-fw fas fa-gamepad"></i><span> 闲话</span></a></div><div class="menus_item"><a class="site-page" href="/algo/"><i class="fa-fw fas fa-book-open"></i><span> 算法档案</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-fish"></i><span> 考研</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/ZYK/"><i class="fa-fw fas fa-gamepad"></i><span> 专业课</span></a></li><li><a class="site-page child" href="/ZYK_408/co/"><i class="fa-fw fas fa-microchip"></i><span> 计算机组成原理</span></a></li><li><a class="site-page child" href="/categories/math/"><i class="fa-fw fas fa-tools"></i><span> 数学</span></a></li><li><a class="site-page child" href="/categories/english/"><i class="fa-fw fas fa-anchor"></i><span> 英语</span></a></li><li><a class="site-page child" href="/Politics/"><i class="fa-fw fas fa-gamepad"></i><span> 政治</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">计算机组成原理笔记</h1></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="page-title">计算机组成原理笔记</div><div class="container" id="article-container"><div class="co-notes-content">
+<link rel="stylesheet" href="/co-workbench.css">
+<section id="co-workbench" aria-label="计算机组成原理学习工作台">
+<header class="co-heading"><div><h1>计算机组成原理笔记</h1><p>按王道的顺序，把原理学透，把题目做明白。</p></div><a class="co-read-all" href="/ZYK_408/co/complete/"><i class="fas fa-book-open" aria-hidden="true"></i> 阅读完整笔记 <span aria-hidden="true">→</span></a></header>
+<div class="co-dashboard"><aside class="co-rail"><h2>章节路径</h2><p class="co-rail-caption">2027 王道 · 七章</p><nav aria-label="选择王道章节">
+<a class="co-chapter-switch" href="#chapter-1" data-chapter="1" aria-controls="chapter-1"><span class="co-chapter-number">01</span><span>计算机系统概述<small data-chapter-progress="1">3 个小节</small></span><span class="co-switch-arrow" aria-hidden="true">›</span></a>
+<a class="co-chapter-switch" href="#chapter-2" data-chapter="2" aria-controls="chapter-2"><span class="co-chapter-number">02</span><span>数据的表示和运算<small data-chapter-progress="2">3 个小节</small></span><span class="co-switch-arrow" aria-hidden="true">›</span></a>
+<a class="co-chapter-switch" href="#chapter-3" data-chapter="3" aria-controls="chapter-3"><span class="co-chapter-number">03</span><span>存储系统<small data-chapter-progress="3">6 个小节</small></span><span class="co-switch-arrow" aria-hidden="true">›</span></a>
+<a class="co-chapter-switch" href="#chapter-4" data-chapter="4" aria-controls="chapter-4"><span class="co-chapter-number">04</span><span>指令系统<small data-chapter-progress="4">4 个小节</small></span><span class="co-switch-arrow" aria-hidden="true">›</span></a>
+<a class="co-chapter-switch" href="#chapter-5" data-chapter="5" aria-controls="chapter-5"><span class="co-chapter-number">05</span><span>中央处理器<small data-chapter-progress="5">7 个小节</small></span><span class="co-switch-arrow" aria-hidden="true">›</span></a>
+<a class="co-chapter-switch" href="#chapter-6" data-chapter="6" aria-controls="chapter-6"><span class="co-chapter-number">06</span><span>总线<small data-chapter-progress="6">2 个小节</small></span><span class="co-switch-arrow" aria-hidden="true">›</span></a>
+<a class="co-chapter-switch" href="#chapter-7" data-chapter="7" aria-controls="chapter-7"><span class="co-chapter-number">07</span><span>输入/输出系统<small data-chapter-progress="7">3 个小节</small></span><span class="co-switch-arrow" aria-hidden="true">›</span></a>
+</nav><a class="co-rail-reference" href="/ZYK_408/co/references/"><i class="fas fa-bookmark" aria-hidden="true"></i> 参考资料与图源</a></aside>
+<div class="co-center"><div class="co-toolbar"><nav class="co-view-nav" aria-label="学习内容"><button type="button" data-view="chapters" aria-pressed="true">章节学习</button><button type="button" data-view="topics" aria-pressed="false">强化专题</button><button type="button" data-view="exercises" aria-pressed="false">王道习题</button></nav><label class="co-search"><i class="fas fa-search" aria-hidden="true"></i><span class="co-sr-only">检索知识点、专题与习题</span><input id="co-search-input" type="search" placeholder="搜索知识点…" autocomplete="off"><kbd aria-hidden="true">/</kbd></label></div>
+<div id="co-pane-chapters" data-pane="chapters">
+<section id="chapter-1" class="co-chapter-panel" data-chapter-panel="1"><header class="co-chapter-heading"><span class="co-chapter-location">第1章 · 教材 1—18 页</span><h2>计算机系统概述</h2><p>从程序如何运行，理解计算机的软硬件边界。</p></header><div class="co-list-label"><span>知识点</span><span class="co-enhancement">标记已掌握</span></div><div class="co-section-list">
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="1"><a href="/ZYK_408/co/system/#wd-1-1" data-reading-link=""><span class="co-section-number">1.1</span><span><strong>计算机发展历程</strong><small>硬件发展阶段与软件演进；教材带星参考内容。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="1.1" aria-label="已掌握1.1 计算机发展历程"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="1"><a href="/ZYK_408/co/system/#wd-1-2" data-reading-link=""><span class="co-section-number">1.2</span><span><strong>计算机系统层次结构</strong><small>五大部件、ISA、程序执行过程与软硬件关系。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="1.2" aria-label="已掌握1.2 计算机系统层次结构"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="1"><a href="/ZYK_408/co/system/#wd-1-3" data-reading-link=""><span class="co-section-number">1.3</span><span><strong>计算机的性能指标</strong><small>主频、CPI、执行时间、加权与加速比。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="1.3" aria-label="已掌握1.3 计算机的性能指标"><span class="co-sr-only">已掌握</span></label></div>
+</div><footer class="co-chapter-footer"><a href="/ZYK_408/co/system/" data-reading-link="">连贯阅读本章 <span aria-hidden="true">→</span></a><span>系统层次 · 存储程序 · 性能指标</span></footer></section>
+<section id="chapter-2" class="co-chapter-panel" data-chapter-panel="2"><header class="co-chapter-heading"><span class="co-chapter-location">第2章 · 教材 20—75 页</span><h2>数据的表示和运算</h2><p>同一串二进制如何表示数，又如何参与运算。</p></header><div class="co-list-label"><span>知识点</span><span class="co-enhancement">标记已掌握</span></div><div class="co-section-list">
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="2"><a href="/ZYK_408/co/data/#wd-2-1" data-reading-link=""><span class="co-section-number">2.1</span><span><strong>数制与编码</strong><small>进制转换、机器数、位权、扩展截断与C类型。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="2.1" aria-label="已掌握2.1 数制与编码"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="2"><a href="/ZYK_408/co/data/#wd-2-2" data-reading-link=""><span class="co-section-number">2.2</span><span><strong>运算方法和运算电路</strong><small>加法器、标志位、移位及乘除法逐轮推演。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="2.2" aria-label="已掌握2.2 运算方法和运算电路"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="2"><a href="/ZYK_408/co/data/#wd-2-3" data-reading-link=""><span class="co-section-number">2.3</span><span><strong>浮点数的表示与运算</strong><small>IEEE 754、规格化、对阶、舍入和精度边界。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="2.3" aria-label="已掌握2.3 浮点数的表示与运算"><span class="co-sr-only">已掌握</span></label></div>
+</div><footer class="co-chapter-footer"><a href="/ZYK_408/co/data/" data-reading-link="">连贯阅读本章 <span aria-hidden="true">→</span></a><span>补码 · 运算电路 · IEEE 754</span></footer></section>
+<section id="chapter-3" class="co-chapter-panel" data-chapter-panel="3"><header class="co-chapter-heading"><span class="co-chapter-location">第3章 · 教材 77—146 页</span><h2>存储系统</h2><p>从一根地址线，到Cache与虚拟地址的完整访问链。</p></header><div class="co-list-label"><span>知识点</span><span class="co-enhancement">标记已掌握</span></div><div class="co-section-list">
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="3"><a href="/ZYK_408/co/memory/#wd-3-1" data-reading-link=""><span class="co-section-number">3.1</span><span><strong>存储器概述</strong><small>层次结构、存取时间与存储周期的区别。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="3.1" aria-label="已掌握3.1 存储器概述"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="3"><a href="/ZYK_408/co/memory/#wd-3-2" data-reading-link=""><span class="co-section-number">3.2</span><span><strong>主存储器</strong><small>SRAM、DRAM、刷新、交叉存储与校验。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="3.2" aria-label="已掌握3.2 主存储器"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="3"><a href="/ZYK_408/co/memory/#wd-3-3" data-reading-link=""><span class="co-section-number">3.3</span><span><strong>主存储器与CPU的连接</strong><small>位扩展、字扩展、片选译码与地址重叠。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="3.3" aria-label="已掌握3.3 主存储器与CPU的连接"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="3"><a href="/ZYK_408/co/memory/#wd-3-4" data-reading-link=""><span class="co-section-number">3.4</span><span><strong>外部存储器</strong><small>磁盘容量与访问时间，SSD页写入与块擦除。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="3.4" aria-label="已掌握3.4 外部存储器"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="3"><a href="/ZYK_408/co/memory/#wd-3-5" data-reading-link=""><span class="co-section-number">3.5</span><span><strong>高速缓冲存储器</strong><small>Cache地址划分、映射、LRU、写策略与访问时间。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="3.5" aria-label="已掌握3.5 高速缓冲存储器"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="3"><a href="/ZYK_408/co/memory/#wd-3-6" data-reading-link=""><span class="co-section-number">3.6</span><span><strong>虚拟存储器</strong><small>页表、TLB、缺页与虚实地址转换。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="3.6" aria-label="已掌握3.6 虚拟存储器"><span class="co-sr-only">已掌握</span></label></div>
+</div><footer class="co-chapter-footer"><a href="/ZYK_408/co/memory/" data-reading-link="">连贯阅读本章 <span aria-hidden="true">→</span></a><span>DRAM · Cache · TLB · 页表</span></footer></section>
+<section id="chapter-4" class="co-chapter-panel" data-chapter-panel="4"><header class="co-chapter-heading"><span class="co-chapter-location">第4章 · 教材 148—193 页</span><h2>指令系统</h2><p>连接指令编码、寻址方式与真实程序。</p></header><div class="co-list-label"><span>知识点</span><span class="co-enhancement">标记已掌握</span></div><div class="co-section-list">
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="4"><a href="/ZYK_408/co/instructions/#wd-4-1" data-reading-link=""><span class="co-section-number">4.1</span><span><strong>指令系统</strong><small>指令字长、地址字段与扩展操作码。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="4.1" aria-label="已掌握4.1 指令系统"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="4"><a href="/ZYK_408/co/instructions/#wd-4-2" data-reading-link=""><span class="co-section-number">4.2</span><span><strong>寻址方式</strong><small>有效地址、访存次数、相对位移和寻址范围。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="4.2" aria-label="已掌握4.2 寻址方式"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="4"><a href="/ZYK_408/co/instructions/#wd-4-3" data-reading-link=""><span class="co-section-number">4.3</span><span><strong>程序的机器级代码表示</strong><small>MIPS与x86、数组地址、分支循环与过程调用。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="4.3" aria-label="已掌握4.3 程序的机器级代码表示"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="4"><a href="/ZYK_408/co/instructions/#wd-4-4" data-reading-link=""><span class="co-section-number">4.4</span><span><strong>CISC和RISC的基本概念</strong><small>指令集特征、实现方式与性能判断的边界。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="4.4" aria-label="已掌握4.4 CISC和RISC的基本概念"><span class="co-sr-only">已掌握</span></label></div>
+</div><footer class="co-chapter-footer"><a href="/ZYK_408/co/instructions/" data-reading-link="">连贯阅读本章 <span aria-hidden="true">→</span></a><span>指令格式 · 寻址 · 汇编与栈</span></footer></section>
+<section id="chapter-5" class="co-chapter-panel" data-chapter-panel="5"><header class="co-chapter-heading"><span class="co-chapter-location">第5章 · 教材 195—272 页</span><h2>中央处理器</h2><p>沿数据通路追踪一条指令，走进流水线。</p></header><div class="co-list-label"><span>知识点</span><span class="co-enhancement">标记已掌握</span></div><div class="co-section-list">
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="5"><a href="/ZYK_408/co/cpu/#wd-5-1" data-reading-link=""><span class="co-section-number">5.1</span><span><strong>CPU的功能和基本结构</strong><small>寄存器分工、取指地址与控制状态。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="5.1" aria-label="已掌握5.1 CPU的功能和基本结构"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="5"><a href="/ZYK_408/co/cpu/#wd-5-2" data-reading-link=""><span class="co-section-number">5.2</span><span><strong>指令执行过程</strong><small>取指、间址、执行与中断周期。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="5.2" aria-label="已掌握5.2 指令执行过程"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="5"><a href="/ZYK_408/co/cpu/#wd-5-3" data-reading-link=""><span class="co-section-number">5.3</span><span><strong>数据通路的功能和基本结构</strong><small>数据流向、总线冲突、微操作与控制信号。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="5.3" aria-label="已掌握5.3 数据通路的功能和基本结构"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="5"><a href="/ZYK_408/co/cpu/#wd-5-4" data-reading-link=""><span class="co-section-number">5.4</span><span><strong>控制器的功能和工作原理</strong><small>硬布线、微程序、字段编码与控制存储器。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="5.4" aria-label="已掌握5.4 控制器的功能和工作原理"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="5"><a href="/ZYK_408/co/cpu/#wd-5-5" data-reading-link=""><span class="co-section-number">5.5</span><span><strong>异常和中断机制</strong><small>故障、陷阱、外部中断与返回位置。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="5.5" aria-label="已掌握5.5 异常和中断机制"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="5"><a href="/ZYK_408/co/cpu/#wd-5-6" data-reading-link=""><span class="co-section-number">5.6</span><span><strong>指令流水线</strong><small>时空图、转发、停顿、冲刷与平均CPI。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="5.6" aria-label="已掌握5.6 指令流水线"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="5"><a href="/ZYK_408/co/cpu/#wd-5-7" data-reading-link=""><span class="co-section-number">5.7</span><span><strong>多处理器的基本概念</strong><small>SIMD、MIMD、多核与硬件多线程。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="5.7" aria-label="已掌握5.7 多处理器的基本概念"><span class="co-sr-only">已掌握</span></label></div>
+</div><footer class="co-chapter-footer"><a href="/ZYK_408/co/cpu/" data-reading-link="">连贯阅读本章 <span aria-hidden="true">→</span></a><span>数据通路 · 控制器 · 流水线</span></footer></section>
+<section id="chapter-6" class="co-chapter-panel" data-chapter-panel="6"><header class="co-chapter-heading"><span class="co-chapter-location">第6章 · 教材 274—290 页</span><h2>总线</h2><p>用时间轴理解部件之间的通信与争用。</p></header><div class="co-list-label"><span>知识点</span><span class="co-enhancement">标记已掌握</span></div><div class="co-section-list">
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="6"><a href="/ZYK_408/co/bus/#wd-6-1" data-reading-link=""><span class="co-section-number">6.1</span><span><strong>总线概述</strong><small>传输宽度、有效带宽、主设备与总线仲裁。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="6.1" aria-label="已掌握6.1 总线概述"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="6"><a href="/ZYK_408/co/bus/#wd-6-2" data-reading-link=""><span class="co-section-number">6.2</span><span><strong>总线事务和定时</strong><small>同步异步、握手、突发传送与事务计时。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="6.2" aria-label="已掌握6.2 总线事务和定时"><span class="co-sr-only">已掌握</span></label></div>
+</div><footer class="co-chapter-footer"><a href="/ZYK_408/co/bus/" data-reading-link="">连贯阅读本章 <span aria-hidden="true">→</span></a><span>带宽 · 仲裁 · 事务与定时</span></footer></section>
+<section id="chapter-7" class="co-chapter-panel" data-chapter-panel="7"><header class="co-chapter-heading"><span class="co-chapter-location">第7章 · 教材 291—326 页</span><h2>输入/输出系统</h2><p>从数据到达速度，判断CPU能否及时处理。</p></header><div class="co-list-label"><span>知识点</span><span class="co-enhancement">标记已掌握</span></div><div class="co-section-list">
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="7"><a href="/ZYK_408/co/io/#wd-7-1" data-reading-link=""><span class="co-section-number">7.1</span><span><strong>I/O系统基本概念</strong><small>设备、接口和控制方式如何协作。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="7.1" aria-label="已掌握7.1 I/O系统基本概念"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="7"><a href="/ZYK_408/co/io/#wd-7-2" data-reading-link=""><span class="co-section-number">7.2</span><span><strong>I/O接口</strong><small>数据、状态与控制端口，独立和统一编址。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="7.2" aria-label="已掌握7.2 I/O接口"><span class="co-sr-only">已掌握</span></label></div>
+<div class="co-section-row" data-search-item="" data-kind="知识点" data-owner="7"><a href="/ZYK_408/co/io/#wd-7-3" data-reading-link=""><span class="co-section-number">7.3</span><span><strong>I/O方式</strong><small>查询、中断、DMA的请求率与CPU开销。</small></span><span class="co-row-arrow" aria-hidden="true">↗</span></a><label class="co-check co-enhancement"><input type="checkbox" data-mastered="7.3" aria-label="已掌握7.3 I/O方式"><span class="co-sr-only">已掌握</span></label></div>
+</div><footer class="co-chapter-footer"><a href="/ZYK_408/co/io/" data-reading-link="">连贯阅读本章 <span aria-hidden="true">→</span></a><span>接口 · 中断 · DMA</span></footer></section>
+</div><section id="co-pane-topics" data-pane="topics"><header class="co-chapter-heading"><span class="co-chapter-location">从原理到解题</span><h2>强化专题</h2><p>先找题目改变了什么，再决定该用哪条推理链。</p></header><div class="co-topic-list">
+<a class="co-topic-row" href="/ZYK_408/co/topics/data/" data-search-item="" data-kind="强化专题" data-reading-link=""><span><strong>数据运算推导</strong><small>补码、标志位、乘除法与浮点运算</small></span><span class="co-topic-owner">第2章</span><span aria-hidden="true">↗</span></a>
+<a class="co-topic-row" href="/ZYK_408/co/topics/memory/" data-search-item="" data-kind="强化专题" data-reading-link=""><span><strong>地址与访问模拟</strong><small>Cache替换、页表与TLB逐次分析</small></span><span class="co-topic-owner">第3章</span><span aria-hidden="true">↗</span></a>
+<a class="co-topic-row" href="/ZYK_408/co/topics/cpu-io/" data-search-item="" data-kind="强化专题" data-reading-link=""><span><strong>控制信号与时序</strong><small>微操作、流水线与I/O计时</small></span><span class="co-topic-owner">第5 · 7章</span><span aria-hidden="true">↗</span></a>
+<a class="co-topic-row" href="/ZYK_408/co/topics/performance-instructions/" data-search-item="" data-kind="强化专题" data-reading-link=""><span><strong>性能与指令综合</strong><small>从程序、指令条数到执行时间</small></span><span class="co-topic-owner">第1 · 4章</span><span aria-hidden="true">↗</span></a>
+<a class="co-topic-row" href="/ZYK_408/co/topics/exceptions-parallel/" data-search-item="" data-kind="强化专题" data-reading-link=""><span><strong>异常与并行</strong><small>异常返回、线程与多核</small></span><span class="co-topic-owner">第5章</span><span aria-hidden="true">↗</span></a>
+<a class="co-topic-row" href="/ZYK_408/co/topics/c-types/" data-search-item="" data-kind="强化专题" data-reading-link=""><span><strong>C类型与运算边界</strong><small>整数提升、混合转换与浮点边界</small></span><span class="co-topic-owner">第2章</span><span aria-hidden="true">↗</span></a>
+<a class="co-topic-row" href="/ZYK_408/co/topics/virtual-storage/" data-search-item="" data-kind="强化专题" data-reading-link=""><span><strong>虚拟存储与外存</strong><small>段页式、译码、磁盘与SSD</small></span><span class="co-topic-owner">第3章</span><span aria-hidden="true">↗</span></a>
+<a class="co-topic-row" href="/ZYK_408/co/topics/x86/" data-search-item="" data-kind="强化专题" data-reading-link=""><span><strong>x86机器级程序</strong><small>读代码、还原C与栈帧</small></span><span class="co-topic-owner">第4章</span><span aria-hidden="true">↗</span></a>
+<a class="co-topic-row" href="/ZYK_408/co/topics/datapath-dma/" data-search-item="" data-kind="强化专题" data-reading-link=""><span><strong>数据通路与DMA</strong><small>带图推导、总线与DMA争用</small></span><span class="co-topic-owner">第5 · 6 · 7章</span><span aria-hidden="true">↗</span></a>
+<a class="co-topic-row" href="/ZYK_408/co/topics/self-test/" data-search-item="" data-kind="强化专题" data-reading-link=""><span><strong>跨章自测</strong><small>8道综合题与完整解答</small></span><span class="co-topic-owner">综合</span><span aria-hidden="true">↗</span></a>
+</div></section><section id="co-pane-exercises" data-pane="exercises"><header class="co-chapter-heading"><span class="co-chapter-location">原题与教材答案</span><h2>王道习题</h2><p>按小节找原题，做完再展开答案；重点题另附思考过程。</p></header><p class="co-exercise-lead"><a href="/ZYK_408/co/wangdao/worked/">重点题逐步解答 <span aria-hidden="true">→</span></a><a href="/ZYK_408/co/wangdao/">完整习题目录</a></p><div class="co-exercise-list">
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/1-2/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">1.2</span><span><strong>计算机系统层次结构</strong><small>原题 8—9 页 · 解析 9—11 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/1-3/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">1.3</span><span><strong>计算机的性能指标</strong><small>原题 13—15 页 · 解析 15—18 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/2-1/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">2.1</span><span><strong>数制与编码</strong><small>原题 27—29 页 · 解析 29—32 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/2-2/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">2.2</span><span><strong>运算方法和运算电路</strong><small>原题 44—48 页 · 解析 48—53 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/2-3/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">2.3</span><span><strong>浮点数的表示与运算</strong><small>原题 61—66 页 · 解析 66—75 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/3-1/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">3.1</span><span><strong>存储器概述</strong><small>原题 80—81 页 · 解析 81—82 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/3-2/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">3.2</span><span><strong>主存储器</strong><small>原题 87—92 页 · 解析 92—97 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/3-3/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">3.3</span><span><strong>主存储器与CPU的连接</strong><small>原题 99—100 页 · 解析 100—102 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/3-4/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">3.4</span><span><strong>外部存储器</strong><small>原题 105—107 页 · 解析 107—109 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/3-5/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">3.5</span><span><strong>高速缓冲存储器</strong><small>原题 117—122 页 · 解析 122—130 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/3-6/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">3.6</span><span><strong>虚拟存储器</strong><small>原题 135—141 页 · 解析 141—146 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/4-1/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">4.1</span><span><strong>指令系统</strong><small>原题 151—153 页 · 解析 153—156 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/4-2/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">4.2</span><span><strong>寻址方式</strong><small>原题 160—166 页 · 解析 166—171 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/4-3/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">4.3</span><span><strong>程序的机器级代码表示</strong><small>原题 181—187 页 · 解析 187—190 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/4-4/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">4.4</span><span><strong>CISC和RISC</strong><small>原题 192—193 页 · 解析 193—193 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/5-1/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">5.1</span><span><strong>CPU的功能和基本结构</strong><small>原题 197—199 页 · 解析 199—201 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/5-2/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">5.2</span><span><strong>指令执行过程</strong><small>原题 204—205 页 · 解析 205—206 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/5-3/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">5.3</span><span><strong>数据通路</strong><small>原题 213—221 页 · 解析 221—228 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/5-4/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">5.4</span><span><strong>控制器</strong><small>原题 234—238 页 · 解析 238—242 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/5-5/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">5.5</span><span><strong>异常和中断机制</strong><small>原题 244—245 页 · 解析 245—247 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/5-6/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">5.6</span><span><strong>指令流水线</strong><small>原题 255—260 页 · 解析 260—267 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/5-7/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">5.7</span><span><strong>多处理器</strong><small>原题 270—271 页 · 解析 271—272 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/6-1/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">6.1</span><span><strong>总线概述</strong><small>原题 278—280 页 · 解析 280—283 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/6-2/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">6.2</span><span><strong>总线事务和定时</strong><small>原题 286—288 页 · 解析 288—290 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/7-1/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">7.1</span><span><strong>I/O系统基本概念</strong><small>原题 293—293 页 · 解析 293—293 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/7-2/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">7.2</span><span><strong>I/O接口</strong><small>原题 295—297 页 · 解析 297—299 页</small></span><span aria-hidden="true">↗</span></a>
+<a class="co-exercise-row" href="/ZYK_408/co/wangdao/7-3/" data-search-item="" data-kind="王道习题" data-reading-link=""><span class="co-section-number">7.3</span><span><strong>I/O方式</strong><small>原题 309—317 页 · 解析 317—326 页</small></span><span aria-hidden="true">↗</span></a>
+</div></section><section id="co-search-results" hidden="" aria-label="检索结果"><header class="co-results-heading"><h2>搜索结果</h2><span id="co-search-count" role="status" aria-live="polite"></span></header><div id="co-results-list"></div><div id="co-search-empty" hidden=""><h3>暂时没有匹配的内容</h3><p>试试“Cache”“流水线”或王道小节号，例如“3.5”。</p><button type="button" id="co-clear-search">清空搜索</button></div></section></div>
+<aside class="co-study"><section class="co-resume"><h2>接着学</h2><p id="co-resume-note">从系统层次开始，建立第一条知识主线。</p><a id="co-resume-link" href="/ZYK_408/co/system/#wd-1-2"><span id="co-resume-label">计算机系统层次结构</span><span aria-hidden="true">→</span></a></section>
+<section class="co-learning-progress co-enhancement"><div class="co-progress-title"><h2>我的进度</h2><span id="co-progress-percent">0%</span></div><progress id="co-progress" max="28" value="0" aria-label="知识小节掌握进度"></progress><p><strong id="co-progress-count">0 / 28</strong> 个小节已掌握</p><small id="co-storage-note">手动勾选，进度保存在当前浏览器。</small></section>
+<section class="co-review"><h2>检验一下</h2><a href="/ZYK_408/co/topics/self-test/"><i class="fas fa-pen" aria-hidden="true"></i> 跨章自测 <span>8道综合题</span></a><a href="/ZYK_408/co/wangdao/worked/"><i class="fas fa-route" aria-hidden="true"></i> 重点题推导 <span>条件 → 步骤 → 验算</span></a></section>
+<div class="co-study-note"><p>读完不等于掌握。</p><span>合上笔记，自己列一次步骤，再回来检查遗漏的条件。</span></div></aside></div>
+<footer class="co-workbench-footer"><span>知识主线以王道为准，氧气讲义补充强化推导。</span><a href="/tags/ZYK/">ZYK 专业课 <span aria-hidden="true">↗</span></a></footer><noscript>当前可直接阅读全部章节。启用JavaScript后可切换章节、搜索并保存学习进度。</noscript></section><script defer="" src="/co-workbench.js"></script>
 
-<p>以2027王道的七章为主线，结合氧气强化讲义，把概念、硬件行为和解题过程放在一起。先理解数据如何流动，再列式、模拟、验算。</p>
-<p class="co-entry"><a href="/ZYK_408/co/complete/"><strong>完整学习版</strong> · 七章目录与梗概、基础笔记、专题强化与解题</a></p>
-
-<h2 id="七章目录与梗概"><a href="#七章目录与梗概" class="headerlink" title="七章目录与梗概"></a>七章目录与梗概</h2><table>
-<thead>
-<tr>
-<th>章节</th>
-<th>教材定位</th>
-<th>学习主线</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="/ZYK_408/co/system/">1 计算机系统概述</a></td>
-<td>§1.1—1.3 · 第1—18页</td>
-<td>系统层次、存储程序、性能指标；先数总周期，再比较执行时间。</td>
-</tr>
-<tr>
-<td><a href="/ZYK_408/co/data/">2 数据的表示和运算</a></td>
-<td>§2.1—2.3 · 第20—75页</td>
-<td>数制编码、C类型转换、运算电路、定点乘除与浮点舍入。</td>
-</tr>
-<tr>
-<td><a href="/ZYK_408/co/memory/">3 存储系统</a></td>
-<td>§3.1—3.6 · 第77—146页</td>
-<td>SRAM/DRAM、刷新、容量扩展、外存、Cache、虚拟存储。</td>
-</tr>
-<tr>
-<td><a href="/ZYK_408/co/instructions/">4 指令系统</a></td>
-<td>§4.1—4.4 · 第148—193页</td>
-<td>指令格式与寻址、机器级程序、函数调用、CISC与RISC。</td>
-</tr>
-<tr>
-<td><a href="/ZYK_408/co/cpu/">5 中央处理器</a></td>
-<td>§5.1—5.7 · 第195—272页</td>
-<td>指令执行、数据通路、控制器、异常中断、流水线与多处理器。</td>
-</tr>
-<tr>
-<td><a href="/ZYK_408/co/bus/">6 总线</a></td>
-<td>§6.1—6.2 · 第274—290页</td>
-<td>总线性能、仲裁、同步异步定时、事务与突发传输。</td>
-</tr>
-<tr>
-<td><a href="/ZYK_408/co/io/">7 输入/输出系统</a></td>
-<td>§7.1—7.3 · 第291—326页</td>
-<td>接口与编址、查询、中断、DMA；按数据到达间隔判断能否跟上。</td>
-</tr>
-</tbody></table>
-<h3 id="按王道小节定位知识点"><a href="#按王道小节定位知识点" class="headerlink" title="按王道小节定位知识点"></a>按王道小节定位知识点</h3><p><strong>计算机系统概述</strong></p>
-<ul>
-<li><a href="/ZYK_408/co/system/#wd-1-1">1.1 计算机发展历程</a></li>
-<li><a href="/ZYK_408/co/system/#wd-1-2">1.2 计算机系统层次结构</a></li>
-<li><a href="/ZYK_408/co/system/#wd-1-3">1.3 计算机的性能指标</a></li>
-</ul>
-<p><strong>数据的表示和运算</strong></p>
-<ul>
-<li><a href="/ZYK_408/co/data/#wd-2-1">2.1 数制与编码</a></li>
-<li><a href="/ZYK_408/co/data/#wd-2-2">2.2 运算方法和运算电路</a></li>
-<li><a href="/ZYK_408/co/data/#wd-2-3">2.3 浮点数的表示与运算</a></li>
-</ul>
-<p><strong>存储系统</strong></p>
-<ul>
-<li><a href="/ZYK_408/co/memory/#wd-3-1">3.1 存储器概述</a></li>
-<li><a href="/ZYK_408/co/memory/#wd-3-2">3.2 主存储器</a></li>
-<li><a href="/ZYK_408/co/memory/#wd-3-3">3.3 主存储器与CPU的连接</a></li>
-<li><a href="/ZYK_408/co/memory/#wd-3-4">3.4 外部存储器</a></li>
-<li><a href="/ZYK_408/co/memory/#wd-3-5">3.5 高速缓冲存储器</a></li>
-<li><a href="/ZYK_408/co/memory/#wd-3-6">3.6 虚拟存储器</a></li>
-</ul>
-<p><strong>指令系统</strong></p>
-<ul>
-<li><a href="/ZYK_408/co/instructions/#wd-4-1">4.1 指令系统</a></li>
-<li><a href="/ZYK_408/co/instructions/#wd-4-2">4.2 寻址方式</a></li>
-<li><a href="/ZYK_408/co/instructions/#wd-4-3">4.3 程序的机器级代码表示</a></li>
-<li><a href="/ZYK_408/co/instructions/#wd-4-4">4.4 CISC和RISC的基本概念</a></li>
-</ul>
-<p><strong>中央处理器</strong></p>
-<ul>
-<li><a href="/ZYK_408/co/cpu/#wd-5-1">5.1 CPU的功能和基本结构</a></li>
-<li><a href="/ZYK_408/co/cpu/#wd-5-2">5.2 指令执行过程</a></li>
-<li><a href="/ZYK_408/co/cpu/#wd-5-3">5.3 数据通路的功能和基本结构</a></li>
-<li><a href="/ZYK_408/co/cpu/#wd-5-4">5.4 控制器的功能和工作原理</a></li>
-<li><a href="/ZYK_408/co/cpu/#wd-5-5">5.5 异常和中断机制</a></li>
-<li><a href="/ZYK_408/co/cpu/#wd-5-6">5.6 指令流水线</a></li>
-<li><a href="/ZYK_408/co/cpu/#wd-5-7">5.7 多处理器的基本概念</a></li>
-</ul>
-<p><strong>总线</strong></p>
-<ul>
-<li><a href="/ZYK_408/co/bus/#wd-6-1">6.1 总线概述</a></li>
-<li><a href="/ZYK_408/co/bus/#wd-6-2">6.2 总线事务和定时</a></li>
-</ul>
-<p><strong>输入/输出系统</strong></p>
-<ul>
-<li><a href="/ZYK_408/co/io/#wd-7-1">7.1 I/O系统基本概念</a></li>
-<li><a href="/ZYK_408/co/io/#wd-7-2">7.2 I/O接口</a></li>
-<li><a href="/ZYK_408/co/io/#wd-7-3">7.3 I/O方式</a></li>
-</ul>
-<h2 id="按题型强化"><a href="#按题型强化" class="headerlink" title="按题型强化"></a>按题型强化</h2><ol>
-<li><a href="/ZYK_408/co/topics/data/">数据运算推导</a></li>
-<li><a href="/ZYK_408/co/topics/memory/">地址与访问模拟</a></li>
-<li><a href="/ZYK_408/co/topics/cpu-io/">控制信号与时序</a></li>
-<li><a href="/ZYK_408/co/topics/performance-instructions/">性能与指令综合</a></li>
-<li><a href="/ZYK_408/co/topics/exceptions-parallel/">异常与并行</a></li>
-<li><a href="/ZYK_408/co/topics/c-types/">C类型与边界</a></li>
-<li><a href="/ZYK_408/co/topics/virtual-storage/">虚拟存储与外存</a></li>
-<li><a href="/ZYK_408/co/topics/x86/">x86机器级程序</a></li>
-<li><a href="/ZYK_408/co/topics/datapath-dma/">数据通路与DMA</a></li>
-<li><a href="/ZYK_408/co/topics/self-test/">跨章自测与完整解答</a></li>
-</ol>
-<h2 id="王道习题"><a href="#王道习题" class="headerlink" title="王道习题"></a>王道习题</h2><p><a href="/ZYK_408/co/wangdao/">27个习题小节：原题与教材答案</a> · <a href="/ZYK_408/co/wangdao/worked/">重点题的思考与逐步解答</a></p>
-<p><a href="/ZYK_408/co/references/">参考资料与图源</a></p>
-</div>
-</div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">lost.in</div><div class="author-info-description">仔细看清楚，他年去旅行</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/00lostin00"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://github.com/00lostin00" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://space.bilibili.com/487246708" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #00A1D6;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://www.zhihu.com/people/lou-kong-83-23" target="_blank" title="Zhihu"><i class="fab fa-zhihu" style="color: #0084ff;"></i></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="https://codeforces.com/profile/lost.in" target="_blank" title="Codeforces"><img class="cf-icon" src="/images/cflogo.svg" alt="Codeforces" style="width: 25px; height: 20px;"></a><!-- 对 Codeforces 做特殊处理，其他的还是用 Font Awesome--><a class="social-icon" href="mailto:1409423207@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E7%AB%A0%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%A2%97%E6%A6%82"><span class="toc-text">七章目录与梗概</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%8E%8B%E9%81%93%E5%B0%8F%E8%8A%82%E5%AE%9A%E4%BD%8D%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">按王道小节定位知识点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E9%A2%98%E5%9E%8B%E5%BC%BA%E5%8C%96"><span class="toc-text">按题型强化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E9%81%93%E4%B9%A0%E9%A2%98"><span class="toc-text">王道习题</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZYK_408/co/complete/" title="计算机组成原理【完整学习版】：目录、梗概与解题笔记">计算机组成原理【完整学习版】：目录、梗概与解题笔记</a><time datetime="2026-10-30T04:00:00.000Z" title="Created 2026-10-30 12:00:00">2026-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/10/06/%E8%8B%B1%E8%AF%AD%E9%98%85%E8%AF%BB%E5%8D%95%E8%AF%8D/" title="英语阅读单词">英语阅读单词</a><time datetime="2026-10-05T16:00:00.000Z" title="Created 2026-10-06 00:00:00">2026-10-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a><time datetime="2026-03-09T16:00:00.000Z" title="Created 2026-03-10 00:00:00">2026-03-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/10/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" title="概率论与数理统计">概率论与数理统计</a><time datetime="2026-03-09T16:00:00.000Z" title="Created 2026-03-10 00:00:00">2026-03-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/10/%E9%9B%AA%E6%97%A5%E9%97%B2/" title="雪日闲">雪日闲</a><time datetime="2026-01-09T16:00:00.000Z" title="Created 2026-01-10 00:00:00">2026-01-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>Categories</span>
-            
-          </div>
-          <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ZYK/"><span class="card-category-list-name">ZYK</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/english/"><span class="card-category-list-name">english</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/gossip/"><span class="card-category-list-name">gossip</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/math/"><span class="card-category-list-name">math</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/totorial/"><span class="card-category-list-name">totorial</span><span class="card-category-list-count">2</span></a></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">计算机组成原理</a> <a href="/tags/408/" style="font-size: 1.1em; color: #999">408</a> <a href="/tags/ZYK/" style="font-size: 1.1em; color: #999">ZYK</a></div></div><div class="card-widget card-archives">
-    <div class="item-headline">
-      <i class="fas fa-archive"></i>
-      <span>Archives</span>
-      
-    </div>
-  
-    <ul class="card-archive-list">
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2026/10/">
-            <span class="card-archive-list-date">
-              十月 2026
-            </span>
-            <span class="card-archive-list-count">2</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2026/03/">
-            <span class="card-archive-list-date">
-              三月 2026
-            </span>
-            <span class="card-archive-list-count">2</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2026/01/">
-            <span class="card-archive-list-date">
-              一月 2026
-            </span>
-            <span class="card-archive-list-count">1</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/12/">
-            <span class="card-archive-list-date">
-              十二月 2025
-            </span>
-            <span class="card-archive-list-count">1</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/06/">
-            <span class="card-archive-list-date">
-              六月 2025
-            </span>
-            <span class="card-archive-list-count">1</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/04/">
-            <span class="card-archive-list-date">
-              四月 2025
-            </span>
-            <span class="card-archive-list-count">1</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2023/01/">
-            <span class="card-archive-list-date">
-              一月 2023
-            </span>
-            <span class="card-archive-list-count">1</span>
-          </a>
-        </li>
-      
-    </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">9</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastpushdate="2026-10-29T17:17:43.325Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://t.alcy.cc/fj);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">©&nbsp;2025 - 2026 By lost.in</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><div class="js-pjax"><script>(() => {
+</div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">©&nbsp;2025 - 2026 By lost.in</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><div class="js-pjax"><script>(() => {
   const loadMathjax = () => {
     if (!window.MathJax) {
       window.MathJax = {
