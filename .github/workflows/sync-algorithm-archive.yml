@@ -1,0 +1,71 @@
+name: Sync Algorithm Archive & Deploy Butterfly
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: lostin-butterfly-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # Cache is separate from Git: cloud refreshes never commit over local Hexo deployments.
+      - uses: actions/cache/restore@v4
+        with:
+          path: .oj-cache
+          key: oj-cache-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: oj-cache-
+      - name: Restore last successful public cache
+        run: |
+          python - <<'PY'
+          import json, pathlib, shutil
+          cached = pathlib.Path('.oj-cache/data.json')
+          current = pathlib.Path('algo/data.json')
+          if cached.exists():
+              a = json.loads(cached.read_text())
+              b = json.loads(current.read_text())
+              if a.get('schema') == 2 and (a.get('generated_at') or '') > (b.get('generated_at') or ''):
+                  shutil.copy2(cached, current)
+          PY
+      - name: Refresh public OJ records (retain cache on API outages)
+        run: python scripts/sync_oj.py
+      - name: Run regression tests
+        run: |
+          python -m unittest discover -s tests -v
+          python -m json.tool algo/data.json > /dev/null
+          python -m json.tool algo/archive.json > /dev/null
+      - name: Stage site and save cache
+        run: |
+          python scripts/prepare_pages.py . .pages
+          mkdir -p .oj-cache
+          cp algo/data.json .oj-cache/data.json
+      - uses: actions/cache/save@v4
+        with:
+          path: .oj-cache
+          key: oj-cache-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .pages
+      - name: Deploy whole Butterfly site
+        id: deploy
+        uses: actions/deploy-pages@v4

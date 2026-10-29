@@ -1,0 +1,258 @@
+{
+  "owner": "lost.in",
+  "platforms": [
+    {
+      "id": "codeforces",
+      "name": "Codeforces",
+      "short": "CF",
+      "home": "https://codeforces.com/",
+      "profile_template": "https://codeforces.com/profile/{handle}",
+      "handle": "lost.in",
+      "mode": "auto",
+      "accent": "#6498ff",
+      "group": "国际竞赛"
+    },
+    {
+      "id": "luogu",
+      "name": "洛谷",
+      "short": "LG",
+      "home": "https://www.luogu.com.cn/",
+      "profile_template": "https://www.luogu.com.cn/user/{handle}",
+      "handle": "452262",
+      "mode": "auto",
+      "accent": "#44c59b",
+      "group": "国内竞赛"
+    },
+    {
+      "id": "nowcoder",
+      "name": "牛客竞赛",
+      "short": "NC",
+      "home": "https://ac.nowcoder.com/acm/home",
+      "profile_template": "https://ac.nowcoder.com/acm/contest/profile/{handle}",
+      "handle": "541540317",
+      "mode": "auto",
+      "accent": "#f5aa67",
+      "group": "国内竞赛"
+    },
+    {
+      "id": "atcoder",
+      "name": "AtCoder",
+      "short": "AT",
+      "home": "https://atcoder.jp/",
+      "profile_template": "https://atcoder.jp/users/{handle}",
+      "handle": "lost_in",
+      "mode": "auto",
+      "accent": "#75c4dc",
+      "group": "国际竞赛"
+    },
+    {
+      "id": "hdu",
+      "name": "HDU 杭电 OJ",
+      "short": "HDU",
+      "home": "https://acm.hdu.edu.cn/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#e59b75",
+      "group": "传统 OJ"
+    },
+    {
+      "id": "qoj",
+      "name": "QOJ",
+      "short": "QOJ",
+      "home": "https://qoj.ac/",
+      "profile_template": "https://qoj.ac/user/profile/{handle}",
+      "handle": "lostin",
+      "mode": "auto",
+      "accent": "#a89af6",
+      "group": "国际竞赛"
+    },
+    {
+      "id": "vjudge",
+      "name": "VJudge",
+      "short": "VJ",
+      "home": "https://vjudge.net/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#63b2d8",
+      "group": "聚合平台"
+    },
+    {
+      "id": "acwing",
+      "name": "AcWing",
+      "short": "AW",
+      "home": "https://www.acwing.com/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#f2c56d",
+      "group": "国内竞赛"
+    },
+    {
+      "id": "leetcode",
+      "name": "LeetCode",
+      "short": "LC",
+      "home": "https://leetcode.com/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#f5ad50",
+      "group": "面试算法"
+    },
+    {
+      "id": "leetcode-cn",
+      "name": "力扣中国",
+      "short": "LCN",
+      "home": "https://leetcode.cn/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#e3ab53",
+      "group": "面试算法"
+    },
+    {
+      "id": "poj",
+      "name": "POJ 北大 OJ",
+      "short": "POJ",
+      "home": "http://poj.org/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#91a8bc",
+      "group": "传统 OJ"
+    },
+    {
+      "id": "zoj",
+      "name": "ZOJ 浙大 OJ",
+      "short": "ZOJ",
+      "home": "https://zoj.pintia.cn/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#8bca9d",
+      "group": "传统 OJ"
+    },
+    {
+      "id": "uva",
+      "name": "UVa Online Judge",
+      "short": "UVa",
+      "home": "https://onlinejudge.org/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#8897df",
+      "group": "传统 OJ"
+    },
+    {
+      "id": "spoj",
+      "name": "SPOJ",
+      "short": "SPOJ",
+      "home": "https://www.spoj.com/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#a4b3d2",
+      "group": "国际竞赛"
+    },
+    {
+      "id": "loj",
+      "name": "LibreOJ",
+      "short": "LOJ",
+      "home": "https://loj.ac/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#7fc8af",
+      "group": "国内竞赛"
+    },
+    {
+      "id": "uoj",
+      "name": "Universal Online Judge",
+      "short": "UOJ",
+      "home": "https://uoj.ac/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#a1aed0",
+      "group": "国内竞赛"
+    },
+    {
+      "id": "pta",
+      "name": "PTA / Pintia",
+      "short": "PTA",
+      "home": "https://pintia.cn/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#75b6f2",
+      "group": "国内竞赛"
+    },
+    {
+      "id": "kattis",
+      "name": "Kattis",
+      "short": "KAT",
+      "home": "https://open.kattis.com/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#7db9af",
+      "group": "国际竞赛"
+    },
+    {
+      "id": "codechef",
+      "name": "CodeChef",
+      "short": "CC",
+      "home": "https://www.codechef.com/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#c3a083",
+      "group": "国际竞赛"
+    },
+    {
+      "id": "aizu",
+      "name": "Aizu Online Judge",
+      "short": "AOJ",
+      "home": "https://onlinejudge.u-aizu.ac.jp/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#b6a8e0",
+      "group": "传统 OJ"
+    },
+    {
+      "id": "hacker-rank",
+      "name": "HackerRank",
+      "short": "HR",
+      "home": "https://www.hackerrank.com/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#6acc8c",
+      "group": "面试算法"
+    },
+    {
+      "id": "icpc",
+      "name": "ICPC / CCPC 赛题",
+      "short": "ICPC",
+      "home": "https://icpc.global/",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#d58ff2",
+      "group": "比赛档案"
+    },
+    {
+      "id": "other",
+      "name": "其他 OJ / 自定义",
+      "short": "OJ+",
+      "home": "",
+      "profile_template": "",
+      "handle": "",
+      "mode": "manual",
+      "accent": "#9aa9c3",
+      "group": "自定义"
+    }
+  ]
+}

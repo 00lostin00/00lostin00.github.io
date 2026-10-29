@@ -1,0 +1,6 @@
+{
+  "platforms": [
+    {"id":"nowcoder","name":"牛客多校","url":"https://ac.nowcoder.com/acm/contest/133876","account":null},
+    {"id":"hdu","name":"杭电多校","url":"https://acm.hdu.edu.cn/","account":null}
+  ]
+}

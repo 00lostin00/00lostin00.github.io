@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "endpoint": "https://www.djtu.com.cn/api/algoarchive",
+  "catalog_endpoint": "https://www.djtu.com.cn/api/algocatalog",
+  "refresh_seconds": 60
+}
