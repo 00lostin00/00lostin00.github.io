@@ -25,7 +25,9 @@ class LiveTests(unittest.TestCase):
             state=live.ArchiveState(config,output,60)
             gate=threading.Event()
             def wait(*_):gate.wait(2);raise RuntimeError('offline')
-            with patch.object(live.sync,'assemble',side_effect=wait) as pull:
+            # A newly booted Linux runner may have less than 60 seconds of
+            # monotonic uptime. The first request must never be rate limited.
+            with patch.object(live.time,'monotonic',return_value=5),patch.object(live.sync,'assemble',side_effect=wait) as pull:
                 self.assertTrue(state.request_refresh());self.assertFalse(state.request_refresh())
                 self.assertEqual(state.snapshot()['problems'][0]['id'],'old')
                 gate.set()
@@ -35,6 +37,10 @@ class LiveTests(unittest.TestCase):
                     time.sleep(.01)
                 self.assertEqual(pull.call_count,1)
                 self.assertEqual(state.snapshot()['live']['error'],'RuntimeError')
+                self.assertFalse(state.request_refresh())
+                with patch.object(live.time,'monotonic',return_value=65),patch.object(live.threading,'Thread') as worker:
+                    self.assertTrue(state.request_refresh())
+                    worker.return_value.start.assert_called_once()
 
     def test_cors_and_read_only_route(self):
         with tempfile.TemporaryDirectory() as tmp:

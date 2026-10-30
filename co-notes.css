@@ -20,8 +20,20 @@
 .co-notes-content summary { cursor: pointer; padding: .6em 0; font-weight: 600; }
 .co-notes-nav { display: flex; flex-wrap: wrap; gap: .5em 1.2em; padding: .8em 0;
   margin: 2.5em 0 0; border-top: 1px solid var(--light-grey, #ddd); font-size: .9em; }
+/* Content-only atlas arrangement; Butterfly owns the surrounding page and tabs. */
+.co-atlas-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 32px; }
+.co-atlas-entry { min-width: 0; padding-bottom: 18px; border-bottom: 1px solid var(--tab-border-color); }
+#article-container .co-atlas-entry h3 { margin-top: 12px; }
+.co-atlas-entry h3 i { margin-right: .3em; }
+.co-atlas-entry .co-atlas-meta { margin: 0; color: var(--card-meta); font-size: .85em; }
+.co-atlas-entry ul { padding-left: 20px; }
+.co-atlas-wide { grid-column: 1 / -1; }
+.co-atlas-wide ul { columns: 2; column-gap: 32px; }
+.co-atlas-wide li { break-inside: avoid; }
 @media (max-width: 600px) {
   .co-notes-content { line-height: 1.85; }
   .co-notes-content table { font-size: .9em; }
   .co-notes-nav { gap: .4em 1em; }
+  .co-atlas-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .co-atlas-wide ul { columns: auto; }
 }

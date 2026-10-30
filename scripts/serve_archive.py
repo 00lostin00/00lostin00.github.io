@@ -17,14 +17,15 @@ from tag_sync import TagState
 class ArchiveState:
     def __init__(self, config, output, interval=60, tags=None):
         self.config=Path(config);self.output=Path(output);self.interval=max(60,interval)
-        self.lock=threading.Lock();self.updating=False;self.last_attempt=0;self.error=None
+        self.lock=threading.Lock();self.updating=False;self.last_attempt=None;self.error=None
         self.data=sync.read_json(self.output, {'schema':2,'platforms':[],'problems':[],'contests':[],'ratings':{}})
         self.tags=tags
 
     def request_refresh(self):
         with self.lock:
-            if self.updating or time.monotonic()-self.last_attempt<self.interval:return False
-            self.updating=True;self.last_attempt=time.monotonic()
+            now=time.monotonic()
+            if self.updating or (self.last_attempt is not None and now-self.last_attempt<self.interval):return False
+            self.updating=True;self.last_attempt=now
         threading.Thread(target=self.refresh,daemon=True).start()
         return True
 
